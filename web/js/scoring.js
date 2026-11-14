@@ -58,9 +58,15 @@ const monthsLen = (crop) => Math.max(1, Math.round(crop.duration_days / 30.4));
 const shortName = (crop) => crop.name.replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+/g, " ").trim();
 const monthList = (ms) => {
   // [10,11,12] -> "Oct–Dec"; non-contiguous -> "Jan, Mar"
+  // contiguity is cyclic, so [1,2,10,11,12] -> "Oct–Feb"
   const u = [...new Set(ms)].sort((a, b) => a - b);
   if (!u.length) return "";
-  if (u.length > 2 && u.every((m, i) => i === 0 || m === u[i - 1] + 1)) return `${MONTHS[u[0] - 1]}–${MONTHS[u[u.length - 1] - 1]}`;
+  if (u.length >= 12) return "all year";
+  const breaks = u.map((m, i) => ((u[(i + 1) % u.length] - m + 12) % 12 === 1 ? -1 : i)).filter((i) => i >= 0);
+  if (u.length > 2 && breaks.length === 1) {
+    const end = u[breaks[0]], start = u[(breaks[0] + 1) % u.length];
+    return `${MONTHS[start - 1]}–${MONTHS[end - 1]}`;
+  }
   return u.map((m) => MONTHS[m - 1]).join(", ");
 };
 const cropMap = (crops) => Object.fromEntries(crops.map((c) => [c.id, c]));
