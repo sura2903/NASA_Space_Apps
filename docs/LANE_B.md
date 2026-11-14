@@ -19,7 +19,7 @@ Run it: `python -m http.server 8000 --directory web`, then open http://localhost
 | B6 Climate-shift sliders (°C, rain %) + "continue the observed trend" (`trendScenario`) + reset; 250 ms debounce | ✅ | `js/ui/inputs.js` |
 | B7 Glossary tooltips (hover, focus or tap) auto-applied to engine text, plus a glossary list | ✅ | `js/ui/glossary.js` |
 | B8 Printable "take this to your agriculture officer" sheet (print CSS, A4) | ✅ | `js/ui/printsheet.js`, `css/app.css` |
-| B9 GitHub Pages deploy | 🔄 | see below |
+| B9 GitHub Pages deploy | 🔄 workflow ready; needs Settings → Pages → Source: GitHub Actions | `.github/workflows/pages.yml` |
 
 How it uses the contract:
 - Calls only `generateStrategies`, `siteHighlights`, `trendScenario`, `DEFAULT_CURRENT`,
