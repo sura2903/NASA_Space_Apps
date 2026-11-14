@@ -42,6 +42,16 @@ Contract questions for Lane A (not changed, just noted):
   scenario (the engine does not export its adjusted climate). The card scores do include
   the scenario. Exporting the adjusted monthly array would let the bands move too.
 
+Engine observations from UI testing (for Lane A to judge, nothing changed):
+- In a 2-year rotation that repeats a crop, `evidence` lists the same crop line twice
+  (one per year), which reads as a duplicate on the card.
+- Tirunelveli: "Bigger shift" (daincha → pearl millet → cotton) and the third option can
+  differ only by daincha vs sunnhemp. A rule that the third pick must differ in a cash
+  crop would make the comparison more useful.
+- Tirunelveli with the trend preset (+0.7 °C, −15% rain): the Bigger shift goes from 18 to
+  23 good years, probably because fewer heavy-rain days means fewer waterlogging fails.
+  Plausible, but worth a sanity check before the demo.
+
 Known gaps / next:
 - B9 Pages deploy (needs a repo setting, see the PR).
 - Story framing (T3): Tirunelveli family farm, 2016 failed monsoon, Dec 2023 flood.

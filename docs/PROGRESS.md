@@ -2,6 +2,11 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-14 (Nimalan / Lane B)
+- Full UI for B1–B8 on branch `claude/project-thread-awt5jb`, PR #2. B9 Pages workflow is
+  ready and needs Settings → Pages → Source: GitHub Actions.
+- No contract changes. Contract questions and engine observations are in `docs/LANE_B.md`.
+
 ## 2026-11-14 later (Siddarth / Lane A)
 - MODIS NDVI (ORNL, 3×3 km median, 2019–2024) is now in all three TN site files. No bare
   months show up because the window mixes in trees, so it needs per-pixel AppEEARS data.
