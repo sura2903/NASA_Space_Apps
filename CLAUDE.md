@@ -12,17 +12,23 @@ local review. The tool supports farmer judgment; it never replaces it.
 ## Scope rules (10 hours — protect these)
 - **One data source done well first: NASA POWER** (no login, simple API). Add
   SMAP / GPM / MODIS NDVI only if hours 1–6 are on schedule.
-- **2–3 demo sites** precomputed (e.g. Central Valley CA, Iowa corn belt,
-  a semi-arid site). Live "click anywhere" is a stretch goal.
+- **3 demo sites** precomputed (Tirunelveli, Madurai, Thanjavur). Live
+  "click anywhere" is a stretch goal.
 - **Rule-based, explainable scoring** in the browser. No black-box ML. An LLM
   is optional for wording only, never for the numbers.
 - Every number shown in the UI must come from `web/data/*.json`. Nothing hardcoded.
 
+## Region (decided)
+Tamil Nadu, India: monsoon uncertainty and water shortage. Hero site
+**Tirunelveli** (team member's family village; canal-fed paddy, banana, dry crops),
+plus Madurai and Thanjavur. Farmer-first UI with an "Expert details" toggle and
+Tamil crop names. The task list lives in `docs/TASKS.md` and the log in `docs/PROGRESS.md`.
+
 ## Two lanes (two people, two Claude Code sessions, one repo)
 | Lane | Owner | Owns these paths only |
 |---|---|---|
-| A — Data & agronomy | person A | `pipeline/`, `web/data/` |
-| B — Web app & UX | person B | `web/` except `web/data/` |
+| A — Data, agronomy, scoring engine | Siddarth | `pipeline/`, `web/data/`, `web/js/scoring.js` |
+| B — Web app, UX, story | Nimalan | `web/` except `web/data/` and `web/js/scoring.js` |
 
 Shared and edited by both only together: `CLAUDE.md`, `docs/data_contract.md`.
 The **data contract** (`docs/data_contract.md`) is the only interface between

@@ -1,79 +1,120 @@
-# Data contract (Lane A → Lane B)
+# Data contract
 
-All files live in `web/data/` and are plain JSON.
+The interface between lanes. Change it only after telling the other person, and
+log the change in `docs/PROGRESS.md`.
 
-## `web/data/sites/index.json`
+- Data files: `web/data/` (plain JSON), produced by Lane A.
+- Scoring engine: `web/js/scoring.js` (ES module), owned by Lane A.
+- The UI (Lane B) reads the JSON and calls only the engine's exported functions.
+  It never re-implements scoring.
+
+---
+
+## 1. `web/data/sites/index.json`
 ```json
-[{ "id": "iowa_ames", "name": "Ames, Iowa", "lat": 42.03, "lon": -93.62 }]
+[{ "id": "tirunelveli", "name": "Tirunelveli (Thamirabarani valley)", "lat": 8.70, "lon": 77.75 },
+ { "id": "madurai",     "name": "Madurai (Vaigai / Periyar command)", "lat": 10.03, "lon": 78.33 },
+ { "id": "thanjavur",   "name": "Thanjavur (Cauvery delta)",          "lat": 10.85, "lon": 79.25 }]
 ```
+US backup sites live in `web/data/sites/_us_backup/` (not listed, not used by the UI).
 
-## `web/data/sites/<id>.json`, produced by `pipeline/fetch_power.py`
+## 2. `web/data/sites/<id>.json`, produced by `pipeline/build_all.py`
 ```jsonc
 {
-  "id": "iowa_ames", "name": "Ames, Iowa", "lat": 42.03, "lon": -93.62,
+  "id": "tirunelveli", "name": "...", "lat": 8.70, "lon": 77.75,
   "source": "NASA POWER daily, community=AG",
   "period": { "start": 2001, "end": 2024 },
-  "monthly": [            // 12 entries, Jan..Dec, climatology over the period
-    { "month": 1,
-      "tmax_c": 0.5, "tmin_c": -10.2,          // mean daily max/min air temp
-      "precip_mm": 22.0,                        // mean monthly total
-      "root_soil_wetness": 0.62,                // GWETROOT 0..1
-      "frost_days": 27.1,                       // mean days with tmin < 0 C
-      "heat_days": 0.0,                         // mean days with tmax > 35 C
-      "water_balance_mm": -5.0                  // precip - Hargreaves ET0
-    }
+  "heat_threshold_c": 38,             // heat_days count days with tmax above this
+
+  "monthly": [                        // 12 entries Jan..Dec, 2001-2024 climatology
+    { "month": 1, "tmax_c": 30.1, "tmin_c": 21.0,
+      "precip_mm": 40.2, "et0_mm": 120.0, "water_balance_mm": -79.8,
+      "root_soil_wetness": 0.55,      // GWETROOT 0..1
+      "frost_days": 0, "heat_days": 0.1,
+      "heavy_rain_days": 0.1 }        // days >= 64.5 mm (IMD "heavy rain")
   ],
-  "frost": {
-    "last_spring_frost_doy_median": 118,
-    "first_fall_frost_doy_median": 285,
-    "frost_free_days_median": 167
-  },
-  "trends": {             // linear slope per decade over the period
-    "tmax_c_per_decade": 0.21,
-    "precip_mm_per_decade": 14.0,
-    "heat_days_per_decade": 1.3,
-    "root_soil_wetness_per_decade": -0.01
-  },
-  "annual": [             // one entry per year, for time-series charts
-    { "year": 2001, "precip_mm": 820, "tmax_c": 15.1, "heat_days": 4, "frost_days": 140 }
-  ]
+  "frost": { ... },                   // null fields / 365 frost-free days in Tamil Nadu
+  "trends": { "tmax_c_per_decade": 0.68, "precip_mm_per_decade": -283,
+              "heat_days_per_decade": 1.3, "root_soil_wetness_per_decade": -0.01 },
+  "annual":  [ { "year": 2001, "precip_mm": 1250, "tmax_c": 33.1, "heat_days": 4, "frost_days": 0 } ],
+  "by_year": [                        // drives the historical replay
+    { "year": 2001, "last_spring_frost_doy": null, "first_fall_frost_doy": null, "frost_free_days": 365,
+      "months": [ { "precip_mm": 20.1, "et0_mm": 110, "water_balance_mm": -89.9,
+                    "heat_days": 0, "frost_days": 0, "tmax_c": 30.2,
+                    "heavy_rain_days": 0, "max_daily_precip_mm": 12.3 } /* x12 */ ] }
+  ],
+  "soil": { "source": "ISRIC SoilGrids 2.0 (250 m)", "clay_pct": 33, "sand_pct": 38, "silt_pct": 29,
+            "soc_g_per_kg": 17.8, "ph": 7.0, "texture_class": "clay loam" },
+  "ndvi": null                        // filled from AppEEARS when available (see APPROACH.md)
 }
 ```
 
-## `web/data/crops.json`, hand-curated by Lane A
+## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
-[{
-  "id": "soybean", "name": "Soybean", "type": "cash",   // cash | cover | forage
-  "season": "summer",                                   // summer | winter | perennial
-  "days_to_maturity": 110,
-  "min_frost_free_days": 100,
-  "frost_tolerant": false,
-  "heat_tolerance": "medium",                           // low | medium | high
-  "water_need_mm": 500,                                 // seasonal
+{ "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",
+  "type": "cash",                     // cash | forage | green_manure
+  "sow_months": [1, 2, 6, 9, 10],     // months it is normally sown (TN seasons / pattams)
+  "duration_days": 75,
+  "water_need_mm": 300,               // seasonal crop water use
+  "heat_tolerance": "medium",         // low | medium | high
+  "flood_tolerance": "low",           // low | medium | high (waterlogging)
   "nitrogen_fixing": true,
-  "root_depth": "medium",                               // shallow | medium | deep
-  "erosion_control": "low",                             // low | medium | high
-  "organic_matter": "low",
-  "forage_value": "low",
-  "pest_family": "legume",                              // used for pest-cycle breaks
-  "market": "high",
-  "source": "approximate; verify with local extension service"
-}]
+  "root_depth": "medium",             // shallow | medium | deep
+  "erosion_control": "low", "organic_matter": "low", "forage_value": "medium",
+  "pest_family": "legume",
+  "market": "medium", "msp": true,    // msp = Govt of India minimum support price exists
+  "source": "approximate; ..." }
 ```
 
-## Scoring (implemented in `web/js/scoring.js`)
-Inputs: site JSON, crops, current rotation (list of crop ids), farmer priority
-weights 0–5 for: `water`, `income`, `soil_structure`, `nitrogen`, `erosion`, `forage`.
+## 4. Scoring API (`web/js/scoring.js`)
 
-Per candidate rotation (2–4 crops, including the current one):
-1. **Feasibility (hard filters):** each crop fits frost-free days; winter crops need
-   `frost_tolerant`; high heat-day months penalize `heat_tolerance: low`.
-2. **Sub-scores 0–1:** water fit (crop water need vs growing-season precip and
-   water balance), soil (N-fixing, root depth, organic matter), erosion (cover in
-   bare months), pest break (distinct `pest_family` in sequence), income (`market`),
-   forage.
-3. **Total** = weighted sum by priorities. Show the top 2 alternatives plus the current rotation.
-4. **Explanation:** each sub-score emits a sentence that cites the data,
-   e.g. "Jul–Aug water balance is −85 mm, so a high-water crop is risky."
-5. **Gaps and risks:** always list what the data doesn't cover (soil type, local
-   pests, markets, irrigation) and flag low-confidence calls.
+### Inputs
+```js
+// A rotation is a cycle of 1-2 years. Each year is a list of slots {crop, sow}.
+// Kar rice (June) then Pishanam rice (October), every year:
+const rotation = [[{ crop: "rice_short", sow: 6 }, { crop: "rice_long", sow: 10 }]];
+// Two-year rotation: year 1 rice + rice-fallow black gram, year 2 cotton
+const rot2 = [[{ crop: "rice_long", sow: 9 }, { crop: "black_gram", sow: 2 }], [{ crop: "cotton", sow: 9 }]];
+
+const prefs = {
+  weights: { water: 3, income: 3, soil_structure: 3, nitrogen: 3,
+             erosion: 3, forage: 1, reliability: 4 },   // 0..5 each (labels: PRIORITIES)
+  water_source: "canal",                                // rainfed | tank | canal | borewell
+  scenario: { dT_c: 0, dPrecip_pct: 0 }                 // climate-shift sliders
+};
+```
+
+### Exports
+```js
+generateStrategies(site, crops, currentRotation, prefs, n = 2) -> Strategy[]  // [current, "Bigger shift", "Small step"]
+scoreRotation(site, crops, rotation, prefs)                    -> Strategy    // score any custom rotation
+siteHighlights(site, prefs)                                    -> string[]    // plain-language site facts
+trendScenario(site, years = 10)                                -> { dT_c, dPrecip_pct }  // "extend observed trend" preset
+DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
+WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
+cropLabel(crop)          -> "Black gram · உளுந்து"
+```
+`generateStrategies` takes ~0.4 s. Debounce slider changes by about 250 ms.
+
+### `Strategy`
+```jsonc
+{
+  "tag": "Bigger shift",               // "Your current rotation" | "Bigger shift" | "Small step" | "Alternative"
+  "label": "Daincha green manure (May) → Pearl millet (Jun) → Cotton (Sep)",
+  "rotation": [[{ "crop": "daincha", "sow": 5 }, ...]],
+  "water_source": "canal",
+  "is_current": false, "feasible": true, "issues": [],
+  "total": 83,                          // 0..100
+  "subscores": { "water": 0.95, "income": 0.77, "soil_structure": 0.91, "nitrogen": 1,
+                 "erosion": 0.89, "forage": 1, "reliability": 0.75, "pest": 1 },
+  "replay": { "good_years": 18, "total_years": 24,
+              "worst": [{ "year": 2016, "crop": "rice_long", "reason": "Rice, long duration: water: ~205 mm available vs 1200 mm need" }] },
+  "water_use": { "need_mm": 1200, "irrigation_mm": 64 },   // per year
+  "calendar": [ [ { "state": "crop", "crop": "cotton" }, { "state": "bare", "crop": null }, /* x12 */ ] ],
+  "why":      ["Better on \"Save water\" (38 → 95 out of 100)", "Uses ~45% less water than your current rotation"],
+  "evidence": [{ "text": "Cotton (Sep–Jan): ~640 mm rain in season vs ~700 mm crop need", "months": [9,10,11,12,1] }],
+  "benefits": ["..."], "risks": ["2016: ..."], "gaps": ["..."]
+}
+```
+- `calendar[row][month]`: `state` is `crop | cover | bare`. `cover` means green manure.
+- `evidence[].months` tells the UI which calendar months to highlight when hovered.

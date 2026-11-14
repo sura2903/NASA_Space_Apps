@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Engine test</title>
+<style>body{font:13px/1.4 system-ui;margin:16px}pre{white-space:pre-wrap;background:#f4f4f4;padding:8px}</style></head>
+<body>
+<h1>Scoring engine smoke test</h1>
+<p>Runs generateStrategies for every site in index.json with default priorities. Open the console for full objects.</p>
+<pre id="out">running…</pre>
+<script type="module">
+import { generateStrategies, siteHighlights, trendScenario, DEFAULT_CURRENT } from "../js/scoring.js";
+const out = document.getElementById("out");
+const log = (s) => (out.textContent += s + "\n");
+out.textContent = "";
+const crops = await (await fetch("../data/crops.json")).json();
+const sites = await (await fetch("../data/sites/index.json")).json();
+const weights = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
+window.results = {};
+for (const s of sites) {
+  const site = await (await fetch(`../data/sites/${s.id}.json`)).json();
+  const def = DEFAULT_CURRENT[s.id] || { rotation: [[{ crop: "rice_long", sow: 9 }]], water_source: "rainfed" };
+  const prefs = { weights, water_source: def.water_source, scenario: { dT_c: 0, dPrecip_pct: 0 } };
+  const t0 = performance.now();
+  const strats = generateStrategies(site, crops, def.rotation, prefs);
+  const ms = Math.round(performance.now() - t0);
+  window.results[s.id] = { site, strats };
+  log(`=== ${site.name}  (${ms} ms, water: ${def.water_source}) ===`);
+  siteHighlights(site, prefs).forEach((h) => log("  • " + h));
+  log("  trend preset: " + JSON.stringify(trendScenario(site)));
+  for (const st of strats) {
+    log(`\n  [${st.tag}] ${st.label}  → total ${st.total}  feasible=${st.feasible}`);
+    log(`    replay ${st.replay.good_years}/${st.replay.total_years}  water need ${st.water_use.need_mm} mm, irrigation ${st.water_use.irrigation_mm} mm`);
+    log("    subscores " + JSON.stringify(st.subscores));
+    log("    calendar  " + st.calendar.map((r) => r.map((c) => (c.state === "bare" ? "." : c.state === "cover" ? "g" : c.crop[0].toUpperCase())).join("")).join(" | "));
+    st.why.forEach((x) => log("    why: " + x));
+    st.risks.slice(0, 4).forEach((x) => log("    risk: " + x));
+  }
+  log("");
+}
+log("DONE");
+</script>
+</body>
+</html>

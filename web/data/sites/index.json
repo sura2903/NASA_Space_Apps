@@ -1,8 +1,20 @@
 [
   {
-    "id": "iowa_ames",
-    "name": "Ames, Iowa",
-    "lat": 42.03,
-    "lon": -93.62
+    "id": "tirunelveli",
+    "name": "Tirunelveli (Thamirabarani valley)",
+    "lat": 8.7,
+    "lon": 77.75
+  },
+  {
+    "id": "madurai",
+    "name": "Madurai (Vaigai / Periyar command)",
+    "lat": 10.03,
+    "lon": 78.33
+  },
+  {
+    "id": "thanjavur",
+    "name": "Thanjavur (Cauvery delta)",
+    "lat": 10.85,
+    "lon": 79.25
   }
 ]
