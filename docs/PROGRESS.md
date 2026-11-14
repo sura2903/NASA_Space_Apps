@@ -2,7 +2,12 @@
 
 Newest first. Note contract changes here.
 
-## 2026-11-14 evening: PR #2 merged into main (Lane B web app)
+## 2026-11-14 evening: PR #2 merged into main (Lane B web app, incl. IMERG labels + two-datasets box)
+
+## 2026-11-14 (Nimalan / Lane B)
+- Full UI for B1–B8 on branch `claude/project-thread-awt5jb`, PR #2. B9 Pages workflow is
+  ready and needs Settings → Pages → Source: GitHub Actions.
+- No contract changes. Contract questions and engine observations are in `docs/LANE_B.md`.
 
 ## 2026-11-14 evening (Siddarth / Lane A): IMERG is now the rainfall source
 - Pulled **GPM IMERG Final daily V07** (0.1° grid) for 2001–2024 at all 3 sites via the NASA GES DISC
@@ -21,11 +26,6 @@ Newest first. Note contract changes here.
 - **Note for Lane B:** browsers cache ES modules hard. If engine changes don't show up, hard-reload or import
   with `?v=` (see `web/dev/engine-test.html`).
 - Caveat: IMERG also smooths extremes. Dec 2023 shows 124 mm max/day, while stations recorded far more.
-
-## 2026-11-14 (Nimalan / Lane B)
-- Full UI for B1–B8 on branch `claude/project-thread-awt5jb`, PR #2. B9 Pages workflow is
-  ready and needs Settings → Pages → Source: GitHub Actions.
-- No contract changes. Contract questions and engine observations are in `docs/LANE_B.md`.
 
 ## 2026-11-14 later (Siddarth / Lane A)
 - MODIS NDVI (ORNL, 3×3 km median, 2019–2024) is now in all three TN site files. No bare

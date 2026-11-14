@@ -179,6 +179,10 @@ body:not(.expert) .expert-only { display: none !important; }
 .charts figure { margin: 0; padding: 12px; border: 1px solid var(--line); border-radius: 10px; min-width: 0; }
 .charts figcaption { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
 .chart-box { position: relative; height: 240px; }
+.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.compare th, .compare td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: right; }
+.compare th[scope="row"], .compare thead th:first-child { text-align: left; font-weight: 500; color: var(--ink-2); }
+.compare thead th { font-size: 0.8rem; color: var(--ink-2); }
 .chart-box.short { height: 180px; }
 
 .busy { font-size: 0.85rem; color: var(--ink-2); min-height: 1.2em; }

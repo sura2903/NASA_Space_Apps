@@ -69,7 +69,9 @@ async function selectSite(id) {
 function renderSitePanel() {
   const s = state.site;
   $("#site-title").textContent = s.name;
-  $("#site-meta").textContent = `${fmt(s.lat, 2)}°N, ${fmt(s.lon, 2)}°E · ${s.source}, ${s.period.start}–${s.period.end}`;
+  $("#site-meta").textContent = `${fmt(s.lat, 2)}°N, ${fmt(s.lon, 2)}°E · ${s.period.start}–${s.period.end} · ` +
+    (s.precip_source ? `Rain: ${rainName(s)}; temperature and evapotranspiration: NASA POWER` : s.source);
+  renderRainComparison(s);
   drawMonthlyChart($("#ch-monthly"), s);
   drawMonsoonChart($("#ch-monsoon"), s);
   const { deficient, years } = monsoonSeries(s);
@@ -81,16 +83,44 @@ function renderSitePanel() {
   if (hasNdvi) $("#ndvi-note").textContent = `Median ${s.ndvi.years.join("–")}, ${s.ndvi.source}. ` +
     (s.ndvi.bare_months?.length ? "" : "This pixel window mixes in trees, so bare months do not show clearly yet.");
 
-  const src = [s.source && `Weather: ${s.source} (${s.period.start}–${s.period.end})`, s.soil?.source && `Soil: ${s.soil.source}`,
+  const src = [s.precip_source && `Rain: ${s.precip_source}`, s.source && `Weather: ${s.source} (${s.period.start}–${s.period.end})`, s.soil?.source && `Soil: ${s.soil.source}`,
     s.ndvi?.source && `Greenness: ${s.ndvi.source}`].filter(Boolean);
   $("#data-sources").textContent = src.join(" · ");
+}
+
+/* "Two NASA datasets" box: POWER vs GPM IMERG rainfall, from site.rain_comparison */
+export const rainName = (s) => (/IMERG/.test(s.precip_source || "") ? "GPM IMERG" : "NASA POWER");
+
+function renderRainComparison(s) {
+  const box = $("#rain-compare");
+  const rc = s.rain_comparison;
+  box.hidden = !rc;
+  if (!rc) return;
+  const diff = (rc.power_annual_mean_mm - rc.imerg_annual_mean_mm) / rc.imerg_annual_mean_mm;
+  const agreeDry = rc.driest_ne_year_power === rc.driest_ne_year_imerg;
+  const row = (label, a, b) => h("tr", {}, h("th", { scope: "row" }, label), h("td", {}, a), h("td", {}, b));
+  clear(box).append(
+    h("figcaption", {}, "Two NASA rain datasets, side by side"),
+    h("table", { class: "compare" },
+      h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", { scope: "col" }, "NASA POWER"), h("th", { scope: "col" }, "GPM IMERG"))),
+      h("tbody", {},
+        row("Rain per year", `${fmt(rc.power_annual_mean_mm)} mm`, `${fmt(rc.imerg_annual_mean_mm)} mm`),
+        row("Oct–Dec monsoon", `${fmt(rc.power_ne_monsoon_mean_mm)} mm`, `${fmt(rc.imerg_ne_monsoon_mean_mm)} mm`),
+        row("Driest monsoon year", String(rc.driest_ne_year_power), String(rc.driest_ne_year_imerg)))),
+    h("p", { class: "note", html: decorate(
+      (agreeDry ? `Both agree ${rc.driest_ne_year_imerg} was the driest northeast monsoon. ` : `They disagree on the driest northeast monsoon. `) +
+      `Their year-to-year monsoon totals move together (correlation ${fmt(rc.ne_monsoon_correlation, 2)}). ` +
+      (Math.abs(diff) >= 0.15
+        ? `POWER shows ${fmt(Math.abs(diff) * 100)}% ${diff > 0 ? "more" : "less"} rain a year, likely because its coarser grid mixes in nearby hills. We use IMERG, the finer satellite rain record, for rain.`
+        : `Yearly totals are within ${fmt(Math.ceil(Math.abs(diff) * 100))}%. We use IMERG, the finer satellite rain record, for rain.`)) }),
+  );
 }
 
 function renderInputs() {
   renderEditor();
   renderWaterSource($("#water"), { value: state.water_source, onChange: (v) => { state.water_source = v; renderInputsWater(); recompute(); } });
   renderClimate($("#climate"), {
-    scenario: state.scenario, trend: trendScenario(state.site), period: state.site.period,
+    scenario: state.scenario, trend: trendScenario(state.site), period: state.site.period, rainSource: rainName(state.site),
     onChange: (sc, now) => { state.scenario = sc; now ? recompute() : recomputeSoon(); },
   });
 }

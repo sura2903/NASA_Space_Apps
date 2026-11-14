@@ -66,7 +66,7 @@ export function renderPrintSheet(el, { site, strategies, prefs, cropById, highli
       h("h2", {}, "Officer's notes"),
       Array.from({ length: 5 }, () => h("div", { class: "line" }))),
     h("footer", {},
-      h("p", {}, `Data: ${site.source} ${site.period?.start}–${site.period?.end}; soil: ${site.soil?.source ?? "n/a"}` +
+      h("p", {}, `Data ${site.period?.start}–${site.period?.end}: ${site.precip_source ? `rain ${site.precip_source}; ` : ""}${site.source}; soil: ${site.soil?.source ?? "n/a"}` +
         (site.ndvi?.source ? `; greenness: ${site.ndvi.source}` : "") +
         ". Weather data describes the region, not this exact field. Scores are simple, explainable rules, not a prediction."),
       h("p", {}, "Field Shift supports your judgment and local advice; it does not replace them.")),

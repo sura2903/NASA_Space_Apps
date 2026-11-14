@@ -85,6 +85,7 @@
             <div class="chart-box"><canvas id="ch-monsoon" role="img" aria-label="October to December rain for each year"></canvas></div>
             <p id="monsoon-note" class="note"></p>
           </figure>
+          <figure id="rain-compare" class="rain-compare" hidden></figure>
           <figure id="ndvi-fig" class="expert-only">
             <figcaption>Satellite greenness (<span class="term" tabindex="0" role="button" data-term="ndvi">NDVI</span>), by month</figcaption>
             <div class="chart-box short"><canvas id="ch-ndvi" role="img" aria-label="Monthly median NDVI"></canvas></div>
@@ -113,7 +114,7 @@
         <dl id="glossary-list" class="glossary"></dl>
         <h2>Honest limits</h2>
         <ul class="limits">
-          <li>NASA POWER weather is a coarse regional grid. It describes the area around your village, not your exact field.</li>
+          <li>NASA POWER temperature and GPM IMERG rain are regional grids. They describe the area around your village, not your exact field. Satellite rain also smooths the very biggest downpours.</li>
           <li>Crop water needs and traits are approximate averages, and the scores are simple rules we can explain, not a trained model.</li>
           <li>Climate what-ifs are rough scalings to explore, not forecasts.</li>
           <li>Soil nutrients, pests, markets and water allocations need local knowledge. The printed sheet lists what to check.</li>

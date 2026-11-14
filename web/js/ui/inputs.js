@@ -123,7 +123,7 @@ export function renderPriorities(el, { weights, onChange }) {
 }
 
 /* ---------------- climate shift (B6) ---------------- */
-export function renderClimate(el, { scenario, trend, period, onChange }) {
+export function renderClimate(el, { scenario, trend, period, rainSource = "NASA POWER", onChange }) {
   clear(el);
   const dtOut = h("output", { class: "lvl" });
   const dpOut = h("output", { class: "lvl" });
@@ -150,7 +150,7 @@ export function renderClimate(el, { scenario, trend, period, onChange }) {
         `Continue the observed trend 10 years (${signed(trend.dT_c, 1)} °C, ${signed(trend.dPrecip_pct)}% rain)`),
       h("button", { type: "button", class: "btn-ghost small", onclick: () => set({ dT_c: 0, dPrecip_pct: 0 }) }, "Today's climate")),
     h("p", { class: "note" },
-      `The trend button extends this site's own ${period.start}–${period.end} NASA POWER trend. `
+      `The trend button extends this site's own ${period.start}–${period.end} trend (temperature: NASA POWER; rain: ${rainSource}). `
       + "These are rough what-if adjustments to explore, not a forecast."),
   );
   sync();

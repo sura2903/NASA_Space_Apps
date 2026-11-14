@@ -65,7 +65,8 @@ export function fieldCalendar(strategy, site, cropById) {
     h("span", { class: "key st-crop" }, "Crop"),
     h("span", { class: "key st-cover" }, "Green manure"),
     h("span", { class: "key st-bare" }, "Bare soil"),
-    h("span", { class: "key-note" }, "Bands: darker = more, from NASA POWER " + `${site.period?.start}–${site.period?.end}` + " averages"));
+    h("span", { class: "key-note" }, `Bands: darker = more, ${site.period?.start}–${site.period?.end} averages. ` +
+      (/IMERG/.test(site.precip_source || "") ? "Rain and downpours: GPM IMERG; heat and dryness: NASA POWER." : "Source: NASA POWER.")));
 
   const el = h("div", { class: "cal" }, grid, legend);
   return {
