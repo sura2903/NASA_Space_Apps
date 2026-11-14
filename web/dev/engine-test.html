@@ -7,7 +7,8 @@
 <p>Runs generateStrategies for every site in index.json with default priorities. Open the console for full objects.</p>
 <pre id="out">running…</pre>
 <script type="module">
-import { generateStrategies, siteHighlights, trendScenario, DEFAULT_CURRENT } from "../js/scoring.js";
+// cache-busted import so edits to scoring.js show up on reload
+const { generateStrategies, siteHighlights, trendScenario, DEFAULT_CURRENT } = await import(`../js/scoring.js?v=${Date.now()}`);
 const out = document.getElementById("out");
 const log = (s) => (out.textContent += s + "\n");
 out.textContent = "";

@@ -42,9 +42,9 @@ export function drawMonthlyChart(canvas, site, highlightMonths = []) {
     data: {
       labels: MONTHS,
       datasets: [
-        { type: "bar", label: "Rain (average)", data: rain, borderRadius: 4, borderSkipped: "bottom",
+        { type: "bar", label: /IMERG/.test(site.precip_source || "") ? "Rain (GPM IMERG)" : "Rain (NASA POWER)", data: rain, borderRadius: 4, borderSkipped: "bottom",
           backgroundColor: MONTHS.map((_, i) => (hl.size && !hl.has(i + 1) ? blueSoft : blue)), order: 2 },
-        { type: "line", label: "Evapotranspiration (crop thirst)", data: et, borderColor: orange, backgroundColor: orange,
+        { type: "line", label: "Evapotranspiration (NASA POWER)", data: et, borderColor: orange, backgroundColor: orange,
           borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3, order: 1 },
       ],
     },

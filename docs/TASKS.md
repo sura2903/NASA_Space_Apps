@@ -17,10 +17,10 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A3 | Tamil Nadu sites: Tirunelveli, Madurai, Thanjavur | ✅ |
 | A4 | Tamil Nadu crop table (16 crops, Tamil names, sowing months, water need, MSP) | ✅ (values approximate) |
 | A5 | Season-based scoring engine: calendar, water from rain + soil + canal/tank/borewell, heat/flood checks, 24-year replay, sub-scores, plain-language why/evidence/risks/gaps, strategy generator | ✅ first version |
-| A6 | `pipeline/points.csv` for the AppEEARS request (MODIS NDVI, SMAP, ECOSTRESS, SRTM) | 🔄 |
-| A7 | Earthdata account + submit AppEEARS point request (**a person must do this**; see APPROACH.md Tier 2) | ⬜ **do in hour 1** |
+| A6 | `pipeline/points.csv` for the AppEEARS request (MODIS NDVI, SMAP, ECOSTRESS, SRTM) | ✅ |
+| A7 | Earthdata account + submit AppEEARS point request | ✅ submitted, waiting on results |
 | A8 | Load AppEEARS CSVs → `ndvi` (observed bare months) + SMAP soil-moisture anomaly per site | ⬜ |
-| A9 | Cross-check POWER rainfall with GPM IMERG (Giovanni); Tirunelveli POWER shows ~1300 mm/yr, likely Western Ghats influence | ⬜ |
+| A9 | Cross-check POWER rainfall with GPM IMERG; IMERG now the rainfall source (Tirunelveli 948 vs POWER 1300 mm/yr) | ✅ |
 | A10 | Tune crop values against TNAU Agritech; sanity-review suggestions with family/farmers | ⬜ |
 | A11 | ⭐ GRACE groundwater trend panel for Tamil Nadu | ⭐ |
 
