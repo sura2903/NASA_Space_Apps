@@ -18,17 +18,18 @@
     <div class="brand">
       <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
       <div>
-        <h1>Field Shift <span class="ta" lang="ta">வயல் மாற்றம்</span></h1>
-        <p class="tagline">Crop rotation choices for an uncertain monsoon, checked against NASA data</p>
+        <h1 data-i18n="brand">Field Shift</h1>
+        <p class="tagline" data-i18n="tagline">Crop rotation choices for an uncertain monsoon, checked against NASA data</p>
       </div>
     </div>
     <div class="top-actions">
+      <button type="button" id="lang" class="lang-btn" lang="ta">தமிழ்</button>
       <label class="switch">
         <input type="checkbox" id="expert">
         <span class="track" aria-hidden="true"></span>
-        Expert details
+        <span data-i18n="expert">Expert details</span>
       </label>
-      <button type="button" id="print" class="btn">🖨 Print for my agriculture officer</button>
+      <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
     </div>
   </header>
 
@@ -37,29 +38,29 @@
   <main class="layout">
     <aside class="inputs" aria-label="Your farm">
       <section class="step">
-        <h2><span class="n">1</span> Your place</h2>
-        <label class="sr" for="site-select">Choose a place</label>
+        <h2><span class="n">1</span> <span data-i18n="step.place">Your place</span></h2>
+        <label class="sr" for="site-select" data-i18n="step.place.select">Choose a place</label>
         <select id="site-select" class="big-select"></select>
-        <div id="map" class="map" aria-label="Map of the demo sites. Click a dot to choose it."></div>
+        <div id="map" class="map" data-i18n-aria="map.aria" aria-label="Map of the demo sites. Click a dot to choose it."></div>
       </section>
 
       <section class="step">
-        <h2><span class="n">2</span> What you grow now</h2>
-        <p class="note">Pick each crop and the month you sow it. Tamil names are shown next to each crop.</p>
+        <h2><span class="n">2</span> <span data-i18n="step.grow">What you grow now</span></h2>
+        <p class="note" data-i18n="step.grow.note">Pick each crop and the month you sow it.</p>
         <div id="rot-editor" class="rot-editor"></div>
         <div id="rot-issues"></div>
-        <h3>Water for the field</h3>
+        <h3 data-i18n="step.water">Water for the field</h3>
         <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
       </section>
 
       <section class="step">
-        <h2><span class="n">3</span> What matters to you</h2>
-        <p class="note">Slide each one. The options below re-rank as you go.</p>
+        <h2><span class="n">3</span> <span data-i18n="step.prio">What matters to you</span></h2>
+        <p class="note" data-i18n="step.prio.note">Slide each one. The options below re-rank as you go.</p>
         <div id="prios" class="prios"></div>
       </section>
 
       <section class="step">
-        <h2><span class="n">4</span> What if the climate shifts?</h2>
+        <h2><span class="n">4</span> <span data-i18n="step.climate">What if the climate shifts?</span></h2>
         <div id="climate" class="prios"></div>
       </section>
     </aside>
@@ -68,26 +69,26 @@
       <section class="panel site-panel" aria-labelledby="site-title">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">What NASA data says about this place</p>
-            <h2 id="site-title">Loading…</h2>
+            <p class="eyebrow" data-i18n="site.eyebrow">What NASA data says about this place</p>
+            <h2 id="site-title" data-i18n="loading">Loading…</h2>
             <p id="site-meta" class="note"></p>
           </div>
         </div>
         <ul id="highlights" class="highlights"></ul>
         <div class="charts">
           <figure>
-            <figcaption>Rain vs <span class="term" tabindex="0" role="button" data-term="et">evapotranspiration</span> (crop thirst), average month</figcaption>
+            <figcaption data-i18n-html="fig.monthly"></figcaption>
             <div class="chart-box"><canvas id="ch-monthly" role="img" aria-label="Average monthly rain and evapotranspiration"></canvas></div>
-            <p class="note">When the orange line is above the blue bars, crops need stored soil water or irrigation.</p>
+            <p class="note" data-i18n="fig.monthly.note"></p>
           </figure>
           <figure>
-            <figcaption>The <span class="term" tabindex="0" role="button" data-term="ne_monsoon">northeast monsoon</span>, year by year</figcaption>
+            <figcaption data-i18n-html="fig.monsoon"></figcaption>
             <div class="chart-box"><canvas id="ch-monsoon" role="img" aria-label="October to December rain for each year"></canvas></div>
             <p id="monsoon-note" class="note"></p>
           </figure>
           <figure id="rain-compare" class="rain-compare" hidden></figure>
           <figure id="ndvi-fig" class="expert-only">
-            <figcaption>Satellite greenness (<span class="term" tabindex="0" role="button" data-term="ndvi">NDVI</span>), by month</figcaption>
+            <figcaption data-i18n-html="fig.ndvi"></figcaption>
             <div class="chart-box short"><canvas id="ch-ndvi" role="img" aria-label="Monthly median NDVI"></canvas></div>
             <p id="ndvi-note" class="note"></p>
           </figure>
@@ -97,27 +98,27 @@
       <section class="panel" aria-labelledby="opts-title">
         <div class="panel-head">
           <div>
-            <p class="eyebrow">Compare</p>
-            <h2 id="opts-title">Three options for your field</h2>
+            <p class="eyebrow" data-i18n="opts.eyebrow">Compare</p>
+            <h2 id="opts-title" data-i18n="opts.title">Three options for your field</h2>
           </div>
           <span id="busy" class="busy" role="status" aria-live="polite"></span>
         </div>
         <p id="summary" class="summary"></p>
         <p id="scenario-note" class="scenario-note" hidden></p>
+        <p id="engine-note" class="engine-note" hidden></p>
         <div id="cards" class="cards"></div>
-        <p class="note support">These options support your own judgment and local advice; they do not replace them.
-          Use the print button to take them to your agriculture officer.</p>
+        <p class="note support" data-i18n="opts.support"></p>
       </section>
 
       <section class="panel about" aria-labelledby="gloss-title">
-        <h2 id="gloss-title">Words used here</h2>
+        <h2 id="gloss-title" data-i18n="gloss.title">Words used here</h2>
         <dl id="glossary-list" class="glossary"></dl>
-        <h2>Honest limits</h2>
+        <h2 data-i18n="limits.title">Honest limits</h2>
         <ul class="limits">
-          <li>NASA POWER temperature and GPM IMERG rain are regional grids. They describe the area around your village, not your exact field. Satellite rain also smooths the very biggest downpours.</li>
-          <li>Crop water needs and traits are approximate averages, and the scores are simple rules we can explain, not a trained model.</li>
-          <li>Climate what-ifs are rough scalings to explore, not forecasts.</li>
-          <li>Soil nutrients, pests, markets and water allocations need local knowledge. The printed sheet lists what to check.</li>
+          <li data-i18n="limits.1"></li>
+          <li data-i18n="limits.2"></li>
+          <li data-i18n="limits.3"></li>
+          <li data-i18n="limits.4"></li>
         </ul>
         <p class="note" id="data-sources"></p>
       </section>

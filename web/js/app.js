@@ -1,10 +1,11 @@
 // Field Shift UI (Lane B). Reads web/data/*.json, calls only the scoring.js exports
 // (docs/data_contract.md section 4), and renders. No scoring logic lives here.
 import {
-  generateStrategies, siteHighlights, trendScenario, DEFAULT_CURRENT, PRIORITIES, WATER_SOURCES,
+  generateStrategies, siteHighlights, trendScenario, scenarioMonthly, DEFAULT_CURRENT, PRIORITIES, WATER_SOURCES,
 } from "./scoring.js";
 import { $, h, clear, debounce, fmt, signed } from "./ui/dom.js";
-import { decorate, initTooltips, renderGlossaryList } from "./ui/glossary.js";
+import { decorate, rich, initTooltips, renderGlossaryList } from "./ui/glossary.js";
+import { t, initLang, setLang, onLangChange, getLang, siteName, tagLabel } from "./i18n.js";
 import { createSiteMap } from "./ui/map.js";
 import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate } from "./ui/inputs.js";
 import { drawMonthlyChart, drawMonsoonChart, drawNdviChart, monsoonSeries, resizeCharts } from "./ui/charts.js";
@@ -49,7 +50,7 @@ function initExpertToggle() {
 /* ---------------- site selection ---------------- */
 async function selectSite(id) {
   const meta = state.sites.find((s) => s.id === id) ?? state.sites[0];
-  setBusy(true, "Loading NASA data…");
+  setBusy(true, t("loading.data"));
   const site = state.siteCache[meta.id] ??= await getJSON(`data/sites/${meta.id}.json`);
   state.site = site;
   const def = DEFAULT_CURRENT[site.id] ?? FALLBACK_CURRENT;
@@ -68,23 +69,23 @@ async function selectSite(id) {
 
 function renderSitePanel() {
   const s = state.site;
-  $("#site-title").textContent = s.name;
+  $("#site-title").textContent = siteName(s);
   $("#site-meta").textContent = `${fmt(s.lat, 2)}°N, ${fmt(s.lon, 2)}°E · ${s.period.start}–${s.period.end} · ` +
-    (s.precip_source ? `Rain: ${rainName(s)}; temperature and evapotranspiration: NASA POWER` : s.source);
+    (s.precip_source ? t("meta.rain", { rain: rainName(s) }) : s.source);
   renderRainComparison(s);
   drawMonthlyChart($("#ch-monthly"), s);
   drawMonsoonChart($("#ch-monsoon"), s);
   const { deficient, years } = monsoonSeries(s);
   $("#monsoon-note").textContent = deficient.length
-    ? `${deficient.length} of ${years.length} northeast monsoons were 20% or more below this site's average: ${deficient.map((d) => d.year).join(", ")}.`
+    ? t("monsoon.note", { n: deficient.length, total: years.length, years: deficient.map((d) => d.year).join(", ") })
     : "";
   const hasNdvi = drawNdviChart($("#ch-ndvi"), s);
   $("#ndvi-fig").hidden = !hasNdvi;
-  if (hasNdvi) $("#ndvi-note").textContent = `Median ${s.ndvi.years.join("–")}, ${s.ndvi.source}. ` +
-    (s.ndvi.bare_months?.length ? "" : "This pixel window mixes in trees, so bare months do not show clearly yet.");
+  if (hasNdvi) $("#ndvi-note").textContent = t("ndvi.note", { years: s.ndvi.years.join("–"), source: s.ndvi.source }) +
+    (s.ndvi.bare_months?.length ? "" : t("ndvi.mixed"));
 
-  const src = [s.precip_source && `Rain: ${s.precip_source}`, s.source && `Weather: ${s.source} (${s.period.start}–${s.period.end})`, s.soil?.source && `Soil: ${s.soil.source}`,
-    s.ndvi?.source && `Greenness: ${s.ndvi.source}`].filter(Boolean);
+  const src = [s.precip_source && t("src.rain", { x: s.precip_source }), s.source && t("src.weather", { x: `${s.source} (${s.period.start}–${s.period.end})` }),
+    s.soil?.source && t("src.soil", { x: s.soil.source }), s.ndvi?.source && t("src.ndvi", { x: s.ndvi.source })].filter(Boolean);
   $("#data-sources").textContent = src.join(" · ");
 }
 
@@ -100,19 +101,19 @@ function renderRainComparison(s) {
   const agreeDry = rc.driest_ne_year_power === rc.driest_ne_year_imerg;
   const row = (label, a, b) => h("tr", {}, h("th", { scope: "row" }, label), h("td", {}, a), h("td", {}, b));
   clear(box).append(
-    h("figcaption", {}, "Two NASA rain datasets, side by side"),
+    h("figcaption", {}, t("fig.compare")),
     h("table", { class: "compare" },
       h("thead", {}, h("tr", {}, h("th", {}, ""), h("th", { scope: "col" }, "NASA POWER"), h("th", { scope: "col" }, "GPM IMERG"))),
       h("tbody", {},
-        row("Rain per year", `${fmt(rc.power_annual_mean_mm)} mm`, `${fmt(rc.imerg_annual_mean_mm)} mm`),
-        row("Oct–Dec monsoon", `${fmt(rc.power_ne_monsoon_mean_mm)} mm`, `${fmt(rc.imerg_ne_monsoon_mean_mm)} mm`),
-        row("Driest monsoon year", String(rc.driest_ne_year_power), String(rc.driest_ne_year_imerg)))),
+        row(t("cmp.year"), `${fmt(rc.power_annual_mean_mm)} mm`, `${fmt(rc.imerg_annual_mean_mm)} mm`),
+        row(t("cmp.ne"), `${fmt(rc.power_ne_monsoon_mean_mm)} mm`, `${fmt(rc.imerg_ne_monsoon_mean_mm)} mm`),
+        row(t("cmp.dry"), String(rc.driest_ne_year_power), String(rc.driest_ne_year_imerg)))),
     h("p", { class: "note", html: decorate(
-      (agreeDry ? `Both agree ${rc.driest_ne_year_imerg} was the driest northeast monsoon. ` : `They disagree on the driest northeast monsoon. `) +
-      `Their year-to-year monsoon totals move together (correlation ${fmt(rc.ne_monsoon_correlation, 2)}). ` +
+      (agreeDry ? t("cmp.agree", { year: rc.driest_ne_year_imerg }) : t("cmp.disagree")) +
+      t("cmp.corr", { r: fmt(rc.ne_monsoon_correlation, 2) }) +
       (Math.abs(diff) >= 0.15
-        ? `POWER shows ${fmt(Math.abs(diff) * 100)}% ${diff > 0 ? "more" : "less"} rain a year, likely because its coarser grid mixes in nearby hills. We use IMERG, the finer satellite rain record, for rain.`
-        : `Yearly totals are within ${fmt(Math.ceil(Math.abs(diff) * 100))}%. We use IMERG, the finer satellite rain record, for rain.`)) }),
+        ? t("cmp.bigdiff", { pct: fmt(Math.abs(diff) * 100), dir: diff > 0 ? t("cmp.more") : t("cmp.less") })
+        : t("cmp.close", { pct: fmt(Math.ceil(Math.abs(diff) * 100)) }))) }),
   );
 }
 
@@ -140,7 +141,7 @@ function renderEditor() {
 
 /* ---------------- scoring + results ---------------- */
 let runId = 0;
-function setBusy(on, text = "Re-scoring…") {
+function setBusy(on, text = t("busy")) {
   const b = $("#busy");
   b.textContent = on ? text : "";
   b.classList.toggle("on", on);
@@ -150,7 +151,7 @@ function setBusy(on, text = "Re-scoring…") {
 function recompute() {
   const id = ++runId;
   const yrs = state.site?.by_year?.length;
-  setBusy(true, yrs ? `Re-scoring against ${yrs} real years…` : "Scoring…");
+  setBusy(true, yrs ? t("busy.years", { n: yrs }) : t("busy"));
   // let the browser paint the busy state first; generateStrategies is synchronous (~0.4 s)
   requestAnimationFrame(() => setTimeout(() => {
     if (id !== runId) return;
@@ -161,7 +162,7 @@ function recompute() {
     } catch (err) {
       console.error(err);
       $("#error").hidden = false;
-      $("#error").textContent = `Could not score this rotation: ${err.message}`;
+      $("#error").textContent = t("err.score", { msg: err.message });
     }
     setBusy(false);
   }, 0));
@@ -171,7 +172,7 @@ const recomputeSoon = debounce(recompute, 250);
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
   // highlights depend on the climate scenario
-  $("#highlights").innerHTML = siteHighlights(s, P).map((t) => `<li>${decorate(t)}</li>`).join("");
+  $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 
   const cur = sts[0];
   const alts = sts.slice(1).sort((a, b) => b.total - a.total);
@@ -182,32 +183,70 @@ function renderResults() {
   const sum = $("#summary");
   clear(sum);
   if (best === cur) {
-    sum.innerHTML = decorate(`Your current rotation is already the best fit for these priorities (${cur.total}/100). It came through ${cur.replay.good_years} of ${cur.replay.total_years} years.`);
+    sum.innerHTML = decorate(t("sum.current", { total: cur.total, good: cur.replay.good_years, years: cur.replay.total_years }));
   } else {
-    sum.innerHTML = decorate(`"${best.tag}" fits your priorities best: ${best.total}/100 vs ${cur.total} for what you grow now. ` +
-      `It came through ${best.replay.good_years} of ${best.replay.total_years} years (yours: ${cur.replay.good_years}) and needs ~${fmt(best.water_use.need_mm)} mm of water a year (yours: ~${fmt(cur.water_use.need_mm)} mm).`);
+    sum.innerHTML = decorate(t("sum.best", {
+      tag: tagLabel(best.tag), total: best.total, cur: cur.total, good: best.replay.good_years, years: best.replay.total_years,
+      curGood: cur.replay.good_years, need: fmt(best.water_use.need_mm), curNeed: fmt(cur.water_use.need_mm),
+    }));
   }
+  $("#engine-note").hidden = !t("engine.english");
+  $("#engine-note").textContent = t("engine.english");
 
   const sc = state.scenario;
-  $("#scenario-note").hidden = !(sc.dT_c || sc.dPrecip_pct);
-  $("#scenario-note").textContent = `Climate what-if is on: ${signed(sc.dT_c, 1)} °C and ${signed(sc.dPrecip_pct)}% rain applied to every year. This is an illustration, not a forecast.`;
+  const scenarioOn = !!(sc.dT_c || sc.dPrecip_pct);
+  $("#scenario-note").hidden = !scenarioOn;
+  $("#scenario-note").textContent = t("scenario.on", { dT: signed(sc.dT_c, 1), dP: signed(sc.dPrecip_pct) });
 
+  // calendar bands use the same scenario-adjusted climate as the scores
+  let monthly = null;
+  try { monthly = scenarioMonthly(s, sc); } catch { monthly = null; }
   const cards = $("#cards");
   clear(cards);
-  ordered.forEach((st, i) => cards.append(strategyCard(st, { site: s, cropById: state.cropById, isBest: st === best && sts.length > 1, rank: i })));
+  ordered.forEach((st, i) => cards.append(strategyCard(st, {
+    site: s, cropById: state.cropById, isBest: st === best && sts.length > 1, rank: i, monthly, scenarioOn,
+  })));
 
   const issues = $("#rot-issues");
   clear(issues);
-  if (cur.issues.length) issues.append(h("ul", { class: "rot-issues", role: "status" }, cur.issues.map((t) => h("li", {}, "⚠ " + t))));
+  if (cur.issues.length) issues.append(h("ul", { class: "rot-issues", role: "status" }, cur.issues.map((x) => h("li", {}, "⚠ " + x))));
 
   renderPrintSheet($("#print-sheet"), { site: s, strategies: ordered, prefs: P, cropById: state.cropById, highlights: siteHighlights(s, P) });
 }
 
+/* ---------------- language (English / Tamil) ---------------- */
+function applyStatic() {
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => { el.innerHTML = rich(t(el.dataset.i18nHtml)); });
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => el.setAttribute("aria-label", t(el.dataset.i18nAria)));
+  const btn = $("#lang");
+  btn.textContent = t("lang.switch");
+  btn.setAttribute("aria-label", t("lang.switch.aria"));
+  btn.lang = getLang() === "ta" ? "en" : "ta";
+  document.title = getLang() === "ta" ? "வயல் மாற்றம் · Field Shift" : "Field Shift";
+  renderGlossaryList($("#glossary-list"));
+}
+
+function rerenderAll() {
+  applyStatic();
+  const sel = $("#site-select");
+  [...sel.options].forEach((o) => { o.textContent = siteName(state.sites.find((s) => s.id === o.value)); });
+  map?.relabel();
+  renderPriorities($("#prios"), { weights: state.weights, onChange: (k, v) => { state.weights[k] = v; recomputeSoon(); } });
+  if (!state.site) return;
+  renderSitePanel();
+  renderInputs();
+  if (state.strategies.length) renderResults();
+}
+
 /* ---------------- boot ---------------- */
 async function init() {
+  initLang();
   initTooltips();
   initExpertToggle();
-  renderGlossaryList($("#glossary-list"));
+  applyStatic();
+  $("#lang").addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
+  onLangChange(rerenderAll);
   try {
     const [sites, crops] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json")]);
     state.sites = sites;
@@ -215,12 +254,12 @@ async function init() {
     state.cropById = Object.fromEntries(crops.map((c) => [c.id, c]));
   } catch (err) {
     $("#error").hidden = false;
-    $("#error").textContent = `Could not load data (${err.message}). If you opened the file directly, run: python -m http.server 8000 --directory web`;
+    $("#error").textContent = t("err.load", { msg: err.message });
     return;
   }
 
   const sel = $("#site-select");
-  sel.append(...state.sites.map((s) => h("option", { value: s.id }, s.name)));
+  sel.append(...state.sites.map((s) => h("option", { value: s.id }, siteName(s))));
   sel.addEventListener("change", () => selectSite(sel.value));
   map = createSiteMap($("#map"), state.sites, (id) => selectSite(id));
 
