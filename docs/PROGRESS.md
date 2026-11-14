@@ -2,6 +2,24 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-14 late night (Siddarth / Lane A): crop values tuned to official TN sources (A10)
+- **Sources:** TN Dept of Agriculture *Crop Production Guide* chapter PDFs (tnagriculture.in/dashboard/CPG/…)
+  for sowing seasons and durations by zone and district; TNAU agronomy course notes (eagri.org AGRO103
+  lec07) for total crop water need. TNAU's Agritech portal has an expired TLS certificate, so it wasn't used.
+  Every crop's `source` field now cites where its numbers came from.
+- **Main changes:**
+  - Sowing windows now follow the official southern-zone and delta pattams. Examples: rice_short adds
+    Early Kar Apr–May and Kar May; groundnut Thai Jan–Feb (Tirunelveli); millets and sorghum add Chithirai
+    Apr–May; cotton winter Aug–Sep and summer Feb–Mar; sugarcane Dec–May.
+  - Water needs: rice short 1100 / long 1250 (TNAU 1100–1250), cotton 700→600, groundnut 525, ragi 400→350,
+    sorghum 425.
+  - Durations: groundnut 105, sorghum 100, black gram 70.
+- Banana, daincha and sunnhemp stay approximate (no season table in the field-crops guide).
+- **Engine speed:** more sowing months meant ~2 s per site. Bitmask overlap checks and a per-(site, scenario)
+  climate cache bring it to ~0.8–1.0 s. "Small step" candidates are now always shortlisted.
+- Results now: Tirunelveli rice–rice 20/24 → Small step (daincha → pearl millet May → Samba rice Aug) 24/24,
+  25% less water. Madurai tank rice 11/24 → Bigger shift (cotton + pearl millet) 22/24.
+
 ## 2026-11-14 night (Siddarth / Lane A): Lane B engine requests done; Pages live
 - **GitHub Pages enabled** (source: GitHub Actions). Live at https://sura2903.github.io/NASA_Space_Apps/
   The site is public even though the repo is private.

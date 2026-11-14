@@ -21,7 +21,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A7 | Earthdata account + submit AppEEARS point request | ✅ submitted, waiting on results |
 | A8 | Load AppEEARS CSVs → `ndvi` (observed bare months) + SMAP soil-moisture anomaly per site | ⬜ |
 | A9 | Cross-check POWER rainfall with GPM IMERG; IMERG now the rainfall source (Tirunelveli 948 vs POWER 1300 mm/yr) | ✅ |
-| A10 | Tune crop values against TNAU Agritech; sanity-review suggestions with family/farmers | ⬜ |
+| A10 | Tune crop values against official TN sources (TN Agri Dept Crop Production Guide + TNAU notes) | ✅ (family/farmer sanity review still welcome) |
 | A11 | ⭐ GRACE groundwater trend panel for Tamil Nadu | ⭐ |
 
 ## Lane B: Nimalan (web app + story)

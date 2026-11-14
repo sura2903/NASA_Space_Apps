@@ -69,7 +69,11 @@ const monthList = (ms) => {
   }
   return u.map((m) => MONTHS[m - 1]).join(", ");
 };
-const cropMap = (crops) => Object.fromEntries(crops.map((c) => [c.id, c]));
+const cropMapCache = new WeakMap();
+const cropMap = (crops) => {
+  if (!cropMapCache.has(crops)) cropMapCache.set(crops, Object.fromEntries(crops.map((c) => [c.id, c])));
+  return cropMapCache.get(crops);
+};
 
 // ---------- climate access with scenario adjustment ----------
 function adjustMonth(m, sc) {
@@ -90,7 +94,18 @@ function adjustMonth(m, sc) {
   };
 }
 
+// The adjusted climate depends only on (site, scenario); generateStrategies scores
+// thousands of candidates, so cache it instead of re-adjusting 288 months each time.
+const climateCache = new WeakMap();
 function climate(site, sc) {
+  const key = `${sc?.dT_c || 0}|${sc?.dPrecip_pct || 0}`;
+  let perSite = climateCache.get(site);
+  if (!perSite) climateCache.set(site, (perSite = new Map()));
+  if (!perSite.has(key)) perSite.set(key, buildClimate(site, sc));
+  return perSite.get(key);
+}
+
+function buildClimate(site, sc) {
   const monthly = site.monthly.map((m) => adjustMonth(m, sc));
   const byYear = (site.by_year || []).map((y) => ({ year: y.year, months: y.months.map((m) => adjustMonth(m, sc)) }));
   // Monsoon normals for tank/canal scaling.
@@ -361,8 +376,17 @@ export function generateStrategies(site, crops, current, prefs, n = 2) {
   cur.why.push("This is what you grow now: the baseline to compare against");
 
   // all single slots
-  const options = crops.flatMap((c) => c.sow_months.map((sow) => ({ crop: c.id, sow })));
-  const fits = (yr) => layout([yr], cm).issues.length === 0;
+  // each option carries a 12-bit month mask (cyclic) so overlap checks are one AND
+  const FULL = (1 << 12) - 1;
+  const maskOf = (crop, sow) => {
+    const len = monthsLen(crop);
+    if (len >= 12) return FULL;
+    let m = 0;
+    for (let k = 0; k < len; k++) m |= 1 << ((sow - 1 + k) % 12);
+    return m;
+  };
+  const options = crops.flatMap((c) => c.sow_months.map((sow) => ({ crop: c.id, sow, mask: maskOf(c, sow) })));
+  const strip = (yr) => yr.map(({ crop, sow }) => ({ crop, sow }));
   const gmOk = (yr) => {
     const gms = yr.filter((s) => cm[s.crop].type === "green_manure");
     if (gms.length > 1) return false;
@@ -374,24 +398,33 @@ export function generateStrategies(site, crops, current, prefs, n = 2) {
   };
   const singles = [];
   for (let i = 0; i < options.length; i++) {
-    const a = [options[i]];
-    if (gmOk(a)) singles.push(a);
+    const oi = options[i];
+    if (gmOk([oi])) singles.push([oi]);
     for (let j = i + 1; j < options.length; j++) {
-      if (options[j].crop === options[i].crop && cm[options[i].crop].type !== "cash") continue;
-      const b = [options[i], options[j]];
-      if (!fits(b)) continue;
-      if (gmOk(b)) singles.push(b);
+      const oj = options[j];
+      if (oi.mask & oj.mask) continue;
+      if (oj.crop === oi.crop && cm[oi.crop].type !== "cash") continue;
+      const m2 = oi.mask | oj.mask;
+      if (gmOk([oi, oj])) singles.push([oi, oj]);
       for (let k = j + 1; k < options.length; k++) {
-        const c3 = [options[i], options[j], options[k]];
-        if (fits(c3) && gmOk(c3)) singles.push(c3);
+        const ok = options[k];
+        if (m2 & ok.mask) continue;
+        const c3 = [oi, oj, ok];
+        if (gmOk(c3)) singles.push(c3);
       }
     }
   }
-  // stage 1: fast score without replay; stage 2: full score for the best
-  const quick = singles.map((yr) => ({ rot: [yr], s: scoreRotation(site, crops, [yr], prefs, { skipReplay: true, skipText: true, currentIds: curIds }).total }));
+  // stage 1: fast score without replay; stage 2: full score for the best overall
+  // plus the best "small step" candidates (at most one new main crop), so they are never cut
+  const quick = singles.map((yr) => {
+    const rot = [strip(yr)];
+    return { rot, s: scoreRotation(site, crops, rot, prefs, { skipReplay: true, skipText: true, currentIds: curIds }).total,
+             nNew: new Set(yr.filter((o) => cm[o.crop].type !== "green_manure" && !curIds.has(o.crop)).map((o) => o.crop)).size };
+  });
   quick.sort((a, b) => b.s - a.s);
   const top = quick.slice(0, 40).map((q) => q.rot[0]);
-  const cands = top.map((yr) => [yr]);
+  const smallTop = quick.filter((q) => q.nNew <= 1).slice(0, 15).map((q) => q.rot[0]);
+  const cands = [...top, ...smallTop.filter((yr) => !top.includes(yr))].map((yr) => [yr]);
   for (let i = 0; i < 25; i++) for (let j = i + 1; j < 25; j++) if (top[i] && top[j]) cands.push([top[i], top[j]]);
   const full = cands.map((rot) => scoreRotation(site, crops, rot, prefs, { skipText: true, currentIds: curIds }))
     .filter((s) => s.feasible && s.label !== cur.label)
