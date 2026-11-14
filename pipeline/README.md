@@ -12,6 +12,9 @@ python pipeline/build_all.py
 # Same, but skip MODIS NDVI (fast; writes "ndvi": null)
 python pipeline/build_all.py --no-ndvi
 
+# NDVI from already-downloaded dates only (no ORNL requests; "years" = span actually cached)
+python pipeline/build_all.py --ndvi-cache-only
+
 # Old US demo sites -> web/data/sites/_us_backup/ (not listed in index.json)
 python pipeline/build_all.py --us
 

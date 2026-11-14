@@ -2,6 +2,7 @@
 
     python pipeline/build_all.py            # Tamil Nadu sites: POWER + SoilGrids + NDVI
     python pipeline/build_all.py --no-ndvi  # skip NDVI (writes "ndvi": null; fast)
+    python pipeline/build_all.py --ndvi-cache-only  # NDVI from already-downloaded dates (fast)
     python pipeline/build_all.py --us       # old US sites -> web/data/sites/_us_backup/ (index untouched)
 """
 from __future__ import annotations
@@ -51,10 +52,15 @@ def main() -> None:
     p.add_argument("--start", type=int, default=2001)
     p.add_argument("--end", type=int, default=2024)
     p.add_argument("--no-ndvi", action="store_true")
+    p.add_argument("--ndvi-cache-only", action="store_true",
+                   help="build NDVI from already-downloaded dates only (no ORNL requests)")
     p.add_argument("--us", action="store_true", help="build the US backup sites instead")
     a = p.parse_args()
     if a.no_ndvi:
         fetch_power.fetch_ndvi = lambda *args, **kw: None
+    elif a.ndvi_cache_only:
+        _orig = fetch_power.fetch_ndvi
+        fetch_power.fetch_ndvi = lambda *args, **kw: _orig(*args, cache_only=True, **kw)
 
     sites, heat_c, out_dir = (US_SITES, US_HEAT_C, US_DIR) if a.us else (TN_SITES, TN_HEAT_C, SITES_DIR)
     for s in sites:

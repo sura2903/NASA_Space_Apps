@@ -2,6 +2,13 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-14 later (Siddarth / Lane A)
+- MODIS NDVI (ORNL, 3×3 km median, 2019–2024) is now in all three TN site files. No bare
+  months show up because the window mixes in trees, so it needs per-pixel AppEEARS data.
+- AppEEARS point request `field-shift-tn-points` submitted (MOD13Q1 NDVI + reliability,
+  SMAP SPL3SMP_E AM soil moisture, SRTM DEM; 9 points; 2015-04-01 → 2024-12-31). Status: pending.
+- New site fields: `heat_threshold_c`, `heavy_rain_days`, `max_daily_precip_mm` (in contract v2).
+
 ## 2026-11-14 (Siddarth / Lane A)
 - **Region decided: Tamil Nadu.** Hero site Tirunelveli (family village); Madurai and
   Thanjavur as contrasts. Default "current rotation" for Tirunelveli: Kar rice (Jun) +

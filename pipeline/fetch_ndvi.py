@@ -55,9 +55,12 @@ def composite_dates(year: int) -> list[tuple[int, str]]:
     return out
 
 
-def _fetch_one(lat: float, lon: float, modis_date: str, cache: Path) -> list[int] | None:
+def _fetch_one(lat: float, lon: float, modis_date: str, cache: Path,
+               cache_only: bool = False) -> list[int] | None:
     if cache.exists():
         return json.loads(cache.read_text())
+    if cache_only:
+        return None
     for attempt in range(RETRIES):
         try:
             r = requests.get(
@@ -84,21 +87,27 @@ def _fetch_one(lat: float, lon: float, modis_date: str, cache: Path) -> list[int
 
 
 def fetch_ndvi(lat: float, lon: float, site_id: str,
-               years: tuple[int, int] = YEARS, deadline_s: float = DEADLINE_S) -> dict | None:
-    """Return the contract's `ndvi` object, or None on failure (never raises)."""
+               years: tuple[int, int] = YEARS, deadline_s: float = DEADLINE_S,
+               cache_only: bool = False) -> dict | None:
+    """Return the contract's `ndvi` object, or None on failure (never raises).
+    cache_only=True uses only already-downloaded dates (no network)."""
     try:
         cache_dir = RAW_DIR / f"ndvi_{site_id}_{lat:.4f}_{lon:.4f}"
         cache_dir.mkdir(parents=True, exist_ok=True)
         jobs = [(m, d) for y in range(years[0], years[1] + 1) for m, d in composite_dates(y)]
         by_month: dict[int, list[int]] = {m: [] for m in range(1, 13)}
+        years_used: set[int] = set()
         t0 = time.time()
         pool = ThreadPoolExecutor(max_workers=WORKERS)
-        futs = {pool.submit(_fetch_one, lat, lon, d, cache_dir / f"{d}.json"): m for m, d in jobs}
+        futs = {pool.submit(_fetch_one, lat, lon, d, cache_dir / f"{d}.json", cache_only): (m, d)
+                for m, d in jobs}
         try:
             for f in as_completed(futs, timeout=deadline_s):
                 data = f.result()
                 if data:
-                    by_month[futs[f]].append(data)
+                    m, d = futs[f]
+                    by_month[m].append(data)
+                    years_used.add(int(d[1:5]))
         except FuturesTimeout:
             print(f"[ndvi] {site_id}: deadline reached; using partial results")
         finally:
@@ -121,7 +130,7 @@ def fetch_ndvi(lat: float, lon: float, site_id: str,
             return None
         return {
             "source": "MODIS MOD13Q1 via ORNL DAAC",
-            "years": [years[0], years[1]],
+            "years": [min(years_used), max(years_used)],  # span actually fetched (may be < requested)
             "monthly_median": medians,
             "bare_months": [i + 1 for i, v in enumerate(medians) if v < BARE_NDVI],
         }
@@ -135,5 +144,6 @@ if __name__ == "__main__":
     p.add_argument("--id", required=True)
     p.add_argument("--lat", type=float, required=True)
     p.add_argument("--lon", type=float, required=True)
+    p.add_argument("--cache-only", action="store_true", help="use cached dates only, no network")
     a = p.parse_args()
-    print(json.dumps(fetch_ndvi(a.lat, a.lon, a.id), indent=2))
+    print(json.dumps(fetch_ndvi(a.lat, a.lon, a.id, cache_only=a.cache_only), indent=2))

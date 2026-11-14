@@ -3419,5 +3419,26 @@
     "ph": 7.1,
     "texture_class": "clay loam"
   },
-  "ndvi": null
+  "ndvi": {
+    "source": "MODIS MOD13Q1 via ORNL DAAC",
+    "years": [
+      2019,
+      2024
+    ],
+    "monthly_median": [
+      0.773,
+      0.404,
+      0.351,
+      0.453,
+      0.738,
+      0.719,
+      0.447,
+      0.456,
+      0.477,
+      0.453,
+      0.749,
+      0.874
+    ],
+    "bare_months": []
+  }
 }
