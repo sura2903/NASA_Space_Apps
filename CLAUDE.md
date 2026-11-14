@@ -23,6 +23,9 @@ Tamil Nadu, India: monsoon uncertainty and water shortage. Hero site
 **Tirunelveli** (team member's family village; canal-fed paddy, banana, dry crops),
 plus Madurai and Thanjavur. Farmer-first UI with an "Expert details" toggle and
 Tamil crop names. The task list lives in `docs/TASKS.md` and the log in `docs/PROGRESS.md`.
+**Research direction log: `docs/RESEARCH_LOG.md`.** We pivot often. Whenever the direction changes (region,
+data source, model, story, scope), add an iteration entry there (template at the bottom) and update its
+"Current direction" paragraph. PROGRESS.md records what was built; RESEARCH_LOG.md records why the direction changed.
 
 ## Two lanes (two people, two Claude Code sessions, one repo)
 | Lane | Owner | Owns these paths only |
