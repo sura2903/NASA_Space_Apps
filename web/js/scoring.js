@@ -82,7 +82,9 @@ function adjustMonth(m, sc) {
     et0_mm: et0,
     water_balance_mm: precip - et0,
     heat_days: clamp(hot, 0, 31),
-    heavy_rain_days: (m.heavy_rain_days ?? 0) * (1 + 0.07 * dT) * (1 + dP), // ~7%/°C more intense rain
+    // Extremes intensify ~7%/°C (Clausius-Clapeyron) even if the mean dries, so a drier
+    // scenario only half-reduces heavy-rain days. Prevents "less rain => fewer floods" artefacts.
+    heavy_rain_days: Math.max(0, (m.heavy_rain_days ?? 0) * (1 + 0.07 * dT) * (1 + 0.5 * dP)),
     tmax_c: (m.tmax_c ?? 0) + dT,
     max_daily_precip_mm: m.max_daily_precip_mm ?? null,
   };
@@ -166,7 +168,9 @@ function evalSlots(L, getMonth, yearOf, src, soilBuffer) {
     const fails = [];
     if (ratio < WATER_OK) fails.push({ kind: "water", sev: 1 - ratio, text: `water: ~${r0(eff + buffer + irr)} mm available vs ${need} mm need` });
     if (heat > HEAT_LIMIT[s.crop.heat_tolerance]) fails.push({ kind: "heat", sev: heat / 30, text: `heat: ${r0(heat)} very hot days in season` });
-    if (heavy >= FLOOD_LIMIT[s.crop.flood_tolerance]) fails.push({ kind: "flood", sev: heavy / 5, text: `waterlogging: ${r0(heavy)} heavy-rain days in season` });
+    // heavy-rain days are event counts: round before comparing, so a small scenario scaling
+    // (2 -> 1.94) can't erase a real downpour year
+    if (Math.round(heavy) >= FLOOD_LIMIT[s.crop.flood_tolerance]) fails.push({ kind: "flood", sev: heavy / 5, text: `waterlogging: ${r0(heavy)} heavy-rain days in season` });
     return { slot: s, rain, eff, buffer, irr, need, ratio, heat, heavy, rainShare: clamp((eff + buffer) / need), fails };
   });
 }
@@ -187,6 +191,12 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
   // 2) historical replay: start the cycle in every possible year
   let units = 0, goodUnits = 0;
   const failures = [];
+  const perYear = {};                 // calendar year -> {n, good, worst}
+  const tally = (year, ok, worstFail) => {
+    const p = perYear[year] ??= { n: 0, good: 0, worst: null };
+    p.n++; if (ok) p.good++;
+    if (worstFail && (!p.worst || worstFail.sev > p.worst.sev)) p.worst = worstFail;
+  };
   if (!opts.skipReplay && cl.byYear.length) {
     const nY = cl.byYear.length;
     for (let y0 = 0; y0 + L.years <= nY; y0++) {
@@ -199,6 +209,7 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
         units++;
         const bad = rs.flatMap((r) => r.fails.map((f) => ({ ...f, crop: r.slot.crop, year: cl.byYear[y0 + row].year })));
         if (!bad.length) goodUnits++; else failures.push(...bad);
+        tally(cl.byYear[y0 + row].year, !bad.length, bad.reduce((w, f) => (!w || f.sev > w.sev ? f : w), null));
       }
     }
   }
@@ -247,7 +258,16 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
     rotation, label: labelOf(rotation, cm), water_source: src, is_current: !!opts.isCurrent,
     feasible, issues: L.issues, total: Math.round(clamp(total, 0, 100)),
     subscores: Object.fromEntries(Object.entries(subscores).map(([k, v]) => [k, r2(v)])),
-    replay: { good_years: r0(reliability * nYears), total_years: nYears, worst },
+    replay: {
+      good_years: r0(reliability * nYears), total_years: nYears, worst,
+      // one entry per calendar year, in order. In 2-year rotations a year can be checked
+      // as either rotation year, so share = fraction of those checks that passed.
+      years: Object.keys(perYear).map(Number).sort((a, b) => a - b).map((y) => {
+        const p = perYear[y];
+        return { year: y, ok: p.good / p.n >= 0.5, share: r2(p.good / p.n),
+                 reason: p.worst ? `${shortName(p.worst.crop)}: ${p.worst.text}` : null };
+      }),
+    },
     calendar: L.calendar,
     water_use: { need_mm: r0(totalNeed / L.years), irrigation_mm: r0(sum(A.map((r) => r.irr)) / L.years) },
     why: [], evidence: [], benefits: [], risks: [], gaps: [],
@@ -265,8 +285,12 @@ function labelOf(rotation, cm) {
 // ---------- plain-language explanations ----------
 function explain(st, { site, cl, L, A, src, bareFrac, soilBuffer, scenario }) {
   const srcLabel = WATER_SOURCES[src]?.label || src;
+  const seenSlot = new Set();          // a repeated crop in a 2-year cycle gets one line, not two
   for (const r of A) {
     const months = r.slot.abs.map((a) => (a % 12) + 1);
+    const key = `${r.slot.crop.id}@${months.join(",")}`;
+    if (seenSlot.has(key)) continue;
+    seenSlot.add(key);
     const nm = shortName(r.slot.crop);
     st.evidence.push({ text: `${nm} (${monthList(months)}): ~${r0(r.rain)} mm rain in season vs ~${r.need} mm crop need` + (r.irr > 1 ? `; ~${r0(r.irr)} mm must come from the ${srcLabel.toLowerCase()}` : ""), months });
     if (r.heat > 2) st.evidence.push({ text: `${nm} season has ~${r0(r.heat)} days above ${site.heat_threshold_c ?? 38} °C on average`, months });
@@ -425,6 +449,16 @@ export function siteHighlights(site, prefs = {}) {
   if (t.precip_mm_per_decade) out.push(`Annual rainfall trend: ${t.precip_mm_per_decade > 0 ? "+" : ""}${r0(t.precip_mm_per_decade)} mm per decade (noisy; treat with care)`);
   if (site.soil) out.push(`Soil: ${site.soil.texture_class}, pH ${site.soil.ph}, organic carbon ${site.soil.soc_g_per_kg} g/kg`);
   return out;
+}
+
+// Monthly climatology with the climate-shift scenario applied (same adjustment the
+// scores use), so the UI's calendar stress bands can move with the sliders.
+export function scenarioMonthly(site, scenario) {
+  return climate(site, scenario).monthly.map((m, i) => ({
+    month: i + 1,
+    precip_mm: r2(m.precip_mm), et0_mm: r2(m.et0_mm), water_balance_mm: r2(m.water_balance_mm),
+    heat_days: r2(m.heat_days), heavy_rain_days: r2(m.heavy_rain_days), tmax_c: r2(m.tmax_c),
+  }));
 }
 
 export function trendScenario(site, years = 10) {

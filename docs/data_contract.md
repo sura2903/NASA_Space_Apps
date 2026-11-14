@@ -97,6 +97,9 @@ generateStrategies(site, crops, currentRotation, prefs, n = 2) -> Strategy[]  //
 scoreRotation(site, crops, rotation, prefs)                    -> Strategy    // score any custom rotation
 siteHighlights(site, prefs)                                    -> string[]    // plain-language site facts
 trendScenario(site, years = 10)                                -> { dT_c, dPrecip_pct }  // "extend observed trend" preset
+scenarioMonthly(site, scenario)                                -> [{month, precip_mm, et0_mm, water_balance_mm,
+                                                                    heat_days, heavy_rain_days, tmax_c}] x12
+                                                                  // same adjusted climate the scores use (for calendar bands)
 DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
 WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
 cropLabel(crop)          -> "Black gram · உளுந்து"
@@ -115,7 +118,11 @@ cropLabel(crop)          -> "Black gram · உளுந்து"
   "subscores": { "water": 0.95, "income": 0.77, "soil_structure": 0.91, "nitrogen": 1,
                  "erosion": 0.89, "forage": 1, "reliability": 0.75, "pest": 1 },
   "replay": { "good_years": 18, "total_years": 24,
-              "worst": [{ "year": 2016, "crop": "rice_long", "reason": "Rice, long duration: water: ~205 mm available vs 1200 mm need" }] },
+              "worst": [{ "year": 2016, "crop": "rice_long", "reason": "Rice, long duration: water: ~205 mm available vs 1200 mm need" }],
+              "years": [ { "year": 2001, "ok": true,  "share": 1,   "reason": null },
+                         { "year": 2016, "ok": false, "share": 0,   "reason": "Rice, long duration: water: ~219 mm available vs 1200 mm need" } ] },
+              // years: every calendar year in order. share = fraction of checks that passed
+              // (a year can be checked as either year of a 2-year rotation); ok = share >= 0.5.
   "water_use": { "need_mm": 1200, "irrigation_mm": 64 },   // per year
   "calendar": [ [ { "state": "crop", "crop": "cotton" }, { "state": "bare", "crop": null }, /* x12 */ ] ],
   "why":      ["Better on \"Save water\" (38 → 95 out of 100)", "Uses ~45% less water than your current rotation"],

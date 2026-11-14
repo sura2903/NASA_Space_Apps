@@ -2,6 +2,17 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-14 night (Siddarth / Lane A): Lane B engine requests done; Pages live
+- **GitHub Pages enabled** (source: GitHub Actions). Live at https://sura2903.github.io/NASA_Space_Apps/
+  The site is public even though the repo is private.
+- `replay.years` added: a per-year pass/fail list (with share and reason) for drawing 24 squares in order.
+- New export `scenarioMonthly(site, scenario)`: the scenario-adjusted monthly climate, so calendar bands can move.
+- Two-year rotations no longer repeat the same crop's evidence line.
+- Sanity check on "drier scenario improves Bigger shift": a **real artefact**. Scaling a 2-heavy-day year by
+  0.97 dropped it under the waterlogging limit. Fixes: heavy-rain counts are rounded before the check, and
+  heavy days scale ~7%/°C with only half of any rainfall change. Drier/hotter scenarios now never improve outcomes
+  (Madurai rice 13→6/24 at −15% rain; Thanjavur Kuruvai 14→8/24 at +1.5 °C).
+
 ## 2026-11-14 evening: PR #2 merged into main (Lane B web app, incl. IMERG labels + two-datasets box)
 
 ## 2026-11-14 (Nimalan / Lane B)
