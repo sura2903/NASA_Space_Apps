@@ -4,15 +4,127 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Field Shift</title>
-  <!-- Lane B: replace this placeholder with the real UI.
-       Plan: site picker (Leaflet map) -> current rotation + priority sliders ->
-       climate calendar (Chart.js) -> 3 strategy cards (why / evidence / benefits / gaps / risks).
-       Data formats: docs/data_contract.md -->
+  <meta name="description" content="Compare crop rotation options for Tamil Nadu farms, tested against every year of the NASA weather record.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f7d32'/%3E%3Cpath d='M6 22c6-1 10-6 12-14 1 8 4 12 8 14' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
 </head>
 <body>
-  <h1>Field Shift</h1>
-  <p>Placeholder. Loaded data:</p>
-  <pre id="out">loading…</pre>
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
+      <div>
+        <h1>Field Shift <span class="ta" lang="ta">வயல் மாற்றம்</span></h1>
+        <p class="tagline">Crop rotation choices for an uncertain monsoon, checked against NASA data</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <label class="switch">
+        <input type="checkbox" id="expert">
+        <span class="track" aria-hidden="true"></span>
+        Expert details
+      </label>
+      <button type="button" id="print" class="btn">🖨 Print for my agriculture officer</button>
+    </div>
+  </header>
+
+  <p id="error" class="error" role="alert" hidden></p>
+
+  <main class="layout">
+    <aside class="inputs" aria-label="Your farm">
+      <section class="step">
+        <h2><span class="n">1</span> Your place</h2>
+        <label class="sr" for="site-select">Choose a place</label>
+        <select id="site-select" class="big-select"></select>
+        <div id="map" class="map" aria-label="Map of the demo sites. Click a dot to choose it."></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">2</span> What you grow now</h2>
+        <p class="note">Pick each crop and the month you sow it. Tamil names are shown next to each crop.</p>
+        <div id="rot-editor" class="rot-editor"></div>
+        <div id="rot-issues"></div>
+        <h3>Water for the field</h3>
+        <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">3</span> What matters to you</h2>
+        <p class="note">Slide each one. The options below re-rank as you go.</p>
+        <div id="prios" class="prios"></div>
+      </section>
+
+      <section class="step">
+        <h2><span class="n">4</span> What if the climate shifts?</h2>
+        <div id="climate" class="prios"></div>
+      </section>
+    </aside>
+
+    <div class="results">
+      <section class="panel site-panel" aria-labelledby="site-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">What NASA data says about this place</p>
+            <h2 id="site-title">Loading…</h2>
+            <p id="site-meta" class="note"></p>
+          </div>
+        </div>
+        <ul id="highlights" class="highlights"></ul>
+        <div class="charts">
+          <figure>
+            <figcaption>Rain vs <span class="term" tabindex="0" role="button" data-term="et">evapotranspiration</span> (crop thirst), average month</figcaption>
+            <div class="chart-box"><canvas id="ch-monthly" role="img" aria-label="Average monthly rain and evapotranspiration"></canvas></div>
+            <p class="note">When the orange line is above the blue bars, crops need stored soil water or irrigation.</p>
+          </figure>
+          <figure>
+            <figcaption>The <span class="term" tabindex="0" role="button" data-term="ne_monsoon">northeast monsoon</span>, year by year</figcaption>
+            <div class="chart-box"><canvas id="ch-monsoon" role="img" aria-label="October to December rain for each year"></canvas></div>
+            <p id="monsoon-note" class="note"></p>
+          </figure>
+          <figure id="ndvi-fig" class="expert-only">
+            <figcaption>Satellite greenness (<span class="term" tabindex="0" role="button" data-term="ndvi">NDVI</span>), by month</figcaption>
+            <div class="chart-box short"><canvas id="ch-ndvi" role="img" aria-label="Monthly median NDVI"></canvas></div>
+            <p id="ndvi-note" class="note"></p>
+          </figure>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="opts-title">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow">Compare</p>
+            <h2 id="opts-title">Three options for your field</h2>
+          </div>
+          <span id="busy" class="busy" role="status" aria-live="polite"></span>
+        </div>
+        <p id="summary" class="summary"></p>
+        <p id="scenario-note" class="scenario-note" hidden></p>
+        <div id="cards" class="cards"></div>
+        <p class="note support">These options support your own judgment and local advice; they do not replace them.
+          Use the print button to take them to your agriculture officer.</p>
+      </section>
+
+      <section class="panel about" aria-labelledby="gloss-title">
+        <h2 id="gloss-title">Words used here</h2>
+        <dl id="glossary-list" class="glossary"></dl>
+        <h2>Honest limits</h2>
+        <ul class="limits">
+          <li>NASA POWER weather is a coarse regional grid. It describes the area around your village, not your exact field.</li>
+          <li>Crop water needs and traits are approximate averages, and the scores are simple rules we can explain, not a trained model.</li>
+          <li>Climate what-ifs are rough scalings to explore, not forecasts.</li>
+          <li>Soil nutrients, pests, markets and water allocations need local knowledge. The printed sheet lists what to check.</li>
+        </ul>
+        <p class="note" id="data-sources"></p>
+      </section>
+    </div>
+  </main>
+
+  <div id="print-sheet" class="print-sheet"></div>
+
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
