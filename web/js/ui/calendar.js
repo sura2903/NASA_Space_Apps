@@ -50,7 +50,7 @@ export function fieldCalendar(strategy, site, cropById) {
     for (const s of spans) {
       const crop = s.cell.crop ? cropById[s.cell.crop] : null;
       const months = Array.from({ length: s.len }, (_, k) => s.start + k + 1);
-      const name = crop ? shortName(crop) : "Bare";
+      const name = crop ? shortName(crop).split(",")[0] : "Bare";
       const tip = `${MONTHS[s.start]}${s.len > 1 ? "–" + MONTHS[s.start + s.len - 1] : ""}: ` +
         (crop ? cropLabel(crop) + (s.cell.state === "cover" ? " (green manure, ploughed in)" : "") : "bare soil");
       grid.append(h("div", {

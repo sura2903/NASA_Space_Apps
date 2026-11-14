@@ -82,7 +82,7 @@ export function strategyCard(st, { site, cropById, isBest, rank }) {
     h("div", { class: "card-stats" },
       h("div", { class: "score" },
         h("span", { class: "score-n" }, fmt(st.total)),
-        h("span", { class: "score-l" }, "out of 100", h("br"), "fit with what matters to you"),
+        h("span", { class: "score-l" }, "out of 100", h("br"), "fit with your priorities"),
         h("span", { class: "meter", role: "meter", "aria-valuemin": 0, "aria-valuemax": 100, "aria-valuenow": st.total, "aria-label": "Fit score" },
           h("span", { style: { width: `${st.total}%` } }))),
       h("div", { class: "replay" },

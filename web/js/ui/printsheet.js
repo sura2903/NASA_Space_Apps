@@ -53,7 +53,7 @@ export function renderPrintSheet(el, { site, strategies, prefs, cropById, highli
           h("td", {}, `${s.replay.good_years} of ${s.replay.total_years} years`),
           h("td", {}, `${fmt(s.water_use.need_mm)} mm / ${fmt(s.water_use.irrigation_mm)} mm`),
           h("td", {}, s.replay.worst.map((w) => w.year).join(", ") || "–")))))),
-    strategies.map((s) => h("section", { class: "ps-strat" },
+    ...strategies.map((s) => h("section", { class: "ps-strat" },
       h("h3", {}, `${s.tag}: ${rotText(s.rotation, cropById)}`),
       h("div", { class: "ps-cols" },
         h("div", {}, h("h4", {}, "Why"), h("ul", {}, s.why.slice(0, 3).map((t) => h("li", {}, t)))),

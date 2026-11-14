@@ -198,6 +198,10 @@ async function init() {
   $("#print").addEventListener("click", () => window.print());
   window.matchMedia?.("(prefers-color-scheme: dark)").addEventListener?.("change", () => state.site && renderSitePanel());
 
+  window.addEventListener("hashchange", () => {
+    const id = new URLSearchParams(location.hash.slice(1)).get("site");
+    if (id && id !== state.site?.id && state.sites.some((s) => s.id === id)) selectSite(id);
+  });
   const fromHash = new URLSearchParams(location.hash.slice(1)).get("site");
   await selectSite(state.sites.some((s) => s.id === fromHash) ? fromHash : state.sites[0].id);
 }

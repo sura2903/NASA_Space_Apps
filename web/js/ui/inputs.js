@@ -51,10 +51,17 @@ export function renderRotationEditor(el, { rotation, crops, issues = [], onChang
     const add = h("button", {
       type: "button", class: "btn-ghost small",
       onclick: () => {
-        // pick a crop + month that does not obviously clash: first crop with a free sowing month
-        const used = new Set(year.map((s) => s.sow));
-        const c = crops.find((c) => c.type !== "green_manure" && c.sow_months.some((m) => !used.has(m))) || crops[0];
-        year.push({ crop: c.id, sow: c.sow_months.find((m) => !used.has(m)) ?? c.sow_months[0] });
+        // suggest the first crop + sowing month whose season fits the months still free this year
+        const len = (c) => Math.max(1, Math.round(c.duration_days / 30.4));
+        const taken = new Set(year.flatMap((s) => (byId[s.crop] ? Array.from({ length: len(byId[s.crop]) }, (_, k) => (s.sow - 1 + k) % 12) : [])));
+        const fits = (c, m) => Array.from({ length: len(c) }, (_, k) => (m - 1 + k) % 12).every((x) => !taken.has(x));
+        let pick = null;
+        for (const c of crops.filter((c) => c.type !== "green_manure").sort((a, b) => a.duration_days - b.duration_days)) {
+          const m = c.sow_months.find((m) => fits(c, m));
+          if (m) { pick = { crop: c.id, sow: m }; break; }
+        }
+        if (!pick) pick = { crop: crops[0].id, sow: crops[0].sow_months[0] };
+        year.push(pick);
         emit();
       },
     }, "+ Add a crop to this year");
