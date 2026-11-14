@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Shift · Crop map</title>
+  <meta name="description" content="Pick a crop to see where it does well, or click a place to see its top 3 crops, tested against NASA weather records.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f7d32'/%3E%3Cpath d='M6 22c6-1 10-6 12-14 1 8 4 12 8 14' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+</head>
+<body class="explore-page">
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
+      <div>
+        <h1 data-i18n="brand">Field Shift</h1>
+        <p class="tagline" data-i18n="x.tagline">Crop map: where does each crop do well?</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a class="btn-ghost nav-link" href="index.html" data-i18n="x.back">← Compare rotations</a>
+      <button type="button" id="lang" class="lang-btn" lang="ta">தமிழ்</button>
+    </nav>
+  </header>
+
+  <p id="error" class="error" role="alert" hidden></p>
+
+  <main class="layout explore">
+    <aside class="inputs" aria-label="Crop map controls">
+      <section class="step">
+        <h2><span class="n">1</span> <span data-i18n="x.step.crop">Pick a crop</span></h2>
+        <label class="sr" for="crop-select" data-i18n="x.step.crop">Pick a crop</label>
+        <select id="crop-select" class="big-select"></select>
+        <h3 data-i18n="x.measure">Colour the map by</h3>
+        <div id="measure" class="choices one-col" role="radiogroup"></div>
+      </section>
+      <section class="step">
+        <h2><span class="n">2</span> <span data-i18n="step.water">Water for the field</span></h2>
+        <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
+        <p class="note" data-i18n="x.water.note">Same water source assumed everywhere on the map.</p>
+      </section>
+      <section class="step">
+        <h2><span class="n">3</span> <span data-i18n="x.step.click">Click a place</span></h2>
+        <p class="note" data-i18n="x.step.click.note">Click anywhere on the map to see the top 3 crops for the nearest place with NASA data.</p>
+      </section>
+      <p class="note" id="points-note"></p>
+    </aside>
+
+    <div class="results">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow" data-i18n="x.map.eyebrow">Crop map</p>
+            <h2 id="map-title"></h2>
+          </div>
+          <span id="busy" class="busy" role="status" aria-live="polite"></span>
+        </div>
+        <div id="xmap" class="xmap" data-i18n-aria="x.map.aria"></div>
+        <div id="legend" class="xlegend"></div>
+        <div id="crop-table"></div>
+      </section>
+
+      <section class="panel" id="top3-panel" aria-live="polite">
+        <p class="eyebrow" data-i18n="x.top.eyebrow">Top 3 crops here</p>
+        <h2 id="top3-title" data-i18n="x.top.empty">Click a place on the map</h2>
+        <p id="top3-meta" class="note"></p>
+        <div id="top3" class="top3"></div>
+        <details id="all-crops" class="card-sec gaps" hidden>
+          <summary data-i18n="x.all">All crops at this place</summary>
+          <div id="all-crops-list"></div>
+        </details>
+        <p class="note support" data-i18n="x.limits"></p>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="js/explore.js"></script>
+</body>
+</html>

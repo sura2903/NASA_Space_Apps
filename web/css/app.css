@@ -87,6 +87,25 @@ body:not(.expert) .expert-only { display: none !important; }
 html[lang="ta"] body { font-family: var(--font-ta), var(--font); }
 html[lang="ta"] .cal-mon { font-size: 0.62rem; }
 html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { letter-spacing: 0; text-transform: none; }
+.nav-link { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; font-weight: 600; color: var(--accent); }
+/* crop map page */
+.xmap { height: min(62vh, 560px); border-radius: 10px; border: 1px solid var(--line); overflow: hidden; z-index: 0; cursor: crosshair; }
+.xlegend { display: flex; align-items: center; gap: 8px; margin: 10px 0 14px; font-size: 0.85rem; color: var(--ink-2); flex-wrap: wrap; }
+.xlegend-bar { width: 180px; height: 12px; border-radius: 6px; border: 1px solid var(--line); }
+.xlegend-l { font-weight: 600; }
+.xtable tbody tr.sel { background: color-mix(in srgb, var(--hl) 18%, transparent); }
+.xtable tbody tr:hover { background: var(--surface-2); }
+.xtable td { white-space: nowrap; }
+.choices.one-col { grid-template-columns: 1fr; }
+.top3 { display: grid; gap: 12px; margin-top: 10px; }
+.top3-head { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; }
+.top3-head h3 { font-size: 1.15rem; }
+.top3-head .note { margin: 2px 0 0; }
+.top3-rank { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-weight: 700; }
+.top3-card .score { flex: none; }
+@media (min-width: 1500px) { .explore .results { grid-template-columns: minmax(0, 1.5fr) minmax(380px, 1fr); align-items: start; } }
+.top3-card .replay, .top3-card .score { flex: none; }
+.table-wrap { overflow-x: auto; }
 .engine-note { font-size: 0.85rem; color: var(--ink-2); background: var(--surface-2); padding: 8px 12px; border-radius: 8px; margin: 0 0 12px; }
 .replay-squares.ordered span { cursor: help; }
 .replay-axis { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--ink-3); max-width: 264px; }

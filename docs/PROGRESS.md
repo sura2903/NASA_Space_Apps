@@ -2,6 +2,14 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-15 (Nimalan / Lane B): Tamil switch + crop map page
+- English / Tamil button on both pages (one language at a time). Engine sentences are still English;
+  a Tamil option in `scoring.js` would finish it (`docs/IDEAS.md` I2).
+- New `web/explore.html` crop map: pick a crop → how it fares at each place; click anywhere → top 3
+  crops at the nearest place. Runs on the 3 sites now. **Request for Lane A:** a grid in
+  `web/data/grid/` (format proposed in `docs/IDEAS.md`); the page picks it up with no code change.
+- UI now uses `replay.years` and `scenarioMonthly`. No contract changes.
+
 ## 2026-11-14 late night (Siddarth / Lane A): crop values tuned to official TN sources (A10)
 - **Sources:** TN Dept of Agriculture *Crop Production Guide* chapter PDFs (tnagriculture.in/dashboard/CPG/…)
   for sowing seasons and durations by zone and district; TNAU agronomy course notes (eagri.org AGRO103
