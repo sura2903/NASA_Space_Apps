@@ -1,0 +1,314 @@
+{
+  "id": "iowa_ames",
+  "name": "Ames, Iowa",
+  "lat": 42.03,
+  "lon": -93.62,
+  "source": "NASA POWER daily, community=AG",
+  "period": {
+    "start": 2001,
+    "end": 2024
+  },
+  "monthly": [
+    {
+      "month": 1,
+      "tmax_c": -1.7,
+      "tmin_c": -10.8,
+      "precip_mm": 24.0,
+      "root_soil_wetness": 0.513,
+      "frost_days": 30.5,
+      "heat_days": 0.0,
+      "water_balance_mm": 10.3
+    },
+    {
+      "month": 2,
+      "tmax_c": 0.9,
+      "tmin_c": -9.7,
+      "precip_mm": 27.0,
+      "root_soil_wetness": 0.525,
+      "frost_days": 27.4,
+      "heat_days": 0.0,
+      "water_balance_mm": 4.5
+    },
+    {
+      "month": 3,
+      "tmax_c": 9.0,
+      "tmin_c": -2.7,
+      "precip_mm": 47.5,
+      "root_soil_wetness": 0.538,
+      "frost_days": 23.3,
+      "heat_days": 0.0,
+      "water_balance_mm": -8.8
+    },
+    {
+      "month": 4,
+      "tmax_c": 16.4,
+      "tmin_c": 3.3,
+      "precip_mm": 84.5,
+      "root_soil_wetness": 0.541,
+      "frost_days": 8.6,
+      "heat_days": 0.0,
+      "water_balance_mm": -11.5
+    },
+    {
+      "month": 5,
+      "tmax_c": 22.1,
+      "tmin_c": 10.0,
+      "precip_mm": 116.0,
+      "root_soil_wetness": 0.543,
+      "frost_days": 0.3,
+      "heat_days": 0.1,
+      "water_balance_mm": -18.7
+    },
+    {
+      "month": 6,
+      "tmax_c": 27.6,
+      "tmin_c": 16.2,
+      "precip_mm": 121.6,
+      "root_soil_wetness": 0.515,
+      "frost_days": 0.0,
+      "heat_days": 0.5,
+      "water_balance_mm": -34.8
+    },
+    {
+      "month": 7,
+      "tmax_c": 29.8,
+      "tmin_c": 18.5,
+      "precip_mm": 93.3,
+      "root_soil_wetness": 0.467,
+      "frost_days": 0.0,
+      "heat_days": 2.9,
+      "water_balance_mm": -71.7
+    },
+    {
+      "month": 8,
+      "tmax_c": 29.1,
+      "tmin_c": 17.3,
+      "precip_mm": 104.7,
+      "root_soil_wetness": 0.439,
+      "frost_days": 0.0,
+      "heat_days": 2.1,
+      "water_balance_mm": -41.0
+    },
+    {
+      "month": 9,
+      "tmax_c": 25.5,
+      "tmin_c": 12.7,
+      "precip_mm": 77.8,
+      "root_soil_wetness": 0.442,
+      "frost_days": 0.0,
+      "heat_days": 0.4,
+      "water_balance_mm": -29.2
+    },
+    {
+      "month": 10,
+      "tmax_c": 17.1,
+      "tmin_c": 5.1,
+      "precip_mm": 67.1,
+      "root_soil_wetness": 0.46,
+      "frost_days": 5.2,
+      "heat_days": 0.0,
+      "water_balance_mm": 5.0
+    },
+    {
+      "month": 11,
+      "tmax_c": 8.9,
+      "tmin_c": -1.3,
+      "precip_mm": 40.0,
+      "root_soil_wetness": 0.483,
+      "frost_days": 19.0,
+      "heat_days": 0.0,
+      "water_balance_mm": 10.0
+    },
+    {
+      "month": 12,
+      "tmax_c": 1.1,
+      "tmin_c": -7.3,
+      "precip_mm": 36.6,
+      "root_soil_wetness": 0.497,
+      "frost_days": 29.2,
+      "heat_days": 0.0,
+      "water_balance_mm": 21.4
+    }
+  ],
+  "frost": {
+    "last_spring_frost_doy_median": 112,
+    "first_fall_frost_doy_median": 289,
+    "frost_free_days_median": 177
+  },
+  "trends": {
+    "tmax_c_per_decade": 0.33,
+    "precip_mm_per_decade": -31.1,
+    "heat_days_per_decade": -0.67,
+    "root_soil_wetness_per_decade": -0.0003
+  },
+  "annual": [
+    {
+      "year": 2001,
+      "precip_mm": 871,
+      "tmax_c": 15.61,
+      "heat_days": 7,
+      "frost_days": 139
+    },
+    {
+      "year": 2002,
+      "precip_mm": 775,
+      "tmax_c": 15.88,
+      "heat_days": 11,
+      "frost_days": 164
+    },
+    {
+      "year": 2003,
+      "precip_mm": 727,
+      "tmax_c": 15.62,
+      "heat_days": 10,
+      "frost_days": 140
+    },
+    {
+      "year": 2004,
+      "precip_mm": 805,
+      "tmax_c": 15.4,
+      "heat_days": 0,
+      "frost_days": 139
+    },
+    {
+      "year": 2005,
+      "precip_mm": 695,
+      "tmax_c": 16.66,
+      "heat_days": 12,
+      "frost_days": 139
+    },
+    {
+      "year": 2006,
+      "precip_mm": 753,
+      "tmax_c": 16.95,
+      "heat_days": 12,
+      "frost_days": 137
+    },
+    {
+      "year": 2007,
+      "precip_mm": 1032,
+      "tmax_c": 15.15,
+      "heat_days": 1,
+      "frost_days": 143
+    },
+    {
+      "year": 2008,
+      "precip_mm": 1105,
+      "tmax_c": 13.36,
+      "heat_days": 0,
+      "frost_days": 158
+    },
+    {
+      "year": 2009,
+      "precip_mm": 952,
+      "tmax_c": 13.82,
+      "heat_days": 0,
+      "frost_days": 145
+    },
+    {
+      "year": 2010,
+      "precip_mm": 1188,
+      "tmax_c": 14.17,
+      "heat_days": 0,
+      "frost_days": 132
+    },
+    {
+      "year": 2011,
+      "precip_mm": 726,
+      "tmax_c": 15.26,
+      "heat_days": 1,
+      "frost_days": 145
+    },
+    {
+      "year": 2012,
+      "precip_mm": 585,
+      "tmax_c": 18.62,
+      "heat_days": 34,
+      "frost_days": 128
+    },
+    {
+      "year": 2013,
+      "precip_mm": 757,
+      "tmax_c": 14.49,
+      "heat_days": 8,
+      "frost_days": 164
+    },
+    {
+      "year": 2014,
+      "precip_mm": 980,
+      "tmax_c": 13.48,
+      "heat_days": 0,
+      "frost_days": 150
+    },
+    {
+      "year": 2015,
+      "precip_mm": 1084,
+      "tmax_c": 15.45,
+      "heat_days": 0,
+      "frost_days": 133
+    },
+    {
+      "year": 2016,
+      "precip_mm": 859,
+      "tmax_c": 15.79,
+      "heat_days": 0,
+      "frost_days": 129
+    },
+    {
+      "year": 2017,
+      "precip_mm": 734,
+      "tmax_c": 16.43,
+      "heat_days": 6,
+      "frost_days": 132
+    },
+    {
+      "year": 2018,
+      "precip_mm": 1076,
+      "tmax_c": 14.28,
+      "heat_days": 2,
+      "frost_days": 168
+    },
+    {
+      "year": 2019,
+      "precip_mm": 950,
+      "tmax_c": 13.57,
+      "heat_days": 0,
+      "frost_days": 161
+    },
+    {
+      "year": 2020,
+      "precip_mm": 664,
+      "tmax_c": 15.73,
+      "heat_days": 7,
+      "frost_days": 154
+    },
+    {
+      "year": 2021,
+      "precip_mm": 648,
+      "tmax_c": 17.05,
+      "heat_days": 9,
+      "frost_days": 133
+    },
+    {
+      "year": 2022,
+      "precip_mm": 677,
+      "tmax_c": 15.64,
+      "heat_days": 8,
+      "frost_days": 152
+    },
+    {
+      "year": 2023,
+      "precip_mm": 628,
+      "tmax_c": 17.4,
+      "heat_days": 13,
+      "frost_days": 140
+    },
+    {
+      "year": 2024,
+      "precip_mm": 895,
+      "tmax_c": 17.55,
+      "heat_days": 2,
+      "frost_days": 118
+    }
+  ]
+}
