@@ -25,6 +25,13 @@ US backup sites live in `web/data/sites/_us_backup/` (not listed, not used by th
   "source": "NASA POWER daily, community=AG",
   "period": { "start": 2001, "end": 2024 },
   "heat_threshold_c": 38,             // heat_days count days with tmax above this
+  "precip_source": "GPM IMERG Final daily V07 at 8.75N 77.75E (0.1° grid); temperature/ET0 from NASA POWER",
+  "rain_comparison": {                // POWER vs IMERG, for a "two NASA datasets" panel
+    "power_annual_mean_mm": 1300, "imerg_annual_mean_mm": 948,
+    "power_ne_monsoon_mean_mm": 543, "imerg_ne_monsoon_mean_mm": 515,
+    "monthly_correlation": 0.78, "ne_monsoon_correlation": 0.83,
+    "driest_ne_year_power": 2016, "driest_ne_year_imerg": 2016 },
+  // Every precip_mm below is IMERG; the POWER value is kept alongside as power_precip_mm.
 
   "monthly": [                        // 12 entries Jan..Dec, 2001-2024 climatology
     { "month": 1, "tmax_c": 30.1, "tmin_c": 21.0,

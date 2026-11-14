@@ -2,6 +2,24 @@
 
 Newest first. Note contract changes here.
 
+## 2026-11-14 evening (Siddarth / Lane A): IMERG is now the rainfall source
+- Pulled **GPM IMERG Final daily V07** (0.1° grid) for 2001–2024 at all 3 sites via the NASA GES DISC
+  Giovanni Time Series API (the old Data Rods service is retired; AppEEARS has no IMERG).
+  Monthly aggregates are in `pipeline/data/imerg_monthly_2001_2024.json`; `pipeline/merge_imerg.py` merges them.
+- **POWER vs IMERG:** Tirunelveli POWER 1300 vs IMERG 948 mm/yr. The excess is in Jun–Sep, Western Ghats
+  rain leaking into POWER's ~50 km cell. Oct–Dec agrees (543 vs 515). Madurai 1004 vs 1010, Thanjavur 1055 vs 1177.
+  Monthly correlation 0.78 / 0.94 / 0.97. Both sources agree 2016 was the driest NE monsoon at every site.
+  The −283 mm/decade Tirunelveli trend was a POWER artefact (IMERG: +56).
+- **Contract v2.1 (additive, nothing removed):** site JSON gains `precip_source` and `rain_comparison`
+  (good for a "two NASA datasets agree / disagree" panel), plus `power_precip_mm` next to every `precip_mm`.
+  Rain fields now hold IMERG; temperature and ET0 stay POWER.
+- Engine: "Small step" = at most 1 new main crop; "Bigger shift" = 2 or more (they were near-duplicates).
+- Tirunelveli now: rice–rice 20/24 years OK; Small step (daincha → sorghum → Pishanam rice) 23/24 with 20%
+  less water; Bigger shift (pearl millet → cotton) 20/24 with 45% less water.
+- **Note for Lane B:** browsers cache ES modules hard. If engine changes don't show up, hard-reload or import
+  with `?v=` (see `web/dev/engine-test.html`).
+- Caveat: IMERG also smooths extremes. Dec 2023 shows 124 mm max/day, while stations recorded far more.
+
 ## 2026-11-14 later (Siddarth / Lane A)
 - MODIS NDVI (ORNL, 3×3 km median, 2019–2024) is now in all three TN site files. No bare
   months show up because the window mixes in trees, so it needs per-pixel AppEEARS data.

@@ -367,13 +367,22 @@ export function generateStrategies(site, crops, current, prefs, n = 2) {
     .filter((s) => s.feasible && s.label !== cur.label)
     .sort((a, b) => b.total - a.total);
 
+  // "Small step" = at most one new main crop; "Bigger shift" = two or more new main crops.
+  // Main crops ignore green manures, so two options never differ only by the manure.
+  const mains = (s) => new Set(s.rotation.flat().map((x) => x.crop).filter((id) => cm[id].type !== "green_manure"));
+  const sig = (s) => [...mains(s)].sort().join("+");
+  const newCount = (s) => [...mains(s)].filter((id) => !curIds.has(id)).length;
+  const curSig = sig(cur);
+  const pool = full.filter((s) => sig(s) !== curSig || s.label !== cur.label);
   const picks = [];
-  const big = full[0];
+  const small = pool.find((s) => newCount(s) <= 1 && sig(s) !== curSig) || pool.find((s) => newCount(s) <= 1);
+  const big = pool.find((s) => newCount(s) >= 2 && (!small || sig(s) !== sig(small)));
   if (big) picks.push({ s: big, tag: "Bigger shift" });
-  const keepsCurrent = (s) => s.rotation.flat().filter((x) => curIds.has(x.crop)).length >= Math.min(1, curIds.size);
-  const small = full.find((s) => s !== big && keepsCurrent(s) && s.label !== big?.label);
   if (small) picks.push({ s: small, tag: "Small step" });
-  for (const s of full) { if (picks.length >= n) break; if (!picks.some((p) => p.s.label === s.label)) picks.push({ s, tag: "Alternative" }); }
+  for (const s of pool) {
+    if (picks.length >= n) break;
+    if (!picks.some((p) => sig(p.s) === sig(s))) picks.push({ s, tag: "Alternative" });
+  }
 
   const out = [cur];
   for (const p of picks.slice(0, n)) {
