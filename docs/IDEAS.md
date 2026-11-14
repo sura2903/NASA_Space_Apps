@@ -9,7 +9,7 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 |---|---|---|---|
 | I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | 💡 |
 | I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | 💡 |
-| I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | 🔄 |
+| I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
 
 ## I4. Click a region → top 3 crops

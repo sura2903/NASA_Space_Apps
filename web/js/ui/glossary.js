@@ -1,5 +1,6 @@
 // B7 Glossary: plain-language definitions + tooltips on terms found in any text.
 import { esc, h } from "./dom.js";
+import { getLang } from "../i18n.js";
 
 export const GLOSSARY = {
   et: {
@@ -64,7 +65,27 @@ export const GLOSSARY = {
   },
 };
 
+// Tamil wording (first draft; to be checked by a native speaker).
+const GLOSSARY_TA = {
+  et: { term: "ஆவியுயிர்ப்பு (ET)", def: "மண்ணிலிருந்தும் பயிர் இலைகள் வழியாகவும் நீராவியாக வெளியேறும் நீர். வெயில் அதிகமான, வறண்ட மாதங்களில் இது அதிகம், அதனால் பயிர்களுக்கு விரைவில் தாகம் எடுக்கும். நாசா POWER வெப்பநிலையிலிருந்து (ஹார்கிரீவ்ஸ் முறை) கணக்கிடுகிறோம்." },
+  water_balance: { term: "நீர் சமநிலை", def: "ஒரு மாதத்தின் மழையிலிருந்து ஆவியுயிர்ப்பைக் கழித்தது. எதிர்மறை என்றால் மழை கொண்டுவருவதை விட வயல் அதிக நீரை இழக்கிறது; பயிர் மண்ணில் சேமித்த நீர் அல்லது பாசனத்தை நம்பி இருக்கும்." },
+  ne_monsoon: { term: "வடகிழக்கு பருவமழை", def: "அக்டோபர் முதல் டிசம்பர் வரை பெய்யும் மழை. தமிழ்நாட்டின் பெரும்பகுதிக்கு இதுவே முக்கிய மழைக்காலம்; ஏரி குளங்களை நிரப்புகிறது, ஆனால் ஆண்டுக்கு ஆண்டு பெரிதும் மாறுகிறது." },
+  heavy_rain: { term: "கனமழை நாள்", def: "64.5 மி.மீ அல்லது அதற்கு மேல் மழை பெய்யும் நாள் (இந்திய வானிலை ஆய்வுத் துறையின் வரையறை). ஒரு பருவத்தில் பல நாட்கள் இருந்தால் பயிரில் நீர் தேங்கும், வெற்று வயலின் மேல்மண் அரித்துச் செல்லும்." },
+  green_manure: { term: "பசுந்தாள் உரம்", def: "தக்கைப்பூண்டு, சணப்பு போன்ற வேகமாக வளரும் செடிகள்; சில வாரங்கள் வளர்த்து ஈரமண்ணில் உழுது சேர்க்கப்படும். அடுத்த பயிருக்கு அங்ககப் பொருளும் நைட்ரஜனும் தரும், மண்ணை மூடி வைக்கும்." },
+  msp: { term: "குறைந்தபட்ச ஆதரவு விலை (MSP)", def: "சில பயிர்களுக்கு ஒவ்வொரு பருவத்திலும் இந்திய அரசு அறிவிக்கும் விலை; அந்த விலையில் அரசு நிறுவனங்கள் கொள்முதல் செய்யும். விலை வீழ்ச்சி அபாயத்தைக் குறைக்கும்." },
+  ndvi: { term: "NDVI (செயற்கைக்கோள் பசுமை)", def: "நாசாவின் MODIS செயற்கைக்கோள் நிலம் எவ்வளவு பசுமையாக உள்ளது என்பதை அளக்கிறது: வெற்று மண்ணுக்கு சுமார் 0, அடர்ந்த பயிருக்கு சுமார் 0.8. ஒரு மாதத்தில் குறைவாக இருந்தால் வயல்கள் வெற்றாக அல்லது வறண்டு இருக்கலாம்." },
+  soil_moisture: { term: "வேர்ப்பகுதி மண் ஈரம்", def: "வேர்கள் வளரும் இடத்தில் மண் எவ்வளவு ஈரமாக உள்ளது: 0 (வறண்டது) முதல் 1 (நனைந்தது) வரை. நாசா POWER மற்றும் SMAP செயற்கைக்கோள் விண்ணிலிருந்து மதிப்பிடுகின்றன." },
+  replay: { term: "வரலாற்று மறுஓட்டம்", def: "ஒவ்வொரு பயிர்த் திட்டத்தையும் நாசா வானிலைப் பதிவின் ஒவ்வொரு உண்மையான ஆண்டிலும் சோதிக்கிறோம். எந்தப் பயிருக்கும் நீர்ப் பற்றாக்குறை, அதிக வெப்ப நாட்கள், அல்லது நீர் தேங்கும் கனமழை இல்லாவிட்டால் அந்த ஆண்டு 'தாங்கியது'." },
+  frost: { term: "உறைபனி அபாயம்", def: "0 °C-க்குக் கீழ் இரவு வெப்பநிலை பயிர்களைச் சேதப்படுத்தும் வாய்ப்பு. இந்தத் தமிழ்நாட்டு இடங்களில் நாசா பதிவில் உறைபனி இல்லை, அதனால் வெப்பமும் நீரும் மட்டும் சோதிக்கப்படுகின்றன." },
+  soilgrids: { term: "SoilGrids", def: "மண் மாதிரிகள், செயற்கைக்கோள் தரவிலிருந்து உருவாக்கிய உலக மண் வரைபடம் (ISRIC, 250 மீ). மண் வகை, அங்கக கரிமம், pH தருகிறது; ஆனால் உங்கள் வயலின் மண் பரிசோதனை துல்லியமானது." },
+  nitrogen_fix: { term: "நைட்ரஜன் நிலைநிறுத்தம்", def: "உளுந்து, பாசிப்பயறு, தட்டைப்பயறு போன்ற பயறுகளும் பசுந்தாள் உரங்களும் வேர்களில் உள்ள பாக்டீரியா மூலம் காற்றிலிருந்து நைட்ரஜனை எடுக்கின்றன. அடுத்த பயிருக்கு யூரியா குறைவாகத் தேவைப்படும்." },
+};
+const entry = (id) => (getLang() === "ta" && GLOSSARY_TA[id] ? GLOSSARY_TA[id] : GLOSSARY[id]);
+
 const IDS = Object.keys(GLOSSARY);
+
+/** "[[et|evapotranspiration]] text" -> HTML with glossary term triggers. */
+export const rich = (s) => esc(s).replace(/\[\[(\w+)\|([^\]]+)\]\]/g, (_, id, label) => termHtml(id, label));
 
 /**
  * Escape text and wrap the first match of each glossary term in a tooltip trigger.
@@ -92,11 +113,11 @@ export function decorate(text, skip = []) {
 }
 
 export const termHtml = (id, label) =>
-  `<span class="term" tabindex="0" role="button" aria-describedby="tip" data-term="${id}">${esc(label ?? GLOSSARY[id].term)}</span>`;
+  `<span class="term" tabindex="0" role="button" aria-describedby="tip" data-term="${id}">${label != null ? label : esc(entry(id).term)}</span>`;
 
 /** A term trigger as a DOM node. */
 export function term(id, label) {
-  const span = h("span", { class: "term", tabindex: "0", role: "button", "aria-describedby": "tip", "data-term": id }, label ?? GLOSSARY[id].term);
+  const span = h("span", { class: "term", tabindex: "0", role: "button", "aria-describedby": "tip", "data-term": id }, label ?? entry(id).term);
   return span;
 }
 
@@ -106,7 +127,7 @@ export function initTooltips() {
   document.body.append(tip);
   let current = null;
   const show = (el) => {
-    const g = GLOSSARY[el.dataset.term];
+    const g = GLOSSARY[el.dataset.term] && entry(el.dataset.term);
     if (!g) return;
     current = el;
     tip.innerHTML = `<strong>${esc(g.term)}</strong><span>${esc(g.def)}</span>`;
@@ -136,5 +157,5 @@ export function initTooltips() {
 
 /** Full glossary list for the bottom of the page. */
 export function renderGlossaryList(el) {
-  el.innerHTML = IDS.map((id) => `<div class="gloss-item" id="g-${id}"><dt>${esc(GLOSSARY[id].term)}</dt><dd>${esc(GLOSSARY[id].def)}</dd></div>`).join("");
+  el.innerHTML = IDS.map((id) => `<div class="gloss-item" id="g-${id}"><dt>${esc(entry(id).term)}</dt><dd>${esc(entry(id).def)}</dd></div>`).join("");
 }

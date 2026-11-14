@@ -1,8 +1,9 @@
 // B1 Site picker: Leaflet map of the demo sites. Falls back to the dropdown alone
 // if Leaflet (CDN) did not load.
+import { siteName } from "../i18n.js";
 export function createSiteMap(el, sites, onPick) {
   const L = window.L;
-  if (!L) { el.hidden = true; return { select() {} }; }
+  if (!L) { el.hidden = true; return { select() {}, relabel() {} }; }
   const map = L.map(el, { scrollWheelZoom: false, attributionControl: true, zoomControl: true });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 12, minZoom: 5,
@@ -13,7 +14,7 @@ export function createSiteMap(el, sites, onPick) {
   for (const s of sites) {
     const m = L.circleMarker([s.lat, s.lon], { radius: 9, weight: 2, className: "site-marker" })
       .addTo(map)
-      .bindTooltip(s.name.replace(/\s*\(.*\)/, ""), { permanent: true, direction: "right", offset: [10, 0], className: "site-label" })
+      .bindTooltip(siteName(s).replace(/\s*\(.*\)/, ""), { permanent: true, direction: "right", offset: [10, 0], className: "site-label" })
       .on("click", () => onPick(s.id));
     m.getElement?.()?.setAttribute("aria-label", s.name);
     markers[s.id] = m;
@@ -31,5 +32,8 @@ export function createSiteMap(el, sites, onPick) {
       }
     },
     invalidate() { map.invalidateSize(); },
+    relabel() {
+      for (const s of sites) markers[s.id].setTooltipContent(siteName(s).replace(/\s*\(.*\)/, ""));
+    },
   };
 }

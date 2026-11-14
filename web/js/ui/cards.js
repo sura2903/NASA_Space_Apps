@@ -1,12 +1,12 @@
 // B5 Strategy cards: tag, rotation, score, replay, calendar, why / evidence / benefits / risks / gaps.
-import { MONTHS, PRIORITIES, WATER_SOURCES } from "../scoring.js";
+import { PRIORITIES, WATER_SOURCES } from "../scoring.js";
 import { h, fmt } from "./dom.js";
 import { decorate, term } from "./glossary.js";
 import { fieldCalendar } from "./calendar.js";
+import { t, cropName, monthShort, prioLabel, waterLabel, tagLabel, translateEngine } from "../i18n.js";
 
-const SUB_LABELS = { ...PRIORITIES, pest: "Pest & disease break" };
-const shortName = (c) => c.name.replace(/\s*\(.*?\)\s*/g, " ").replace(/\s+/g, " ").trim();
-const li = (text) => h("li", { html: decorate(text) });
+const subLabel = (k) => (k === "pest" ? t("sub.pest") : prioLabel(k, PRIORITIES[k] ?? k));
+const li = (text) => h("li", { html: decorate(translateEngine(text, PRIORITIES)) });
 
 /** Slots of each rotation year, ordered from April so a green manure comes before its crop. */
 export function orderedSlots(year) {
@@ -15,34 +15,47 @@ export function orderedSlots(year) {
 
 export function rotationSteps(rotation, cropById) {
   return h("div", { class: "rot-steps" }, rotation.map((year, yi) => h("div", { class: "rot-line" },
-    rotation.length > 1 ? h("span", { class: "rot-year-tag" }, `Year ${yi + 1}`) : null,
+    rotation.length > 1 ? h("span", { class: "rot-year-tag" }, t("card.year", { n: yi + 1 })) : null,
     orderedSlots(year).map((s, i) => {
       const c = cropById[s.crop];
       return [
         i ? h("span", { class: "arrow", "aria-hidden": "true" }, "→") : null,
         h("span", { class: "rstep" + (c?.type === "green_manure" ? " gm" : "") },
-          h("span", { class: "mon" }, MONTHS[s.sow - 1]),
-          h("span", { class: "en" }, c ? shortName(c) : s.crop),
-          c?.tamil_name ? h("span", { class: "ta", lang: "ta" }, c.tamil_name) : null),
+          h("span", { class: "mon" }, monthShort(s.sow)),
+          h("span", { class: "en" }, c ? cropName(c) : s.crop)),
       ];
     }))));
 }
 
-export function strategyCard(st, { site, cropById, isBest, rank }) {
-  const cal = fieldCalendar(st, site, cropById);
-  const rp = st.replay;
-  const src = WATER_SOURCES[st.water_source]?.label ?? st.water_source;
+/** One square per replayed year, in year order when the engine provides replay.years. */
+function replaySquares(rp) {
+  const years = rp.years?.length ? rp.years : null;
+  const cells = years
+    ? years.map((y) => h("span", {
+      class: y.ok ? "ok" : "bad",
+      title: y.ok ? t("replay.ok", { year: y.year }) : t("replay.bad", { year: y.year, reason: y.reason ?? "" }),
+    }))
+    : Array.from({ length: rp.total_years }, (_, i) => h("span", { class: i < rp.good_years ? "ok" : "bad" }));
+  const strip = h("div", { class: "replay-squares" + (years ? " ordered" : "") }, cells);
+  if (years) {
+    strip.setAttribute("role", "img");
+    strip.setAttribute("aria-label", years.map((y) => `${y.year} ${y.ok ? "✓" : "✗"}`).join(", "));
+  } else strip.setAttribute("aria-hidden", "true");
+  return h("div", {}, strip,
+    years ? h("div", { class: "replay-axis", "aria-hidden": "true" }, h("span", {}, years[0].year), h("span", {}, years[years.length - 1].year)) : null);
+}
 
-  // replay strip: one square per year (counts only; the engine reports which years failed worst)
-  const squares = h("div", { class: "replay-squares", "aria-hidden": "true" },
-    Array.from({ length: rp.total_years }, (_, i) => h("span", { class: i < rp.good_years ? "ok" : "bad" })));
+export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenarioOn }) {
+  const cal = fieldCalendar(st, site, cropById, { monthly, scenarioOn });
+  const rp = st.replay;
+  const src = waterLabel(st.water_source, WATER_SOURCES[st.water_source]?.label ?? st.water_source);
 
   let pinned = null;
   const chips = st.evidence.map((ev) => {
     const hasMonths = ev.months?.length > 0;
     const chip = h("button", {
       type: "button", class: "chip" + (hasMonths ? "" : " no-months"),
-      "aria-label": hasMonths ? `${ev.text}. Highlights ${ev.months.map((m) => MONTHS[m - 1]).join(", ")} on the calendar` : ev.text,
+      "aria-label": hasMonths ? t("card.chip.aria", { text: ev.text, months: ev.months.map(monthShort).join(", ") }) : ev.text,
       onmouseenter: () => hasMonths && cal.highlight(ev.months),
       onmouseleave: () => cal.highlight(pinned?.months ?? []),
       onfocus: () => hasMonths && cal.highlight(ev.months),
@@ -64,52 +77,54 @@ export function strategyCard(st, { site, cropById, isBest, rank }) {
     : null;
 
   const subs = Object.entries(st.subscores).map(([k, v]) => h("div", { class: "sub" },
-    h("span", { class: "sub-k" }, SUB_LABELS[k] ?? k),
+    h("span", { class: "sub-k" }, subLabel(k)),
     h("span", { class: "sub-bar" }, h("span", { style: { width: `${Math.round(v * 100)}%` } })),
     h("span", { class: "sub-v" }, fmt(v * 100))));
 
   return h("article", {
     class: "card" + (st.is_current ? " current" : "") + (isBest ? " best" : ""),
-    "aria-label": `${st.tag}: ${st.label}`, dataset: { rank: String(rank) },
+    "aria-label": `${tagLabel(st.tag)}: ${st.label}`, dataset: { rank: String(rank) },
   },
     h("header", { class: "card-head" },
       h("div", { class: "tags" },
-        h("span", { class: "tag" }, st.tag),
-        isBest ? h("span", { class: "badge" }, "★ Best fit for your priorities") : null,
-        !st.feasible ? h("span", { class: "badge warn" }, "Has a timing problem") : null),
+        h("span", { class: "tag" }, tagLabel(st.tag)),
+        isBest ? h("span", { class: "badge" }, t("card.best")) : null,
+        !st.feasible ? h("span", { class: "badge warn" }, t("card.timing")) : null),
       rotationSteps(st.rotation, cropById)),
 
     h("div", { class: "card-stats" },
       h("div", { class: "score" },
         h("span", { class: "score-n" }, fmt(st.total)),
-        h("span", { class: "score-l" }, "out of 100", h("br"), "fit with your priorities"),
-        h("span", { class: "meter", role: "meter", "aria-valuemin": 0, "aria-valuemax": 100, "aria-valuenow": st.total, "aria-label": "Fit score" },
+        h("span", { class: "score-l" }, t("card.outof"), h("br"), t("card.fit")),
+        h("span", { class: "meter", role: "meter", "aria-valuemin": 0, "aria-valuemax": 100, "aria-valuenow": st.total, "aria-label": t("card.fit.aria") },
           h("span", { style: { width: `${st.total}%` } }))),
       h("div", { class: "replay" },
-        h("div", { class: "replay-l" }, term("replay", "Came through"), ` ${rp.good_years} of ${rp.total_years} years`),
-        squares,
-        rp.worst.length ? h("div", { class: "replay-worst" }, "Hardest years: ", rp.worst.map((w) => w.year).join(" · ")) : null)),
+        h("div", { class: "replay-l" }, t("card.came.after")
+          ? [t("card.of", { good: rp.good_years, total: rp.total_years }), " ", term("replay", t("card.came"))]
+          : [term("replay", t("card.came")), t("card.of", { good: rp.good_years, total: rp.total_years })]),
+        replaySquares(rp),
+        rp.worst.length ? h("div", { class: "replay-worst" }, t("card.hardest"), rp.worst.map((w) => w.year).join(" · ")) : null)),
 
     h("p", { class: "water-line", html: decorate(
-      `Water: needs ~${fmt(st.water_use.need_mm)} mm a year` +
-      (st.water_use.irrigation_mm > 0 ? `; ~${fmt(st.water_use.irrigation_mm)} mm of it from the ${src.toLowerCase()}` : "; rain and soil water only")) }),
+      t("card.water", { need: fmt(st.water_use.need_mm) }) +
+      (st.water_use.irrigation_mm > 0 ? t("card.water.irr", { irr: fmt(st.water_use.irrigation_mm), src: src.toLowerCase() }) : t("card.water.rain"))) }),
 
     cal.el,
 
-    section("Why this option", st.why, "why"),
+    section(t("card.why"), st.why, "why"),
     h("section", { class: "card-sec evidence" },
-      h("h4", {}, "Evidence from NASA data ", h("span", { class: "hint" }, "point at a ▦ fact to see its months")),
+      h("h4", {}, t("card.evidence"), h("span", { class: "hint" }, t("card.hint"))),
       h("div", { class: "chips" }, chips)),
-    section("Benefits", st.benefits, "good"),
-    section("Risks to check locally", st.risks, "risk"),
+    section(t("card.benefits"), st.benefits, "good"),
+    section(t("card.risks"), st.risks, "risk"),
     st.gaps.length ? h("details", { class: "card-sec gaps" },
-      h("summary", {}, `What the data can't tell us (${st.gaps.length})`),
+      h("summary", {}, t("card.gaps", { n: st.gaps.length })),
       h("ul", {}, st.gaps.map(li))) : null,
 
     h("section", { class: "card-sec expert-only" },
-      h("h4", {}, "Sub-scores (0–100)"),
+      h("h4", {}, t("card.subs")),
       h("div", { class: "subs" }, subs),
-      st.issues.length ? h("ul", { class: "rot-issues" }, st.issues.map((t) => h("li", {}, "⚠ " + t))) : null,
-      h("p", { class: "note" }, `Engine label: ${st.label}. Water source: ${src}.`)),
+      st.issues.length ? h("ul", { class: "rot-issues" }, st.issues.map((x) => h("li", {}, "⚠ " + x))) : null,
+      h("p", { class: "note" }, t("card.engine", { label: st.label, src }))),
   );
 }

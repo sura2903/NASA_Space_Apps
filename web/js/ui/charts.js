@@ -1,6 +1,8 @@
 // B3 Site charts (Chart.js from CDN). Every value comes from the site JSON.
-import { MONTHS } from "../scoring.js";
 import { cssVar, fmt } from "./dom.js";
+import { t, monthShort } from "../i18n.js";
+
+const MONTH_LABELS = () => Array.from({ length: 12 }, (_, i) => monthShort(i + 1));
 
 const charts = {};
 const ok = () => typeof window.Chart !== "undefined";
@@ -35,16 +37,16 @@ export function drawMonthlyChart(canvas, site, highlightMonths = []) {
   const blue = cssVar("--rain"), blueSoft = cssVar("--rain-soft"), orange = cssVar("--et");
   const hl = new Set(highlightMonths);
   const opts = base("Monthly rain vs evapotranspiration");
-  opts.scales.y.title = { display: true, text: "mm per month", color: cssVar("--ink-2") };
+  opts.scales.y.title = { display: true, text: t("ch.mm"), color: cssVar("--ink-2") };
   opts.plugins.tooltip.callbacks = { label: (c) => `${c.dataset.label}: ${fmt(c.parsed.y)} mm` };
   draw("monthly", canvas, {
     type: "bar",
     data: {
-      labels: MONTHS,
+      labels: MONTH_LABELS(),
       datasets: [
-        { type: "bar", label: /IMERG/.test(site.precip_source || "") ? "Rain (GPM IMERG)" : "Rain (NASA POWER)", data: rain, borderRadius: 4, borderSkipped: "bottom",
-          backgroundColor: MONTHS.map((_, i) => (hl.size && !hl.has(i + 1) ? blueSoft : blue)), order: 2 },
-        { type: "line", label: "Evapotranspiration (NASA POWER)", data: et, borderColor: orange, backgroundColor: orange,
+        { type: "bar", label: t("ch.rain", { src: /IMERG/.test(site.precip_source || "") ? "GPM IMERG" : "NASA POWER" }), data: rain, borderRadius: 4, borderSkipped: "bottom",
+          backgroundColor: rain.map((_, i) => (hl.size && !hl.has(i + 1) ? blueSoft : blue)), order: 2 },
+        { type: "line", label: t("ch.et"), data: et, borderColor: orange, backgroundColor: orange,
           borderWidth: 2, pointRadius: 3, pointHoverRadius: 5, tension: 0.3, order: 1 },
       ],
     },
@@ -65,23 +67,23 @@ export function drawMonsoonChart(canvas, site) {
   const blue = cssVar("--rain"), warn = cssVar("--et"), ink = cssVar("--ink-2");
   const opts = base("Northeast monsoon by year");
   opts.interaction = { mode: "nearest", intersect: false, axis: "x" };
-  opts.scales.y.title = { display: true, text: "mm, Oct–Dec", color: ink };
+  opts.scales.y.title = { display: true, text: t("ch.ne.axis"), color: ink };
   opts.scales.x.ticks.maxRotation = 0;
   opts.scales.x.ticks.autoSkip = true;
   opts.plugins.legend.labels.filter = (item) => item.text !== "_";
   opts.plugins.tooltip.callbacks = {
     label: (c) => (c.datasetIndex === 0
-      ? `Oct–Dec rain: ${fmt(c.parsed.y)} mm (${fmt((100 * c.parsed.y) / avg)}% of average)`
-      : `Average: ${fmt(avg)} mm`),
+      ? t("ch.ne.tip", { x: fmt(c.parsed.y), pct: fmt((100 * c.parsed.y) / avg) })
+      : t("ch.ne.avg", { x: fmt(avg) })),
   };
   draw("monsoon", canvas, {
     type: "bar",
     data: {
       labels: years.map((y) => y.year),
       datasets: [
-        { label: "Oct–Dec rain (orange = 20%+ below average, IMD 'deficient')", data: years.map((y) => y.v), borderRadius: 3, borderSkipped: "bottom",
+        { label: t("ch.ne.label"), data: years.map((y) => y.v), borderRadius: 3, borderSkipped: "bottom",
           backgroundColor: years.map((y) => (y.v < avg * 0.8 ? warn : blue)), order: 2 },
-        { type: "line", label: `Average ${fmt(avg)} mm`, data: years.map(() => avg), borderColor: ink, borderDash: [5, 4],
+        { type: "line", label: t("ch.ne.avg", { x: fmt(avg) }), data: years.map(() => avg), borderColor: ink, borderDash: [5, 4],
           borderWidth: 1.5, pointRadius: 0, pointHoverRadius: 0, order: 1 },
       ],
     },
@@ -96,12 +98,12 @@ export function drawNdviChart(canvas, site) {
   const green = cssVar("--crop");
   const opts = base("NDVI");
   opts.scales.y.beginAtZero = false;
-  opts.scales.y.title = { display: true, text: "NDVI (0 bare → 1 dense)", color: cssVar("--ink-2") };
+  opts.scales.y.title = { display: true, text: t("ch.ndvi.axis"), color: cssVar("--ink-2") };
   opts.plugins.legend.display = false;
   opts.plugins.tooltip.callbacks = { label: (c) => `NDVI ${fmt(c.parsed.y, 2)}` };
   draw("ndvi", canvas, {
     type: "line",
-    data: { labels: MONTHS, datasets: [{ label: "NDVI", data: nd.monthly_median, borderColor: green, backgroundColor: green, borderWidth: 2, pointRadius: 3, tension: 0.3 }] },
+    data: { labels: MONTH_LABELS(), datasets: [{ label: "NDVI", data: nd.monthly_median, borderColor: green, backgroundColor: green, borderWidth: 2, pointRadius: 3, tension: 0.3 }] },
     options: opts,
   });
   return true;
