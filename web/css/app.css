@@ -432,3 +432,4 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .trend-findings .flag { color: var(--warn); cursor: help; }
 .trend-refs a { color: var(--accent); }
 .trend-l2 { color: var(--ink); }
+.wi-low { opacity: 0.7; }

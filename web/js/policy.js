@@ -26,7 +26,8 @@ const state = {
   points: [], sites: {}, crops: [], cropById: {}, cellDeg: null, kind: "grid",
   on: Object.fromEntries(COMPONENTS.map((c) => [c.id, c.on])),
   scores: {}, selected: null,
-  wi: { from: "rice_long", to: null, water: "canal", share: 25, area: 1000 },
+  wi: { from: "rice_long", to: null, water: "canal", share: 25, area: 1000, areaAuto: true, district: null },
+  districts: [], districtsMeta: null,
   ctx: {},
 };
 let map = null, layer = null;
@@ -180,7 +181,21 @@ function selectPoint(p) {
   const top = rankCrops(s, state.crops, prefs(state.wi.water), state.crops.length, ctxFor(state.wi.water)).find((k) => fits(state.cropById[k.crop]));
   state.wi.to = top?.crop ?? state.wi.to;
   state.wi.toAuto = true;
+  // district(s) this grid point belongs to (data/districts.json, contract §1c)
+  const ds = districtsAt(p);
+  state.wi.district = ds[0]?.id ?? null;
+  state.wi.areaAuto = true;
+  fillArea();
   drawMap(); drawTable(); drawWhatIf();
+}
+
+const districtsAt = (p) => state.districts.filter((d) => d.points?.includes(p.id));
+const districtById = (id) => state.districts.find((d) => d.id === id) ?? null;
+// rice areas are reported for all rice together, under rice_long (contract §1c)
+const areaKey = (cropId) => (cropId === "rice_short" ? "rice_long" : cropId);
+function fillArea() {
+  const d = districtById(state.wi.district);
+  if (d && state.wi.areaAuto) state.wi.area = Math.round(d.area_ha?.[areaKey(state.wi.from)] ?? 0);
 }
 
 function drawWhatIf() {
@@ -199,18 +214,30 @@ function drawWhatIf() {
   const savedMm = (a.irrigation_mm ?? 0) - (b.irrigation_mm ?? 0);
   
   const controls = h("div", { class: "wi-controls" },
-    h("label", {}, h("span", {}, t("p.wi.from")), sel("wi-from", w.from, (v) => { w.from = v; drawWhatIf(); })),
+    h("label", {}, h("span", {}, t("p.wi.from")), sel("wi-from", w.from, (v) => { w.from = v; fillArea(); drawWhatIf(); })),
     h("label", {}, h("span", {}, t("p.wi.to") + (w.toAuto ? ` (${t("p.wi.top")})` : "")), sel("wi-to", w.to, (v) => { w.to = v; w.toAuto = false; drawWhatIf(); })),
     h("label", {}, h("span", {}, t("p.wi.water")), h("select", { id: "wi-water", onchange: (e) => { w.water = e.target.value; drawWhatIf(); } },
       ...Object.keys(WATER_SOURCES).map((k) => h("option", { value: k, selected: k === w.water }, waterLabel(k, WATER_SOURCES[k].label))))),
     h("label", {}, h("span", {}, t("p.wi.area", { crop: cropName(state.cropById[w.from]) })),
-      h("input", { id: "wi-area", type: "number", min: "0", step: "100", value: String(w.area), onchange: (e) => { w.area = Math.max(0, +e.target.value || 0); drawWhatIf(); } })),
+      h("input", { id: "wi-area", type: "number", min: "0", step: "100", value: String(w.area), onchange: (e) => { w.area = Math.max(0, +e.target.value || 0); w.areaAuto = false; drawWhatIf(); } })),
     h("label", { class: "wi-share" }, h("span", {}, t("p.wi.share", { v: w.share })),
       h("input", { id: "wi-share", type: "range", min: "0", max: "100", step: "5", value: String(w.share),
         oninput: (e) => { w.share = +e.target.value; drawResult(); e.target.previousSibling.textContent = t("p.wi.share", { v: w.share }); } })));
 
-  const result = h("div", { id: "wi-result" });
-  box.append(controls, result, h("p", { class: "note" }, t("p.wi.areanote")));
+  const dist = districtById(w.district);
+  const cands = districtsAt(p);
+  if (cands.length > 1) {
+    controls.prepend(h("label", {}, h("span", {}, t("p.wi.district")), h("select", { id: "wi-district", onchange: (e) => { w.district = e.target.value; w.areaAuto = true; fillArea(); drawWhatIf(); } },
+      ...cands.map((d) => h("option", { value: d.id, selected: d.id === w.district }, d.name)))));
+  }
+  const low = dist?.mismatch?.confidence === "low";
+  const areaNote = dist
+    ? h("p", { class: "note" + (low ? " wi-low" : "") },
+        w.areaAuto ? t("p.wi.area.from", { d: dist.name, src: t("p.wi.area.src") }) : t("p.wi.area.typed", { d: dist.name }),
+        low ? " " + t("p.wi.low", { d: dist.name }) + (dist.mismatch.confidence_reasons?.length ? ` (${dist.mismatch.confidence_reasons.join("; ")})` : "") : "")
+    : h("p", { class: "note" }, t("p.wi.areanote"));
+  const result = h("div", { id: "wi-result", class: low ? "wi-low" : "" });
+  box.append(controls, result, areaNote);
   drawResult();
 
   function drawResult() {
@@ -273,7 +300,9 @@ async function init() {
   $("#lang").addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
   onLangChange(() => { applyStatic(); refresh(); });
   try {
-    const [pts, crops] = await Promise.all([loadPoints(), getJSON("data/crops.json")]);
+    const [pts, crops, dists] = await Promise.all([loadPoints(), getJSON("data/crops.json"), getJSON("data/districts.json").catch(() => null)]);
+    state.districts = dists?.districts ?? [];
+    state.districtsMeta = dists?.meta ?? null;
     Object.assign(state, { kind: pts.kind, cellDeg: pts.cellDeg, points: pts.points, crops });
     state.cropById = Object.fromEntries(crops.map((c) => [c.id, c]));
     const files = await Promise.all(pts.points.map((p) => getJSON(`${pts.base}${p.id}.json`)));

@@ -108,7 +108,7 @@ Newest first. Note contract changes here.
   on rain trend (IMERG), very-hot-day trend and (when it lands) GRACE groundwater trend, plus an optional soil-drying
   trend; the score is the mean rank (0–100). It warns that IMERG and POWER disagree on the rain-trend sign at 31 of 47
   places. "What if farms switch": irrigation saved = engine `irrigation_mm` difference × 10 m³/ha/mm × area × share,
-  with the 24-season reliability of both crops. Farm area is typed in for now.
+  with the 24-season reliability of both crops. Farm area now fills in from `districts.json` (DES 2018–22) for the clicked place's district; low-confidence districts are dimmed.
 - **Crop map:** now passes `statewideContext` to `cropSuitability` / `rankCrops` and colours "Suitability" by
   `suitability` (contract update in ac2a179).
 
