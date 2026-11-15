@@ -39,7 +39,10 @@ Every number in the app comes from `web/data/*.json`, built by the scripts in `p
 5. **NASA Earth Exchange Global Daily Downscaled Projections (NEX-GDDP-CMIP6), 0.25°**. Climate ranges for 2041–2060 (SSP2-4.5 and SSP5-8.5) from 5 climate models, applied to the observed years.  
    Thrasher, B., Wang, W., Michaelis, A., Melton, F., Lee, T., Nemani, R. (2022). NASA Global Daily Downscaled Projections, CMIP6. Scientific Data 9, 262. Data from the NASA Center for Climate Simulation (NCCS) THREDDS server. [doi:10.1038/s41597-022-01393-4](https://doi.org/10.1038/s41597-022-01393-4)  
    https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6
-6. **NASA AppEEARS (Application for Extracting and Exploring Analysis Ready Samples)**. The tool we used to extract the MODIS and SMAP point samples around each place.  
+6. **GLDAS-2.2 Catchment Land Surface Model with GRACE data assimilation (GLDAS_CLSM025_DA1_D.2.2), daily, 0.25° (2003–2024)**. The groundwater trend in the Policy view: whether stored groundwater has been rising or falling since 2003. GRACE sees regions about 300 km across, so this is a regional signal, not one village's wells.  
+   Li, B., Beaudoing, H., Rodell, M. (2020). GLDAS Catchment Land Surface Model L4 daily 0.25 x 0.25 degree GRACE-DA1 V2.2. Goddard Earth Sciences Data and Information Services Center (GES DISC). Method: Li, B., et al. (2019). Global GRACE data assimilation for groundwater and drought monitoring. Water Resources Research 55, 7564–7586. Accessed through NASA Giovanni. [doi:10.5067/TXBMLX370XX8](https://doi.org/10.5067/TXBMLX370XX8)  
+   https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary
+7. **NASA AppEEARS (Application for Extracting and Exploring Analysis Ready Samples)**. The tool we used to extract the MODIS and SMAP point samples around each place.  
    AppEEARS Team. Application for Extracting and Exploring Analysis Ready Samples (AppEEARS). NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC), USGS EROS Center, Sioux Falls, South Dakota, USA.  
    https://appeears.earthdatacloud.nasa.gov/
 
