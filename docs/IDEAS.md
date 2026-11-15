@@ -7,10 +7,36 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
-| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | 💡 |
-| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | 💡 |
+| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | 🔄 working on the 3 sites (`web/explore.html`); waiting on grid data |
+| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | 🔄 working on the 3 sites (`web/explore.html`); waiting on grid data |
 | I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
+
+## Crop map page (I3 + I4): what exists now, and the data it is waiting for
+
+`web/explore.html` ("🗺 Crop map" in the header) is live in Lane B:
+- Pick a crop → each place is coloured by the share of 2001–2024 seasons that crop came through
+  (or by fit score), one green hue, fixed 0–100% scale, with a table of places.
+- Click anywhere → snaps to the nearest place with data (says how far away) and shows the top 3
+  crops there, from 3 different crop families, plus a list of all crops.
+- Each crop is scored by `scoreRotation(site, crops, [[{crop, sow}]], prefs)` at each of its
+  sowing months; the best month is kept. ~20 ms per place, so ~60 grid points is ~1–2 s in the
+  browser. No precomputed suitability file is needed.
+- Today it uses the 3 demo sites. **It switches to a grid automatically** when
+  `web/data/grid/index.json` exists.
+
+**Proposed grid format for Lane A (Sid), no change to the site format:**
+```
+web/data/grid/index.json
+{ "cell_deg": 0.5,                       // optional; when present cells are drawn as squares
+  "points": [ { "id": "g_08.75_77.75", "lat": 8.75, "lon": 77.75, "name": "Near Tirunelveli" }, ... ] }
+
+web/data/grid/<id>.json                  // exactly the same shape as web/data/sites/<id>.json
+                                         // (monthly, by_year, soil, precip_source ...)
+```
+Suggested coverage: 0.5° cells over Tamil Nadu land (~60 points), POWER + IMERG + SoilGrids at
+each centre, same `build_all.py` path. `name` should be a nearby town so farmers recognise it.
+If 60 files are too heavy, `by_year` is the only large part and the page needs it for the replay.
 
 ## I4. Click a region → top 3 crops
 
