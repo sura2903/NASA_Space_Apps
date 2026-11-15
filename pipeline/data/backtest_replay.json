@@ -12569,7 +12569,7 @@
  },
  "Thanjavur|rice_long": {
   "sow": 8,
-  "share": 0.96,
+  "share": 0.92,
   "years": {
    "2001": {
     "ok": true,
@@ -12632,8 +12632,8 @@
     "reason": null
    },
    "2016": {
-    "ok": true,
-    "reason": null
+    "ok": false,
+    "reason": "Rice, long duration: water: ~931 mm available vs 1250 mm need"
    },
    "2017": {
     "ok": true,
@@ -16429,7 +16429,7 @@
  },
  "Tiruchirappalli|rice_long": {
   "sow": 8,
-  "share": 0.96,
+  "share": 0.92,
   "years": {
    "2001": {
     "ok": true,
@@ -16492,8 +16492,8 @@
     "reason": null
    },
    "2016": {
-    "ok": true,
-    "reason": null
+    "ok": false,
+    "reason": "Rice, long duration: water: ~892 mm available vs 1250 mm need"
    },
    "2017": {
     "ok": true,

@@ -10,20 +10,20 @@
   "yield": {
    "overall": {
     "n_years": 4522,
-    "model_fail_years": 1296,
+    "model_fail_years": 1298,
     "bad_years": 1210,
     "table": {
-     "fail_bad": 428,
+     "fail_bad": 430,
      "fail_ok": 868,
-     "pass_bad": 782,
+     "pass_bad": 780,
      "pass_ok": 2444
     },
-    "p_bad_given_fail": 0.33,
+    "p_bad_given_fail": 0.331,
     "p_bad_given_pass": 0.242,
-    "lift": 1.36,
+    "lift": 1.37,
     "fisher_p": 0.0,
-    "median_anomaly_fail": -0.0369,
-    "median_anomaly_pass": 0.0053,
+    "median_anomaly_fail": -0.0377,
+    "median_anomaly_pass": 0.0055,
     "mannwhitney_p": 0.0
    },
    "by_crop": {
@@ -155,21 +155,21 @@
     },
     "rice_long": {
      "n_years": 613,
-     "model_fail_years": 289,
+     "model_fail_years": 291,
      "bad_years": 167,
      "table": {
-      "fail_bad": 80,
+      "fail_bad": 82,
       "fail_ok": 209,
-      "pass_bad": 87,
+      "pass_bad": 85,
       "pass_ok": 237
      },
-     "p_bad_given_fail": 0.277,
-     "p_bad_given_pass": 0.269,
-     "lift": 1.03,
-     "fisher_p": 0.4442,
-     "median_anomaly_fail": -0.0066,
-     "median_anomaly_pass": 0.0005,
-     "mannwhitney_p": 0.3621
+     "p_bad_given_fail": 0.282,
+     "p_bad_given_pass": 0.264,
+     "lift": 1.07,
+     "fisher_p": 0.343,
+     "median_anomaly_fail": -0.0079,
+     "median_anomaly_pass": 0.0013,
+     "mannwhitney_p": 0.2858
     },
     "sesame": {
      "n_years": 503,
@@ -212,21 +212,21 @@
   "area": {
    "overall": {
     "n_years": 4522,
-    "model_fail_years": 1296,
+    "model_fail_years": 1298,
     "bad_years": 1210,
     "table": {
-     "fail_bad": 390,
+     "fail_bad": 392,
      "fail_ok": 906,
-     "pass_bad": 820,
+     "pass_bad": 818,
      "pass_ok": 2406
     },
-    "p_bad_given_fail": 0.301,
+    "p_bad_given_fail": 0.302,
     "p_bad_given_pass": 0.254,
-    "lift": 1.18,
-    "fisher_p": 0.0008,
-    "median_anomaly_fail": -0.0022,
-    "median_anomaly_pass": 0.0302,
-    "mannwhitney_p": 0.0005
+    "lift": 1.19,
+    "fisher_p": 0.0006,
+    "median_anomaly_fail": -0.0032,
+    "median_anomaly_pass": 0.0304,
+    "mannwhitney_p": 0.0004
    },
    "by_crop": {
     "black_gram": {
@@ -357,20 +357,20 @@
     },
     "rice_long": {
      "n_years": 613,
-     "model_fail_years": 289,
+     "model_fail_years": 291,
      "bad_years": 167,
      "table": {
-      "fail_bad": 109,
+      "fail_bad": 111,
       "fail_ok": 180,
-      "pass_bad": 58,
+      "pass_bad": 56,
       "pass_ok": 266
      },
-     "p_bad_given_fail": 0.377,
-     "p_bad_given_pass": 0.179,
-     "lift": 2.11,
+     "p_bad_given_fail": 0.381,
+     "p_bad_given_pass": 0.174,
+     "lift": 2.19,
      "fisher_p": 0.0,
-     "median_anomaly_fail": -0.0521,
-     "median_anomaly_pass": 0.0418,
+     "median_anomaly_fail": -0.0523,
+     "median_anomaly_pass": 0.0425,
      "mannwhitney_p": 0.0
     },
     "sesame": {
@@ -414,20 +414,20 @@
   "production": {
    "overall": {
     "n_years": 4522,
-    "model_fail_years": 1296,
+    "model_fail_years": 1298,
     "bad_years": 1210,
     "table": {
-     "fail_bad": 428,
+     "fail_bad": 430,
      "fail_ok": 868,
-     "pass_bad": 782,
+     "pass_bad": 780,
      "pass_ok": 2444
     },
-    "p_bad_given_fail": 0.33,
+    "p_bad_given_fail": 0.331,
     "p_bad_given_pass": 0.242,
-    "lift": 1.36,
+    "lift": 1.37,
     "fisher_p": 0.0,
-    "median_anomaly_fail": -0.0434,
-    "median_anomaly_pass": 0.0487,
+    "median_anomaly_fail": -0.0441,
+    "median_anomaly_pass": 0.0493,
     "mannwhitney_p": 0.0
    },
    "by_crop": {
@@ -559,20 +559,20 @@
     },
     "rice_long": {
      "n_years": 613,
-     "model_fail_years": 289,
+     "model_fail_years": 291,
      "bad_years": 167,
      "table": {
-      "fail_bad": 111,
+      "fail_bad": 113,
       "fail_ok": 178,
-      "pass_bad": 56,
+      "pass_bad": 54,
       "pass_ok": 268
      },
-     "p_bad_given_fail": 0.384,
-     "p_bad_given_pass": 0.173,
-     "lift": 2.22,
+     "p_bad_given_fail": 0.388,
+     "p_bad_given_pass": 0.168,
+     "lift": 2.32,
      "fisher_p": 0.0,
-     "median_anomaly_fail": -0.048,
-     "median_anomaly_pass": 0.0589,
+     "median_anomaly_fail": -0.0481,
+     "median_anomaly_pass": 0.0621,
      "mannwhitney_p": 0.0
     },
     "sesame": {
@@ -619,20 +619,20 @@
  "series_where_model_never_fails": 12,
  "overall": {
   "n_years": 4522,
-  "model_fail_years": 1296,
+  "model_fail_years": 1298,
   "bad_years": 1210,
   "table": {
-   "fail_bad": 428,
+   "fail_bad": 430,
    "fail_ok": 868,
-   "pass_bad": 782,
+   "pass_bad": 780,
    "pass_ok": 2444
   },
-  "p_bad_given_fail": 0.33,
+  "p_bad_given_fail": 0.331,
   "p_bad_given_pass": 0.242,
-  "lift": 1.36,
+  "lift": 1.37,
   "fisher_p": 0.0,
-  "median_anomaly_fail": -0.0369,
-  "median_anomaly_pass": 0.0053,
+  "median_anomaly_fail": -0.0377,
+  "median_anomaly_pass": 0.0055,
   "mannwhitney_p": 0.0
  },
  "by_crop": {
@@ -764,21 +764,21 @@
   },
   "rice_long": {
    "n_years": 613,
-   "model_fail_years": 289,
+   "model_fail_years": 291,
    "bad_years": 167,
    "table": {
-    "fail_bad": 80,
+    "fail_bad": 82,
     "fail_ok": 209,
-    "pass_bad": 87,
+    "pass_bad": 85,
     "pass_ok": 237
    },
-   "p_bad_given_fail": 0.277,
-   "p_bad_given_pass": 0.269,
-   "lift": 1.03,
-   "fisher_p": 0.4442,
-   "median_anomaly_fail": -0.0066,
-   "median_anomaly_pass": 0.0005,
-   "mannwhitney_p": 0.3621
+   "p_bad_given_fail": 0.282,
+   "p_bad_given_pass": 0.264,
+   "lift": 1.07,
+   "fisher_p": 0.343,
+   "median_anomaly_fail": -0.0079,
+   "median_anomaly_pass": 0.0013,
+   "mannwhitney_p": 0.2858
   },
   "sesame": {
    "n_years": 503,
@@ -910,9 +910,9 @@
   },
   "2016": {
    "series": 210,
-   "model_fail_share": 0.83,
+   "model_fail_share": 0.84,
    "bad_yield_share": 0.7,
-   "both": 120
+   "both": 122
   },
   "2017": {
    "series": 212,
@@ -3558,21 +3558,21 @@
   },
   "Thanjavur|rice_long": {
    "n_years": 22,
-   "model_fail_years": 1,
+   "model_fail_years": 2,
    "bad_years": 6,
    "table": {
-    "fail_bad": 1,
+    "fail_bad": 2,
     "fail_ok": 0,
-    "pass_bad": 5,
+    "pass_bad": 4,
     "pass_ok": 16
    },
    "p_bad_given_fail": 1.0,
-   "p_bad_given_pass": 0.238,
-   "lift": 4.2,
-   "fisher_p": 0.2727,
-   "median_anomaly_fail": -0.1079,
-   "median_anomaly_pass": 0.0815,
-   "mannwhitney_p": 0.1818,
+   "p_bad_given_pass": 0.2,
+   "lift": 5.0,
+   "fisher_p": 0.0649,
+   "median_anomaly_fail": -0.1317,
+   "median_anomaly_pass": 0.0909,
+   "mannwhitney_p": 0.039,
    "district": "Thanjavur",
    "crop": "rice_long",
    "water_source": "canal"
@@ -4356,21 +4356,21 @@
   },
   "Tiruchirappalli|rice_long": {
    "n_years": 22,
-   "model_fail_years": 1,
+   "model_fail_years": 2,
    "bad_years": 6,
    "table": {
-    "fail_bad": 0,
+    "fail_bad": 1,
     "fail_ok": 1,
-    "pass_bad": 6,
+    "pass_bad": 5,
     "pass_ok": 15
    },
-   "p_bad_given_fail": 0.0,
-   "p_bad_given_pass": 0.286,
-   "lift": 0.0,
-   "fisher_p": 1.0,
-   "median_anomaly_fail": -0.1239,
-   "median_anomaly_pass": 0.0199,
-   "mannwhitney_p": 0.3636,
+   "p_bad_given_fail": 0.5,
+   "p_bad_given_pass": 0.25,
+   "lift": 2.0,
+   "fisher_p": 0.4805,
+   "median_anomaly_fail": -0.2109,
+   "median_anomaly_pass": 0.0328,
+   "mannwhitney_p": 0.0693,
    "district": "Tiruchirappalli",
    "crop": "rice_long",
    "water_source": "canal"
