@@ -23,7 +23,7 @@ const MONTHS_INITIAL = {
 
 const STR = {
   en: {
-    "lang.switch": "தமிழ்", "lang.switch.aria": "Switch to Tamil",
+    "lang.switch": "Tamil / தமிழ்", "lang.switch.aria": "Switch to Tamil", "lang.label": "Language",
     brand: "Smart Vithaippu",
     tagline: "Crop rotation choices for an uncertain monsoon, checked against NASA data",
     "intro.title": "What is Smart Vithaippu?",
@@ -341,7 +341,7 @@ const STR = {
   },
 
   ta: {
-    "lang.switch": "English", "lang.switch.aria": "Switch to English",
+    "lang.switch": "English", "lang.switch.aria": "Switch to English", "lang.label": "மொழி",
     brand: "ஸ்மார்ட் விதைப்பு",
     tagline: "நிச்சயமற்ற பருவமழைக்கு ஏற்ற பயிர் சுழற்சி தேர்வுகள், நாசா தரவுகளுடன் சரிபார்க்கப்பட்டவை",
     "intro.title": "ஸ்மார்ட் விதைப்பு என்றால் என்ன?",
