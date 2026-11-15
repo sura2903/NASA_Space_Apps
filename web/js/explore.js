@@ -5,7 +5,7 @@
 // and rankCrops (all crops at one place, for the top 3). No scoring logic here.
 // Places: Lane A's grid (data/grid/index.json) when it exists, otherwise the 3 demo sites.
 import { cropSuitability, rankCrops, statewideContext, PRIORITIES, WATER_SOURCES } from "./scoring.js";
-import { $, h, clear, fmt } from "./ui/dom.js";
+import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
 
@@ -95,6 +95,7 @@ function drawMap() {
   if (!map) return;
   const L = window.L;
   layer.clearLayers();
+  let selShape = null;
   for (const p of state.points) {
     const r = suitFor(p.id);
     if (!r) continue;
@@ -105,14 +106,16 @@ function drawMap() {
     if (state.kind === "grid" && state.cellDeg) {
       const d = state.cellDeg / 2;
       shape = L.rectangle([[p.lat - d, p.lon - d], [p.lat + d, p.lon + d]],
-        { weight: sel ? 3 : 0.5, color: sel ? "#f5c400" : "#ffffff", fillColor: fill, fillOpacity: 0.85 });
+        { weight: sel ? 2.5 : 0.5, color: sel ? cssVar("--ink") : "#ffffff", fillColor: fill, fillOpacity: sel ? 1 : 0.85 });
     } else {
-      shape = L.circleMarker([p.lat, p.lon], { radius: sel ? 20 : 16, weight: sel ? 4 : 2, color: sel ? "#f5c400" : "#ffffff", fillColor: fill, fillOpacity: 0.95 });
+      shape = L.circleMarker([p.lat, p.lon], { radius: sel ? 20 : 16, weight: sel ? 3 : 2, color: sel ? cssVar("--ink") : "#ffffff", fillColor: fill, fillOpacity: 0.95 });
     }
     shape.bindTooltip(tip, state.kind === "grid" ? { sticky: true } : { permanent: true, direction: "auto", offset: [18, 0], className: "site-label" });
     shape.on("click", (e) => { L.DomEvent.stopPropagation(e); selectPoint(p); });
     shape.addTo(layer);
+    if (sel) selShape = shape;
   }
+  selShape?.bringToFront();   // so its outline is not hidden under the neighbouring cells
 }
 
 function drawLegend() {
@@ -159,7 +162,7 @@ function selectPoint(p, keepClick = false) {
   if (map) {
     clickMarker?.remove();
     if (state.clickLatLng && state.clickLatLng.km > 1) {
-      clickMarker = L.polyline([[state.clickLatLng.lat, state.clickLatLng.lon], [p.lat, p.lon]], { color: "#f5c400", weight: 2, dashArray: "4 4" }).addTo(map);
+      clickMarker = L.polyline([[state.clickLatLng.lat, state.clickLatLng.lon], [p.lat, p.lon]], { color: cssVar("--ink-2"), weight: 1.5, dashArray: "4 4", interactive: false }).addTo(map);
     }
   }
   drawMap();

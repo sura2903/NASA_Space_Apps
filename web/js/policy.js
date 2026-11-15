@@ -6,7 +6,7 @@
 //      × 10 m³ per hectare per mm × farm area × share. Farm area is typed in until district crop
 //      areas arrive (data request in docs/PROGRESS.md).
 import { cropSuitability, rankCrops, statewideContext, WATER_SOURCES } from "./scoring.js";
-import { $, h, clear, fmt } from "./ui/dom.js";
+import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
@@ -103,6 +103,7 @@ function drawMap() {
   if (!map) return;
   const L = window.L;
   layer.clearLayers();
+  let selShape = null;
   for (const p of state.points) {
     const sc = state.scores[p.id];
     if (sc == null) continue;
@@ -110,7 +111,7 @@ function drawMap() {
     const sel = state.selected?.id === p.id;
     const tip = `<strong>${short(p)}</strong><br>${t("p.score", { v: sc })}<br>` +
       state.used.map((c) => `${t(`p.c.${c.id}`)}: ${compText(c, s)}${c.disagree?.(s) ? " ⚠" : ""}`).join("<br>");
-    const opts = { weight: sel ? 3 : 0.5, color: sel ? "#1f2420" : "#ffffff", fillColor: colour(sc / 100), fillOpacity: 0.85 };
+    const opts = { weight: sel ? 2.5 : 0.5, color: sel ? cssVar("--ink") : "#ffffff", fillColor: colour(sc / 100), fillOpacity: sel ? 1 : 0.85 };
     let shape;
     if (state.kind === "grid" && state.cellDeg) {
       const d = state.cellDeg / 2;
@@ -121,7 +122,9 @@ function drawMap() {
     shape.bindTooltip(tip, { sticky: true });
     shape.on("click", () => selectPoint(p));
     shape.addTo(layer);
+    if (sel) selShape = shape;
   }
+  selShape?.bringToFront();
 }
 
 function drawLegend() {
