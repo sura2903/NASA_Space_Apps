@@ -1,4 +1,4 @@
-// Smart Vithaippu UI (Lane B). Reads web/data/*.json, calls only the scoring.js exports
+// SowSmart UI (Lane B). Reads web/data/*.json, calls only the scoring.js exports
 // (docs/data_contract.md section 4), and renders. No scoring logic lives here.
 import {
   generateStrategies, siteHighlights, trendScenario, scenarioMonthly, DEFAULT_CURRENT, PRIORITIES, WATER_SOURCES,
@@ -240,7 +240,7 @@ function applyStatic() {
   btn.textContent = t("lang.switch");
   btn.setAttribute("aria-label", t("lang.switch.aria"));
   btn.lang = getLang() === "ta" ? "en" : "ta";
-  document.title = getLang() === "ta" ? `${t("brand")} · Smart Vithaippu` : t("brand");
+  document.title = getLang() === "ta" ? `${t("brand")} · SowSmart` : t("brand");
   renderGlossaryList($("#glossary-list"));
 }
 
