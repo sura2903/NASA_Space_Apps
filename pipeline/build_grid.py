@@ -123,7 +123,8 @@ def main() -> None:
             except Exception as e:  # keep going; report failures at the end
                 print("FAIL", p["id"], repr(e)[:200], flush=True)
     done.sort(key=lambda p: (p["lat"], p["lon"]))
-    (GRID_DIR / "index.json").write_text(json.dumps(done, indent=1))
+    # object form (Lane B's proposal in IDEAS.md): cell_deg lets the map draw square cells
+    (GRID_DIR / "index.json").write_text(json.dumps({"cell_deg": STEP, "points": done}, indent=1))
     print(f"Wrote {len(done)}/{len(pts)} points to {GRID_DIR}")
 
 

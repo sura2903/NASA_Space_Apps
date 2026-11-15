@@ -21,7 +21,8 @@ US backup sites live in `web/data/sites/_us_backup/` (not listed, not used by th
 ## 1b. `web/data/grid/index.json` + `web/data/grid/<id>.json` (statewide grid)
 47 points at 0.5° over Tamil Nadu, for the suitability heatmap and "click anywhere":
 ```json
-[{ "id": "g0875_7775", "name": "near Tirunelveli (5 km)", "lat": 8.75, "lon": 77.75 }]
+{ "cell_deg": 0.5,
+  "points": [{ "id": "g0875_7775", "name": "near Tirunelveli (5 km)", "lat": 8.75, "lon": 77.75 }] }
 ```
 Each `<id>.json` has exactly the site format in section 2: rain from GPM IMERG, temperature/ET0 from
 POWER, plus SoilGrids soil; `ndvi` is null. Total ~4.6 MB, so load lazily (only when the map view
