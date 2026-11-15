@@ -34,9 +34,8 @@ def catalog_files(model: str, scen: str, var: str) -> dict[int, str]:
     r = requests.get(url, timeout=120)
     r.raise_for_status()
     files = {}
-    for f in set(re.findall(rf"{var}_day_{re.escape(model)}_{scen}_{v}_gn_(\d{{4}})[^<\"']*?\.nc", r.text)):
-        pass
-    for m in re.finditer(rf"({var}_day_{re.escape(model)}_{scen}_{v}_gn_(\d{{4}})(?:_v[\d.]+)?\.nc)", r.text):
+    # grid label is "gn" for most models but "gr" for e.g. EC-Earth3
+    for m in re.finditer(rf"({var}_day_{re.escape(model)}_{scen}_{v}_g[nr]_(\d{{4}})(?:_v[\d.]+)?\.nc)", r.text):
         fname, year = m.group(1), int(m.group(2))
         # prefer the highest version string if several exist
         if year not in files or fname > files[year]:
@@ -52,7 +51,9 @@ def fetch_one(model, scen, var, year, fname, site) -> str:
     url = f"{BASE}/ncss/grid/AMES/NEX/GDDP-CMIP6/{model}/{scen}/{v}/{var}/{fname}"
     for attempt in range(4):
         try:
-            r = requests.get(url, params={"var": var, "latitude": site["lat"], "longitude": site["lon"], "accept": "csv"},
+            # explicit time range: without it NCSS returns a single time step
+            r = requests.get(url, params={"var": var, "latitude": site["lat"], "longitude": site["lon"], "accept": "csv",
+                                          "time_start": f"{year}-01-01T00:00:00Z", "time_end": f"{year}-12-31T23:59:59Z"},
                              timeout=180)
             r.raise_for_status()
             if r.text.count("\n") < 300:
