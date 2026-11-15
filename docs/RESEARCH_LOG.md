@@ -635,6 +635,28 @@ pattern risky?"*
 - **Also rerun after the barnyard fix (I-30):** district switch targets are now cowpea 10, foxtail 7, green gram 7,
   little millet 6, pearl millet 4, kodo 2, finger millet 1.
 
+### I-33 · Grid projections complete (5 models) + the site reorganised around two audiences
+- **Grid projections (A16):**
+  - **Fetch:** the first run lost 190 of 900 files to NCCS server timeouts, so EC-Earth3 and MPI-ESM1-2-HR were
+    missing everywhere. A resumed run fetched all 190; every one of the 47 points now has all 5 models.
+  - **Results (2041–60, SSP2-4.5, model median):**
+    - Daytime highs +0.86 to +0.95 °C across the grid.
+    - Extra very hot days: up to +21 a year in the north (Kanchipuram, Tiruvallur, Villupuram), ~0 on the south
+      coast, which rarely passes 38 °C today.
+    - NE-monsoon change −6% to +7%, but **the 5 models disagree on its sign at all 47 points** (median spread
+      38 points). The honest message is "no reliable direction".
+  - **Method check:** the grid point beside Thanjavur matches the separately fetched demo site (+0.9 °C both; NE
+    rain −2.6% vs −4.9%; 18 vs 17 extra hot days).
+  - `statewide_risk.json` now has the future for all 47 points, so all 9 map layers are filled.
+- **Site organisation (user request, PR #15, Lane A draft for Lane B review):** the farm page was ~8,000 px of
+  text and charts. Nothing was removed. The changes:
+  - **Navigation:** Farm | Policy tabs; the Crop map is a Policy sub-tab.
+  - **Place choice:** the page opens with a labelled example place, with a "Where is your farm?" bar offering all
+    50 places (3 detailed + 47 grid points) and "use my location" (computed in the browser).
+  - **Order and folding:** the three plans come first; detail sections and the per-card calendar, benefits and
+    risks sit in one-tap folds.
+  - **Size:** phone height ~8,400 → ~4,600 px.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

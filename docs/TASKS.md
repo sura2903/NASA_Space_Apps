@@ -27,12 +27,12 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A13 | Engine `rankCrops` + `cropSuitability` for the heatmap and "click anywhere" (IDEAS I3/I4) | ✅ |
 | A14 | **Climate change, Layer 1:** extend POWER to 1981–2024; Mann–Kendall + Sen trends, then-vs-now shifts for heat, monsoons, heavy rain, dry spells, ET0 (see APPROACH "Next direction") | ✅ 3 demo sites (`web/data/trends/`); grid ⬜ |
 | A15 | **Layer 2:** compare observed trends with IPCC AR6 / IMD / CMIP6 historical for South India ("consistent with", never "caused by") | ⬜ |
-| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); 🔄 grid (`fetch_nex_grid.py`, ~4–5 h run); 2081–2100 ⬜ |
+| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); ✅ grid, 47 points × 5 models (`fetch_nex_grid.py`, RESEARCH_LOG I-33); 2081–2100 ⬜ |
 | A17 | Engine: `futureRange()` returns today + min/median/max across models | ✅ |
 | A18 | **1-in-100-year events (FIELD_NOTES E4):** IMERG annual 1/3/5-day maxima → pooled GEV (L-moments) + NE-monsoon drought (gamma), bootstrap ranges, NEX shift; `extremeYearCheck()` | ✅ 50 points (`web/data/extremes/`) |
 | A19 | **Last 10 years vs full record (E6):** `memoryCheck()` incl. every-decade window range and `as_of` | ✅ |
 | A20 | **Wind / cyclone exposure (E5):** NASA POWER wind at 50 points, `wind_tolerance` in crops.json, `windRisk()`; IBTrACS tracks next | ✅ POWER; IBTrACS ⬜ |
-| A21 | **Statewide risk file** for the Policy view (`statewide_risk.json`, all layers + engine lists per grid point) | ✅ (future layers fill in after A16 grid) |
+| A21 | **Statewide risk file** for the Policy view (`statewide_risk.json`, all layers + engine lists per grid point) | ✅ incl. future layers |
 | A22 | **Seasonal canal/tank water from dam state** (user request): canal water per season depends on whether and when the dam opens and its storage at sowing: Mettur (delta: normal opening 12 Jun, closing 28 Jan), Papanasam/Manimuthar (Thamirabarani), Vaigai/Periyar (Madurai). Plan: (1) per-season canal budget in the engine (Kuruvai needs Mettur open by ~mid-June; Samba/Thaladi depend on Aug–Oct storage), (2) historical dam data per year (have Mettur opening dates/releases in `pipeline/data/mettur_releases.json`; add others from TN WRD / India-WRIS / CWC reservoir bulletins), (3) a "dam opened on time / late / not yet" input for this season, since I-18 found the opening date isn't predictable from June information | ✅ delta (Mettur, `damCheck()`, RESEARCH_LOG I-29); Papanasam / Vaigai data ⬜ |
 | A23 | **Storage / perishability factor** (user request, IDEAS I28): `storage` field per crop + "Can store and sell later" priority; combine with prices (E3) later | ✅ engine + data (RESEARCH_LOG I-32); UI slider ⬜ (Lane B); prices ⬜ |
 
