@@ -1,0 +1,42 @@
+{
+  "_about": "Papanasam (Thamirabarani) and Vaigai (Periyar-Vaigai) irrigation openings. Research only, NOT used by scoring.js yet (RESEARCH_LOG I-39). No public year-by-year table like Mettur's exists; dates below come from news reports. 'confirmed' = read in the article text (weekday dates worked out from the article date); 'unverified' = headline or snippet only.",
+  "customary": {
+    "papanasam": {
+      "seasons": {"advance_kar": "04-01", "kar": "06-01", "pishanam": "10-01"},
+      "rule": "release based on availability",
+      "command_acres": 86107,
+      "command_note": "Thamirabarani system: 40,000 ac Tirunelveli + 46,107 ac Thoothukudi, 11 channels",
+      "full_storage_mcft": 5500,
+      "sources": ["http://tnagriculture.in/dashboard/report/04_07.pdf", "https://agritech.tnau.ac.in/water_level.html", "https://tirunelveli.nic.in/pwd-thambraparani-irrigation-system/"]
+    },
+    "vaigai": {
+      "seasons": {"double_crop": "06-01", "single_crop": "08-15"},
+      "rule": "double-crop area opens when combined Periyar+Vaigai storage >= 4,000 Mcft; single-crop at >= 600 Mcft",
+      "command_acres": {"double_crop": 45041, "single_crop": 105002},
+      "full_storage_mcft": 6091,
+      "sources": ["http://tnagriculture.in/dashboard/report/04_07.pdf", "https://agritech.tnau.ac.in/water_level.html"]
+    }
+  },
+  "openings": [
+    {"year": 2012, "dam": "vaigai", "season": "double+single", "open": "2012-11-09", "status": "confirmed", "note": "very late", "source": "https://agritech.tnau.ac.in/daily_events/2012/english/nov/5_nov_12_eng.pdf"},
+    {"year": 2013, "dam": "vaigai", "season": "double_crop", "open": "2013-07-15", "status": "confirmed", "note": "900 cusecs, 120 days; 1,967 Mcft at opening", "source": "https://agritech.tnau.ac.in/daily_events/2013/english/july/16_july_13_eng.pdf"},
+    {"year": 2013, "dam": "vaigai", "season": "single_crop", "open": "2013-09-25", "status": "confirmed", "source": "https://agritech.tnau.ac.in/daily_events/2013/english/sep/26_sep_13_eng.pdf"},
+    {"year": 2013, "dam": "papanasam", "season": "kar", "open": "2013-06-20", "status": "confirmed", "source": "https://agritech.tnau.ac.in/daily_events/2013/english/june/25_june_13_eng.pdf"},
+    {"year": 2013, "dam": "papanasam", "season": "pishanam", "open": "2013-10-20", "status": "confirmed", "note": "600 cusecs", "source": "https://agritech.tnau.ac.in/daily_events/2013/english/oct/21_oct_13_eng.pdf"},
+    {"year": 2014, "dam": "papanasam", "season": "kar", "open": null, "status": "confirmed", "note": "not opened on 1 June (dam at 49.55 ft); full release date unverified (Deccan Chronicle cites 5 Jul)", "source": "https://agritech.tnau.ac.in/daily_events/2014/english/june/02_june_14_eng.pdf"},
+    {"year": 2015, "dam": "papanasam", "season": "kar", "open": "2015-06-20", "status": "confirmed", "source": "https://agritech.tnau.ac.in/daily_events/2015/english/june/18_jun_15_eng.pdf"},
+    {"year": 2015, "dam": "vaigai", "season": "double_crop", "open": "2015-07-15", "status": "confirmed", "source": "https://agritech.tnau.ac.in/daily_events/2015/english/july/16_july_15_eng.pdf"},
+    {"year": 2015, "dam": "papanasam", "season": "pishanam", "open": "2015-11-06", "status": "confirmed", "note": "14,351 Mcft from 3 dams, 146 days to 31 Mar", "source": "https://agritech.tnau.ac.in/daily_events/2015/english/Nov/07_nov_15_eng.pdf"},
+    {"year": 2015, "dam": "vaigai", "season": "single_crop", "open": "2015-11-28", "status": "confirmed", "source": "https://agritech.tnau.ac.in/daily_events/2015/english/Nov/30_nov_15_eng.pdf"},
+    {"year": 2018, "dam": "vaigai", "season": "double_crop", "open": "2018-06-28", "status": "confirmed", "note": "first June release in 10 years", "source": "https://www.puthiyathalaimurai.com/tamilnadu/after-10-years-water-is-open-from-vaigai-dam-for-agricultural-purpose"},
+    {"year": 2018, "dam": "vaigai", "season": "single_crop", "open": "2018-08-20", "status": "confirmed", "note": "announced; 1,130 cusecs, 120 days", "source": "https://www.thenewsminute.com/tamil-nadu/tn-cm-announces-opening-vaigai-dam-aug-20-86827"},
+    {"year": 2019, "dam": "papanasam", "season": "kar", "open": null, "status": "confirmed", "note": "skipped in June (dam about 9-10 ft); a 21 Aug-9 Sep release is unverified", "source": "deccanchronicle.com (290519)"},
+    {"year": 2019, "dam": "vaigai", "season": "double_crop", "open": "2019-08-29", "status": "confirmed", "note": "900 cusecs, 120 days", "source": "https://www.thenewsminute.com/tamil-nadu/water-be-released-periyar-and-vaigai-dams-thursday-agriculture-107921"},
+    {"year": 2019, "dam": "vaigai", "season": "single_crop", "open": "2019-10", "status": "unverified", "source": "maduraitoday.in/2019/10/09"},
+    {"year": 2020, "dam": "papanasam", "season": "kar", "open": "2020-09-01", "status": "unverified", "source": "deccanherald.com (880156), headline only"},
+    {"year": 2023, "dam": "papanasam", "season": "kar", "open": null, "status": "confirmed", "note": "not opened on 1 June (29 ft)", "source": "dinamalar.com (3335749)"},
+    {"year": 2023, "dam": "vaigai", "season": "double_crop", "open": "2023-11-10", "status": "confirmed", "note": "5,890 Mcft storage", "source": "tamil.oneindia.com (555879)"},
+    {"year": 2024, "dam": "papanasam", "season": "pishanam", "open": "2024-10-28", "status": "confirmed", "source": "tirunelveli.nic.in notice 28.10.2024"}
+  ],
+  "gaps": "No dates found for 2000-2011, 2016-2017 or 2020-2022 (Vaigai). Closing dates and seasonal releases are rarely reported. Vaigai weekly storage 2015-2025 exists in CWC bulletins (parsed copy: huggingface.co/datasets/nameissakthi/tn-water-panels); Papanasam is barely covered there. A full record needs WRD division records (or an RTI request)."
+}

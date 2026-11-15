@@ -778,6 +778,35 @@ pattern risky?"*
 - **Districts:** new points take their district from the nearest district HQ (`statewide_risk.py`). District
   crop-area aggregates still use the original representative points.
 
+### I-39 · Papanasam and Vaigai dam data: researched, not wired in (user request)
+- **Trigger:** the user asked to look at dam data for Papanasam (Thamirabarani: Tirunelveli, Thoothukudi) and Vaigai
+  (Madurai, Sivaganga, Ramanathapuram), the southern counterparts of the Mettur model (I-29).
+- **What exists:**
+  - **No year-by-year table.** The TN Agriculture Season & Crop tables that give Mettur's opening date, closing date
+    and release cover Mettur only. Table IV.7 gives only the customary dates and release rules:
+    - **Papanasam:** 1 Apr and 1 Jun, "based on availability"; Pishanam on 1 Oct.
+    - **Vaigai:** the double-crop area opens 1 Jun if combined Periyar + Vaigai storage is at least 4,000 Mcft; the
+      single-crop area opens 15 Aug.
+  - **Storage:** CWC weekly bulletins give Vaigai storage for 2015–2025 only, and Papanasam barely at all.
+  - **India-WRIS** was unreachable. The TN reservoir dashboard serves today's values only.
+  - **Opening dates** therefore come from news reports: 15 confirmed, 2 unverified, all from 2012–2024.
+    They are saved with a source for each in `pipeline/data/southern_dams.json`.
+- **What the dates show:** the customary date is often missed in exactly the years that matter.
+  - **Papanasam Kar** was skipped in June in 2014, 2019 and 2023.
+  - **Vaigai's double-crop area** opened in June only once in ten years (2018). It opened on 15 Jul 2013,
+    29 Aug 2019 and as late as 9 Nov 2012 and 10 Nov 2023.
+  - So "canal = water on the customary date" overstates canal water in the south, just as it did in the delta
+    before I-29.
+- **Decision:** don't build Mettur-style per-year canal budgets yet.
+  - **Why:** about 10 years per dam, with no dates before 2012, no closing dates and no releases, can't drive a
+    24-year replay.
+  - **What we do now:** state it as a limit. The farmer's own "has the dam opened?" answer is the honest input.
+- **Options for later:**
+  - (a) Extend the Farmers-tab dam question to Papanasam and Vaigai with on-time / late / not-opened, using the
+    customary dates, like `DAM_OPTIONS`. The engine change is small.
+  - (b) Model Vaigai's opening from the 4,000 Mcft rule, using CWC storage (2015+).
+  - (c) Request the full records from WRD's Periyar-Vaigai and Thamirabarani divisions.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
