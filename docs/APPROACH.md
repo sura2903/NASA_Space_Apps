@@ -92,6 +92,61 @@ rotations), and NASS (yields) as ground truth.
 | Maps, timelines, scenario sliders | site map, annual time series, climate-shift slider |
 | Farmer-friendly, limited technical experience | plain language, big controls, no jargon without a tooltip |
 
+## Next direction: from "what happened" to "what's changing" and "what's coming"
+
+Right now the tool replays the **last 24 years** as if they were equally likely to recur. Climate change
+breaks that assumption. The plan has three layers, each building on the last.
+
+### Layer 1: Detect change (is the climate here actually shifting?)
+- **Longer record:** NASA POWER daily goes back to **1981**, so 44 years instead of 24. That's long enough to
+  compare 1981–2000 with 2001–2024. IMERG (from 2000) stays the rain source for the recent period, with POWER
+  rain used only for its long-term *shape* where the two agree.
+- **Indicators per site and grid point:**
+  - mean and extreme heat: days above 38 °C, warm nights;
+  - northeast monsoon (Oct–Dec) and southwest monsoon (Jun–Sep) totals and their year-to-year variability;
+  - heavy-rain days (≥64.5 mm) and the biggest one-day rain;
+  - dry-spell length inside the monsoon;
+  - ET0 and the water balance (crop thirst vs rain);
+  - root-zone soil wetness.
+- **Statistics, kept honest for short records:**
+  - Mann–Kendall trend test with Sen's slope, plus p-values;
+  - "then vs now" distribution shifts (1981–2000 vs 2001–2024: mean, variance, tail frequencies);
+  - a simple change-point check;
+  - always report the uncertainty and say plainly when a trend is not significant.
+- **UI:** a "How has my climate changed?" panel with trend charts, a clear verdict per indicator
+  (rising / falling / no clear change) and confidence.
+
+### Layer 2: Does it match climate change? (consistency, not proof)
+- Compare the observed trends with what climate science expects for South India: IPCC AR6 (South Asia region
+  and its regional synthesis), IMD climate reports, and the historical runs of the CMIP6 models below.
+- Wording rule: say an observed change is **"consistent with"** or **"not consistent with"** projected
+  climate-change signals. Never claim formal attribution, which needs dedicated experiments.
+
+### Layer 3: Project the future (2040s and beyond)
+- **Data: NASA NEX-GDDP-CMIP6.** Daily, 0.25°, bias-corrected and downscaled CMIP6 projections
+  (tasmax, tasmin, pr, and more) for SSP2-4.5 ("middle road") and SSP5-8.5 ("high emissions"), out to 2100.
+  It's a NASA product, so it fits the challenge. To verify: point extraction via the NCCS THREDDS subset
+  service or the AWS open-data bucket.
+- **Method: change factors applied to observed years.**
+  - For each model, compute monthly changes between 1995–2014 and 2041–2060 (and 2081–2100): ΔT, %Δrain,
+    and the change in heavy-rain and hot-day frequency (quantile delta mapping for extremes).
+  - Apply those changes to each observed year to make **"future-like years"**.
+  - Replay every rotation through them, exactly like the historical replay.
+- **Uncertainty from the model ensemble:** use about 5–10 models. Report ranges, e.g. *"in a 2050s
+  climate this rotation comes through 15–21 of 24 years across models"*, not a single number.
+- **UI:** the climate section gains a **"Today / 2040s / 2080s"** switch with an **SSP2-4.5 / SSP5-8.5**
+  toggle, replacing the hand-tuned sliders as the main scenario control (sliders stay as "what-if").
+  The strategy cards show today vs future side by side, so you can see which rotations hold up as the
+  climate shifts.
+- **Not planned:** fitting an ML forecaster to 24–44 data points per site would overfit. Seasonal forecasts
+  (e.g. a northeast-monsoon outlook) are a possible later extra, kept separate from long-term projections.
+
+### Phasing
+| Phase | Scope | Effort |
+|---|---|---|
+| P1 (hackathon) | Layer 1 on the 3 demo sites using POWER 1981–2024 + IMERG; Layer 3 change factors from ~5 NEX-GDDP models × 2 SSPs for the 3 sites; future replay in the engine; "2040s" switch | ~3–4 h Lane A + ~1–2 h Lane B |
+| P2 | Layer 1 + 3 for the whole 47-point grid (future-suitability heatmap: "where will black gram still work in 2050?"), quantile mapping for extremes, Layer 2 write-up | post-hackathon |
+
 ## Honest limits (we say these in the demo)
 - POWER is a ~50 km grid, so it describes the region, not a single field.
 - Crop traits are approximate, and the scoring rules are simple heuristics we can explain, not a trained model.

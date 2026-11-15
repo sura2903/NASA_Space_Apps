@@ -18,6 +18,15 @@ log the change in `docs/PROGRESS.md`.
 ```
 US backup sites live in `web/data/sites/_us_backup/` (not listed, not used by the UI).
 
+## 1b. `web/data/grid/index.json` + `web/data/grid/<id>.json` (statewide grid)
+47 points at 0.5° over Tamil Nadu, for the suitability heatmap and "click anywhere":
+```json
+[{ "id": "g0875_7775", "name": "near Tirunelveli (5 km)", "lat": 8.75, "lon": 77.75 }]
+```
+Each `<id>.json` has exactly the site format in section 2: rain from GPM IMERG, temperature/ET0 from
+POWER, plus SoilGrids soil; `ndvi` is null. Total ~4.6 MB, so load lazily (only when the map view
+opens), e.g. `Promise.all(index.map(p => fetch(...)))`. Snap clicks to the nearest point; cells are 0.5°.
+
 ## 2. `web/data/sites/<id>.json`, produced by `pipeline/build_all.py`
 ```jsonc
 {
@@ -97,6 +106,12 @@ generateStrategies(site, crops, currentRotation, prefs, n = 2) -> Strategy[]  //
 scoreRotation(site, crops, rotation, prefs)                    -> Strategy    // score any custom rotation
 siteHighlights(site, prefs)                                    -> string[]    // plain-language site facts
 trendScenario(site, years = 10)                                -> { dT_c, dPrecip_pct }  // "extend observed trend" preset
+rankCrops(site, crops, prefs, n = 3)                           -> CropPick[]  // top crops for a spot ("click anywhere")
+cropSuitability(site, crops, cropId, prefs)                    -> CropPick    // one crop at one spot (heatmap cell)
+   // CropPick = { crop, crop_name, tamil_name, sow, sow_label, total, good_years, total_years,
+   //              share (good_years/total_years: colour the heatmap by this), water_need_mm,
+   //              irrigation_mm, worst[] }; rankCrops items also carry .strategy (full Strategy for a card)
+   // ~10-25 ms per site; a full 47-point heatmap for one crop is ~20-60 ms in the browser.
 scenarioMonthly(site, scenario)                                -> [{month, precip_mm, et0_mm, water_balance_mm,
                                                                     heat_days, heavy_rain_days, tmax_c}] x12
                                                                   // same adjusted climate the scores use (for calendar bands)

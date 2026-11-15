@@ -504,4 +504,48 @@ export function trendScenario(site, years = 10) {
   };
 }
 
+// ---------- single-crop views (heatmap + "click anywhere": IDEAS.md I3/I4) ----------
+// A crop's suitability at a site = its best sowing month, scored as a one-crop year with the
+// farmer's priorities and water source, replayed through every real year.
+function bestSlot(site, crops, crop, prefs) {
+  let best = null;
+  for (const sow of crop.sow_months) {
+    const st = scoreRotation(site, crops, [[{ crop: crop.id, sow }]], prefs, { skipText: true });
+    if (!best || st.total > best.total || (st.total === best.total && st.replay.good_years > best.replay.good_years)) best = st;
+  }
+  return best;
+}
+
+function summarizeSlot(crop, st) {
+  const sow = st.rotation[0][0].sow;
+  return {
+    crop: crop.id, crop_name: shortName(crop), tamil_name: crop.tamil_name ?? null, sow,
+    sow_label: MONTHS[sow - 1], total: st.total,
+    good_years: st.replay.good_years, total_years: st.replay.total_years,
+    share: st.replay.total_years ? r2(st.replay.good_years / st.replay.total_years) : null,
+    water_need_mm: crop.water_need_mm, irrigation_mm: st.water_use.irrigation_mm,
+    worst: st.replay.worst,
+  };
+}
+
+// cropSuitability(site, crops, "black_gram", prefs) -> {crop, sow, total, good_years, share, ...}
+export function cropSuitability(site, crops, cropId, prefs) {
+  const crop = cropMap(crops)[cropId];
+  if (!crop) throw new Error(`unknown crop: ${cropId}`);
+  return summarizeSlot(crop, bestSlot(site, crops, crop, prefs));
+}
+
+// rankCrops(site, crops, prefs, 3) -> top-n crops for this spot (green manures excluded),
+// each with its best sowing month, score, replay pass rate and a full Strategy for the card.
+export function rankCrops(site, crops, prefs, n = 3) {
+  const ranked = crops.filter((c) => c.type !== "green_manure")
+    .map((c) => ({ c, st: bestSlot(site, crops, c, prefs) }))
+    .sort((a, b) => b.st.total - a.st.total || b.st.replay.good_years - a.st.replay.good_years)
+    .slice(0, n);
+  return ranked.map(({ c, st }) => ({
+    ...summarizeSlot(c, st),
+    strategy: scoreRotation(site, crops, st.rotation, prefs),   // with why/evidence/risks text
+  }));
+}
+
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }

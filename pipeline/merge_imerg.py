@@ -27,9 +27,19 @@ def r1(x):
 
 
 def main() -> None:
-    src = json.loads(IMERG.read_text(encoding="utf-8"))
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--grid", action="store_true",
+                    help="merge pipeline/data/imerg_grid_monthly_2001_2024.json into web/data/grid/")
+    args = ap.parse_args()
+    imerg_path = IMERG.with_name("imerg_grid_monthly_2001_2024.json") if args.grid else IMERG
+    target = SITES.parent / "grid" if args.grid else SITES
+    src = json.loads(imerg_path.read_text(encoding="utf-8"))
     for site_id, im in src["sites"].items():
-        path = SITES / f"{site_id}.json"
+        path = target / f"{site_id}.json"
+        if not path.exists():
+            print(f"skip {site_id}: no site file")
+            continue
         site = json.loads(path.read_text(encoding="utf-8"))
         years = [y["year"] for y in site["by_year"]]
 
@@ -93,6 +103,8 @@ def main() -> None:
               f"r_NE={c['ne_monsoon_correlation']} | driest NE: {dry_p} vs {dry_i} | "
               f"trend {site['trends']['power_precip_mm_per_decade']} -> {site['trends']['precip_mm_per_decade']} mm/dec")
 
+    if args.grid:
+        return
     # keep sample_site in sync with the hero site
     (SITES / "sample_site.json").write_text((SITES / "tirunelveli.json").read_text(encoding="utf-8"), encoding="utf-8")
 

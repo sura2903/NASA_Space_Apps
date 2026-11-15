@@ -13,6 +13,8 @@ monsoon uncertainty and water shortage, which rotation would have held up best o
 last 24 years?"* Core idea: replay each rotation through **every real year 2001–2024** of NASA data
 (GPM IMERG rain, NASA POWER heat/ET, SoilGrids soil). Show a **Field Calendar** of bare and covered
 months, explain every suggestion with numbers, and hand off to the local agriculture officer.
+**Expanding to** a statewide suitability heatmap (I-10) and, next, **climate-change trends and NASA
+NEX-GDDP-CMIP6 projections**, so the replay also covers *future-like* years (I-11).
 
 ---
 
@@ -89,6 +91,27 @@ months, explain every suggestion with numbers, and hand off to the local agricul
 - Effect: wider, realistic sowing windows. Tirunelveli Small step now gets through 24/24 years.
   Search got slower; caching fixed it.
 
+### I-10 · Breadth: three demo sites → statewide grid (from Nimalan's ideas)
+- **Trigger:** Nimalan's `IDEAS.md`: a crop suitability heatmap (I3), click anywhere for the top 3 crops (I4),
+  and a Tamil/English toggle (I2).
+- **Decision:** build a **47-point 0.5° Tamil Nadu grid** (POWER + SoilGrids, IMERG rain via a browser
+  download) plus engine `rankCrops` / `cropSuitability`. The heatmap is computed live in the browser, so it
+  re-colours when the water source changes.
+- **Trade-off:** this moves away from "depth on Tirunelveli". Accepted because the heatmap is the strongest
+  map visual and answers the challenge's interactive-map ask. Tirunelveli stays the hero story.
+
+### I-11 · (planned) From the past to the future: climate change and projections
+- **Trigger:** team wants more than a 24-year replay. Is the climate changing here, does that match climate
+  change, and what does it mean for future rotations?
+- **Plan (details in APPROACH.md "Next direction"):**
+  1. **Detect change:** POWER 1981–2024 with Mann–Kendall/Sen trends and then-vs-now shifts.
+  2. **Consistency check** against IPCC AR6 / IMD / CMIP6 historical ("consistent with", never "caused by").
+  3. **Project:** NASA NEX-GDDP-CMIP6 change factors (multi-model, SSP2-4.5/5-8.5) applied to observed years
+     → "future-like years" → the same replay engine, reported as model ranges.
+- **Why this shape:** it reuses the replay spine, stays explainable, and uses a NASA projection product. We
+  avoid fitting ML to 24–44 points per site.
+- **Risks:** NEX-GDDP access and size; short records make trends noisy, so we must report significance honestly.
+
 ---
 
 ## Open questions / likely next pivots
@@ -97,7 +120,9 @@ months, explain every suggestion with numbers, and hand off to the local agricul
 - **SMAP soil moisture:** use it to validate the water-balance model in dry spells (2016, 2023)?
 - **Groundwater (GRACE):** is a borewell-depletion panel worth the time, or is IMERG + replay enough evidence?
 - **Extremes:** both POWER and IMERG under-read the Dec 2023 flood. Mention a station source, or keep as a stated limit?
-- **Scope risk:** more sites ("click anywhere") vs more depth on Tirunelveli? Current lean: depth.
+- **Scope risk:** breadth (grid, I-10) vs depth (future projections, I-11). Both are now planned; if time runs
+  short, cut grid-wide projections first (P2) and keep the hero-site future replay.
+- **Which CMIP6 models?** Pick ~5 that do well on the Indian monsoon in the literature, rather than an arbitrary few.
 - **Story:** family framing for the demo. Need 1–2 real anecdotes or photos if possible.
 
 ---
