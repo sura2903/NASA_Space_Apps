@@ -1,4 +1,4 @@
-# Field notes: user research
+﻿# Field notes: user research
 
 Conversations with farmers and other users, logged as close to what was said as possible, then mapped
 to what Field Shift does today and what it doesn't. Newest first. No personal details are recorded.
@@ -66,7 +66,7 @@ Honest framing for the team:
   millets are safer.
 - E3 Price history and income risk (Agmarknet / MSP), yield × price = income reliability.
 - E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record. **✅ done (RESEARCH_LOG I-24):** pooled GEV
-  on IMERG 2001–2024; 1-in-100 day of rain 107–362 mm across the state; 2016 was a rarer-than-1-in-100 NE-monsoon
+  on IMERG 2001–2024; 1-in-100 day of rain 107–362 mm across the state; 2016 was the 2nd-4th driest NE monsoon since 1901 (IMD 124-year check, I-36; first estimated as rarer than 1-in-100)
   drought everywhere; `extremeYearCheck()` shows which crops came through it.
 - E5 Wind / cyclone exposure from NASA POWER wind. **✅ done (RESEARCH_LOG I-26):** `windRisk()`; catches Thane,
   Nivar, Michaung but misses compact Gaja (IBTrACS tracks proposed).
