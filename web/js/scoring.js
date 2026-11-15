@@ -528,22 +528,53 @@ function summarizeSlot(crop, st) {
   };
 }
 
-// cropSuitability(site, crops, "black_gram", prefs) -> {crop, sow, total, good_years, share, ...}
-export function cropSuitability(site, crops, cropId, prefs) {
-  const crop = cropMap(crops)[cropId];
-  if (!crop) throw new Error(`unknown crop: ${cropId}`);
-  return summarizeSlot(crop, bestSlot(site, crops, crop, prefs));
+// Suitability blends what varies by place with what the user cares about:
+//   50% reliability (share of real seasons it came through)        -> site-dependent
+//   30% priority fit (the full weighted score `total`)              -> mostly crop traits
+//   20% advantage over the statewide median reliability (if known)  -> "better here than elsewhere"
+// Diagnostics on the 47-point grid (RESEARCH_LOG I-13): ranking by `total` alone made one crop #1
+// almost everywhere (cowpea at 46/47 rain-fed points); this blend gives 7-10 distinct #1 crops.
+function suitabilityOf(pick, medianShare) {
+  const adv = medianShare == null ? null : pick.share - medianShare;
+  const s = adv == null
+    ? 0.6 * pick.share * 100 + 0.4 * pick.total
+    : 0.5 * pick.share * 100 + 0.3 * pick.total + 0.2 * (50 + 50 * adv);   // adv in [-1,1] -> 0..100
+  return { suitability: Math.round(clamp(s, 0, 100)), advantage: adv == null ? null : r2(adv) };
 }
 
-// rankCrops(site, crops, prefs, 3) -> top-n crops for this spot (green manures excluded),
-// each with its best sowing month, score, replay pass rate and a full Strategy for the card.
-export function rankCrops(site, crops, prefs, n = 3) {
-  const ranked = crops.filter((c) => c.type !== "green_manure")
-    .map((c) => ({ c, st: bestSlot(site, crops, c, prefs) }))
-    .sort((a, b) => b.st.total - a.st.total || b.st.replay.good_years - a.st.replay.good_years)
-    .slice(0, n);
-  return ranked.map(({ c, st }) => ({
-    ...summarizeSlot(c, st),
+// statewideContext(sites, crops, prefs) -> { median_share: {cropId: 0..1} }
+// Compute once per water source / scenario over all grid points, then pass to the functions below.
+export function statewideContext(sites, crops, prefs) {
+  const median_share = {};
+  for (const c of crops.filter((x) => x.type !== "green_manure")) {
+    const a = sites.map((s) => summarizeSlot(c, bestSlot(s, crops, c, prefs)).share).sort((x, y) => x - y);
+    median_share[c.id] = a.length ? a[Math.floor(a.length / 2)] : null;
+  }
+  return { median_share };
+}
+
+// cropSuitability(site, crops, "black_gram", prefs, context?) -> CropPick
+export function cropSuitability(site, crops, cropId, prefs, context = null) {
+  const crop = cropMap(crops)[cropId];
+  if (!crop) throw new Error(`unknown crop: ${cropId}`);
+  const pick = summarizeSlot(crop, bestSlot(site, crops, crop, prefs));
+  return { ...pick, ...suitabilityOf(pick, context?.median_share?.[cropId]) };
+}
+
+// rankCrops(site, crops, prefs, n = 3, context?) -> crops ordered by suitability, with the first
+// picks drawn from different crop families (no "legume, legume, legume" top 3). n = crops.length
+// returns every crop, diverse leaders first. Each item carries a full Strategy for the card.
+export function rankCrops(site, crops, prefs, n = 3, context = null) {
+  const all = crops.filter((c) => c.type !== "green_manure").map((c) => {
+    const st = bestSlot(site, crops, c, prefs);
+    const pick = summarizeSlot(c, st);
+    return { c, st, pick: { ...pick, ...suitabilityOf(pick, context?.median_share?.[c.id]) } };
+  }).sort((a, b) => b.pick.suitability - a.pick.suitability || b.pick.total - a.pick.total);
+  const chosen = [], families = new Set();
+  for (const x of all) if (!families.has(x.c.pest_family)) { chosen.push(x); families.add(x.c.pest_family); }
+  const ordered = [...chosen, ...all.filter((x) => !chosen.includes(x))].slice(0, n);
+  return ordered.map(({ c, st, pick }) => ({
+    ...pick,
     strategy: scoreRotation(site, crops, st.rotation, prefs),   // with why/evidence/risks text
   }));
 }

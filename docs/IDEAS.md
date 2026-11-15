@@ -7,10 +7,69 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I15 | Policy brief export: one-page PDF per district | Sid | 💡 |
+| I14 | Equity lens: tank-fed and smallholder-heavy blocks first | Sid | 💡 |
+| I13 | Policy scenario levers: canal shortfall, tank rehabilitation, borewell caps | Sid | 💡 |
+| I12 | Crop-insurance (PMFBY) risk view: failure frequency per crop × district | Sid | 💡 |
+| I11 | Climate hotspots: Layer 1 trends + Layer 3 projections on the grid | Sid | 💡 (A14 grid / A16) |
+| I10 | Groundwater stress flag: CGWB over-exploited blocks + GRACE trend | Sid | 💡 |
+| I9 | **Backtest against real yields:** do our "bad years" match low-yield years? | Sid | 💡 **high priority** |
+| I8 | Programme targeting: Millet Mission, rice-fallow pulses, diversification schemes | Sid | 💡 |
+| I7 | Water-saving scenarios: "shift X% of rice in district Y to millets → MCM saved" | Sid | 💡 |
+| I6 | **Mismatch map:** what is grown today vs what the climate supports, per district | Sid | 💡 **high priority** |
+| I5 | Reframe the UI for a policy maker: district view, statewide ranking, uncertainty first | Sid | 💡 **high priority** |
 | I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `rankCrops` |
 | I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `cropSuitability` |
 | I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
+
+## Brainstorm (Sid, 2026-11-14): making Field Shift useful for a **Tamil Nadu policy maker**
+
+The audience is now an agriculture-department decision maker, not one farmer. They ask *where*, *how
+much* and *what if* across districts. These are the directions, roughly by value per hour.
+
+**High priority (strongest demo + most decision-relevant)**
+- **I5 Policy framing.** Open on a statewide view, not one farm.
+  - District as the unit: aggregate the 47 grid points to the 38 districts, area-weighted.
+  - Rank districts and crops; uncertainty and data caveats up front.
+  - The farm-level rotation page becomes the "drill-down".
+- **I6 Mismatch map.** Overlay what is *actually grown* (district crop area from the TN Dept of Economics &
+  Statistics *Season and Crop Report*, or the ICRISAT district-level database) on what our replay says is
+  climate-robust. Example: "District X puts N% of its area in rain-fed rice, which came through 2 of 24
+  seasons here". This is the clearest policy story.
+- **I9 Backtest.** Compare our replay's failure years with real district yield anomalies (DES / ICRISAT
+  yield series). If our bad years (2016, 2012, 2003…) line up with low yields, the tool is validated.
+  If not, we learn where the model is wrong. Huge credibility gain for judges and officials.
+
+**Medium**
+- **I7 Water budget.** Convert rotations to irrigation demand (mm × hectares → million cubic metres) per
+  district; slider "shift X% of area from crop A to B" → water saved. Needs I6's area data.
+- **I8 Programme targeting.** Where are the state's millet / pulse / diversification schemes most
+  climate-robust? Example: rice-fallow black gram in the delta. Rank districts by suitability × current area gap.
+- **I10 Groundwater flag.** Mark CGWB "over-exploited" blocks and the GRACE storage trend; never recommend
+  borewell-dependent options there.
+- **I11 Climate hotspots.** Run Layer 1 trends on all 47 grid points (where are nights warming fastest,
+  where is the monsoon becoming less reliable). Then Layer 3 projections → "where does today's
+  suitability fall by 2050?".
+- **I12 Insurance risk.** Failure frequency per crop × district from the replay = an independent view of
+  PMFBY crop-insurance risk.
+
+**Later / nice to have**
+- **I13 Scenario levers for policy.** Canal release shortfall (e.g. Mettur/Cauvery), tank rehabilitation
+  (raises the tank budget), borewell caps; show the effect on maps.
+- **I14 Equity lens.** Highlight tank-fed, rain-fed and smallholder-heavy blocks; these are hit hardest by monsoon failure.
+- **I15 District brief.** One-page printable PDF per district: top robust crops, risky current crops,
+  trends, caveats. (Extends the existing print sheet.)
+
+**Model-quality work these depend on (Lane A)**
+- ✅ Suitability now discriminates. A diagnostic found the old score put cowpea #1 at 46/47 points;
+  the new blend gives 5–9 distinct #1 crops and family-diverse top 3s (RESEARCH_LOG I-13).
+- Water source should vary by place: use district irrigation-source shares (canal / tank / well /
+  rain-fed, from DES) instead of one source for the whole state. Today "canal" makes rice look the same everywhere.
+- Cowpea still leads ~20/47 points: revisit its traits (market "low" but high fodder / nitrogen) with
+  an agronomist; consider a "cash crops only" toggle for policy views.
+
+---
 
 ## Crop map page (I3 + I4): what exists now, and the data it is waiting for
 
