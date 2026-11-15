@@ -100,7 +100,16 @@ KEY FINDINGS
 
 BENEFITS AND WHAT WE HOPE TO ACHIEVE
 
-Farmers get odds, not promises, based on real seasons at their own place, in Tamil, on a phone, for free. Agriculture officers and state planners get the same evidence statewide: where farming is most exposed, which crops to support ahead of a severe season, and how much water a crop switch could save. Next we want to add crop prices and costs, pest and disease risk from NASA humidity and temperature, groundwater limits in borewell plans, and the southern dams (Papanasam, Vaigai), whose openings we found are often months late.
+Farmers get odds, not promises, based on real seasons at their own place, in Tamil, on a phone, for free. Agriculture officers and state planners get the same evidence statewide: where farming is most exposed, which crops to support ahead of a severe season, and how much water a crop switch could save. Next we want to add:
+- crop prices and costs;
+- pest and disease risk from NASA humidity and temperature;
+- groundwater limits in borewell plans;
+- the southern dams (Papanasam, Vaigai), whose openings we found are often months late;
+- soil types detected from data (SoilGrids plus how fast SMAP soil moisture dries, satellite soil colour and the farmer's Soil Health Card);
+- how much water to give each crop and when;
+- which fertiliser to use and what it contains (for example urea 46% N, DAP 18-46-0);
+- improved and approved GM varieties (in India, only Bt cotton is widely approved for commercial cultivation);
+- links to order the seed, fertiliser and materials a plan needs from trusted, clearly labelled sellers, keeping the advice independent.
 
 TOOLS
 

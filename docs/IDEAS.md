@@ -7,6 +7,10 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I33 | E-commerce: links from a plan to order its seed, fertiliser and materials (trusted, labelled sellers; advice stays independent) | Siddarth | 💡 future work |
+| I32 | Improved and GM varieties per crop (short-duration, drought/pest-tolerant; only Bt cotton is widely approved GM in India) | Siddarth | 💡 future work |
+| I31 | Water and fertiliser per crop: irrigation amount and timing by growth stage; fertiliser doses from soil tests (TNAU STCR) and product composition (urea 46% N, DAP 18-46-0, MOP 60% K₂O) | Siddarth | 💡 future work |
+| I30 | Soil type detection from data: SoilGrids + SMAP drying rate after rain + Landsat/Sentinel-2 bare-soil colour + Soil Health Card results | Siddarth | 💡 future work |
 | I29 | Pest and disease resistance: weather-driven pest/disease risk per crop + resistant varieties | Siddarth | 💡 **medium** (NASA humidity/temperature already in POWER) |
 | I28 | Storage and perishability: how long each crop keeps after harvest, as a farmer factor (sell when prices are good vs forced quick sale) | Siddarth | 💡 **medium-high** (crop field + priority; pairs with E3 prices) |
 | I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
@@ -68,6 +72,38 @@ crop areas (DES Season and Crop Report), the same data I6 / I21 need.
 warning (needs near-real-time SMAP / NDVI anomalies).
 
 ---
+
+## Siddarth's future plans (2026-11-15, evening): soil, water, fertiliser, varieties, ordering
+
+**I30 Soil type detection from data.**
+- **Today:** one SoilGrids texture per place (250 m, sampled at the cell centre).
+- **Idea:** estimate the soil at the farmer's field by combining several signals:
+  - SoilGrids texture;
+  - how fast NASA SMAP soil moisture falls after rain (sandy soils dry within days, clay holds water longer);
+  - bare-soil colour in Landsat / Sentinel-2 images in the fallow months, which the NDVI work already finds;
+  - the farmer's Soil Health Card results (pH, EC, N, P, K) where they have one.
+- **Use:** feed the soil type into crop fit and the soil water the replay starts with.
+
+**I31 Water and fertiliser per crop.**
+- **Water:** the engine already computes each crop's seasonal irrigation need in mm. Turn it into a schedule: how
+  much to apply, at which growth stages (sowing, flowering, grain fill), adjusted for soil water holding and rain so
+  far. Warn against waterlogging.
+- **Fertiliser:** recommended N-P-K doses per crop from TNAU's soil-test crop-response (STCR) guidance. Show the
+  chemical composition of common products: urea 46% N; DAP 18% N and 46% P₂O₅; MOP 60% K₂O; and complexes such as
+  17-17-17. Convert a dose into bags, and suggest organic options (green manure such as daincha, already in the
+  crop list; compost).
+
+**I32 Improved and GM varieties.**
+- For each crop, list varieties suited to the place and season (short-duration, drought-tolerant, pest-resistant)
+  from TNAU and the Tamil Nadu crop guides.
+- **GM:** be precise about what is legal. In India, Bt cotton is the only GM crop widely approved for commercial
+  cultivation, so other GM suggestions would be research notes, not advice.
+
+**I33 E-commerce: order what a plan needs.**
+- From a chosen plan, link to buying its seed, fertiliser and other materials.
+- **Where:** prefer government and cooperative outlets, and trusted sellers.
+- **Neutrality rules:** label every link; keep recommendations independent of sellers (no paid ranking); never
+  collect payment in the app.
 
 ## Siddarth's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
 

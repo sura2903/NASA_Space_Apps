@@ -148,6 +148,21 @@ detail*. Nothing was removed from the farmer's page; it was moved there.
    resistant varieties from the Tamil Nadu crop guides.
 5. **Groundwater in the plans:** GRACE-based groundwater trends are on the Policy map now. Next, borewell plans
    should account for falling water tables, using CGWB well data where GRACE is too coarse.
+6. **Soil types detected from data:** go beyond one SoilGrids texture per place.
+   - Combine it with how fast SMAP soil moisture dries after rain, bare-soil colour in Landsat / Sentinel-2, and
+     the farmer's Soil Health Card results.
+   - Let soil type change which crops fit and how much water the soil holds.
+7. **How much water to give a crop, and when:** turn the engine's seasonal irrigation need into a simple schedule
+   by growth stage, so farmers neither under-water nor waterlog the crop.
+8. **Which fertiliser, and what is in it:** doses per crop from soil tests and TNAU guidance, and the chemical
+   composition of each product (e.g. urea 46% N; DAP 18% N, 46% P₂O₅; potash 60% K₂O). Convert a recommended N-P-K
+   dose into bags, with organic options.
+9. **Improved and GM varieties:** short-duration, drought- and pest-tolerant varieties from the TNAU and state crop
+   guides, with clear notes on which GM varieties are approved in India (only Bt cotton is widely approved for
+   commercial cultivation).
+10. **Links to order what a plan needs:** connect each plan to e-commerce so farmers can order the seed, fertiliser
+    and materials it needs from trusted sellers. Prefer government and cooperative outlets, label every link, and
+    take no paid placement in the advice.
 
 ## 9. Use of AI
 - **Code and analysis:** we used Anthropic's Claude (Claude Code) as a coding and analysis assistant. It wrote most of
