@@ -1,9 +1,10 @@
 // Crop map (Lane B, ideas I3 + I4 in docs/IDEAS.md).
 // Pick a crop -> colour each place by how that crop would have done there.
 // Click anywhere -> top 3 crops at the nearest place with data.
-// Scores come only from scoring.js (scoreRotation on a one-crop rotation per sowing month).
+// Scores come only from scoring.js: cropSuitability (one crop at one place, for the map)
+// and rankCrops (all crops at one place, for the top 3). No scoring logic here.
 // Places: Lane A's grid (data/grid/index.json) when it exists, otherwise the 3 demo sites.
-import { scoreRotation, PRIORITIES, WATER_SOURCES } from "./scoring.js";
+import { cropSuitability, rankCrops, PRIORITIES, WATER_SOURCES } from "./scoring.js";
 import { $, h, clear, fmt } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
@@ -19,7 +20,7 @@ const KM = (a, b) => {
 
 const state = {
   kind: "sites", cellDeg: null, points: [], sites: {}, crops: [], cropById: {},
-  crop: null, measure: "came", water: "rainfed", results: {}, selected: null, clickLatLng: null,
+  crop: null, measure: "came", water: "rainfed", suit: {}, ranks: {}, selected: null, clickLatLng: null,
 };
 
 async function getJSON(url) {
@@ -38,43 +39,36 @@ async function loadPoints() {
   return { kind: "sites", points: await getJSON("data/sites/index.json"), base: "data/sites/", cellDeg: null };
 }
 
-/** Every non-green-manure crop at its best sowing month for one place. */
-function rankCrops(site) {
-  const prefs = { weights: WEIGHTS, water_source: state.water, scenario: { dT_c: 0, dPrecip_pct: 0 } };
-  const out = [];
-  for (const c of state.crops) {
-    if (c.type === "green_manure") continue;
-    let best = null;
-    for (const sow of c.sow_months) {
-      const st = scoreRotation(site, state.crops, [[{ crop: c.id, sow }]], prefs);
-      if (!best || st.total > best.st.total) best = { crop: c, sow, st };
-    }
-    if (best) out.push(best);
+const prefs = () => ({ weights: WEIGHTS, water_source: state.water, scenario: { dT_c: 0, dPrecip_pct: 0 } });
+// One shape for both engine calls (CropPick in docs/data_contract.md section 4).
+const fromPick = (k) => ({
+  crop: state.cropById[k.crop], sow: k.sow, total: k.total, good: k.good_years, years: k.total_years,
+  share: k.share ?? (k.total_years ? k.good_years / k.total_years : 0), need: k.water_need_mm, st: k.strategy ?? null,
+});
+
+/** The selected crop at every place (heatmap). ~1 ms per place. */
+function suitFor(id) {
+  const key = `${state.water}|${state.crop}`;
+  const m = (state.suit[key] ??= {});
+  if (!(id in m)) {
+    try { m[id] = fromPick(cropSuitability(state.sites[id], state.crops, state.crop, prefs())); } catch { m[id] = null; }
   }
-  return out.sort((a, b) => b.st.total - a.st.total);
+  return m[id];
 }
 
-async function computeAll() {
-  setBusy(true);
+/** All crops at one place, best first, each with a full strategy for the card. */
+function ranksFor(id) {
   const key = state.water;
-  state.results[key] ??= {};
-  for (const p of state.points) {
-    if (!state.results[key][p.id]) {
-      state.results[key][p.id] = rankCrops(state.sites[p.id]);
-      await new Promise((r) => setTimeout(r, 0)); // keep the page responsive on big grids
-    }
-  }
-  setBusy(false);
+  const m = (state.ranks[key] ??= {});
+  m[id] ??= rankCrops(state.sites[id], state.crops, prefs(), state.crops.length).map(fromPick);
+  return m[id];
 }
-const resultsFor = (id) => state.results[state.water]?.[id] ?? [];
 
 /* ---------- colour scale: one hue, light -> dark ---------- */
 const LIGHT = [227, 240, 223], DARK = [27, 94, 32];
 const colour = (v) => `rgb(${LIGHT.map((l, i) => Math.round(l + (DARK[i] - l) * Math.max(0, Math.min(1, v)))).join(",")})`;
-const measureOf = (r) => (state.measure === "came" ? r.st.replay.good_years / (r.st.replay.total_years || 1) : r.st.total / 100);
-const measureText = (r) => (state.measure === "came"
-  ? t("x.came.short", { good: r.st.replay.good_years, total: r.st.replay.total_years })
-  : `${r.st.total}/100`);
+const measureOf = (r) => (state.measure === "came" ? r.share : r.total / 100);
+const measureText = (r) => (state.measure === "came" ? t("x.came.short", { good: r.good, total: r.years }) : `${r.total}/100`);
 
 /* ---------- map ---------- */
 let map = null, layer = null, clickMarker = null;
@@ -95,7 +89,7 @@ function drawMap() {
   const L = window.L;
   layer.clearLayers();
   for (const p of state.points) {
-    const r = resultsFor(p.id).find((x) => x.crop.id === state.crop);
+    const r = suitFor(p.id);
     if (!r) continue;
     const fill = colour(measureOf(r));
     const tip = `<strong>${placeName(p).replace(/\s*\(.*\)/, "")}</strong><br>${cropName(r.crop)}: ${measureText(r)} · ${t("x.sow", { m: monthName(r.sow) })}`;
@@ -128,7 +122,7 @@ function drawLegend() {
 function drawCropTable() {
   const el = $("#crop-table");
   clear(el);
-  const rows = state.points.map((p) => ({ p, r: resultsFor(p.id).find((x) => x.crop.id === state.crop) }))
+  const rows = state.points.map((p) => ({ p, r: suitFor(p.id) }))
     .filter((x) => x.r).sort((a, b) => measureOf(b.r) - measureOf(a.r)).slice(0, 12);
   if (!rows.length) return;
   el.append(h("div", { class: "table-wrap" }, h("table", { class: "compare xtable" },
@@ -136,9 +130,9 @@ function drawCropTable() {
     h("tbody", {}, rows.map(({ p, r }) => h("tr", { class: state.selected?.id === p.id ? "sel" : "", onclick: () => selectPoint(p), style: { cursor: "pointer" } },
       h("th", { scope: "row" }, placeName(p)),
       h("td", {}, monthName(r.sow)),
-      h("td", {}, t("x.came.short", { good: r.st.replay.good_years, total: r.st.replay.total_years })),
-      h("td", {}, String(r.st.total)),
-      h("td", {}, `${fmt(r.st.water_use.need_mm)} mm`)))))));
+      h("td", {}, t("x.came.short", { good: r.good, total: r.years })),
+      h("td", {}, String(r.total)),
+      h("td", {}, `${fmt(r.need)} mm`)))))));
 }
 
 /* ---------- top 3 at a place ---------- */
@@ -178,7 +172,9 @@ function drawTop3() {
   const box = $("#top3");
   clear(box);
   if (!p) { $("#top3-title").textContent = t("x.top.empty"); $("#top3-meta").textContent = ""; $("#all-crops").hidden = true; return; }
-  const list = resultsFor(p.id);
+  setBusy(true, t("x.busy.one"));
+  const list = ranksFor(p.id);
+  setBusy(false);
   $("#top3-title").textContent = placeName(p);
   const c = state.clickLatLng;
   $("#top3-meta").textContent = [
@@ -198,7 +194,7 @@ function drawTop3() {
         h("span", { class: "top3-rank" }, String(i + 1)),
         h("div", {},
           h("h3", {}, cropName(r.crop)),
-          h("p", { class: "note" }, t("x.sow", { m: monthName(r.sow) }) + " · " + t("x.water.need", { mm: fmt(st.water_use.need_mm) }))),
+          h("p", { class: "note" }, t("x.sow", { m: monthName(r.sow) }) + " · " + t("x.water.need", { mm: fmt(r.need) }))),
         h("div", { class: "score" }, h("span", { class: "score-n" }, String(st.total)), h("span", { class: "score-l" }, t("card.outof"), h("br"), t("card.fit")))),
       h("div", { class: "replay" },
         h("div", { class: "replay-l", html: rich(t("x.came.long", { good: st.replay.good_years, total: st.replay.total_years })) }),
@@ -218,8 +214,8 @@ function drawTop3() {
     h("tbody", {}, list.map((r) => h("tr", {},
       h("th", { scope: "row" }, cropName(r.crop)),
       h("td", {}, monthName(r.sow)),
-      h("td", {}, t("x.came.short", { good: r.st.replay.good_years, total: r.st.replay.total_years })),
-      h("td", {}, String(r.st.total)))))));
+      h("td", {}, t("x.came.short", { good: r.good, total: r.years })),
+      h("td", {}, String(r.total)))))));
   $("#all-crops").hidden = false;
 }
 
@@ -241,8 +237,16 @@ function drawControls() {
   clear(w);
   for (const [id, ws] of Object.entries(WATER_SOURCES)) {
     w.append(h("label", { class: "choice" + (id === state.water ? " on" : "") },
-      h("input", { type: "radio", name: "water", value: id, checked: id === state.water, onchange: async () => { state.water = id; drawControls(); await computeAll(); refresh(); } }),
+      h("input", { type: "radio", name: "water", value: id, checked: id === state.water, onchange: () => { state.water = id; refresh(); } }),
       h("span", {}, waterLabel(id, ws.label))));
+  }
+  const pre = $("#presets");
+  clear(pre);
+  for (const [label, crop, water] of [["x.pre.rice.rain", "rice_long", "rainfed"], ["x.pre.rice.canal", "rice_long", "canal"]]) {
+    if (!state.cropById[crop] || !WATER_SOURCES[water]) continue;
+    const on = state.crop === crop && state.water === water;
+    pre.append(h("button", { type: "button", class: "btn-ghost small" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false",
+      onclick: () => { state.crop = crop; state.water = water; history.replaceState(null, "", `#crop=${crop}`); refresh(); } }, t(label)));
   }
   $("#points-note").textContent = state.kind === "grid"
     ? t("x.points.grid", { n: state.points.length })
@@ -259,9 +263,9 @@ function refresh() {
   drawTop3();
 }
 
-function setBusy(on) {
+function setBusy(on, text) {
   const b = $("#busy");
-  b.textContent = on ? t("x.busy", { n: state.points.length }) : "";
+  b.textContent = on ? (text ?? t("x.busy", { n: state.points.length })) : "";
   b.classList.toggle("on", on);
 }
 
@@ -301,7 +305,6 @@ async function init() {
     refresh();
   });
   initMap();
-  await computeAll();
   refresh();
 }
 

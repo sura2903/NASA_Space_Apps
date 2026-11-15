@@ -169,7 +169,8 @@ const STR = {
     "x.nearest": "Nearest place with data, {km} km from where you clicked.",
     "x.all": "All crops at this place",
     "x.compare.link": "Build a rotation here →",
-    "x.busy": "Testing every crop at {n} places…",
+    "x.busy": "Testing every crop at {n} places…", "x.busy.one": "Testing every crop here…",
+    "x.pre.title": "Try a comparison", "x.pre.rice.rain": "Rice on rain only", "x.pre.rice.canal": "Rice with canal water",
     "x.limits": "One crop at a time, on regional weather data. Soil, pests, markets and water rights still need local advice.",
   },
 
@@ -314,7 +315,8 @@ const STR = {
     "x.nearest": "தரவு உள்ள அருகிலுள்ள இடம், நீங்கள் அழுத்திய இடத்திலிருந்து {km} கி.மீ.",
     "x.all": "இந்த இடத்தில் எல்லாப் பயிர்களும்",
     "x.compare.link": "இங்கே ஒரு சுழற்சியை உருவாக்கு →",
-    "x.busy": "{n} இடங்களில் ஒவ்வொரு பயிரையும் சோதிக்கிறது…",
+    "x.busy": "{n} இடங்களில் ஒவ்வொரு பயிரையும் சோதிக்கிறது…", "x.busy.one": "இங்கே ஒவ்வொரு பயிரையும் சோதிக்கிறது…",
+    "x.pre.title": "ஒப்பிட்டுப் பாருங்கள்", "x.pre.rice.rain": "மழை மட்டும் நெல்", "x.pre.rice.canal": "கால்வாய் நீருடன் நெல்",
     "x.limits": "ஒரு நேரத்தில் ஒரு பயிர், பிராந்திய வானிலைத் தரவில். மண், பூச்சி, சந்தை, நீர் உரிமை ஆகியவற்றுக்கு உள்ளூர் ஆலோசனை தேவை.",
   },
 };
