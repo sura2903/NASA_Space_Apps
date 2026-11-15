@@ -4124,5 +4124,146 @@
       "2023": 1.118,
       "2024": 1.163
     }
+  },
+  "dam": {
+    "name": "Mettur (Stanley) reservoir, Cauvery delta canals",
+    "source": "Tamil Nadu Dept of Agriculture, Season & Crop statistics tables VII.10 (Mettur opening & closing details) and VII.12 (Mettur opening date vs paddy area), tnagriculture.in/dashboard/report/",
+    "normal": {
+      "open": "06-12",
+      "close": "01-28"
+    },
+    "median_release_tmc": 192.6,
+    "years": {
+      "2000": {
+        "open": "2000-06-12",
+        "close": "2001-01-08",
+        "release_tmc": 295.88,
+        "release_index": 1.536
+      },
+      "2001": {
+        "open": "2001-06-12",
+        "close": "2002-02-11",
+        "release_tmc": 201.26,
+        "release_index": 1.045
+      },
+      "2002": {
+        "open": "2002-09-06",
+        "close": "2003-02-19",
+        "release_tmc": 96.14,
+        "release_index": 0.499
+      },
+      "2003": {
+        "open": "2003-10-07",
+        "close": "2004-01-05",
+        "release_tmc": 58.28,
+        "release_index": 0.303
+      },
+      "2004": {
+        "open": "2004-08-12",
+        "close": "2005-01-28",
+        "release_tmc": 138.52,
+        "release_index": 0.719
+      },
+      "2005": {
+        "open": "2005-08-04",
+        "close": "2006-01-28",
+        "release_tmc": 311.69,
+        "release_index": 1.618
+      },
+      "2006": {
+        "open": "2006-06-12",
+        "close": "2007-01-28",
+        "release_tmc": 268.44,
+        "release_index": 1.394
+      },
+      "2007": {
+        "open": "2007-07-18",
+        "close": "2008-01-28",
+        "release_tmc": 307.6,
+        "release_index": 1.597
+      },
+      "2008": {
+        "open": "2008-06-12",
+        "close": "2009-01-28",
+        "release_tmc": 241.14,
+        "release_index": 1.252
+      },
+      "2009": {
+        "open": "2009-07-28",
+        "close": "2010-01-28",
+        "release_tmc": 192.59,
+        "release_index": 1.0
+      },
+      "2010": {
+        "open": "2010-07-28",
+        "close": "2011-01-28",
+        "release_tmc": 140.97,
+        "release_index": 0.732
+      },
+      "2011": {
+        "open": "2011-06-06",
+        "close": "2012-02-05",
+        "release_tmc": 252.17,
+        "release_index": 1.309
+      },
+      "2012": {
+        "open": "2012-09-17",
+        "close": "2013-02-08",
+        "release_tmc": 108.7,
+        "release_index": 0.564
+      },
+      "2013": {
+        "open": "2013-08-02",
+        "close": "2014-01-28",
+        "release_tmc": 209.56,
+        "release_index": 1.088
+      },
+      "2014": {
+        "open": "2014-08-10",
+        "close": "2015-02-05",
+        "release_tmc": 187.02,
+        "release_index": 0.971
+      },
+      "2015": {
+        "open": "2015-08-09",
+        "close": "2016-02-25",
+        "release_tmc": 144.37,
+        "release_index": 0.75
+      },
+      "2016": {
+        "open": "2016-08-21",
+        "close": "2017-01-11",
+        "release_tmc": 69.3,
+        "release_index": 0.36
+      },
+      "2017": {
+        "open": "2017-10-02",
+        "close": "2018-01-28",
+        "release_tmc": 105.18,
+        "release_index": 0.546
+      },
+      "2018": {
+        "open": "2018-07-19",
+        "close": "2019-01-28",
+        "release_tmc": 348.18,
+        "release_index": 1.808
+      },
+      "2019": {
+        "open": "2019-08-13",
+        "close": "2020-01-28",
+        "release_tmc": 198.13,
+        "release_index": 1.029
+      },
+      "2020": {
+        "open": "2020-06-12",
+        "close": "2021-01-28",
+        "release_tmc": 189.66,
+        "release_index": 0.985
+      }
+    },
+    "notes": [
+      "2016: closing 2017-11-11 implausible, read as 2017-01-11",
+      "2016: paddy-area row has release date 20.09.2017 (other year), areas skipped"
+    ]
   }
 }

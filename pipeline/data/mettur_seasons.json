@@ -1,0 +1,264 @@
+{
+ "source": "Tamil Nadu Dept of Agriculture, Season & Crop statistics tables VII.10 (Mettur opening & closing details) and VII.12 (Mettur opening date vs paddy area), tnagriculture.in/dashboard/report/",
+ "notes": [
+  "2016: closing 2017-11-11 implausible, read as 2017-01-11",
+  "2016: paddy-area row has release date 20.09.2017 (other year), areas skipped"
+ ],
+ "seasons": {
+  "2000": {
+   "open": "2000-06-12",
+   "close": "2001-01-08",
+   "storage_at_open_tmc": 70.26,
+   "inflow_tmc": 306.19,
+   "release_tmc": 295.88,
+   "paddy_lakh_acres": {
+    "kuruvai": 3.409,
+    "samba": 10.925,
+    "thaladi": 2.8,
+    "total": 17.134
+   }
+  },
+  "2001": {
+   "open": "2001-06-12",
+   "close": "2002-02-11",
+   "storage_at_open_tmc": 62.34,
+   "inflow_tmc": 162.73,
+   "release_tmc": 201.26,
+   "paddy_lakh_acres": {
+    "kuruvai": 3.28,
+    "samba": 10.55,
+    "thaladi": 2.875,
+    "total": 16.705
+   }
+  },
+  "2002": {
+   "open": "2002-09-06",
+   "close": "2003-02-19",
+   "storage_at_open_tmc": 30.13,
+   "inflow_tmc": 93.99,
+   "release_tmc": 96.14,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.265,
+    "samba": 9.95,
+    "thaladi": 1.3,
+    "total": 12.515
+   }
+  },
+  "2003": {
+   "open": "2003-10-07",
+   "close": "2004-01-05",
+   "storage_at_open_tmc": 34.9,
+   "inflow_tmc": 65.93,
+   "release_tmc": 58.28,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.149,
+    "samba": 8.825,
+    "thaladi": 1.05,
+    "total": 11.024
+   }
+  },
+  "2004": {
+   "open": "2004-08-12",
+   "close": "2005-01-28",
+   "storage_at_open_tmc": 56.28,
+   "inflow_tmc": 163.99,
+   "release_tmc": 138.52,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.662,
+    "samba": 11.475,
+    "thaladi": 1.55,
+    "total": 14.687
+   }
+  },
+  "2005": {
+   "open": "2005-08-04",
+   "close": "2006-01-28",
+   "storage_at_open_tmc": 73.28,
+   "inflow_tmc": 401.3,
+   "release_tmc": 311.69,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.767,
+    "samba": 11.85,
+    "thaladi": 2.05,
+    "total": 15.667
+   }
+  },
+  "2006": {
+   "open": "2006-06-12",
+   "close": "2007-01-28",
+   "storage_at_open_tmc": 83.13,
+   "inflow_tmc": 235.92,
+   "release_tmc": 268.44,
+   "paddy_lakh_acres": {
+    "kuruvai": 2.773,
+    "samba": 10.725,
+    "thaladi": 2.6,
+    "total": 16.098
+   }
+  },
+  "2007": {
+   "open": "2007-07-18",
+   "close": "2008-01-28",
+   "storage_at_open_tmc": 78.2,
+   "inflow_tmc": 345.01,
+   "release_tmc": 307.6,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.647,
+    "samba": 11.92,
+    "thaladi": 1.52,
+    "total": 15.087
+   }
+  },
+  "2008": {
+   "open": "2008-06-12",
+   "close": "2009-01-28",
+   "storage_at_open_tmc": 69.2,
+   "inflow_tmc": 203.84,
+   "release_tmc": 241.14,
+   "paddy_lakh_acres": {
+    "kuruvai": 3.113,
+    "samba": 10.408,
+    "thaladi": 3.138,
+    "total": 16.659
+   }
+  },
+  "2009": {
+   "open": "2009-07-28",
+   "close": "2010-01-28",
+   "storage_at_open_tmc": 58.31,
+   "inflow_tmc": 219.71,
+   "release_tmc": 192.59,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.972,
+    "samba": 11.759,
+    "thaladi": 1.641,
+    "total": 15.372
+   }
+  },
+  "2010": {
+   "open": "2010-07-28",
+   "close": "2011-01-28",
+   "storage_at_open_tmc": 44.48,
+   "inflow_tmc": 193.39,
+   "release_tmc": 140.97,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.826,
+    "samba": 11.844,
+    "thaladi": 1.604,
+    "total": 15.274
+   }
+  },
+  "2011": {
+   "open": "2011-06-06",
+   "close": "2012-02-05",
+   "storage_at_open_tmc": 87.23,
+   "inflow_tmc": 206.78,
+   "release_tmc": 252.17,
+   "paddy_lakh_acres": {
+    "kuruvai": 3.428,
+    "samba": 10.505,
+    "thaladi": 3.08,
+    "total": 17.013
+   }
+  },
+  "2012": {
+   "open": "2012-09-17",
+   "close": "2013-02-08",
+   "storage_at_open_tmc": 46.21,
+   "inflow_tmc": 69.71,
+   "release_tmc": 108.7,
+   "paddy_lakh_acres": {
+    "kuruvai": 1.603,
+    "samba": 11.246,
+    "thaladi": 1.314,
+    "total": 14.163
+   }
+  },
+  "2013": {
+   "open": "2013-08-02",
+   "close": "2014-01-28",
+   "storage_at_open_tmc": 77.46,
+   "inflow_tmc": 235.61,
+   "release_tmc": 209.56,
+   "paddy_lakh_acres": {
+    "kuruvai": 2.05,
+    "samba": 11.589,
+    "thaladi": 1.835,
+    "total": 15.474
+   }
+  },
+  "2014": {
+   "open": "2014-08-10",
+   "close": "2015-02-05",
+   "storage_at_open_tmc": 80.58,
+   "inflow_tmc": 208.1,
+   "release_tmc": 187.02,
+   "paddy_lakh_acres": {
+    "kuruvai": 2.56,
+    "samba": 11.318,
+    "thaladi": 2.123,
+    "total": 16.001
+   }
+  },
+  "2015": {
+   "open": "2015-08-09",
+   "close": "2016-02-25",
+   "storage_at_open_tmc": 60.41,
+   "inflow_tmc": 96.67,
+   "release_tmc": 144.37,
+   "paddy_lakh_acres": {
+    "kuruvai": 3.053,
+    "samba": 10.675,
+    "thaladi": 2.34,
+    "total": 16.068
+   }
+  },
+  "2016": {
+   "open": "2016-08-21",
+   "close": "2017-01-11",
+   "storage_at_open_tmc": 50.03,
+   "inflow_tmc": 62.2,
+   "release_tmc": 69.3
+  },
+  "2017": {
+   "open": "2017-10-02",
+   "close": "2018-01-28",
+   "storage_at_open_tmc": 58.67,
+   "inflow_tmc": 117.05,
+   "release_tmc": 105.18
+  },
+  "2018": {
+   "open": "2018-07-19",
+   "close": "2019-01-28",
+   "storage_at_open_tmc": 81.34,
+   "inflow_tmc": 371.48,
+   "release_tmc": 348.18
+  },
+  "2019": {
+   "open": "2019-08-13",
+   "close": "2020-01-28",
+   "storage_at_open_tmc": 66.43,
+   "inflow_tmc": 258.9,
+   "release_tmc": 198.13,
+   "paddy_lakh_acres": {
+    "kuruvai": 2.908,
+    "samba": 11.045,
+    "thaladi": 2.345,
+    "total": 16.298
+   }
+  },
+  "2020": {
+   "open": "2020-06-12",
+   "close": "2021-01-28",
+   "storage_at_open_tmc": 67.81,
+   "inflow_tmc": 204.28,
+   "release_tmc": 189.66,
+   "paddy_lakh_acres": {
+    "kuruvai": 4.122,
+    "samba": 10.079,
+    "thaladi": 3.403,
+    "total": 17.604
+   }
+  }
+ }
+}

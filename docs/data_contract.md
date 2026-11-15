@@ -101,6 +101,23 @@ Grey out `confidence: "low"` districts. 1 MCM = 1 million m³.
 }
 ```
 
+### 2a-dam. `dam` in Cauvery-delta site/grid files (`pipeline/add_dam_season.py`)
+```jsonc
+"dam": { "name": "Mettur (Stanley) reservoir, Cauvery delta canals", "source": "...",
+         "normal": { "open": "06-12", "close": "01-28" }, "median_release_tmc": 193.2,
+         "years": { "2016": { "open": "2016-08-21", "close": "2017-01-11", "release_tmc": 69.3, "release_index": 0.36 } },
+         "notes": [...] }
+```
+Engine: with `water_source: "canal"` the canal serves only months whose 15th falls inside that year's
+open–close window, with budget × `release_index`. `prefs.dam = { open: "MM-DD" | null, release_index?: 1 }`
+overrides every year (null = canals stay shut).
+`damCheck(site, crops, rotation, prefs)` → `{ dam, normal, overall: {good, n},
+  history: { on_time|late|very_late: { good, n, years: [{year, ok, opened}] } },
+  what_if: { on_time|late|very_late|not_opened: { open, good_years, total_years, irrigation_mm } }, note }`
+(null for places without `dam`). `DAM_OPTIONS` = { on_time: "06-12", late: "08-01", very_late: "09-15", not_opened: null }.
+UI idea (delta farm page): "Has Mettur opened? [on time] [late] [very late] [not yet]" → "With the dam opening in
+August, Kuruvai on canal water came through 0 of 24 seasons. You need a borewell, or sow Samba instead (24 of 24)."
+
 ## 2b. `web/data/trends/<id>.json` (climate-change Layer 1, produced by `pipeline/climate_trends.py`)
 For the "How has my climate changed?" panel (B11). One file per demo site, plus `trends/index.json`.
 ```jsonc
@@ -339,11 +356,12 @@ scenarioMonthly(site, scenario)                                -> [{month, preci
 extremeYearCheck(site, crops, prefs, extremes)                 -> see §2g          // 1-in-100 events + crops in the worst years
 memoryCheck(site, crops, prefs, opts)                          -> see §2h          // last 10 years vs full record
 windRisk(site, crops, prefs, wind)                             -> see §2i          // wind / cyclone exposure per crop
+damCheck(site, crops, rotation, prefs)                         -> see §2a-dam      // "has the dam opened?" (delta)
 DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
 WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
 cropLabel(crop)          -> "Black gram · உளுந்து"
 ```
-`generateStrategies` takes ~0.4 s. Debounce slider changes by about 250 ms.
+`generateStrategies` takes ~1–1.5 s with 21 crops (was ~0.4 s with 16). Debounce slider changes by about 250 ms and show a "re-scoring…" state.
 
 ### `Strategy`
 ```jsonc

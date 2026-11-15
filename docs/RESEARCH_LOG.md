@@ -534,6 +534,49 @@ pattern risky?"*
 - **Still approximate:** barnyard millet (now the most common top pick; its "medium" flood tolerance and water
   need are unsourced) and the other small millets' water needs. Next to check.
 
+### I-29 · Canal water follows what Mettur dam actually did (TASKS A22, user request)
+- **Why:** a canal farmer's water depends on the season and on whether and when the dam has opened, not only on
+  rain. Until now the delta's canal budget scaled with upstream-catchment rain (I-17).
+- **Data:** the TN Agriculture Dept Season & Crop tables, parsed and cached by `pipeline/add_dam_season.py` into
+  `pipeline/data/mettur_seasons.json`:
+  - VII.10: Mettur opening and closing dates, storage and release each water-year, 2000–2020.
+  - VII.12: opening date against Kuruvai / Samba / Thaladi paddy area.
+  - Two table errors were fixed, both logged in the file: the 2016–17 closing printed as "11.11.17" (read as
+    11 Jan 2017), and a misdated 2016 area row was skipped.
+  - Papanasam (Tirunelveli) and Vaigai (Madurai) aren't in these tables, so only the delta has dam seasons.
+- **The pattern in the tables:**
+  - **Kuruvai:** paddy averaged ~3.35 lakh acres in the 6 years Mettur opened by mid-June, vs ~1.95 in the 12 late
+    years. Down ~40%, not to zero, because of borewells.
+  - **Samba:** dipped in the very late years (2002 opened 6 Sep: 9.95; 2003 opened 7 Oct: 8.8; normal ~11).
+- **Engine:** where a site has `dam` (Thanjavur + 8 delta grid points), canal water flows only in months whose 15th
+  falls between that year's opening and closing, and the budget scales with that year's release (median 193 TMC).
+  Years without dam data (2021–24) fall back to the rain index.
+  - New export `damCheck()`: came through per opening class (on time ≤ 15 Jun / late / very late ≥ 1 Sep), plus a
+    what-if that replays all 24 years with the canals opening 12 Jun / 1 Aug / 15 Sep / never.
+  - Opening can't be forecast from June information (I-18), so "has the dam opened?" is an input, not a prediction.
+- **Results (Thanjavur, canal water):**
+
+  | Crop | On time | Late | Very late | What-if: opens 1 Aug | What-if: never opens |
+  |---|---|---|---|---|---|
+  | Kuruvai (short rice, sown Jun) | 5/5 | 0/11 | 0/4 | 0/24 | 0/24 |
+  | Samba (long rice, sown Aug) | 5/5 | 10/11 | 3/4 | 24/24 | 2/24 |
+
+  - **Kuruvai:** without an on-time dam, Kuruvai needs a borewell. That matches the real ~40% area drop, with the
+    rest grown on groundwater.
+  - **Samba / Thaladi** fail in 2002, 2003 and 2016, the real delta crisis years. This fixes the I-24 limit where
+    canal farms showed no damage in 2016.
+  - **The default Kuruvai → Thaladi canal rotation drops from 19/24 to 9/24.** That's the same fact: Kuruvai on canal
+    water alone is a bet on Mettur opening on time.
+- **Backtest (delta rice production, 3 districts, 2001–2020, bad = production well below normal):**
+
+  | Run | Engine failure years | Share of bad district-years caught | P(bad \| failure) | Lift |
+  |---|---|---|---|---|
+  | Before (rain index) | 2002 | ~18% | 1.00 | 3.5× |
+  | After (dam season) | 2002, 2003, 2016 | ~35% | 0.67 | 2.4× |
+
+  The dam version catches more of the real bad years with slightly lower precision. With 20 years the evidence is
+  thin either way; the main gain is mechanical. 2012 (opened 17 Sep, half release) is still missed.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
