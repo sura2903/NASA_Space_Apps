@@ -76,7 +76,20 @@ const cropMap = (crops) => {
 };
 
 // ---------- climate access with scenario adjustment ----------
-function adjustMonth(m, sc) {
+function adjustMonth(m, sc, mi) {
+  // Projection mode (NEX-GDDP-CMIP6 change factors for one model; see futureRange) replaces the sliders.
+  const d = sc?.deltas;
+  if (d) {
+    const precip = (m.precip_mm ?? 0) * d.p_ratio[mi];
+    const et0 = (m.et0_mm ?? Math.max(0, (m.precip_mm ?? 0) - (m.water_balance_mm ?? 0))) * d.et0_ratio[mi];
+    return {
+      precip_mm: precip, et0_mm: et0, water_balance_mm: precip - et0,
+      heat_days: clamp((m.heat_days ?? 0) + d.d_heat[mi], 0, 31),
+      heavy_rain_days: Math.max(0, (m.heavy_rain_days ?? 0) + d.d_heavy[mi]),
+      tmax_c: (m.tmax_c ?? 0) + d.d_tmax[mi],
+      max_daily_precip_mm: m.max_daily_precip_mm ?? null,
+    };
+  }
   const dT = sc?.dT_c || 0, dP = (sc?.dPrecip_pct || 0) / 100;
   const precip = (m.precip_mm ?? 0) * (1 + dP);
   const et0 = (m.et0_mm ?? Math.max(0, (m.precip_mm ?? 0) - (m.water_balance_mm ?? 0))) * (1 + 0.03 * dT);
@@ -98,7 +111,7 @@ function adjustMonth(m, sc) {
 // thousands of candidates, so cache it instead of re-adjusting 288 months each time.
 const climateCache = new WeakMap();
 function climate(site, sc) {
-  const key = `${sc?.dT_c || 0}|${sc?.dPrecip_pct || 0}`;
+  const key = sc?.deltas ? `proj|${sc.projection_key}` : `${sc?.dT_c || 0}|${sc?.dPrecip_pct || 0}`;
   let perSite = climateCache.get(site);
   if (!perSite) climateCache.set(site, (perSite = new Map()));
   if (!perSite.has(key)) perSite.set(key, buildClimate(site, sc));
@@ -106,13 +119,16 @@ function climate(site, sc) {
 }
 
 function buildClimate(site, sc) {
-  const monthly = site.monthly.map((m) => adjustMonth(m, sc));
-  const byYear = (site.by_year || []).map((y) => ({ year: y.year, months: y.months.map((m) => adjustMonth(m, sc)) }));
+  const monthly = site.monthly.map((m, i) => adjustMonth(m, sc, i));
+  const byYear = (site.by_year || []).map((y) => ({ year: y.year, months: y.months.map((m, i) => adjustMonth(m, sc, i)) }));
   // Monsoon normals for tank/canal scaling.
   const ne = (ms) => ms[9].precip_mm + ms[10].precip_mm + ms[11].precip_mm;           // Oct-Dec
   const junDec = (ms) => sum(ms.slice(5, 12).map((m) => m.precip_mm));               // Jun-Dec
-  const neNormal = byYear.length ? mean(byYear.map((y) => ne(y.months))) : ne(monthly);
-  const jdNormal = byYear.length ? mean(byYear.map((y) => junDec(y.months))) : junDec(monthly);
+  // Normals come from today's OBSERVED climate, not the adjusted one: in a drier scenario tanks and canals
+  // should fill less than today, not "normally for a drier world" (which hid scenario water stress).
+  const obsYears = site.by_year || [];
+  const neNormal = obsYears.length ? mean(obsYears.map((y) => ne(y.months))) : ne(site.monthly);
+  const jdNormal = obsYears.length ? mean(obsYears.map((y) => junDec(y.months))) : junDec(site.monthly);
   // Upstream canal index (e.g. Cauvery: Mettur fills from Western Ghats monsoon rain, not local rain).
   const canalIndex = site.canal_index?.years || null;
   return { monthly, byYear, ne, junDec, neNormal, jdNormal, canalIndex };
@@ -589,6 +605,31 @@ export function rankCrops(site, crops, prefs, n = 3, context = null) {
     ...pick,
     strategy: scoreRotation(site, crops, st.rotation, prefs),   // with why/evidence/risks text
   }));
+}
+
+// ---------- future projections (NEX-GDDP-CMIP6; climate-change Layer 3) ----------
+// futureRange(site, crops, rotation, prefs, projection, ssp) replays the rotation through "future-like years":
+// each observed year 2001-2024 with one model's monthly change factors (2041-2060 vs 1995-2014) applied, for
+// every model. Returns today's result plus the spread across models (never a single "the future" number).
+// `projection` is web/data/projections/<site>.json.
+export function futureRange(site, crops, rotation, prefs, projection, ssp = "ssp245") {
+  const today = scoreRotation(site, crops, rotation, { ...prefs, scenario: {} }, { skipText: true });
+  const per = Object.entries(projection?.deltas?.[ssp] || {}).map(([model, deltas]) => {
+    const st = scoreRotation(site, crops, rotation,
+      { ...prefs, scenario: { deltas, projection_key: `${ssp}|${model}` } }, { skipText: true });
+    return { model, total: st.total, good_years: st.replay.good_years, total_years: st.replay.total_years,
+             irrigation_mm: st.water_use.irrigation_mm };
+  });
+  const stat = (k) => {
+    const v = per.map((p) => p[k]).sort((a, b) => a - b);
+    return v.length ? { min: v[0], median: v[Math.floor(v.length / 2)], max: v[v.length - 1] } : null;
+  };
+  return {
+    ssp, period: projection?.future ?? null, models: per,
+    today: { total: today.total, good_years: today.replay.good_years, total_years: today.replay.total_years,
+             irrigation_mm: today.water_use.irrigation_mm },
+    good_years: stat("good_years"), total: stat("total"), irrigation_mm: stat("irrigation_mm"),
+  };
 }
 
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }
