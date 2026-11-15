@@ -200,6 +200,71 @@ function drawTable() {
       })))));
 }
 
+/* ---------- ideas: crops that suit a district but are rarely grown there ---------- */
+// From data/districts.json (contract §1c): top_rainfed = the crops that came through the most seasons on rain
+// alone at the district's grid point; area_ha = today's area (DES statistics). A crop is "rarely grown" when it
+// covers under RARE_PCT % of the district's modelled crop area, or is not recorded separately (minor millets).
+const RARE_PCT = 2;      // UI cut-off for "rarely grown", not data
+const SUITS = 0.75;      // came through at least 3 seasons in 4 (same bar as the Farmers tab's "Good choice")
+function ideasFor(d) {
+  const tot = d.mismatch?.modelled_area_ha ?? 0;
+  return (d.top_rainfed ?? []).filter((x) => x.share >= SUITS).map((x) => {
+    const ha = d.area_ha?.[x.crop];
+    const pct = ha != null && tot ? (100 * ha) / tot : null;
+    return { ...x, ha, pct };
+  }).filter((x) => x.ha == null || x.pct < RARE_PCT);
+}
+let ideasCrop = null;   // crop the officer tapped in the summary chart (filters the district cards)
+function drawIdeas() {
+  const el = $("#ideas");
+  if (!el) return;
+  clear(el);
+  if (!state.districts.length) return;
+  const per = state.sites[state.districts[0].rep_point]?.period ?? {};
+  const all = state.districts.map((d) => ({ d, ideas: ideasFor(d) }));
+  const rows = all.filter((r) => r.ideas.length);
+  const none = all.filter((r) => !r.ideas.length).map((r) => r.d);
+  const name = (id) => cropName(state.cropById[id]);
+  el.append(h("p", { class: "note" }, t("ideas.note", { a: per.start ?? "", b: per.end ?? "", pct: RARE_PCT, src: t("p.wi.area.src") })));
+
+  // 1. statewide summary: one bar per crop = number of districts where it is an idea (single series, one hue)
+  const count = {};
+  rows.forEach((r) => r.ideas.forEach((x) => { count[x.crop] = (count[x.crop] ?? 0) + 1; }));
+  const crops = Object.keys(count).sort((a, b) => count[b] - count[a] || name(a).localeCompare(name(b)));
+  const max = Math.max(...crops.map((c) => count[c]));
+  const nTxt = (n) => (n === 1 ? t("ideas.sum.n1") : t("ideas.sum.n", { n }));
+  el.append(h("h3", { class: "ideas-h" }, t("ideas.sum.h")),
+    h("div", { class: "ideas-sum", role: "list" }, ...crops.map((c) => h("button", {
+      type: "button", role: "listitem", class: "ideas-sum-row" + (ideasCrop === c ? " on" : ""), "aria-pressed": ideasCrop === c ? "true" : "false",
+      title: t("ideas.sum.tip", { crop: name(c), n: count[c] }),
+      onclick: () => { ideasCrop = ideasCrop === c ? null : c; drawIdeas(); },
+    }, h("span", { class: "ideas-sum-name" }, name(c)),
+      h("span", { class: "ideas-track" }, h("span", { class: "ideas-fill", style: { width: `${(100 * count[c]) / max}%` } })),
+      h("span", { class: "ideas-sum-n" }, nTxt(count[c]))))),
+    h("p", { class: "note" }, t("ideas.hint")));
+
+  // 2. district cards: each idea crop with a bar for how often it came through on rain alone (0-100%),
+  //    and today's area as text (a different measure, so not drawn on the same axis)
+  const shown = ideasCrop ? rows.filter((r) => r.ideas.some((x) => x.crop === ideasCrop)) : rows;
+  const head = h("div", { class: "ideas-cards-head" }, h("h3", { class: "ideas-h" }, t("ideas.cards.h")));
+  if (ideasCrop) head.append(h("p", { class: "note" }, t("ideas.filter", { n: shown.length, crop: name(ideasCrop) }), " ",
+    h("button", { type: "button", class: "btn-ghost ideas-all", onclick: () => { ideasCrop = null; drawIdeas(); } }, t("ideas.all"))));
+  const pick = (d) => { const p = state.points.find((q) => q.id === d.rep_point); if (!p) return; selectPoint(p); state.wi.district = d.id; state.wi.areaAuto = true; fillArea(); drawWhatIf(); drawIdeas(); $("#whatif-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
+  const areaTxt = (x) => (x.ha == null ? t("ideas.unrec") : t("ideas.area", { ha: fmt(x.ha), pct: x.pct < 0.1 ? "<0.1" : fmt(Math.floor(10 * x.pct) / 10, 1) }));
+  el.append(head, h("div", { class: "ideas-cards" }, ...shown.map(({ d, ideas }) => h("button", {
+    type: "button", class: "ideas-card" + (state.wi.district === d.id ? " sel" : ""), onclick: () => pick(d),
+  }, h("span", { class: "ideas-card-h" }, d.name, d.mismatch?.confidence === "low" ? h("small", { class: "muted" }, ` (${t("ideas.low")})`) : null),
+    ...ideas.map((x) => {
+      const pct = Math.round(100 * x.share);
+      return h("span", { class: "ideas-crop" + (ideasCrop === x.crop ? " on" : ""), title: t("ideas.bar.tip", { crop: name(x.crop), d: d.name, pct }) },
+        h("span", { class: "ideas-crop-row" }, h("span", { class: "ideas-crop-name" }, name(x.crop)), h("span", { class: "ideas-crop-v" }, `${pct}%`)),
+        h("span", { class: "ideas-track", "aria-hidden": "true" }, h("span", { class: "ideas-fill", style: { width: `${pct}%` } })),
+        h("small", { class: x.ha == null ? "ideas-area unrec" : "ideas-area" }, areaTxt(x)));
+    })))),
+    h("p", { class: "note" }, t("ideas.legend", { a: per.start ?? "", b: per.end ?? "" })));
+  if (none.length) el.append(h("p", { class: "note" }, `${none.map((d) => d.name).join(", ")}: ${t("ideas.none")}`));
+}
+
 /* ---------- I23 what if farms switch ---------- */
 const prefs = (water) => ({ weights: WEIGHTS, water_source: water, scenario: { dT_c: 0, dPrecip_pct: 0 } });
 const ctxFor = (water) => (state.ctx[water] ??= statewideContext(Object.values(state.sites), state.crops, prefs(water)));
@@ -219,7 +284,7 @@ function selectPoint(p) {
   state.wi.district = ds[0]?.id ?? null;
   state.wi.areaAuto = true;
   fillArea();
-  drawMap(); drawTable(); drawWhatIf();
+  drawMap(); drawTable(); drawWhatIf(); drawIdeas();
 }
 
 const districtsAt = (p) => state.districts.filter((d) => d.points?.includes(p.id));
@@ -317,7 +382,7 @@ function drawControls() {
 
 function refresh() {
   computeScores();
-  drawControls(); drawMap(); drawLegend(); drawNotes(); drawTable(); drawWhatIf();
+  drawControls(); drawMap(); drawLegend(); drawNotes(); drawTable(); drawWhatIf(); drawIdeas();
 }
 
 function applyStatic() {

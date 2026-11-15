@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SowSmart · Policy view</title>
+  <title>SowSmart · Policy makers</title>
   <meta name="description" content="Where is farming in Tamil Nadu most exposed to climate change, and how much water would be saved if farms switched crops? Built on NASA data.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f7d32'/%3E%3Cpath d='M6 22c6-1 10-6 12-14 1 8 4 12 8 14' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,8 +26,8 @@
       <button type="button" id="lang" class="lang-btn" lang="ta">Tamil / தமிழ்</button>
     </div>
     <nav class="tabs" aria-label="Views">
-      <a class="tab" href="index.html"><span aria-hidden="true">🌾</span> <span data-i18n="tab.farm">Farm</span></a>
-      <a class="tab active" href="policy.html" aria-current="page"><span aria-hidden="true">🏛</span> <span data-i18n="tab.policy">Policy</span></a>
+      <a class="tab" href="index.html"><span aria-hidden="true">🌾</span> <span data-i18n="tab.farm">Farmers</span></a>
+      <a class="tab active" href="policy.html" aria-current="page"><span aria-hidden="true">🏛</span> <span data-i18n="tab.policy">Policy makers</span></a>
     </nav>
   </header>
   <nav class="subtabs" aria-label="Policy views">
@@ -35,6 +35,12 @@
     <a class="subtab" href="explore.html"><span aria-hidden="true">🗺</span> <span data-i18n="tab.map">Crop map</span></a>
     <a class="subtab" href="index.html?view=detail"><span aria-hidden="true">📊</span> <span data-i18n="tab.detail">This place in detail</span></a>
   </nav>
+
+  <section class="intro intro-short tab-purpose" aria-label="About this tab">
+    <p data-i18n="why.policy">This tab is for government planners and district agriculture officers.</p>
+    <p class="note intro-note" data-i18n="why.policy.note">Everything here is a starting point to look into with local experts.</p>
+  </section>
+
 
   <p id="error" class="error" role="alert" hidden></p>
 
@@ -72,6 +78,13 @@
         <h2 id="wi-title" data-i18n="p.wi.empty">Click a place on the map</h2>
         <div id="whatif"></div>
         <p class="note support" data-i18n="p.limits"></p>
+      </section>
+
+      <!-- crops that suit a district on rain alone but cover little of its area today (data/districts.json) -->
+      <section class="panel" id="ideas-panel">
+        <p class="eyebrow" data-i18n="ideas.eyebrow">Ideas to look into</p>
+        <h2 data-i18n="ideas.title">Crops that suit a district but are rarely grown there</h2>
+        <div id="ideas"></div>
       </section>
     </div>
   </main>

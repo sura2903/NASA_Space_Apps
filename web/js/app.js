@@ -279,6 +279,11 @@ function initView() {
   ["#more-plans", ".site-panel", "#trend-panel"].forEach((sel) => { const d = $(sel); if (d) d.open = true; });
   const tag = $(".top .tagline");
   if (tag) tag.dataset.i18n = "d.tagline";
+  // this view sits under the Policy makers tab, so it explains that tab's purpose
+  const why = document.querySelector('.intro [data-i18n="why.farm"]');
+  if (why) why.dataset.i18n = "why.policy";
+  const note = $("#intro-note");
+  if (note) note.dataset.i18n = "why.policy.note";
 }
 
 async function init() {
