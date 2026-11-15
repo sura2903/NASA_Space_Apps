@@ -561,3 +561,9 @@ details.panel.fold[open] > summary { margin-bottom: 10px; }
 .card-more { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
 .card-more > summary { cursor: pointer; font-weight: 600; color: var(--accent); min-height: 40px; display: flex; align-items: center; }
 .card-more[open] > summary { margin-bottom: 8px; }
+
+/* Policy view: "colour the map by" picker + "risk at this place" box (web/js/ui/risk.js, Lane A draft) */
+.risk-picker { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; }
+.risk-picker select { min-height: 40px; max-width: 100%; }
+.risk-box { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+.risk-box ul { margin: 6px 0; }
