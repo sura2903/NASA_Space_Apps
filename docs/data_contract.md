@@ -118,6 +118,17 @@ overrides every year (null = canals stay shut).
 UI idea (delta farm page): "Has Mettur opened? [on time] [late] [very late] [not yet]" → "With the dam opening in
 August, Kuruvai on canal water came through 0 of 24 seasons. You need a borewell, or sow Samba instead (24 of 24)."
 
+### 2a-appeears. `ndvi`, `smap`, `elevation_m` in the demo-site files (`pipeline/merge_appeears.py`)
+```jsonc
+"ndvi": { "source": "NASA AppEEARS: MODIS MOD13Q1.061 ...", "years": [2015, 2024],
+          "monthly_median": [12 values], "bare_months": [], "by_year": { "2015": [12, null where missing] } },
+"smap": { "source": "...SPL3SMP_E.006...", "units": "m3/m3 (surface 0-5 cm)", "years": [2015, 2024],
+          "quality": "recommended-quality retrievals" | "...not recommended (standing water)...; use with care",
+          "monthly_mean": [12], "by_year": { "2015": [12] }, "latest": { "month": "2024-12", "value": 0.325, "anomaly": 0.039 } },
+"elevation_m": { "source": "...SRTMGL1_NC.003...", "mean": 148, "range": [144, 151] }
+```
+Demo sites only (3 points each). `smap.latest` is the last month in the bundle (Dec 2024), not live data.
+
 ## 2b. `web/data/trends/<id>.json` (climate-change Layer 1, produced by `pipeline/climate_trends.py`)
 For the "How has my climate changed?" panel (B11). One file per demo site, plus `trends/index.json`.
 ```jsonc

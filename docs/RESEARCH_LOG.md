@@ -577,6 +577,41 @@ pattern risky?"*
   The dam version catches more of the real bad years with slightly lower precision. With 20 years the evidence is
   thin either way; the main gain is mechanical. 2012 (opened 17 Sep, half release) is still missed.
 
+### I-30 · Barnyard millet's flood tolerance was unsourced too
+- **Problem:** after the kodo fix (I-28), barnyard millet became the most common rain-fed top pick (12 of 47
+  points). It was the only small millet rated `flood_tolerance: medium`, and that rating was unsourced.
+- **Evidence:**
+  - Seedling waterlogging cut barnyard grain yield by ~51%.
+  - Finger millet (rated low here) tolerated transient waterlogging better than barnyard.
+  - No species-level water figure exists. The CPG gives duration (95–100 days) and rain-fed yield (1.5–2.65 t/ha).
+- **Change:** flood_tolerance medium → low, with the sources in crops.json.
+- **Effect:**
+  - Barnyard still comes through a median 96% of seasons, but is no longer anyone's top pick.
+  - Rain-fed top picks spread over cowpea 14, foxtail 8, pearl millet 7, green gram 6, little millet 5,
+    finger millet 4, kodo 2. No crop holds more than 30% of points.
+  - Cowpea's water need and its heat and flood tolerance are now the ones to source next.
+
+### I-31 · NASA AppEEARS results arrived: 10 years of greenness, soil moisture and elevation (TASKS A8)
+- **Request `field-shift-tn-points`:** 3 points around each demo site, Apr 2015 – Dec 2024. Merged by
+  `pipeline/merge_appeears.py`; the raw files are in `data/raw/appeears/` (gitignored).
+  - MODIS NDVI (250 m, 16-day): 84% good-quality pixels. It replaces the 2019–24 single-window ORNL NDVI with the
+    same keys, plus `by_year`.
+  - SMAP L3 enhanced soil moisture (9 km, daily AM).
+  - SRTM elevation: Madurai 148 m, Tirunelveli 52 m, Thanjavur 32 m.
+- **SMAP quality:** Madurai and Tirunelveli use recommended-quality retrievals. At Thanjavur almost every retrieval
+  is flagged "not recommended" (standing water from paddy, tanks and canals in the 9 km cell). Those are kept and
+  labelled, because they still track rain.
+- **Sanity checks:**
+  - SMAP monthly soil moisture vs IMERG rain: r = 0.72 Madurai, 0.73 Thanjavur, 0.60 Tirunelveli.
+  - SMAP seasonal cycle vs POWER root-zone wetness: r = 0.97 at Madurai.
+  - The delta's soil is the wettest (0.29 m³/m³).
+  - NDVI follows each place's crop calendar: Thanjavur peaks Nov–Dec (Samba/Thaladi, 0.86), dips at the Feb–Mar
+    harvest and has a May–Jun bump (Kuruvai); Tirunelveli peaks Nov–Jan (Pishanam), lowest Jul–Sep; Madurai
+    peaks Sep–Dec.
+  - No month drops below 0.3 (bare soil), because the pixels mix in trees, as before.
+- **Not yet used by the engine:** soil moisture at sowing could set each year's starting soil water from 2015 on.
+  Logged as a next step.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
