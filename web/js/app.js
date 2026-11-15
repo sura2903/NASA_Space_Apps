@@ -10,6 +10,7 @@ import { createSiteMap } from "./ui/map.js";
 import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate } from "./ui/inputs.js";
 import { drawMonthlyChart, drawMonsoonChart, drawNdviChart, monsoonSeries, resizeCharts } from "./ui/charts.js";
 import { renderTrends, resizeTrendCharts } from "./ui/trends.js";
+import { renderSowing } from "./ui/sowing.js";
 import { strategyCard } from "./ui/cards.js";
 import { renderPrintSheet } from "./ui/printsheet.js";
 
@@ -18,7 +19,7 @@ const DEFAULT_WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, e
 const FALLBACK_CURRENT = { rotation: [[{ crop: "rice_long", sow: 9 }]], water_source: "rainfed" };
 
 const state = {
-  sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null,
+  sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null, sowChoice: null,
   site: null, rotation: null, water_source: "rainfed",
   weights: { ...DEFAULT_WEIGHTS }, scenario: { dT_c: 0, dPrecip_pct: 0 },
   strategies: [],
@@ -58,6 +59,7 @@ async function selectSite(id) {
   // B11: climate-trend file is optional (contract §2b); the panel hides when it is missing.
   if (!(meta.id in state.trendCache)) state.trendCache[meta.id] = await getJSON(`data/trends/${meta.id}.json`).catch(() => null);
   state.trends = state.trendCache[meta.id];
+  state.sowChoice = null;
   const def = DEFAULT_CURRENT[site.id] ?? FALLBACK_CURRENT;
   state.rotation = clone(def.rotation);
   state.water_source = def.water_source;
@@ -175,8 +177,17 @@ function recompute() {
 }
 const recomputeSoon = debounce(recompute, 250);
 
+function renderSowPanel() {
+  renderSowing($("#sow-body"), {
+    site: state.site, trends: state.trends, crops: state.crops, cropById: state.cropById, prefs: prefs(),
+    rotation: state.rotation, choice: state.sowChoice,
+    onChange: (c) => { state.sowChoice = c; renderSowPanel(); },
+  });
+}
+
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
+  renderSowPanel();
   // highlights depend on the climate scenario
   $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Field Shift · Policy view</title>
+  <meta name="description" content="Where is farming in Tamil Nadu most exposed to climate change, and how much water would be saved if farms switched crops? Built on NASA data.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f7d32'/%3E%3Cpath d='M6 22c6-1 10-6 12-14 1 8 4 12 8 14' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+</head>
+<body class="explore-page policy-page">
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
+      <div>
+        <h1 data-i18n="brand">Field Shift</h1>
+        <p class="tagline" data-i18n="p.tagline">Policy view: where is farming most exposed, and what would a crop shift save?</p>
+      </div>
+    </div>
+    <nav class="top-actions">
+      <a class="btn-ghost nav-link" href="index.html" data-i18n="p.nav.farm">← Farm view</a>
+      <a class="btn-ghost nav-link" href="explore.html" data-i18n="nav.map">🗺 Crop map</a>
+      <button type="button" id="lang" class="lang-btn" lang="ta">தமிழ்</button>
+    </nav>
+  </header>
+
+  <p id="error" class="error" role="alert" hidden></p>
+
+  <main class="layout explore">
+    <aside class="inputs" aria-label="Policy view controls">
+      <section class="step">
+        <h2><span class="n">1</span> <span data-i18n="p.step.score">What counts as exposed</span></h2>
+        <p class="note" data-i18n="p.step.score.note">Each sign is ranked across Tamil Nadu (0 = least exposed place, 100 = most). The score is the average of the signs you tick.</p>
+        <div id="components" class="choices one-col"></div>
+      </section>
+      <section class="step">
+        <h2><span class="n">2</span> <span data-i18n="p.step.click">Pick a place</span></h2>
+        <p class="note" data-i18n="p.step.click.note">Click a square on the map to test a crop switch there.</p>
+      </section>
+      <p class="note" id="points-note"></p>
+    </aside>
+
+    <div class="results">
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="eyebrow" data-i18n="p.map.eyebrow">Climate exposure</p>
+            <h2 data-i18n="p.map.title">Where is farming most exposed to a changing climate?</h2>
+          </div>
+          <span id="busy" class="busy" role="status" aria-live="polite"></span>
+        </div>
+        <div id="pmap" class="xmap" data-i18n-aria="p.map.aria"></div>
+        <div id="legend" class="xlegend"></div>
+        <div id="vuln-notes"></div>
+        <div id="vuln-table"></div>
+      </section>
+
+      <section class="panel" id="whatif-panel" aria-live="polite">
+        <p class="eyebrow" data-i18n="p.wi.eyebrow">What if farms switch?</p>
+        <h2 id="wi-title" data-i18n="p.wi.empty">Click a place on the map</h2>
+        <div id="whatif"></div>
+        <p class="note support" data-i18n="p.limits"></p>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="js/policy.js"></script>
+</body>
+</html>

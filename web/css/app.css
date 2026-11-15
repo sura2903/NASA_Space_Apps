@@ -387,3 +387,40 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .trend-all { margin-top: 14px; }
 .trend-all > summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 6px 0; }
 .trend-all[open] > summary { margin-bottom: 4px; }
+
+/* ---------- I16 / I17 sow now or wait ---------- */
+.sow-controls { display: flex; flex-wrap: wrap; gap: 10px 16px; margin: 12px 0; }
+.sow-controls label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--ink-2); min-width: min(100%, 220px); flex: 1 1 220px; }
+.sow-controls select { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); }
+.sow-verdict { margin: 8px 0; padding: 12px 14px; border-radius: 12px; font-size: 1rem; background: var(--surface-2); }
+.sow-verdict.go { background: var(--accent-soft); }
+.sow-verdict.go strong { color: var(--accent); }
+.sow-verdict.wait, .sow-verdict.warn { background: var(--warn-soft); }
+.sow-verdict.wait strong, .sow-verdict.warn strong { color: var(--warn); }
+.sow-nudge { margin: 6px 0 10px; padding-left: 12px; border-left: 3px solid var(--accent); }
+.sow-table tr.sel th { color: var(--accent); }
+.sow-table tr.best td { font-weight: 700; }
+.sow-bar { display: inline-block; vertical-align: middle; width: 90px; height: 10px; border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent) calc(var(--v) * 100%), var(--surface-2) 0); border: 1px solid var(--line); }
+.sow-dry { margin-top: 12px; }
+.sow-dry h4 { margin: 0 0 4px; font-size: 0.9375rem; }
+.sow-dry p { margin: 0; }
+.sow-pending { font-style: italic; }
+.sow-table { max-width: 620px; }
+
+/* ---------- Policy view (I20 / I23) ---------- */
+.choice.pending { opacity: 0.6; }
+.choice small { color: var(--ink-2); font-weight: 400; }
+.vuln-notes { margin: 10px 0 0; padding-left: 1.1rem; font-size: 0.875rem; color: var(--ink-2); display: grid; gap: 4px; }
+.vuln-h { font-size: 1rem; margin: 16px 0 6px; }
+.xtable td.muted { color: var(--ink-3); font-style: italic; }
+.xtable .flag { color: var(--warn); cursor: help; }
+.wi-controls { display: grid; gap: 10px 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); margin: 12px 0; }
+.wi-controls label { display: grid; gap: 4px; font-size: 0.875rem; color: var(--ink-2); min-width: 0; }
+.wi-controls select, .wi-controls input[type="number"] { font: inherit; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); min-width: 0; }
+.wi-controls .wi-share { grid-column: 1 / -1; }
+.wi-controls input[type="range"] { accent-color: var(--accent); width: 100%; }
+.wi-big { display: flex; align-items: baseline; gap: 10px; margin: 8px 0; }
+.wi-n { font-size: 2.6rem; font-weight: 700; line-height: 1; color: var(--rain); }
+.wi-l { font-size: 0.8125rem; color: var(--ink-2); line-height: 1.3; }
+.wi-controls label { align-content: end; }
