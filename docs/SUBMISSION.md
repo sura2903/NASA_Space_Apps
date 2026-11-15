@@ -121,6 +121,17 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
   the top recommendations and record every source in `crops.json` [I-28, I-30, I-34].
 - **The tool supports a farmer's judgement and the agriculture officer's advice; it does not replace them.**
 
+## 8b. Future work
+1. **Crop economics:** costs, market prices and minimum support prices, so each plan shows likely profit and the
+   chance of loss. Storage life per crop is already in the data.
+2. **Planning for severe seasons:** early warning of food-crop shortfalls, so the state can buy in from elsewhere in
+   time.
+3. **Equipment and labour needs** per crop.
+4. **Pest and disease resistance:** weather-driven pest risk per crop from NASA humidity and temperature, and
+   resistant varieties from the Tamil Nadu crop guides.
+5. **NASA GRACE groundwater:** add groundwater trends, so borewell plans account for falling water tables (today a
+   stated limit).
+
 ## 9. Use of AI
 - **Code and analysis:** we used Anthropic's Claude (Claude Code) as a coding and analysis assistant. It wrote most of
   the data pipeline and engine code under our direction, ran the statistical checks and drafted documentation.

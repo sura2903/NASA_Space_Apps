@@ -101,5 +101,6 @@ Crop values (seasons, durations, water needs, storage) are approximate; each cro
 1. **Crop economics.** Add cultivation costs, local market prices and minimum support prices, so each option shows the likely profit and the chance of losing money, not only whether the crop came through.
 2. **Planning for severe seasons.** When forecasts or climate projections point to a severe drought or flood season ahead, warn early which food crops Tamil Nadu is likely to fall short of, and suggest buying them in from other states or countries in time, so prices and food supply stay steady.
 3. **Equipment and labour needs for each crop,** so a farmer's own limits can be scored directly instead of ruled out by hand ("Not for me" in the app today).
+4. **Pest and disease resistance.** Score each crop's risk from weather that favours its main pests and diseases (for example humid, warm spells for rice blast; cloudy, humid flowering for pod borer in pulses) using NASA humidity, temperature and rain, and point farmers to resistant varieties listed in the Tamil Nadu crop guides.
 
 The tool supports farmer judgment and local agricultural expertise. It does not replace them.

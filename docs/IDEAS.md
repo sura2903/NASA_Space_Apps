@@ -7,6 +7,7 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I29 | Pest and disease resistance: weather-driven pest/disease risk per crop + resistant varieties | Siddarth | 💡 **medium** (NASA humidity/temperature already in POWER) |
 | I28 | Storage and perishability: how long each crop keeps after harvest, as a farmer factor (sell when prices are good vs forced quick sale) | Siddarth | 💡 **medium-high** (crop field + priority; pairs with E3 prices) |
 | I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
 | I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Siddarth | 💡 **medium** (priority flag is quick) |
@@ -69,6 +70,23 @@ warning (needs near-real-time SMAP / NDVI anomalies).
 ---
 
 ## Siddarth's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
+
+**I29 Pest and disease resistance (medium; Siddarth, 2026-11-15).**
+Today the engine only rewards rotating crop families (the `pest` sub-score breaks pest cycles). It does not know
+which seasons favour a crop's main pests and diseases, or which varieties resist them.
+- **Weather-driven risk:** count "pest-favourable" days in each crop's season from NASA POWER daily humidity,
+  temperature, rain and leaf wetness proxies. Examples to source from TNAU / TN CPG pest pages:
+  - rice blast and sheath blight: humid, warm spells with heavy dew;
+  - rice leaf folder and brown planthopper: humid, cloudy weeks;
+  - pod borer in pulses: cloudy, humid flowering;
+  - fall armyworm in maize.
+- **Engine:** a per-crop `pests` list `{name, favoured_by: {rh_min, tmin..tmax, rain_days}, months}`. The replay then
+  reports "pest-favourable in X of 24 seasons", as a risk note (not pass/fail) until it can be validated.
+- **Resistant varieties:** the CPGs list resistant varieties per crop (e.g. blast-resistant rice). Show them as
+  "ask for these varieties" when the risk is high.
+- **Validate:** against district pest-outbreak reports, if available (TN Agriculture Department / NCIPM), before
+  scoring.
+- **Depends on:** a sourced pest table; POWER RH2M / T2M are already fetchable.
 
 **I28 Storage and perishability (medium-high; Siddarth, 2026-11-15).**
 Some crops keep for a year or more after harvest; others must be sold within days. That changes a farmer's risk:
