@@ -127,7 +127,8 @@ detail*. Nothing was removed from the farmer's page; it was moved there.
 - **Satellite rain under-reads local extremes:** it put the Dec 2023 Tirunelveli flood at about 1-in-50. Our
   1-in-100 rain levels are therefore conservative.
 - **Water politics and groundwater pumping are not modelled.** Interstate releases are covered only through
-  Mettur's actual record. Groundwater is shown as a regional GRACE-based trend, which can't see local over-pumping.
+  Mettur's actual record. The southern canals (Papanasam, Vaigai) have no public year-by-year record, and news
+  reports show their openings are often months late, so canal results there are optimistic [I-39]. Groundwater is shown as a regional GRACE-based trend, which can't see local over-pumping.
 - **Crop traits:** some (for example the small millets' water needs) are approximate. We checked the ones that drive
   the top recommendations and record every source in `crops.json` [I-28, I-30, I-34].
 - **The tool supports a farmer's judgement and the agriculture officer's advice; it does not replace them.**
