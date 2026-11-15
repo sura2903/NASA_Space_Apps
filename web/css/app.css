@@ -631,10 +631,31 @@ body.view-detail #more-plans > summary { display: none; }
 .mc-quick ul { margin: 6px 0 0; padding-left: 1.2rem; }
 
 /* Policy makers: "crops that suit a district but are rarely grown there" */
-.ideas-wrap { max-height: 520px; overflow: auto; }
-.ideas-list { margin: 0; padding-left: 1.1em; }
-.ideas-list li { margin: 2px 0; }
-.ideas-table td, .ideas-table th { vertical-align: top; }
-.ideas-table td, .ideas-table thead th { text-align: left; white-space: normal; }
-.ideas-table th[scope="row"] { width: 9em; }
-@media (max-width: 640px) { .ideas-table th[scope="row"] { width: 6.5em; } }
+.ideas-h { font-size: 1rem; margin: 18px 0 8px; }
+.ideas-track { display: block; height: 10px; background: var(--surface-2); border-radius: 4px; overflow: hidden; }
+.ideas-fill { display: block; height: 100%; background: var(--accent); border-radius: 0 4px 4px 0; }
+.ideas-sum { display: grid; gap: 4px; }
+.ideas-sum-row {
+  display: grid; grid-template-columns: minmax(7em, 11em) 1fr 8em; align-items: center; gap: 10px;
+  font: inherit; color: var(--ink); text-align: left; background: none; border: 1px solid transparent; border-radius: 8px; padding: 6px 8px; cursor: pointer;
+}
+.ideas-sum-row:hover { background: var(--surface-2); }
+.ideas-sum-row.on { border-color: var(--accent); background: var(--accent-soft); }
+.ideas-sum-row .ideas-track { height: 14px; }
+.ideas-sum-n { color: var(--ink-2); font-size: 0.88rem; text-align: right; }
+.ideas-cards-head .note { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.ideas-cards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); max-height: 640px; overflow: auto; padding: 2px; }
+.ideas-card {
+  display: flex; flex-direction: column; gap: 8px; font: inherit; color: var(--ink); text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px;
+}
+.ideas-card:hover { border-color: var(--ink-3); }
+.ideas-card.sel { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.ideas-card-h { font-weight: 600; }
+.ideas-crop { display: flex; flex-direction: column; gap: 3px; }
+.ideas-crop-row { display: flex; justify-content: space-between; gap: 8px; font-size: 0.9rem; }
+.ideas-crop-v { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ideas-crop.on .ideas-crop-name { font-weight: 600; }
+.ideas-area { color: var(--ink-3); font-size: 0.78rem; }
+.ideas-area.unrec { font-style: italic; }
+@media (max-width: 640px) { .ideas-sum-row { grid-template-columns: 7em 1fr 6.5em; gap: 8px; padding: 6px 4px; } .ideas-cards { max-height: none; } }
