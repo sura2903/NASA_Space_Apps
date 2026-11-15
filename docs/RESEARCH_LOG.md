@@ -748,8 +748,8 @@ pattern risky?"*
     district links, backtest targets and results keep working, and the 47 old files are byte-identical (checked).
   - Only the 138 new points were built (`build_grid.py --step 0.25` skips existing files).
 - **New points got every layer the old ones had:**
-  - **NASA POWER weather and soil.** SoilGrids was timing out, so soil is filled one request at a time by
-    `fill_soil.py`; until filled, a place uses the engine's default soil buffer.
+  - **NASA POWER weather and soil.** SoilGrids was timing out, so soil was filled one request at a time by
+    `fill_soil.py`: 176 of 185 places have soil; 9 coastal / city points have no SoilGrids data and use the engine's default soil buffer.
   - **IMERG daily rain** (monthly rain, dry spells, monsoon onsets, annual maxima), computed in one browser pass.
     It gave identical numbers to the stored values for an existing point, so the definitions match.
   - **Canal index and Mettur dam season:** 24 delta places now, up from 9.

@@ -3735,7 +3735,15 @@
       ]
     }
   ],
-  "soil": null,
+  "soil": {
+    "source": "ISRIC SoilGrids 2.0 (250 m)",
+    "clay_pct": 34.9,
+    "sand_pct": 36.1,
+    "silt_pct": 29.0,
+    "soc_g_per_kg": 15.8,
+    "ph": 6.9,
+    "texture_class": "clay loam"
+  },
   "ndvi": null,
   "dry_spells": {
     "threshold_mm": 2.5,
