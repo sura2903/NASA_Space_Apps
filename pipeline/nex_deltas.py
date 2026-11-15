@@ -43,9 +43,10 @@ def load(model, scen, var, site_id, years) -> pd.Series:
     return s * 86400.0 if var == "pr" else s - 273.15
 
 
-def monthly_stats(model, scen, site) -> dict | None:
+def monthly_stats(model, scen, site, loader=None) -> dict | None:
     yrs = PERIODS[scen]
-    pr, tx, tn = (load(model, scen, v, site["id"], yrs) for v in ("pr", "tasmax", "tasmin"))
+    loader = loader or load
+    pr, tx, tn = (loader(model, scen, v, site["id"], yrs) for v in ("pr", "tasmax", "tasmin"))
     if min(len(pr), len(tx), len(tn)) < 300 * len(yrs) * 0.8:
         return None
     df = pd.DataFrame({"precip": pr, "tmax": tx, "tmin": tn}).dropna()
@@ -60,61 +61,71 @@ def monthly_stats(model, scen, site) -> dict | None:
             **{k: [round(float(clim.loc[m, k]), 3) for m in range(1, 13)] for k in clim.columns}}
 
 
+def build_projection(site, loader=None, source_note="NCCS THREDDS point subsets") -> dict:
+    """Change factors + summary for one place; loader(model, scen, var, site_id, years) -> daily Series."""
+    stats, deltas, summary = {}, {}, {}
+    for model in MODELS:
+        hist = monthly_stats(model, "historical", site, loader)
+        if hist is None:
+            print(f"  {site['id']} {model}: missing historical data, skipped")
+            continue
+        stats.setdefault("historical", {})[model] = hist
+        for ssp in ("ssp245", "ssp585"):
+            fut = monthly_stats(model, ssp, site, loader)
+            if fut is None:
+                print(f"  {site['id']} {model} {ssp}: missing data, skipped")
+                continue
+            stats.setdefault(ssp, {})[model] = fut
+            d = {
+                "d_tmax": [round(f - h, 3) for f, h in zip(fut["tmax"], hist["tmax"])],
+                "d_tmin": [round(f - h, 3) for f, h in zip(fut["tmin"], hist["tmin"])],
+                "p_ratio": [round(float(np.clip((f + 1) / (h + 1), 0.4, 2.5)), 3) for f, h in zip(fut["precip"], hist["precip"])],
+                "d_heat": [round(f - h, 2) for f, h in zip(fut["hot"], hist["hot"])],
+                "d_heavy": [round(f - h, 3) for f, h in zip(fut["heavy"], hist["heavy"])],
+                "et0_ratio": [round(f / h, 3) if h > 0 else 1.0 for f, h in zip(fut["et0"], hist["et0"])],
+            }
+            deltas.setdefault(ssp, {})[model] = d
+            summary.setdefault(ssp, {})[model] = {
+                "d_tmax_annual": round(float(np.mean(d["d_tmax"])), 2),
+                "d_tmin_annual": round(float(np.mean(d["d_tmin"])), 2),
+                "rain_change_pct": round(100 * (sum(fut["precip"]) / sum(hist["precip"]) - 1), 1),
+                "ne_rain_change_pct": round(100 * (sum(fut["precip"][9:12]) / sum(hist["precip"][9:12]) - 1), 1),
+                "d_heat_days_annual": round(float(sum(d["d_heat"])), 1),
+                "d_heavy_days_annual": round(float(sum(d["d_heavy"])), 2),
+            }
+    ens = {}
+    for ssp, per in summary.items():
+        ens[ssp] = {k: {"min": min(v[k] for v in per.values()), "median": float(np.median([v[k] for v in per.values()])),
+                        "max": max(v[k] for v in per.values())} for k in next(iter(per.values()))}
+    out = {
+        "id": site["id"], "name": site["name"], "lat": site["lat"], "lon": site["lon"],
+        "source": f"NASA NEX-GDDP-CMIP6 (bias-corrected, downscaled CMIP6, 0.25 deg daily), {source_note}",
+        "baseline": [1995, 2014], "future": [2041, 2060], "models": list(deltas.get("ssp245", {})),
+        "scenarios": {"ssp245": "SSP2-4.5 (middle of the road)", "ssp585": "SSP5-8.5 (high emissions)"},
+        "method": ("Monthly change factors (2041-2060 vs 1995-2014) per model, applied to every observed year "
+                   "2001-2024 to make future-like years; results are reported as a range across models."),
+        "deltas": deltas, "summary": summary, "ensemble": ens,
+    }
+    return out
+
+
+def print_summary(site, ens) -> None:
+    print(f"\n=== {site['name']}")
+    for ssp, e in ens.items():
+        print(f"  {ssp}: Tmax {e['d_tmax_annual']['median']:+.2f} °C [{e['d_tmax_annual']['min']:+.2f}..{e['d_tmax_annual']['max']:+.2f}] | "
+              f"rain {e['rain_change_pct']['median']:+.0f}% [{e['rain_change_pct']['min']:+.0f}..{e['rain_change_pct']['max']:+.0f}] | "
+              f"NE rain {e['ne_rain_change_pct']['median']:+.0f}% | hot days {e['d_heat_days_annual']['median']:+.0f}/yr "
+              f"[{e['d_heat_days_annual']['min']:+.0f}..{e['d_heat_days_annual']['max']:+.0f}] | heavy days {e['d_heavy_days_annual']['median']:+.2f}/yr")
+
+
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     index = []
     for site in TN_SITES:
-        stats, deltas, summary = {}, {}, {}
-        for model in MODELS:
-            hist = monthly_stats(model, "historical", site)
-            if hist is None:
-                print(f"  {site['id']} {model}: missing historical data, skipped")
-                continue
-            stats.setdefault("historical", {})[model] = hist
-            for ssp in ("ssp245", "ssp585"):
-                fut = monthly_stats(model, ssp, site)
-                if fut is None:
-                    print(f"  {site['id']} {model} {ssp}: missing data, skipped")
-                    continue
-                stats.setdefault(ssp, {})[model] = fut
-                d = {
-                    "d_tmax": [round(f - h, 3) for f, h in zip(fut["tmax"], hist["tmax"])],
-                    "d_tmin": [round(f - h, 3) for f, h in zip(fut["tmin"], hist["tmin"])],
-                    "p_ratio": [round(float(np.clip((f + 1) / (h + 1), 0.4, 2.5)), 3) for f, h in zip(fut["precip"], hist["precip"])],
-                    "d_heat": [round(f - h, 2) for f, h in zip(fut["hot"], hist["hot"])],
-                    "d_heavy": [round(f - h, 3) for f, h in zip(fut["heavy"], hist["heavy"])],
-                    "et0_ratio": [round(f / h, 3) if h > 0 else 1.0 for f, h in zip(fut["et0"], hist["et0"])],
-                }
-                deltas.setdefault(ssp, {})[model] = d
-                summary.setdefault(ssp, {})[model] = {
-                    "d_tmax_annual": round(float(np.mean(d["d_tmax"])), 2),
-                    "d_tmin_annual": round(float(np.mean(d["d_tmin"])), 2),
-                    "rain_change_pct": round(100 * (sum(fut["precip"]) / sum(hist["precip"]) - 1), 1),
-                    "ne_rain_change_pct": round(100 * (sum(fut["precip"][9:12]) / sum(hist["precip"][9:12]) - 1), 1),
-                    "d_heat_days_annual": round(float(sum(d["d_heat"])), 1),
-                    "d_heavy_days_annual": round(float(sum(d["d_heavy"])), 2),
-                }
-        ens = {}
-        for ssp, per in summary.items():
-            ens[ssp] = {k: {"min": min(v[k] for v in per.values()), "median": float(np.median([v[k] for v in per.values()])),
-                            "max": max(v[k] for v in per.values())} for k in next(iter(per.values()))}
-        out = {
-            "id": site["id"], "name": site["name"], "lat": site["lat"], "lon": site["lon"],
-            "source": "NASA NEX-GDDP-CMIP6 (bias-corrected, downscaled CMIP6, 0.25 deg daily), NCCS THREDDS point subsets",
-            "baseline": [1995, 2014], "future": [2041, 2060], "models": list(deltas.get("ssp245", {})),
-            "scenarios": {"ssp245": "SSP2-4.5 (middle of the road)", "ssp585": "SSP5-8.5 (high emissions)"},
-            "method": ("Monthly change factors (2041-2060 vs 1995-2014) per model, applied to every observed year "
-                       "2001-2024 to make future-like years; results are reported as a range across models."),
-            "deltas": deltas, "summary": summary, "ensemble": ens,
-        }
+        out = build_projection(site)
         (OUT / f"{site['id']}.json").write_text(json.dumps(out, indent=1))
         index.append({"id": site["id"], "name": site["name"]})
-        print(f"\n=== {site['name']}")
-        for ssp, e in ens.items():
-            print(f"  {ssp}: Tmax {e['d_tmax_annual']['median']:+.2f} °C [{e['d_tmax_annual']['min']:+.2f}..{e['d_tmax_annual']['max']:+.2f}] | "
-                  f"rain {e['rain_change_pct']['median']:+.0f}% [{e['rain_change_pct']['min']:+.0f}..{e['rain_change_pct']['max']:+.0f}] | "
-                  f"NE rain {e['ne_rain_change_pct']['median']:+.0f}% | hot days {e['d_heat_days_annual']['median']:+.0f}/yr "
-                  f"[{e['d_heat_days_annual']['min']:+.0f}..{e['d_heat_days_annual']['max']:+.0f}] | heavy days {e['d_heavy_days_annual']['median']:+.2f}/yr")
+        print_summary(site, out["ensemble"])
     (OUT / "index.json").write_text(json.dumps(index, indent=1))
 
 

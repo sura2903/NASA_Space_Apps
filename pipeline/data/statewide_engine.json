@@ -1,0 +1,8527 @@
+{
+ "g0825_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.92,
+     "suitability": 72,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.75,
+     "suitability": 64,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.67,
+     "suitability": 58,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "black_gram",
+    "green_gram",
+    "sesame",
+    "pearl_millet",
+    "foxtail_millet",
+    "little_millet",
+    "proso_millet",
+    "sorghum",
+    "cowpea"
+   ],
+   "safer_drought": [
+    "proso_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "little_millet",
+    "proso_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "proso_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 0.96,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.79,
+     "suitability": 67,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.79,
+     "suitability": 61,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.67,
+    "suitability": 58,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "black_gram",
+    "green_gram",
+    "sesame",
+    "pearl_millet",
+    "foxtail_millet",
+    "little_millet",
+    "proso_millet",
+    "sorghum",
+    "cowpea"
+   ],
+   "safer_drought": [
+    "cowpea",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram",
+    "cotton",
+    "maize",
+    "sorghum",
+    "kodo_millet",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "little_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "kodo_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0875_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 80,
+     "sow": 10
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram",
+    "cotton",
+    "sorghum",
+    "kodo_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 80,
+     "sow": 10
+    },
+    {
+     "crop": "sorghum",
+     "share": 1,
+     "suitability": 78,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 60,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram",
+    "kodo_millet"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0875_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.83,
+     "suitability": 63,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "pearl_millet",
+    "green_gram",
+    "cowpea",
+    "sorghum",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "maize"
+   ],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "pearl_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 80,
+     "sow": 11
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 11
+    }
+   ],
+   "rice_long": {
+    "share": 0.54,
+    "suitability": 49,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0925_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "finger_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 5
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "sugarcane",
+     "share": 0.83,
+     "suitability": 78,
+     "sow": 2
+    },
+    {
+     "crop": "groundnut",
+     "share": 0.96,
+     "suitability": 78,
+     "sow": 10
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 5
+    }
+   ],
+   "rice_long": {
+    "share": 0.67,
+    "suitability": 57,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0925_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 78,
+     "sow": 10
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "pearl_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 80,
+     "sow": 10
+    },
+    {
+     "crop": "sorghum",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.54,
+    "suitability": 49,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "cotton",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0925_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "pearl_millet",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "pearl_millet",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "pearl_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "foxtail_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 78,
+     "sow": 10
+    },
+    {
+     "crop": "sorghum",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "sesame"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0925_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.79,
+     "suitability": 67,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.79,
+     "suitability": 66,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "little_millet",
+    "kodo_millet",
+    "proso_millet"
+   ],
+   "wind_most_exposed": [
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 9
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 11
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 11
+    }
+   ],
+   "rice_long": {
+    "share": 0.67,
+    "suitability": 58,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "rice_short",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "little_millet",
+    "kodo_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0925_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 0.88,
+     "suitability": 68,
+     "sow": 9
+    },
+    {
+     "crop": "black_gram",
+     "share": 0.63,
+     "suitability": 54,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.54,
+     "suitability": 44,
+     "sow": 11
+    }
+   ],
+   "rice_long": {
+    "share": 0.21,
+    "suitability": 33,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "pearl_millet",
+    "foxtail_millet",
+    "little_millet",
+    "sesame",
+    "cowpea"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "kodo_millet",
+    "finger_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "little_millet",
+    "barnyard_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "finger_millet",
+    "barnyard_millet",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "banana"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "rice_long",
+     "share": 0.88,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 0.88,
+     "suitability": 68,
+     "sow": 9
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 67,
+     "sow": 12
+    }
+   ],
+   "rice_long": {
+    "share": 0.88,
+    "suitability": 73,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_short"
+   ],
+   "avoid_wet": [
+    "pearl_millet",
+    "foxtail_millet",
+    "little_millet",
+    "sorghum"
+   ],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "proso_millet",
+    "kodo_millet",
+    "finger_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "groundnut",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "sugarcane"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "pearl_millet",
+    "foxtail_millet",
+    "little_millet",
+    "barnyard_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "maize",
+    "rice_long",
+    "barnyard_millet",
+    "sorghum",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0975_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "finger_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 5
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 5
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "groundnut",
+     "share": 1,
+     "suitability": 80,
+     "sow": 10
+    },
+    {
+     "crop": "sorghum",
+     "share": 1,
+     "suitability": 78,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 1,
+     "suitability": 78,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 43,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "banana"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0975_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.75,
+     "suitability": 63,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.79,
+     "suitability": 65,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.38,
+    "suitability": 38,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram",
+    "finger_millet",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "rice_long"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "finger_millet",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "sesame",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0975_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.83,
+     "suitability": 69,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sesame",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sesame",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g0975_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 73,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.88,
+     "suitability": 67,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "finger_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "finger_millet"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "finger_millet",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "finger_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 61,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram",
+    "maize",
+    "sorghum",
+    "foxtail_millet",
+    "sesame",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "finger_millet",
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "pearl_millet",
+     "finger_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "sesame",
+     "foxtail_millet",
+     "sorghum"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1025_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 80,
+     "sow": 7
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 6
+    },
+    {
+     "crop": "cotton",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram",
+    "cotton",
+    "maize",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "maize",
+     "cotton",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 1,
+     "suitability": 79,
+     "sow": 7
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.63,
+    "suitability": 54,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long",
+    "banana",
+    "sugarcane"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram",
+    "cotton",
+    "maize",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "sugarcane"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "maize",
+     "cotton"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1025_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "finger_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 5
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "finger_millet",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "finger_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "finger_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 5
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.38,
+    "suitability": 38,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "cotton",
+    "maize",
+    "sesame",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sesame",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1025_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "foxtail_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 10
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "foxtail_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 10
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "cowpea",
+    "cotton",
+    "maize",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "maize",
+    "cotton",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1025_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.83,
+     "suitability": 69,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "finger_millet"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.54,
+    "suitability": 49,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram",
+    "maize",
+    "sorghum",
+    "foxtail_millet",
+    "sesame",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "finger_millet"
+   ],
+   "memory_2014_looks_safer": [
+    "rice_long"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "finger_millet",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "pearl_millet",
+     "finger_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "sesame",
+     "foxtail_millet",
+     "sorghum",
+     "maize"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1025_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.79,
+     "suitability": 61,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 69,
+     "sow": 10
+    },
+    {
+     "crop": "rice_long",
+     "share": 0.75,
+     "suitability": 64,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.75,
+    "suitability": 64,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram",
+    "maize",
+    "sorghum"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "rice_long",
+    "rice_short"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.25,
+    "suitability": 29,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "finger_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "finger_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.88,
+     "suitability": 66,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "groundnut"
+   ],
+   "decade_dependent": [
+    "groundnut",
+    "maize"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.21,
+    "suitability": 26,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "sorghum",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "barnyard_millet",
+    "proso_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "proso_millet",
+     "barnyard_millet",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.88,
+     "suitability": 67,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "maize"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.33,
+    "suitability": 35,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "finger_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "finger_millet",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.88,
+     "suitability": 67,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.42,
+    "suitability": 41,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "finger_millet",
+    "green_gram",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "finger_millet"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "finger_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.83,
+     "suitability": 63,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "finger_millet",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.75,
+     "suitability": 63,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 61,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "cotton",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "finger_millet",
+    "green_gram",
+    "cowpea",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "rice_long"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "green_gram",
+    "groundnut",
+    "finger_millet",
+    "little_millet",
+    "proso_millet",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "finger_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1075_7975": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "black_gram",
+     "share": 0.71,
+     "suitability": 60,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.67,
+     "suitability": 53,
+     "sow": 11
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 31,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "sesame",
+    "pearl_millet",
+    "foxtail_millet",
+    "sorghum",
+    "cowpea"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane",
+    "rice_long",
+    "maize",
+    "cotton",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "sorghum"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "rice_long",
+     "share": 0.79,
+     "suitability": 67,
+     "sow": 9
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.71,
+     "suitability": 61,
+     "sow": 11
+    }
+   ],
+   "rice_long": {
+    "share": 0.79,
+    "suitability": 67,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "sesame",
+    "pearl_millet",
+    "foxtail_millet",
+    "sorghum",
+    "cowpea"
+   ],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "barnyard_millet",
+    "kodo_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "banana"
+   ],
+   "memory_2014_looks_safer": [
+    "rice_short"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "rice_short",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "sesame",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "banana",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "maize",
+    "rice_long",
+    "cotton",
+    "pearl_millet",
+    "finger_millet",
+    "foxtail_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7675": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "green_gram",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "pearl_millet",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_short",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "pearl_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.42,
+    "suitability": 40,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "cowpea",
+    "maize",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "rice_short",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "maize",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "finger_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 23,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "finger_millet",
+    "pearl_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "finger_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "cotton",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 16,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "finger_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sesame",
+     "finger_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "maize"
+   ],
+   "decade_dependent": [
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "little_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.33,
+    "suitability": 35,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "finger_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 9
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut"
+   ],
+   "wind_most_exposed": [
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "finger_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "finger_millet",
+    "maize"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.75,
+     "suitability": 62,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.13,
+    "suitability": 27,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.75,
+     "suitability": 62,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.67,
+    "suitability": 58,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "maize"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "cotton",
+    "barnyard_millet",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [
+    "rice_long"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "cowpea"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1125_7975": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.92,
+     "suitability": 71,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 68,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.67,
+     "suitability": 57,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.29,
+    "suitability": 39,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "kodo_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "groundnut",
+    "pearl_millet",
+    "sorghum",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "black_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "cotton",
+    "pearl_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "black_gram",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 12
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 0.92,
+     "suitability": 71,
+     "sow": 6
+    },
+    {
+     "crop": "rice_long",
+     "share": 0.83,
+     "suitability": 70,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0.83,
+    "suitability": 70,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "cowpea"
+   ],
+   "safer_drought": [
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "black_gram",
+    "cowpea",
+    "barnyard_millet",
+    "kodo_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "groundnut",
+    "pearl_millet",
+    "sorghum",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "cotton",
+    "pearl_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7675": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 4
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 4
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 17,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "proso_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "groundnut",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "proso_millet",
+     "maize",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 4
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 4
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 23,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "proso_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7725": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 17,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "cotton"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "cowpea",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 23,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "pearl_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 75,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [
+    "groundnut"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "maize"
+   ],
+   "decade_dependent": [
+    "groundnut",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "cotton",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 16,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "pearl_millet",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "maize"
+   ],
+   "decade_dependent": [
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "barnyard_millet",
+    "proso_millet",
+    "finger_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "maize"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "finger_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 24,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "proso_millet",
+    "groundnut",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "pearl_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 5
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [
+    "finger_millet",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "proso_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "finger_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 72,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "proso_millet",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "finger_millet"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "sugarcane"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1175_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "foxtail_millet",
+     "share": 1,
+     "suitability": 76,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.13,
+    "suitability": 27,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "sorghum",
+    "maize",
+    "finger_millet",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "proso_millet",
+    "finger_millet",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "rice_long"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "foxtail_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.67,
+    "suitability": 58,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "sorghum",
+    "finger_millet",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "maize",
+    "proso_millet",
+    "groundnut",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "memory_2014_looks_safer": [
+    "rice_long"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sorghum",
+     "maize"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1225_7775": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "cotton",
+    "maize"
+   ],
+   "avoid_wet": [
+    "groundnut"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "groundnut"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.13,
+    "suitability": 21,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1225_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 7
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.92,
+     "suitability": 73,
+     "sow": 9
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [
+    "groundnut"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "proso_millet",
+    "finger_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [
+    "cotton"
+   ],
+   "decade_dependent": [
+    "black_gram",
+    "groundnut",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 78,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 23,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "proso_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1225_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "pearl_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 5
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 5
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.88,
+     "suitability": 70,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "finger_millet",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "sorghum",
+    "proso_millet",
+    "finger_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 5
+    },
+    {
+     "crop": "green_gram",
+     "share": 0.88,
+     "suitability": 70,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.46,
+    "suitability": 44,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "sorghum",
+    "cotton",
+    "finger_millet"
+   ],
+   "safer_drought": [
+    "sorghum",
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "proso_millet",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "groundnut",
+     "maize",
+     "cotton"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1225_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "green_gram",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 7
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [
+    "finger_millet",
+    "maize",
+    "cotton",
+    "groundnut",
+    "pearl_millet",
+    "sorghum"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "sorghum",
+    "proso_millet",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "finger_millet",
+    "kodo_millet",
+    "maize"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "rice_long",
+    "sugarcane",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "green_gram",
+     "share": 0.96,
+     "suitability": 76,
+     "sow": 7
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.54,
+    "suitability": 49,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "pearl_millet",
+    "sorghum"
+   ],
+   "safer_drought": [
+    "cotton",
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "cowpea",
+    "maize",
+    "sorghum",
+    "proso_millet",
+    "groundnut",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "cotton"
+   ],
+   "memory_2014_looks_safer": [
+    "rice_long"
+   ],
+   "decade_dependent": [
+    "rice_long",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "kodo_millet",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sorghum",
+     "maize"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1225_7975": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.21,
+    "suitability": 33,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "cotton"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "cotton",
+    "pearl_millet",
+    "sorghum"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "green_gram",
+    "cowpea",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "rice_long",
+    "banana",
+    "sugarcane",
+    "sorghum",
+    "cotton",
+    "pearl_millet"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "pearl_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 74,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 61,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "sugarcane",
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "cotton",
+    "sugarcane",
+    "pearl_millet",
+    "sorghum"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "proso_millet",
+    "green_gram",
+    "cowpea",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "barnyard_millet",
+    "sorghum",
+    "maize",
+    "cotton",
+    "banana"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "barnyard_millet",
+    "sorghum",
+    "cotton",
+    "pearl_millet"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1275_7825": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 0.96,
+     "suitability": 73,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 5
+    }
+   ],
+   "rice_long": {
+    "share": 0,
+    "suitability": 18,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut",
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "finger_millet",
+    "cowpea",
+    "proso_millet",
+    "little_millet",
+    "foxtail_millet",
+    "pearl_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "foxtail_millet",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 9
+    },
+    {
+     "crop": "barnyard_millet",
+     "share": 0.96,
+     "suitability": 73,
+     "sow": 9
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 5
+    }
+   ],
+   "rice_long": {
+    "share": 0.17,
+    "suitability": 23,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "maize"
+   ],
+   "avoid_wet": [],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "cowpea",
+    "sorghum",
+    "proso_millet",
+    "pearl_millet",
+    "sesame",
+    "groundnut",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "rice_long"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "foxtail_millet",
+     "little_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1275_7875": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 5
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 5
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 69,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "cotton"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "pearl_millet",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "sesame",
+    "sorghum",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "groundnut",
+    "finger_millet",
+    "sorghum"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane",
+    "rice_long"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "green_gram",
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "groundnut",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "pearl_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 5
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 10
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 5
+    }
+   ],
+   "rice_long": {
+    "share": 0.25,
+    "suitability": 29,
+    "sow": 9
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "cotton"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "finger_millet",
+    "pearl_millet",
+    "cowpea",
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "proso_millet",
+    "foxtail_millet",
+    "sesame",
+    "green_gram",
+    "black_gram",
+    "groundnut"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "banana",
+    "sugarcane"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1275_7925": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 72,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.04,
+    "suitability": 21,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "sorghum",
+    "finger_millet",
+    "pearl_millet",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum"
+   ],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana",
+    "finger_millet",
+    "sorghum"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "pearl_millet",
+     "finger_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.88,
+     "suitability": 71,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 6
+    }
+   ],
+   "rice_long": {
+    "share": 0.29,
+    "suitability": 33,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "safer_drought": [
+    "cotton",
+    "sorghum",
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "pearl_millet",
+    "sesame",
+    "maize",
+    "green_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "pearl_millet"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "pearl_millet",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "rice_long",
+    "maize",
+    "sugarcane",
+    "banana",
+    "finger_millet"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "maize",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1275_7975": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.21,
+    "suitability": 33,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "groundnut"
+   ],
+   "safer_drought": [
+    "cowpea",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "maize"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "green_gram",
+    "finger_millet",
+    "proso_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "cotton",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "kodo_millet",
+     "share": 0.96,
+     "suitability": 75,
+     "sow": 6
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.92,
+     "suitability": 74,
+     "sow": 8
+    },
+    {
+     "crop": "sesame",
+     "share": 0.96,
+     "suitability": 71,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 61,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "groundnut"
+   ],
+   "safer_drought": [
+    "cowpea",
+    "barnyard_millet",
+    "proso_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "green_gram",
+    "black_gram"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "maize"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "finger_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum",
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "finger_millet",
+    "barnyard_millet",
+    "sorghum",
+    "rice_long",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "proso_millet",
+     "barnyard_millet",
+     "cotton",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "banana"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1325_7975": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 8
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.08,
+    "suitability": 24,
+    "sow": 8
+   },
+   "avoid_drought": [],
+   "avoid_wet": [
+    "finger_millet",
+    "sorghum",
+    "groundnut"
+   ],
+   "safer_drought": [
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "barnyard_millet",
+    "finger_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "maize",
+    "cotton"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "rice_long",
+    "banana",
+    "finger_millet",
+    "barnyard_millet",
+    "sorghum",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "barnyard_millet",
+     "sorghum",
+     "maize",
+     "cotton",
+     "cowpea"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "cowpea",
+     "share": 0.96,
+     "suitability": 77,
+     "sow": 8
+    },
+    {
+     "crop": "kodo_millet",
+     "share": 1,
+     "suitability": 77,
+     "sow": 6
+    },
+    {
+     "crop": "sesame",
+     "share": 1,
+     "suitability": 74,
+     "sow": 7
+    }
+   ],
+   "rice_long": {
+    "share": 0.71,
+    "suitability": 61,
+    "sow": 9
+   },
+   "avoid_drought": [
+    "sugarcane",
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "groundnut"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame",
+    "cowpea",
+    "cotton",
+    "finger_millet",
+    "pearl_millet"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "banana"
+   ],
+   "memory_now_looks_safer": [],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "maize"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "finger_millet",
+    "barnyard_millet",
+    "sorghum",
+    "rice_long"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "sesame",
+     "pearl_millet",
+     "finger_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "cotton"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "black_gram",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize",
+     "sugarcane",
+     "cowpea"
+    ]
+   },
+   "future": null
+  }
+ },
+ "g1325_8025": {
+  "rainfed": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.29,
+    "suitability": 39,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "groundnut"
+   ],
+   "avoid_wet": [
+    "groundnut",
+    "maize"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "cowpea",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_long",
+    "rice_short",
+    "pearl_millet",
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "sugarcane",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "black_gram",
+    "groundnut",
+    "maize",
+    "cowpea"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "pearl_millet",
+    "finger_millet",
+    "maize",
+    "cotton",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "sugarcane",
+    "rice_long",
+    "banana",
+    "finger_millet",
+    "sorghum",
+    "cotton",
+    "pearl_millet"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "green_gram",
+     "groundnut",
+     "proso_millet",
+     "sorghum",
+     "maize"
+    ]
+   },
+   "future": null
+  },
+  "tank": {
+   "top": [
+    {
+     "crop": "barnyard_millet",
+     "share": 1,
+     "suitability": 75,
+     "sow": 7
+    },
+    {
+     "crop": "sesame",
+     "share": 0.92,
+     "suitability": 69,
+     "sow": 7
+    },
+    {
+     "crop": "cowpea",
+     "share": 0.83,
+     "suitability": 68,
+     "sow": 8
+    }
+   ],
+   "rice_long": {
+    "share": 0.75,
+    "suitability": 65,
+    "sow": 8
+   },
+   "avoid_drought": [
+    "sugarcane",
+    "rice_long"
+   ],
+   "avoid_wet": [
+    "maize",
+    "sugarcane"
+   ],
+   "safer_drought": [
+    "barnyard_millet",
+    "pearl_millet",
+    "cowpea",
+    "kodo_millet",
+    "little_millet",
+    "foxtail_millet",
+    "finger_millet",
+    "sesame"
+   ],
+   "not_suitable": [
+    "rice_short",
+    "groundnut",
+    "sorghum",
+    "cotton",
+    "banana"
+   ],
+   "memory_now_looks_safer": [
+    "black_gram",
+    "maize",
+    "sugarcane",
+    "cowpea"
+   ],
+   "memory_2014_looks_safer": [],
+   "decade_dependent": [
+    "rice_long",
+    "black_gram",
+    "green_gram",
+    "groundnut",
+    "sorghum",
+    "maize",
+    "cotton",
+    "sugarcane",
+    "cowpea"
+   ],
+   "wind_most_exposed": [
+    "rice_long",
+    "banana",
+    "sugarcane",
+    "sorghum",
+    "cotton"
+   ],
+   "drought_2016": {
+    "came_through": [
+     "black_gram",
+     "sesame",
+     "pearl_millet",
+     "foxtail_millet",
+     "little_millet",
+     "kodo_millet",
+     "barnyard_millet",
+     "sorghum",
+     "cowpea"
+    ],
+    "hit": [
+     "rice_long",
+     "rice_short",
+     "green_gram",
+     "proso_millet",
+     "maize",
+     "sugarcane"
+    ]
+   },
+   "future": null
+  }
+ }
+}

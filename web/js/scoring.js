@@ -832,9 +832,11 @@ export function memoryCheck(site, crops, prefs, opts = {}) {
 // ---------- Wind / cyclone exposure (FIELD_NOTES E5; RESEARCH_LOG I-26) ----------
 // wind = web/data/wind/<id>.json (pipeline/fetch_wind.py, NASA POWER daily). An exposure layer, NOT folded into
 // the replay's pass/fail (that stays calibrated against yields). For each crop at its usual sowing month here:
-// in how many seasons did a "storm day" (strong wind + >= 50 mm rain) or a run of >= 3 strong-wind days fall in
+// in how many seasons did a "storm day" (strong wind + >= 50 mm rain) or, for low-tolerance crops, a damaging-wind
+// day (WS10M_MAX >= 12 m/s, DAMAGING_WIND_MS) fall in
 // the SECOND half of the season (tall crops lodge near flowering / harvest; banana and sugarcane all season)?
 // wind_tolerance high crops (short pulses, groundnut) are listed but never counted as exposed.
+const DAMAGING_WIND_MS = 12;
 export function windRisk(site, crops, prefs, wind) {
   if (!wind?.by_year) return null;
   const years = Object.keys(wind.by_year).map(Number).sort((a, b) => a - b);
@@ -851,8 +853,10 @@ export function windRisk(site, crops, prefs, wind) {
       if (months.some((x) => !wind.by_year[String(y + x.y)])) continue;
       n++;
       const storm = sum(months.map((x) => wind.by_year[String(y + x.y)].storm_days[x.m - 1]));
-      const strong = sum(months.map((x) => wind.by_year[String(y + x.y)].strong_days[x.m - 1]));
-      const exposed = tol === "high" ? false : tol === "low" ? storm > 0 || strong >= 3 : storm > 0;
+      // damaging wind for low-tolerance crops = a day with WS10M_MAX >= 12 m/s (~top 10% of place-years; the
+      // 10 m/s "strong" mark is reached by the SW-monsoon wind almost everywhere, so it flagged banana at 35/47 points)
+      const peak = Math.max(...months.map((x) => wind.by_year[String(y + x.y)].max_wind_ms[x.m - 1]));
+      const exposed = tol === "high" ? false : tol === "low" ? storm > 0 || peak >= DAMAGING_WIND_MS : storm > 0;
       if (exposed) { hit++; hitYears.push(y); }
     }
     return { crop: c.id, crop_name: shortName(c), wind_tolerance: tol, sow_label: MONTHS[sow - 1],

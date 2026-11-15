@@ -256,6 +256,30 @@ Engine: `windRisk(site, crops, prefs, wind)` (~25 ms) →
 Not part of pass/fail. UI idea: "Cyclone months here: Nov–Dec. Samba rice was hit by strong wind near harvest in
 11 of 23 seasons; black gram and groundnut stand up to it." Note that compact cyclones (Gaja 2018) are under-read.
 
+## 2j. `web/data/statewide_risk.json` (Policy view; `pipeline/statewide_risk.py`)
+```jsonc
+{ "meta": { "water_sources_in_engine": ["rainfed", "tank"], "sources": [...], "engine_run": "..." },
+  "layers": [{ "key": "extremes.rain_1day_100yr_mm", "label": "1-in-100-year day of rain", "unit": "mm",
+               "worse": "high", "available": 47, "range": [107, 362] }, ...],   // "colour the map by" options
+  "points": [{
+    "id": "g1075_7875", "name": "near Tiruchirappalli (9 km)", "lat", "lon",
+    "district": { id, name, mismatch_index, rainfed_reliability },
+    "climate": { ne_monsoon_mm, ne_monsoon_cv_pct, hot_days_per_year },
+    "extremes": { rain_1day_100yr_mm, rain_1day_100yr_range, rain_3day_100yr_mm, drought_100yr_pct_of_normal,
+                  worst_drought: { year, pct_of_normal, label } },
+    "wind": { storm_days_per_year, years_with_storm_day, storm_months: [11, 12] },
+    "future": { period, ssp245: { tmax_change_c, hot_days_change, ne_rain_change_pct, ne_rain_change_range,
+                                  rain_change_pct }, ssp585: {...} } | null,   // null until grid projections finish
+    "engine": { "rainfed": {...}, "tank": {
+        top: [{crop, share, suitability, sow}] x3, rice_long: {share, suitability, sow},
+        avoid_drought, avoid_wet, safer_drought, not_suitable,                     // crop id lists
+        memory_now_looks_safer, memory_2014_looks_safer, decade_dependent, wind_most_exposed,
+        drought_2016: { came_through: [...], hit: [...] },
+        future: { rice_long: { ssp245: {today, n, min, median, max}, ssp585 }, top_crop: { crop, ssp245, ssp585 } } | null } } }] }
+```
+UI: read `layers` for the picker, colour each point by `key` (dot path), and use `worse` for the colour direction.
+One click on a point shows its `engine` lists ("avoid in a drought year", "came through 2016", "wind-exposed").
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

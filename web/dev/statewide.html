@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Statewide risk engine run</title>
+<style>body{font:13px/1.4 system-ui;margin:16px}</style></head>
+<body>
+<h1>Statewide risk: engine run per grid point</h1>
+<p>For each of the 47 grid points and two water sources (rain-fed, tank): top crops, "avoid this season" lists,
+what a 10-year memory gets wrong, wind exposure, crops that came through 2016, and rice / top-crop reliability
+by 2041–2060 (NEX-GDDP). <code>?post=1</code> sends results to 127.0.0.1:8766 (see pipeline/statewide_risk.py).</p>
+<pre id="out">running…</pre>
+<script type="module">
+const E = await import(`../js/scoring.js?v=${Date.now()}`);
+const out = document.getElementById("out");
+const get = async (u) => { const r = await fetch(u, { cache: "reload" }); return r.ok ? r.json() : null; };
+const crops = await get("../data/crops.json");
+const idx = await get("../data/grid/index.json");
+const pts = idx.points ?? idx;
+const sites = Object.fromEntries(await Promise.all(pts.map(async (p) => [p.id, await get(`../data/grid/${p.id}.json`)])));
+const W = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
+const SOURCES = ["rainfed", "tank"];
+const ctx = Object.fromEntries(SOURCES.map((w) => [w, E.statewideContext(Object.values(sites), crops, { weights: W, water_source: w, scenario: {} })]));
+const fr = (s, rot, prefs, proj, ssp) => {
+  const f = E.futureRange(s, crops, rot, prefs, proj, ssp);
+  return f.good_years ? { today: f.today.good_years, n: f.today.total_years, ...f.good_years } : null;
+};
+const result = {};
+let i = 0;
+for (const p of pts) {
+  const s = sites[p.id];
+  const [wind, ext, proj] = await Promise.all([get(`../data/wind/${p.id}.json`), get(`../data/extremes/${p.id}.json`), get(`../data/projections/${p.id}.json`)]);
+  const row = {};
+  for (const w of SOURCES) {
+    const prefs = { weights: W, water_source: w, scenario: {} };
+    const top = E.rankCrops(s, crops, prefs, 3, ctx[w]);
+    const av = E.avoidThisSeason(s, crops, prefs);
+    const mem = E.memoryCheck(s, crops, prefs);
+    const mem14 = E.memoryCheck(s, crops, prefs, { as_of: 2014 });
+    const wr = wind ? E.windRisk(s, crops, prefs, wind) : null;
+    const ex = ext ? E.extremeYearCheck(s, crops, prefs, ext) : null;
+    const dr = ex?.events.find((e) => e.kind === "drought");
+    const rice = E.cropSuitability(s, crops, "rice_long", prefs, ctx[w]);
+    const riceRot = [[{ crop: "rice_long", sow: rice.sow }]];
+    const topRot = top[0].strategy?.rotation ?? [[{ crop: top[0].crop, sow: top[0].sow }]];
+    row[w] = {
+      top: top.map((x) => ({ crop: x.crop, share: x.share, suitability: x.suitability, sow: x.sow })),
+      rice_long: { share: rice.share, suitability: rice.suitability, sow: rice.sow },
+      avoid_drought: av.avoid.deficient, avoid_wet: av.avoid.excess, safer_drought: av.safer.deficient,
+      not_suitable: av.not_suitable_here,
+      memory_now_looks_safer: mem.looks_safer, memory_2014_looks_safer: mem14.looks_safer,
+      decade_dependent: mem.decade_dependent,
+      wind_most_exposed: wr?.most_exposed ?? null,
+      drought_2016: dr ? { came_through: dr.came_through.map((c) => c.crop), hit: dr.hit_by_event.map((c) => c.crop) } : null,
+      future: proj ? {
+        rice_long: { ssp245: fr(s, riceRot, prefs, proj, "ssp245"), ssp585: fr(s, riceRot, prefs, proj, "ssp585") },
+        top_crop: { crop: top[0].crop, ssp245: fr(s, topRot, prefs, proj, "ssp245"), ssp585: fr(s, topRot, prefs, proj, "ssp585") },
+      } : null,
+    };
+  }
+  result[p.id] = row;
+  out.textContent = `${++i}/${pts.length} ${p.id}`;
+  await new Promise((r) => setTimeout(r));
+}
+out.textContent = `done: ${Object.keys(result).length} points`;
+window.STATEWIDE = result;
+if (new URLSearchParams(location.search).get("post")) {
+  const r = await fetch("http://127.0.0.1:8766/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(result) });
+  out.textContent += ` | posted: ${r.status}`;
+}
+</script>
+</body>
+</html>

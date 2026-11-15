@@ -27,11 +27,12 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A13 | Engine `rankCrops` + `cropSuitability` for the heatmap and "click anywhere" (IDEAS I3/I4) | ✅ |
 | A14 | **Climate change, Layer 1:** extend POWER to 1981–2024; Mann–Kendall + Sen trends, then-vs-now shifts for heat, monsoons, heavy rain, dry spells, ET0 (see APPROACH "Next direction") | ✅ 3 demo sites (`web/data/trends/`); grid ⬜ |
 | A15 | **Layer 2:** compare observed trends with IPCC AR6 / IMD / CMIP6 historical for South India ("consistent with", never "caused by") | ⬜ |
-| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); grid ⬜; 2081–2100 ⬜ |
+| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); 🔄 grid (`fetch_nex_grid.py`, ~4–5 h run); 2081–2100 ⬜ |
 | A17 | Engine: `futureRange()` returns today + min/median/max across models | ✅ |
 | A18 | **1-in-100-year events (FIELD_NOTES E4):** IMERG annual 1/3/5-day maxima → pooled GEV (L-moments) + NE-monsoon drought (gamma), bootstrap ranges, NEX shift; `extremeYearCheck()` | ✅ 50 points (`web/data/extremes/`) |
 | A19 | **Last 10 years vs full record (E6):** `memoryCheck()` incl. every-decade window range and `as_of` | ✅ |
 | A20 | **Wind / cyclone exposure (E5):** NASA POWER wind at 50 points, `wind_tolerance` in crops.json, `windRisk()`; IBTrACS tracks next | ✅ POWER; IBTrACS ⬜ |
+| A21 | **Statewide risk file** for the Policy view (`statewide_risk.json`, all layers + engine lists per grid point) | ✅ (future layers fill in after A16 grid) |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from

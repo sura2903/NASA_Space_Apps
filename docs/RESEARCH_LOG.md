@@ -467,13 +467,45 @@ pattern risky?"*
 - **Crop link (`windRisk`), an exposure layer kept out of the replay's pass/fail:**
   - New `wind_tolerance` per crop in crops.json (approximate): low for banana, sugarcane, maize and rice (lodging);
     medium for millets, sorghum, cotton and sesame; high for pulses and groundnut.
-  - A season counts as exposed if a storm day (or, for low-tolerance crops, ≥ 3 strong-wind days) falls in the
-    second half of the crop's season (the whole season for banana and sugarcane).
-  - **Results:** coastal Cuddalore/Puducherry Samba rice exposed in 11/23 seasons, cotton 8–11/23. Banana and
-    sugarcane are exposed in most years at Tirunelveli and Thanjavur, while Madurai is nearly unexposed.
-  - **Grid:** 11 distinct "most exposed" lists; 10 of 47 points have none.
+  - A season counts as exposed if a storm day (or, for low-tolerance crops, a damaging-wind day with
+    WS10M_MAX ≥ 12 m/s) falls in the second half of the crop's season (the whole season for banana and sugarcane).
+  - **Threshold fix from the statewide sanity check:** the first rule (≥ 3 days ≥ 10 m/s) flagged banana and
+    sugarcane at 35–37 of 47 points, because the southwest-monsoon wind reaches 10 m/s almost everywhere. A 12 m/s
+    peak happens in ~12% of years at the median point, so it separates places.
+  - **Results:** coastal Cuddalore/Puducherry Samba rice exposed in 11/23 seasons, cotton 8–11/23. Thanjavur
+    sugarcane 6/24, banana 4/23; Tirunelveli 3/23; Madurai none.
+  - **Grid:** banana flagged at 24 of 47 points (north coast plus the windy central belt: Theni, Dindigul, Karur,
+    Trichy); 11 distinct "most exposed" lists; 23 points have none.
 - **Next (needs approval):** NOAA IBTrACS cyclone tracks (North Indian basin, 1980+) would count real cyclone
   passes within ~100 km of each point and catch compact storms like Gaja. Small CSV download.
+
+### I-27 · One statewide risk file for the Policy view (+ grid projections under way)
+- **Why:** most Lane A results (El Niño odds, avoid lists, extremes, wind, memory) are engine functions that the
+  UI doesn't show yet. One file per grid point with ready-made map layers is the fastest way to get them in front
+  of a policy maker.
+- **Method:** `web/dev/statewide.html?post=1` runs the engine at all 47 points for rain-fed and tank water.
+  `pipeline/statewide_risk.py` merges that with districts (mismatch), extremes, wind and projections, writing
+  `web/data/statewide_risk.json` with a `layers` list (value path, label, unit, which end is worse).
+- **Sanity check:**
+  - Every layer spreads widely:
+    - mismatch index 13–99;
+    - 1-in-100 day of rain 107–362 mm;
+    - 1-in-100 drought 25–51% of normal;
+    - storm days 0–0.9 per year;
+    - hot days 0–58 per year;
+    - tank rice came through 4–88% of seasons.
+  - **Redundant layers:**
+    - NE-monsoon variability vs the drought return level, r = −0.94. The drought fit is driven by variability,
+      so only the drought layer is offered.
+    - Extreme rain vs storm days, r = 0.88 (both peak on the north coast). Both are kept, since they mean
+      different things to a farmer.
+  - **Places in the worst five of several layers:** the north coast and north interior (Kanchipuram, Vellore,
+    Villupuram, Chennai, Tiruvallur, Krishnagiri, Dharmapuri).
+- **Grid projections:** `pipeline/fetch_nex_grid.py` fetches each NEX-GDDP file once as a Tamil Nadu box subset
+  (900 files instead of 42,300 point requests) and averages the four 0.25° cells around each grid point.
+  - `nex_deltas.py` was refactored into `build_projection()`; the demo-site output is byte-identical.
+  - The server handles ~3 files a minute, so the full run takes ~4–5 hours. The future layers fill in when
+    it finishes.
 
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
