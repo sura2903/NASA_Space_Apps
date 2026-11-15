@@ -8,6 +8,7 @@
 import { cropSuitability, rankCrops, statewideContext, WATER_SOURCES } from "./scoring.js";
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
+import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet } from "./ui/risk.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
 const WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
@@ -29,6 +30,7 @@ const state = {
   wi: { from: "rice_long", to: null, water: "canal", share: 25, area: 1000, areaAuto: true, district: null },
   districts: [], districtsMeta: null,
   ctx: {},
+  risk: null, layer: null,   // statewide_risk.json + chosen "colour the map by" layer key (null = exposure score)
 };
 let map = null, layer = null;
 
@@ -64,6 +66,13 @@ function ranks(c) {
 }
 
 function computeScores() {
+  const L = state.layer && state.risk?.layers.find((x) => x.key === state.layer);
+  if (L) {                                  // colour by one statewide risk layer (within-state rank, 0-100)
+    const r = layerRanks(state.risk, L, state.points.map((p) => p.id));
+    state.used = [];
+    state.scores = Object.fromEntries(state.points.map((p) => [p.id, r[p.id] == null ? null : Math.round(100 * r[p.id])]));
+    return;
+  }
   const used = COMPONENTS.filter((c) => state.on[c.id] && hasData(c));
   const r = Object.fromEntries(used.map((c) => [c.id, ranks(c)]));
   state.used = used;
@@ -109,8 +118,10 @@ function drawMap() {
     if (sc == null) continue;
     const s = state.sites[p.id];
     const sel = state.selected?.id === p.id;
-    const tip = `<strong>${short(p)}</strong><br>${t("p.score", { v: sc })}<br>` +
-      state.used.map((c) => `${t(`p.c.${c.id}`)}: ${compText(c, s)}${c.disagree?.(s) ? " ⚠" : ""}`).join("<br>");
+    const lay = currentLayer();
+    const tip = lay ? `<strong>${short(p)}</strong><br>${layerValueText(state.risk, lay, p.id)}`
+      : `<strong>${short(p)}</strong><br>${t("p.score", { v: sc })}<br>` +
+        state.used.map((c) => `${t(`p.c.${c.id}`)}: ${compText(c, s)}${c.disagree?.(s) ? " ⚠" : ""}`).join("<br>");
     const opts = { weight: sel ? 2.5 : 0.5, color: sel ? cssVar("--ink") : "#ffffff", fillColor: colour(sc / 100), fillOpacity: sel ? 1 : 0.85 };
     let shape;
     if (state.kind === "grid" && state.cellDeg) {
@@ -127,8 +138,18 @@ function drawMap() {
   selShape?.bringToFront();
 }
 
+const currentLayer = () => (state.layer && state.risk?.layers.find((x) => x.key === state.layer)) || null;
+
 function drawLegend() {
   const el = $("#legend");
+  const L = currentLayer();
+  if (L) {
+    const w = legendWords(L);
+    clear(el).append(h("span", { class: "xlegend-l" }, `${w.title} (${w.range})`), h("span", { class: "xlegend-ends" }, w.low),
+      h("span", { class: "xlegend-bar", style: { background: `linear-gradient(90deg, ${colour(0)}, ${colour(1)})` } }),
+      h("span", { class: "xlegend-ends" }, w.high));
+    return;
+  }
   clear(el).append(
     h("span", { class: "xlegend-l" }, t("p.legend")),
     h("span", { class: "xlegend-ends" }, t("p.legend.low")),
@@ -154,6 +175,15 @@ function drawTable() {
   const el = clear($("#vuln-table"));
   const rows = state.points.filter((p) => state.scores[p.id] != null)
     .sort((a, b) => state.scores[b.id] - state.scores[a.id]).slice(0, 10);
+  const L = currentLayer();
+  if (L) {
+    el.append(h("h3", { class: "vuln-h" }, t("p.table.title")),
+      h("div", { class: "table-wrap" }, h("table", { class: "compare xtable" },
+        h("thead", {}, h("tr", {}, h("th", { scope: "col" }, t("x.col.place")), h("th", { scope: "col" }, legendWords(L).title))),
+        h("tbody", {}, ...rows.map((p) => h("tr", { class: state.selected?.id === p.id ? "sel" : "", onclick: () => selectPoint(p), style: { cursor: "pointer" } },
+          h("th", { scope: "row" }, placeName(p)), h("td", {}, `${pathGet(state.risk.byId[p.id], L.key)} ${L.unit}`)))))));
+    return;
+  }
   const cols = COMPONENTS.filter((c) => state.on[c.id]);
   el.append(
     h("h3", { class: "vuln-h" }, t("p.table.title")),
@@ -241,6 +271,8 @@ function drawWhatIf() {
     : h("p", { class: "note" }, t("p.wi.areanote"));
   const result = h("div", { id: "wi-result", class: low ? "wi-low" : "" });
   box.append(controls, result, areaNote);
+  const rb = riskBox(state.risk, p.id, w.water, state.cropById, (k) => waterLabel(k, WATER_SOURCES[k].label).toLowerCase());
+  if (rb) box.append(rb);
   drawResult();
 
   function drawResult() {
@@ -270,7 +302,9 @@ function drawWhatIf() {
 /* ---------- controls ---------- */
 function drawControls() {
   const box = clear($("#components"));
-  for (const c of COMPONENTS) {
+  if (state.risk) box.append(layerPicker(state.risk, state.layer, (k) => { state.layer = k; refresh(); }));
+  // the exposure signs only apply to the combined score; hide them while one layer colours the map
+  for (const c of state.layer ? [] : COMPONENTS) {
     const avail = hasData(c);
     const id = `c-${c.id}`;
     box.append(h("label", { class: "choice" + (state.on[c.id] && avail ? " on" : "") + (avail ? "" : " pending") },
@@ -303,7 +337,8 @@ async function init() {
   $("#lang").addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
   onLangChange(() => { applyStatic(); refresh(); });
   try {
-    const [pts, crops, dists] = await Promise.all([loadPoints(), getJSON("data/crops.json"), getJSON("data/districts.json").catch(() => null)]);
+    const [pts, crops, dists, risk] = await Promise.all([loadPoints(), getJSON("data/crops.json"), getJSON("data/districts.json").catch(() => null), loadRisk(getJSON)]);
+    state.risk = risk;
     state.districts = dists?.districts ?? [];
     state.districtsMeta = dists?.meta ?? null;
     Object.assign(state, { kind: pts.kind, cellDeg: pts.cellDeg, points: pts.points, crops });

@@ -475,6 +475,26 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .leaflet-container .leaflet-tooltip-top::before { border-top-color: var(--line); }
 .leaflet-container .leaflet-tooltip-bottom::before { border-bottom-color: var(--line); }
 
+/* ---------- data sources and references (references.html + footer link on every page) ---------- */
+.refs-main { box-sizing: border-box; width: calc(100% - 48px); max-width: 960px; margin: 16px auto 40px; }
+.refs-panel > h2 { margin-top: 0; }
+.ref-group { margin: 24px 0 8px; font-size: 1.05rem; }
+.refs { margin: 0; padding-left: 1.4rem; display: grid; gap: 14px; }
+.ref strong { display: block; }
+.ref p { margin: 3px 0 0; font-size: 0.9rem; line-height: 1.45; overflow-wrap: anywhere; }
+.ref-k { font-weight: 600; color: var(--ink-2); }
+.ref-cite { color: var(--ink-2); }
+.refs a { color: var(--accent); }
+.refs-foot { text-align: center; padding: 8px 16px 28px; font-size: 0.9rem; }
+.refs-foot a { color: var(--ink-2); }
+@media (max-width: 640px) { .refs-main { width: calc(100% - 32px); margin-top: 12px; } .refs-panel { padding: 16px; } }
+@media print {
+  .refs-foot { display: none !important; }
+  body.refs-page > main { display: block !important; width: auto; margin: 0; }
+  .refs-panel { border: 0; padding: 0; }
+  .ref { break-inside: avoid; }
+}
+
 /* ===================== simpler layout (Lane A draft for review) ===================== */
 /* main view tabs in the header: Farm | Policy */
 .top .tabs { grid-column: 1 / -1; display: flex; gap: 6px; border-bottom: 0; margin-bottom: -15px; }
@@ -541,3 +561,9 @@ details.panel.fold[open] > summary { margin-bottom: 10px; }
 .card-more { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
 .card-more > summary { cursor: pointer; font-weight: 600; color: var(--accent); min-height: 40px; display: flex; align-items: center; }
 .card-more[open] > summary { margin-bottom: 8px; }
+
+/* Policy view: "colour the map by" picker + "risk at this place" box (web/js/ui/risk.js, Lane A draft) */
+.risk-picker { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; }
+.risk-picker select { min-height: 40px; width: 100%; max-width: 100%; min-width: 0; }
+.risk-box { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+.risk-box ul { margin: 6px 0; }
