@@ -1,0 +1,243 @@
+{
+ "id": "thanjavur",
+ "lat": 10.85,
+ "lon": 79.25,
+ "neighbours": 6,
+ "years": [
+  2001,
+  2024
+ ],
+ "rain": {
+  "rx1": {
+   "median_annual_max_mm": 81,
+   "levels": {
+    "10": {
+     "mm": 126,
+     "range": [
+      108,
+      139
+     ]
+    },
+    "25": {
+     "mm": 151,
+     "range": [
+      124,
+      169
+     ]
+    },
+    "50": {
+     "mm": 170,
+     "range": [
+      134,
+      194
+     ]
+    },
+    "100": {
+     "mm": 189,
+     "range": [
+      145,
+      220
+     ]
+    }
+   },
+   "gev": [
+    -0.0425,
+    0.8753,
+    0.2881
+   ],
+   "record": {
+    "year": 2007,
+    "mm": 169,
+    "return_period_yr": 48.4,
+    "beyond_record": false,
+    "label": "about 1-in-50",
+    "date": "2007-12-18"
+   }
+  },
+  "rx3": {
+   "median_annual_max_mm": 152,
+   "levels": {
+    "10": {
+     "mm": 230,
+     "range": [
+      199,
+      263
+     ]
+    },
+    "25": {
+     "mm": 267,
+     "range": [
+      217,
+      324
+     ]
+    },
+    "50": {
+     "mm": 294,
+     "range": [
+      228,
+      376
+     ]
+    },
+    "100": {
+     "mm": 320,
+     "range": [
+      236,
+      432
+     ]
+    }
+   },
+   "gev": [
+    0.0344,
+    0.8958,
+    0.2863
+   ],
+   "record": {
+    "year": 2008,
+    "mm": 321,
+    "return_period_yr": 101.5,
+    "beyond_record": true,
+    "label": "rarer than 1-in-100 (beyond what 24 years can pin down)",
+    "date": null
+   }
+  },
+  "rx5": {
+   "median_annual_max_mm": 204,
+   "levels": {
+    "10": {
+     "mm": 306,
+     "range": [
+      256,
+      357
+     ]
+    },
+    "25": {
+     "mm": 363,
+     "range": [
+      278,
+      453
+     ]
+    },
+    "50": {
+     "mm": 406,
+     "range": [
+      292,
+      536
+     ]
+    },
+    "100": {
+     "mm": 448,
+     "range": [
+      302,
+      623
+     ]
+    }
+   },
+   "gev": [
+    -0.011,
+    0.8468,
+    0.287
+   ],
+   "record": {
+    "year": 2008,
+    "mm": 423,
+    "return_period_yr": 66.4,
+    "beyond_record": false,
+    "label": "about 1-in-66",
+    "date": null
+   }
+  }
+ },
+ "drought": {
+  "normal_ne_mm": 618,
+  "levels": {
+   "10": {
+    "mm": 364,
+    "pct_of_normal": 59,
+    "range": [
+     286,
+     473
+    ]
+   },
+   "25": {
+    "mm": 299,
+    "pct_of_normal": 48,
+    "range": [
+     219,
+     411
+    ]
+   },
+   "50": {
+    "mm": 261,
+    "pct_of_normal": 42,
+    "range": [
+     183,
+     374
+    ]
+   },
+   "100": {
+    "mm": 230,
+    "pct_of_normal": 37,
+    "range": [
+     154,
+     346
+    ]
+   }
+  },
+  "gamma": [
+   8.3359,
+   0,
+   0.12
+  ],
+  "record": {
+   "year": 2016,
+   "mm": 164,
+   "pct_of_normal": 26,
+   "return_period_yr": 795.0,
+   "beyond_record": true,
+   "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+  }
+ },
+ "lifetime_chance": {
+  "1_in_10": 0.96,
+  "1_in_25": 0.71,
+  "1_in_50": 0.45,
+  "1_in_100": 0.26
+ },
+ "lifetime_years": 30,
+ "future": {
+  "ssp245": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    51,
+    66,
+    79
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    39,
+    76,
+    437
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  },
+  "ssp585": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    48,
+    59,
+    86
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    77,
+    239,
+    658
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  }
+ }
+}

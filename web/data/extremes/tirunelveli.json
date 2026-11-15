@@ -1,0 +1,243 @@
+{
+ "id": "tirunelveli",
+ "lat": 8.7,
+ "lon": 77.75,
+ "neighbours": 5,
+ "years": [
+  2001,
+  2024
+ ],
+ "rain": {
+  "rx1": {
+   "median_annual_max_mm": 61,
+   "levels": {
+    "10": {
+     "mm": 93,
+     "range": [
+      84,
+      102
+     ]
+    },
+    "25": {
+     "mm": 110,
+     "range": [
+      97,
+      120
+     ]
+    },
+    "50": {
+     "mm": 124,
+     "range": [
+      107,
+      136
+     ]
+    },
+    "100": {
+     "mm": 138,
+     "range": [
+      115,
+      154
+     ]
+    }
+   },
+   "gev": [
+    -0.0666,
+    0.9082,
+    0.2509
+   ],
+   "record": {
+    "year": 2023,
+    "mm": 124,
+    "return_period_yr": 49.7,
+    "beyond_record": false,
+    "label": "about 1-in-50",
+    "date": "2023-12-17"
+   }
+  },
+  "rx3": {
+   "median_annual_max_mm": 114,
+   "levels": {
+    "10": {
+     "mm": 157,
+     "range": [
+      142,
+      168
+     ]
+    },
+    "25": {
+     "mm": 175,
+     "range": [
+      157,
+      187
+     ]
+    },
+    "50": {
+     "mm": 187,
+     "range": [
+      167,
+      201
+     ]
+    },
+    "100": {
+     "mm": 198,
+     "range": [
+      174,
+      214
+     ]
+    }
+   },
+   "gev": [
+    0.138,
+    0.9102,
+    0.2436
+   ],
+   "record": {
+    "year": 2017,
+    "mm": 186,
+    "return_period_yr": 48.8,
+    "beyond_record": false,
+    "label": "about 1-in-50",
+    "date": null
+   }
+  },
+  "rx5": {
+   "median_annual_max_mm": 133,
+   "levels": {
+    "10": {
+     "mm": 189,
+     "range": [
+      170,
+      203
+     ]
+    },
+    "25": {
+     "mm": 213,
+     "range": [
+      189,
+      226
+     ]
+    },
+    "50": {
+     "mm": 230,
+     "range": [
+      203,
+      242
+     ]
+    },
+    "100": {
+     "mm": 245,
+     "range": [
+      216,
+      261
+     ]
+    }
+   },
+   "gev": [
+    0.0873,
+    0.9228,
+    0.2429
+   ],
+   "record": {
+    "year": 2008,
+    "mm": 209,
+    "return_period_yr": 21.3,
+    "beyond_record": false,
+    "label": "about 1-in-25",
+    "date": null
+   }
+  }
+ },
+ "drought": {
+  "normal_ne_mm": 515,
+  "levels": {
+   "10": {
+    "mm": 338,
+    "pct_of_normal": 66,
+    "range": [
+     283,
+     398
+    ]
+   },
+   "25": {
+    "mm": 288,
+    "pct_of_normal": 56,
+    "range": [
+     231,
+     354
+    ]
+   },
+   "50": {
+    "mm": 259,
+    "pct_of_normal": 50,
+    "range": [
+     203,
+     329
+    ]
+   },
+   "100": {
+    "mm": 235,
+    "pct_of_normal": 46,
+    "range": [
+     178,
+     308
+    ]
+   }
+  },
+  "gamma": [
+   12.2176,
+   0,
+   0.0818
+  ],
+  "record": {
+   "year": 2016,
+   "mm": 220,
+   "pct_of_normal": 43,
+   "return_period_yr": 166.0,
+   "beyond_record": true,
+   "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+  }
+ },
+ "lifetime_chance": {
+  "1_in_10": 0.96,
+  "1_in_25": 0.71,
+  "1_in_50": 0.45,
+  "1_in_100": 0.26
+ },
+ "lifetime_years": 30,
+ "future": {
+  "ssp245": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    53,
+    68,
+    75
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    72,
+    110,
+    1028
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  },
+  "ssp585": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    49,
+    60,
+    75
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    90,
+    583,
+    822
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  }
+ }
+}

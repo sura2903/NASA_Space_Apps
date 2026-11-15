@@ -197,6 +197,31 @@ forecast. Where the verdict says "steady in every phase", say that's the safer c
 UI idea: "In a drought-type year (like 2016) avoid: long rice (came through 0 of 7). Safer: black gram 7/7, sesame…".
 Pair it with early signals (sowing-rain onset, `phaseOdds`), since the season type isn't known for sure at sowing.
 
+## 2g. `web/data/extremes/<id>.json` (1-in-100-year events; `pipeline/extremes.py`)
+One file per point (3 demo sites + 47 grid) plus `index.json`. Return levels pool each point with neighbours within
+0.6° (index-flood method), 2001–2024 IMERG; ranges are 5–95% from a 300-draw year bootstrap.
+```jsonc
+{ "id": "tirunelveli", "neighbours": 5, "years": [2001, 2024],
+  "rain": { "rx1": { "median_annual_max_mm": 61,                      // also rx3, rx5 (3- and 5-day totals)
+                     "levels": { "10": {"mm": 93, "range": [84, 102]}, "25": {...}, "50": {...}, "100": {"mm": 138, "range": [115, 154]} },
+                     "record": { "year": 2023, "mm": 124, "date": "2023-12-17", "return_period_yr": 49.7,
+                                 "beyond_record": false, "label": "about 1-in-50" } } },
+  "drought": { "normal_ne_mm": 515,                                   // NE monsoon (Oct-Dec) total
+               "levels": { "100": {"mm": 235, "pct_of_normal": 46, "range": [..]} , ... },
+               "record": { "year": 2016, "pct_of_normal": 43, "label": "rarer than 1-in-100 (beyond what 24 years can pin down)" } },
+  "lifetime_chance": { "1_in_10": 0.96, "1_in_25": 0.71, "1_in_50": 0.45, "1_in_100": 0.26 }, "lifetime_years": 30,
+  "future": { "ssp245": { "period": [2041, 2060], "todays_100yr_rain_becomes_1_in": [53, 68, 75],   // demo sites only
+                          "todays_100yr_drought_becomes_1_in": [72, 110, 1028] } } }       // [min, median, max] of 5 models
+```
+Engine: `extremeYearCheck(site, crops, prefs, extremes)` (~20 ms) →
+`{ events: [{ kind: "drought"|"heavy_rain", year, what, label, return_period_yr, came_through[], hit_by_event[], failed_other[] }],
+   levels: { rain_1day_mm: {T: mm}, rain_3day_mm, ne_drought_mm, normal_ne_mm }, lifetime_chance, lifetime_years, future }`.
+Each crop row is `{crop, crop_name, sow_label, reason}`. `hit_by_event` = failed for the event's own reason (water
+shortage / waterlogging); `failed_other` = failed that year for something else (e.g. heat), so it isn't blamed on the event.
+UI idea: "A 1-in-100 day of rain here is about 140 mm (115–154). Over 30 years there's a 1-in-4 chance of seeing one.
+In 2016, a drought rarer than 1-in-100, black gram and millets came through; rice and groundnut didn't."
+Always show ranges, and say "rarer than 1-in-100" rather than printing extrapolated numbers like 1-in-795.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",
@@ -253,6 +278,7 @@ cropSuitability(site, crops, cropId, prefs, context?)          -> CropPick    //
 scenarioMonthly(site, scenario)                                -> [{month, precip_mm, et0_mm, water_balance_mm,
                                                                     heat_days, heavy_rain_days, tmax_c}] x12
                                                                   // same adjusted climate the scores use (for calendar bands)
+extremeYearCheck(site, crops, prefs, extremes)                 -> see §2g          // 1-in-100 events + crops in the worst years
 DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
 WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
 cropLabel(crop)          -> "Black gram · உளுந்து"

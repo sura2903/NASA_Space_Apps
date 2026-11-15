@@ -1,0 +1,243 @@
+{
+ "id": "madurai",
+ "lat": 10.03,
+ "lon": 78.33,
+ "neighbours": 5,
+ "years": [
+  2001,
+  2024
+ ],
+ "rain": {
+  "rx1": {
+   "median_annual_max_mm": 51,
+   "levels": {
+    "10": {
+     "mm": 84,
+     "range": [
+      73,
+      95
+     ]
+    },
+    "25": {
+     "mm": 105,
+     "range": [
+      88,
+      119
+     ]
+    },
+    "50": {
+     "mm": 123,
+     "range": [
+      99,
+      140
+     ]
+    },
+    "100": {
+     "mm": 144,
+     "range": [
+      112,
+      165
+     ]
+    }
+   },
+   "gev": [
+    -0.1781,
+    0.9189,
+    0.2675
+   ],
+   "record": {
+    "year": 2007,
+    "mm": 136,
+    "return_period_yr": 78.3,
+    "beyond_record": false,
+    "label": "about 1-in-100",
+    "date": "2007-12-18"
+   }
+  },
+  "rx3": {
+   "median_annual_max_mm": 95,
+   "levels": {
+    "10": {
+     "mm": 150,
+     "range": [
+      122,
+      174
+     ]
+    },
+    "25": {
+     "mm": 185,
+     "range": [
+      136,
+      218
+     ]
+    },
+    "50": {
+     "mm": 214,
+     "range": [
+      146,
+      260
+     ]
+    },
+    "100": {
+     "mm": 246,
+     "range": [
+      154,
+      306
+     ]
+    }
+   },
+   "gev": [
+    -0.1518,
+    0.8903,
+    0.2561
+   ],
+   "record": {
+    "year": 2008,
+    "mm": 224,
+    "return_period_yr": 62.9,
+    "beyond_record": false,
+    "label": "about 1-in-63",
+    "date": null
+   }
+  },
+  "rx5": {
+   "median_annual_max_mm": 123,
+   "levels": {
+    "10": {
+     "mm": 193,
+     "range": [
+      157,
+      228
+     ]
+    },
+    "25": {
+     "mm": 244,
+     "range": [
+      177,
+      298
+     ]
+    },
+    "50": {
+     "mm": 289,
+     "range": [
+      192,
+      364
+     ]
+    },
+    "100": {
+     "mm": 341,
+     "range": [
+      207,
+      442
+     ]
+    }
+   },
+   "gev": [
+    -0.2261,
+    0.8861,
+    0.2331
+   ],
+   "record": {
+    "year": 2008,
+    "mm": 302,
+    "return_period_yr": 60.5,
+    "beyond_record": false,
+    "label": "about 1-in-50",
+    "date": null
+   }
+  }
+ },
+ "drought": {
+  "normal_ne_mm": 452,
+  "levels": {
+   "10": {
+    "mm": 284,
+    "pct_of_normal": 63,
+    "range": [
+     225,
+     343
+    ]
+   },
+   "25": {
+    "mm": 238,
+    "pct_of_normal": 53,
+    "range": [
+     181,
+     303
+    ]
+   },
+   "50": {
+    "mm": 212,
+    "pct_of_normal": 47,
+    "range": [
+     154,
+     282
+    ]
+   },
+   "100": {
+    "mm": 190,
+    "pct_of_normal": 42,
+    "range": [
+     133,
+     264
+    ]
+   }
+  },
+  "gamma": [
+   10.3212,
+   0,
+   0.0969
+  ],
+  "record": {
+   "year": 2016,
+   "mm": 152,
+   "pct_of_normal": 34,
+   "return_period_yr": 465.2,
+   "beyond_record": true,
+   "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+  }
+ },
+ "lifetime_chance": {
+  "1_in_10": 0.96,
+  "1_in_25": 0.71,
+  "1_in_50": 0.45,
+  "1_in_100": 0.26
+ },
+ "lifetime_years": 30,
+ "future": {
+  "ssp245": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    61,
+    76,
+    85
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    44,
+    149,
+    513
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  },
+  "ssp585": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    58,
+    69,
+    84
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    72,
+    347,
+    962
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  }
+ }
+}

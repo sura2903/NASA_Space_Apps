@@ -29,6 +29,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A15 | **Layer 2:** compare observed trends with IPCC AR6 / IMD / CMIP6 historical for South India ("consistent with", never "caused by") | ⬜ |
 | A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); grid ⬜; 2081–2100 ⬜ |
 | A17 | Engine: `futureRange()` returns today + min/median/max across models | ✅ |
+| A18 | **1-in-100-year events (FIELD_NOTES E4):** IMERG annual 1/3/5-day maxima → pooled GEV (L-moments) + NE-monsoon drought (gamma), bootstrap ranges, NEX shift; `extremeYearCheck()` | ✅ 50 points (`web/data/extremes/`) |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from

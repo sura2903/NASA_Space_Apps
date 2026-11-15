@@ -1,0 +1,207 @@
+{
+ "id": "g0825_7775",
+ "lat": 8.25,
+ "lon": 77.75,
+ "neighbours": 3,
+ "years": [
+  2001,
+  2024
+ ],
+ "rain": {
+  "rx1": {
+   "median_annual_max_mm": 84,
+   "levels": {
+    "10": {
+     "mm": 131,
+     "range": [
+      113,
+      145
+     ]
+    },
+    "25": {
+     "mm": 158,
+     "range": [
+      130,
+      175
+     ]
+    },
+    "50": {
+     "mm": 180,
+     "range": [
+      143,
+      200
+     ]
+    },
+    "100": {
+     "mm": 203,
+     "range": [
+      154,
+      228
+     ]
+    }
+   },
+   "gev": [
+    -0.1089,
+    0.917,
+    0.2522
+   ],
+   "record": {
+    "year": 2002,
+    "mm": 137,
+    "return_period_yr": 12.4,
+    "beyond_record": false,
+    "label": "about 1-in-10",
+    "date": "2002-02-01"
+   }
+  },
+  "rx3": {
+   "median_annual_max_mm": 143,
+   "levels": {
+    "10": {
+     "mm": 204,
+     "range": [
+      183,
+      217
+     ]
+    },
+    "25": {
+     "mm": 228,
+     "range": [
+      206,
+      241
+     ]
+    },
+    "50": {
+     "mm": 244,
+     "range": [
+      221,
+      261
+     ]
+    },
+    "100": {
+     "mm": 258,
+     "range": [
+      230,
+      284
+     ]
+    }
+   },
+   "gev": [
+    0.158,
+    0.9104,
+    0.2714
+   ],
+   "record": {
+    "year": 2006,
+    "mm": 220,
+    "return_period_yr": 17.8,
+    "beyond_record": false,
+    "label": "about 1-in-18",
+    "date": null
+   }
+  },
+  "rx5": {
+   "median_annual_max_mm": 180,
+   "levels": {
+    "10": {
+     "mm": 263,
+     "range": [
+      234,
+      280
+     ]
+    },
+    "25": {
+     "mm": 297,
+     "range": [
+      263,
+      313
+     ]
+    },
+    "50": {
+     "mm": 320,
+     "range": [
+      281,
+      341
+     ]
+    },
+    "100": {
+     "mm": 342,
+     "range": [
+      296,
+      370
+     ]
+    }
+   },
+   "gev": [
+    0.1075,
+    0.9264,
+    0.2689
+   ],
+   "record": {
+    "year": 2006,
+    "mm": 311,
+    "return_period_yr": 37.9,
+    "beyond_record": false,
+    "label": "about 1-in-50",
+    "date": null
+   }
+  }
+ },
+ "drought": {
+  "normal_ne_mm": 591,
+  "levels": {
+   "10": {
+    "mm": 375,
+    "pct_of_normal": 63,
+    "range": [
+     311,
+     447
+    ]
+   },
+   "25": {
+    "mm": 316,
+    "pct_of_normal": 53,
+    "range": [
+     249,
+     398
+    ]
+   },
+   "50": {
+    "mm": 282,
+    "pct_of_normal": 48,
+    "range": [
+     217,
+     366
+    ]
+   },
+   "100": {
+    "mm": 253,
+    "pct_of_normal": 43,
+    "range": [
+     190,
+     340
+    ]
+   }
+  },
+  "gamma": [
+   10.7053,
+   0,
+   0.0934
+  ],
+  "record": {
+   "year": 2016,
+   "mm": 187,
+   "pct_of_normal": 32,
+   "return_period_yr": 884.7,
+   "beyond_record": true,
+   "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+  }
+ },
+ "lifetime_chance": {
+  "1_in_10": 0.96,
+  "1_in_25": 0.71,
+  "1_in_50": 0.45,
+  "1_in_100": 0.26
+ },
+ "lifetime_years": 30
+}

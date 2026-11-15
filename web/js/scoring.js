@@ -719,4 +719,38 @@ export function avoidThisSeason(site, crops, prefs, opts = {}) {
   };
 }
 
+// ---------- 1-in-100-year events (FIELD_NOTES E4; RESEARCH_LOG I-24) ----------
+// extremes = web/data/extremes/<id>.json (pipeline/extremes.py: pooled GEV / gamma return levels from IMERG).
+// The 24-year replay already contains this place's worst NE-monsoon drought and its wettest multi-day burst;
+// extremeYearCheck says how rare each was (return period) and which crops, at their usual sowing month here,
+// came through those years. That's the only honest crop link: we can't replay a 1-in-100 event we never saw.
+export function extremeYearCheck(site, crops, prefs, extremes) {
+  const dr = extremes?.drought?.record, wet = extremes?.rain?.rx3?.record;
+  const events = [
+    dr && { kind: "drought", year: dr.year, what: `NE monsoon ${dr.pct_of_normal}% of normal`, label: dr.label, return_period_yr: dr.return_period_yr },
+    wet && { kind: "heavy_rain", year: wet.year, what: `${wet.mm} mm in 3 days`, label: wet.label, return_period_yr: wet.return_period_yr },
+  ].filter(Boolean);
+  // hit_by_event = failed for the event's own reason (water shortage in the drought, waterlogging in the burst);
+  // failed_other = failed that year for something else (e.g. heat), so it isn't blamed on the event
+  const cause = { drought: (r) => /: water:/.test(r), heavy_rain: (r) => /waterlog/.test(r) };
+  for (const e of events) { e.came_through = []; e.hit_by_event = []; e.failed_other = []; }
+  for (const c of crops.filter((c) => c.type !== "green_manure")) {
+    const pick = bestSlot(site, crops, c, prefs);
+    for (const e of events) {
+      const y = pick.replay.years.find((r) => r.year === e.year);
+      if (!y) continue;
+      const row = { crop: c.id, crop_name: shortName(c), sow_label: MONTHS[pick.rotation[0][0].sow - 1], reason: y.ok ? null : y.reason ?? null };
+      (y.ok ? e.came_through : cause[e.kind](y.reason || "") ? e.hit_by_event : e.failed_other).push(row);
+    }
+  }
+  const lv = (o) => Object.fromEntries(Object.entries(o?.levels ?? {}).map(([T, v]) => [T, v.mm]));
+  return {
+    events,
+    levels: { rain_1day_mm: lv(extremes?.rain?.rx1), rain_3day_mm: lv(extremes?.rain?.rx3),
+              ne_drought_mm: lv(extremes?.drought), normal_ne_mm: extremes?.drought?.normal_ne_mm ?? null },
+    lifetime_chance: extremes?.lifetime_chance ?? null, lifetime_years: extremes?.lifetime_years ?? 30,
+    future: extremes?.future ?? null,
+  };
+}
+
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }

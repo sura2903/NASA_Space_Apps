@@ -65,7 +65,9 @@ Honest framing for the team:
   `avoidThisSeason()`; e.g. tank rice is "avoid in a drought year" at all demo sites, and black gram / sesame /
   millets are safer.
 - E3 Price history and income risk (Agmarknet / MSP), yield × price = income reliability.
-- E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record.
+- E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record. **✅ done (RESEARCH_LOG I-24):** pooled GEV
+  on IMERG 2001–2024; 1-in-100 day of rain 107–362 mm across the state; 2016 was a rarer-than-1-in-100 NE-monsoon
+  drought everywhere; `extremeYearCheck()` shows which crops came through it.
 - E5 Wind / cyclone exposure from NASA POWER wind.
 - E6 "Your last 10 years vs the full record" memory view.
 - E7 Food-security lens in the Policy view (staple supply vs reserves).

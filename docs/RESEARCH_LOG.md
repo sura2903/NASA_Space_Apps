@@ -372,6 +372,62 @@ pattern risky?"*
     as a forecast.
   - Sample sizes are small (5–8 seasons per type), so the UI should show "X of N", not percentages alone.
 
+### I-24 · 1-in-100-year events (FIELD_NOTES E4): what 24 years can and can't say
+- **Is there a NASA model already?** Checked before building. NASA has no ready-made rainfall return-period product
+  for India:
+  - **GFMS** (Global Flood Monitoring System) flags floods with 95th-percentile runoff thresholds.
+  - **LHASA** (landslide hazard) uses IMERG 95th/99th-percentile rain plus SMAP.
+  - **GRACE drought indicators** give groundwater/soil-moisture percentiles (a candidate for later).
+  - **NHyFAS** covers Africa/Middle East only.
+  So we followed the method used in IMERG extreme-rain studies: annual maxima → GEV.
+- **Method:**
+  - **Data:** the browser pulled IMERG Final daily (Giovanni) for all 50 points. Per year we kept the largest 1-, 3-
+    and 5-day rain totals (`pipeline/data/imerg_annual_maxima.json`).
+  - **Pooling:** 24 years per point is too short for a 1-in-100 fit, so each point is pooled with neighbours within
+    0.6° after dividing by its local median (regional "index-flood" method).
+  - **Fits:** GEV by L-moments (Hosking), tail shape clipped to ±0.4. NE-monsoon drought uses a gamma fit (SPI-style).
+  - **Uncertainty:** 300-draw bootstrap over years, keeping neighbours together.
+  - **Climate shift (demo sites):** rain extremes scaled 7%/°C by NEX-GDDP warming, NE totals by projected NE-rain change.
+  - **Speed:** maximum-likelihood fits took ~2 min per point, so we switched to L-moments (whole run 90 s).
+- **Results:**
+  - **1-in-100 day of rain**, best estimate (range):
+
+    | Place | 1-in-100 day of rain |
+    |---|---|
+    | Tirunelveli | 138 mm (115–154) |
+    | Madurai | 144 mm (112–165) |
+    | Thanjavur | 189 mm (145–220) |
+    | Whole grid | 107–362 mm, median 180 |
+
+  - **Spread follows known climatology.** Lowest in the western interior / Ghats rain shadow (Coimbatore, Tiruppur
+    ~110–130 mm); highest on the north coast (Chennai/Cuddalore, 270–360 mm; the Chennai cell's record is
+    1 Dec 2015). The pipeline also picks out Cyclone Nisha (Thanjavur, Nov 2008: 321 mm in 3 days, ≈1-in-100).
+  - **Drought:**
+    - 2016 is the driest NE monsoon at 49/50 points: 26–43% of normal at the demo sites, rarer than 1-in-100 everywhere.
+    - A 1-in-100 NE monsoon is ~40–46% of normal (grid median 38%).
+    - Return periods beyond 100 years are labelled "rarer than 1-in-100" instead of printing extrapolated numbers
+      like 1-in-795.
+  - **Dec 2023 Tirunelveli flood:** IMERG records 124 mm on 17 Dec (≈1-in-50). Rain gauges recorded far more, so
+    satellite rain **under-reads local extremes** and our levels are conservative.
+  - **Future (2041–60, SSP2-4.5):** today's 1-in-100 day of rain becomes ~1-in-66 to 1-in-76 (model median). Drought
+    change is too uncertain to call (model range 1-in-39 to 1-in-1000), consistent with the wetter-leaning but
+    disagreeing NE-monsoon projections.
+  - **Over a 30-year farming life:** 26% chance of at least one 1-in-100 event, 45% for 1-in-50.
+- **Crop link (`extremeYearCheck`):**
+  - We can't replay an event we never saw, so we replay the place's actual worst drought (2016) and its wettest
+    3-day burst, and split failures into "hit by the event" vs "failed for another reason".
+  - **Tank water, 2016:** rice and groundnut were hit at all demo sites; black gram, sesame and millets came through.
+    Rain-fed: only sesame and small millets (and green gram / pearl millet at Tirunelveli).
+  - **Thanjavur, 2008 cyclone:** maize, cotton and banana were waterlogged even with canal water.
+- **Limits:**
+  - **Canal and borewell show no 2016 damage.** The delta's canal index for 2016 is 0.905, only slightly below
+    normal: the upper-Cauvery monsoon was near normal, and the real 2016 crisis came from Mettur releases and the
+    interstate water dispute, which rainfall can't capture. Groundwater depletion isn't modelled either.
+  - **Short record:** 24 years per point (pooling helps; IMD 1901+ gridded rain would help more, ~250 MB download
+    not yet approved).
+  - **Calendar years:** maxima use calendar years, so a late-December event and an early-January one count in
+    different years.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
