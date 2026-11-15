@@ -5,7 +5,8 @@ import {
 } from "./scoring.js";
 import { $, h, clear, debounce, fmt, signed } from "./ui/dom.js";
 import { decorate, rich, initTooltips, renderGlossaryList } from "./ui/glossary.js";
-import { t, initLang, setLang, onLangChange, getLang, siteName, tagLabel } from "./i18n.js";
+import { t, initLang, setLang, onLangChange, getLang, siteName, tagLabel, setPlaceInfo } from "./i18n.js";
+import { describePlaces } from "./ui/places.js";
 import { createSiteMap } from "./ui/map.js";
 import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate, mainWater } from "./ui/inputs.js";
 import { drawMonthlyChart, drawMonsoonChart, drawNdviChart, monsoonSeries, resizeCharts } from "./ui/charts.js";
@@ -297,11 +298,15 @@ async function init() {
   $("#lang").addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
   onLangChange(rerenderAll);
   try {
-    const [sites, crops, grid] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json"),
-      getJSON("data/grid/index.json").catch(() => null)]);
+    const [sites, crops, grid, dists] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json"),
+      getJSON("data/grid/index.json").catch(() => null), getJSON("data/districts.json").catch(() => null)]);
     // 3 detailed demo places + the statewide 0.5° grid (same file format, fewer extras), so any farmer can pick a place
     const gridPts = (grid?.points ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
     state.sites = [...sites.map((s) => ({ ...s, base: "data/sites/", demo: true })), ...gridPts.map((p) => ({ ...p, base: "data/grid/", demo: false }))];
+    // one list grouped by nearest district town, each place named "Chennai, 19 km north-west" (ui/places.js)
+    state.places = describePlaces(state.sites, dists?.districts);
+    setPlaceInfo(state.places.info);
+    state.cellKm = grid?.cell_deg ? Math.round(grid.cell_deg * 111) : null;   // 111 km per degree (unit conversion)
     state.crops = crops;
     state.cropById = Object.fromEntries(crops.map((c) => [c.id, c]));
   } catch (err) {
@@ -339,10 +344,22 @@ async function init() {
 function fillPlaceSelect(sel) {
   clear(sel);
   const opt = (s) => h("option", { value: s.id }, siteName(s));
-  sel.append(
-    h("optgroup", { label: t("places.demo") }, ...state.sites.filter((s) => s.demo).map(opt)),
-    h("optgroup", { label: t("places.grid") }, ...state.sites.filter((s) => !s.demo).map(opt)));
+  // one list, grouped by the nearest district town; the three demo places sit first in their town's group
+  const { info = {}, townOf = {}, townTa = {} } = state.places ?? {};
+  const groups = new Map();
+  for (const s of state.sites) {
+    const town = townOf[s.id] ?? s.name;
+    if (!groups.has(town)) groups.set(town, []);
+    groups.get(town).push(s);
+  }
+  const label = (town) => t("places.group", { town: getLang() === "ta" && townTa[town] ? townTa[town] : town });
+  [...groups.keys()].sort((a, b) => a.localeCompare(b)).forEach((town) => {
+    const list = groups.get(town).sort((a, b) => (info[a.id]?.km ?? -1) - (info[b.id]?.km ?? -1));
+    sel.append(h("optgroup", { label: label(town) }, ...list.map(opt)));
+  });
   if (state.site) sel.value = state.site.id;
+  const note = $("#place-note");
+  if (note) note.textContent = state.cellKm ? t("places.note", { km: state.cellKm }) : "";
 }
 
 function chooseByUser(id) {        // any deliberate choice ends "example" mode and is remembered
