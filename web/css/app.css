@@ -528,6 +528,8 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
   background: var(--accent); color: var(--accent-ink); font-size: 0.85rem; font-weight: 700;
 }
 .place-row .big-select { flex: 1 1 280px; width: auto; max-width: 520px; font-weight: 600; }
+.place-row .district-select { flex: 0 1 220px; }
+@media (max-width: 640px) { .place-row .district-select { flex: 1 1 100%; } }
 .example-note { margin: 10px 0 0; padding: 8px 12px; border-radius: 10px; background: var(--warn-soft); color: var(--warn); font-size: 0.9rem; font-weight: 500; }
 .map-fold { margin-top: 8px; }
 .map-fold > summary { font-weight: 600; color: var(--accent); }
