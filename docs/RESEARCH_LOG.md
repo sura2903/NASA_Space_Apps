@@ -272,6 +272,27 @@ pattern risky?"*
     2001–03 and 2016 (water) and 2009 (heat).
   - Backtest unchanged (rice area 2.11×, production 2.22×; overall 1.36×; year r=0.71), so no skill was lost.
 
+### I-19 · First farmer interview (user research), logged before deciding anything
+- Full notes and a needs-to-features map are in **`docs/FIELD_NOTES.md` (FN-1)**.
+- **Headlines:**
+  - Farmers want crop **timing** (which month).
+  - They care as much about **what to avoid** in a drought or flood year (e.g. skip rice in a drought
+    year; black gram or sesame instead) as about what to plant.
+  - They think in **El Niño**, wind, and rare **1-in-100-year** events, but **remember only ~10 years**.
+  - **Crop economics and prices** drive daily life, from household to state food reserves.
+- **Team question (Siddarth):** can floods and droughts be **predicted in advance reliably**?
+  Working answer: days ahead yes (weather forecasts); a season ahead only as **odds** (ENSO/IOD + soil
+  moisture); exact dates of rare extremes no.
+- **Candidate work (E1–E7 in FIELD_NOTES, not started):**
+  - ENSO/IOD-conditioned odds;
+  - "avoid this season" lists;
+  - price history and income risk;
+  - extreme-event return periods;
+  - wind/cyclone exposure;
+  - a "last 10 years vs full record" memory view;
+  - a food-security lens.
+- **Status:** to review together before building.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
