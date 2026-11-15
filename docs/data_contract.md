@@ -66,6 +66,37 @@ opens), e.g. `Promise.all(index.map(p => fetch(...)))`. Snap clicks to the neare
 }
 ```
 
+## 2b. `web/data/trends/<id>.json` (climate-change Layer 1, produced by `pipeline/climate_trends.py`)
+For the "How has my climate changed?" panel (B11). One file per demo site, plus `trends/index.json`.
+```jsonc
+{ "id": "tirunelveli", "name": "...", "period": [1981, 2024], "split_year": 2000,
+  "warm_night_threshold_c": 24.1,
+  "caveats": ["10 indicators show a change point around 2008 ... reanalysis artefact ...",
+              "Satellite rain (GPM IMERG, 2001–2024) disagrees with NASA POWER on ..."],   // show these!
+  "method": "Mann-Kendall + Sen's slope ...",
+  "indicators": {
+    "warm_nights": {
+      "label": "Warm nights (above the 1981–2010 90th percentile)", "unit": "nights/yr",
+      "group": "heat",                       // heat | rain | extremes | water
+      "higher_is_worse": true,               // true / false / null (neutral), for colouring
+      "series": [{ "year": 1981, "value": 28 }, ...],   // 44 points, for the chart
+      "sen_per_decade": 11.97, "sen_ci95": [7.1, 16.2], "mk_p": 0.0001,
+      "direction": "rising",                 // rising | falling | no clear change
+      "confidence": "clear",                 // clear (p<0.05) | likely (p<0.10) | uncertain | none
+      "then": { "years": [1981, 2000], "mean": 34.5, "sd": 9.8 },
+      "now":  { "years": [2001, 2024], "mean": 55.8, "sd": 14.1 },
+      "then_vs_now_p": 0.0002, "variability_change_p": 0.21,
+      "change_point": { "year": 2009, "p": 0.003 },
+      "source": "NASA POWER daily (MERRA-2 based), 1981–2024",
+      "sentence": "Warm nights ...: rising by +12.0 nights/yr per decade (clear trend, p<0.01). 1981–2000 average 35 → 2001–2024 average 56 nights/yr.",
+      "imerg_check": { ... }                 // rain indicators only: satellite trend 2001–2024 and same_direction
+    }, ... 12 indicators: tmax_mean, hot_days, warm_nights, annual_rain, ne_rain, sw_rain,
+                          heavy_days, max_1day, ne_dry_spell, et0_annual, water_balance, soil_wetness
+  } }
+```
+`confidence: "uncertain"` means POWER shows a significant trend but satellite rain (IMERG)
+disagrees on direction since 2001. Show it greyed out, never as a finding.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

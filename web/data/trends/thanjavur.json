@@ -1,0 +1,2671 @@
+{
+ "id": "thanjavur",
+ "name": "Thanjavur (Cauvery delta)",
+ "lat": 10.85,
+ "lon": 79.25,
+ "caveats": [
+  "5 indicators show a change point around 2004. A simultaneous shift across unrelated variables can be an artefact of changing inputs to the MERRA-2 reanalysis behind NASA POWER, so read the then-vs-now numbers with care.",
+  "Satellite rain (GPM IMERG, 2001\u20132024) disagrees with NASA POWER on the direction of: Heavy-rain days (\u226564.5 mm), Biggest one-day rain. Those rain trends are marked uncertain."
+ ],
+ "period": [
+  1981,
+  2024
+ ],
+ "split_year": 2000,
+ "warm_night_threshold_c": 26.9,
+ "method": "Mann-Kendall test with Sen's slope (95% CI); then-vs-now Mann-Whitney U and Levene tests (1981\u20132000 vs 2001\u20132024); Pettitt change point. 'clear' = p<0.05, 'likely' = p<0.10. Short records and year-to-year swings make rain trends noisy; heat trends are more robust.",
+ "indicators": {
+  "tmax_mean": {
+   "label": "Average daytime high",
+   "unit": "\u00b0C",
+   "group": "heat",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 32.883
+    },
+    {
+     "year": 1982,
+     "value": 33.833
+    },
+    {
+     "year": 1983,
+     "value": 34.187
+    },
+    {
+     "year": 1984,
+     "value": 32.361
+    },
+    {
+     "year": 1985,
+     "value": 33.575
+    },
+    {
+     "year": 1986,
+     "value": 33.744
+    },
+    {
+     "year": 1987,
+     "value": 34.192
+    },
+    {
+     "year": 1988,
+     "value": 33.685
+    },
+    {
+     "year": 1989,
+     "value": 34.153
+    },
+    {
+     "year": 1990,
+     "value": 34.173
+    },
+    {
+     "year": 1991,
+     "value": 33.773
+    },
+    {
+     "year": 1992,
+     "value": 33.602
+    },
+    {
+     "year": 1993,
+     "value": 33.394
+    },
+    {
+     "year": 1994,
+     "value": 32.99
+    },
+    {
+     "year": 1995,
+     "value": 33.351
+    },
+    {
+     "year": 1996,
+     "value": 33.1
+    },
+    {
+     "year": 1997,
+     "value": 33.37
+    },
+    {
+     "year": 1998,
+     "value": 33.462
+    },
+    {
+     "year": 1999,
+     "value": 33.122
+    },
+    {
+     "year": 2000,
+     "value": 33.333
+    },
+    {
+     "year": 2001,
+     "value": 33.5
+    },
+    {
+     "year": 2002,
+     "value": 34.096
+    },
+    {
+     "year": 2003,
+     "value": 33.623
+    },
+    {
+     "year": 2004,
+     "value": 32.731
+    },
+    {
+     "year": 2005,
+     "value": 33.037
+    },
+    {
+     "year": 2006,
+     "value": 32.985
+    },
+    {
+     "year": 2007,
+     "value": 33.257
+    },
+    {
+     "year": 2008,
+     "value": 32.429
+    },
+    {
+     "year": 2009,
+     "value": 33.842
+    },
+    {
+     "year": 2010,
+     "value": 32.935
+    },
+    {
+     "year": 2011,
+     "value": 33.001
+    },
+    {
+     "year": 2012,
+     "value": 33.474
+    },
+    {
+     "year": 2013,
+     "value": 33.935
+    },
+    {
+     "year": 2014,
+     "value": 33.652
+    },
+    {
+     "year": 2015,
+     "value": 33.164
+    },
+    {
+     "year": 2016,
+     "value": 34.296
+    },
+    {
+     "year": 2017,
+     "value": 33.634
+    },
+    {
+     "year": 2018,
+     "value": 33.336
+    },
+    {
+     "year": 2019,
+     "value": 33.99
+    },
+    {
+     "year": 2020,
+     "value": 33.281
+    },
+    {
+     "year": 2021,
+     "value": 32.124
+    },
+    {
+     "year": 2022,
+     "value": 32.466
+    },
+    {
+     "year": 2023,
+     "value": 33.608
+    },
+    {
+     "year": 2024,
+     "value": 33.705
+    }
+   ],
+   "sen_per_decade": -0.084,
+   "sen_ci95": [
+    -0.226,
+    0.047
+   ],
+   "mk_p": 0.2327,
+   "direction": "no clear change",
+   "confidence": "none",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 33.514,
+    "sd": 0.484
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 33.338,
+    "sd": 0.552
+   },
+   "then_vs_now_p": 0.3398,
+   "variability_change_p": 0.4954,
+   "change_point": {
+    "year": 1993,
+    "p": 0.2369
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Average daytime high: no clear trend (not significant, p=0.23). 1981\u20132000 average 34 \u2192 2001\u20132024 average 33 \u00b0C."
+  },
+  "hot_days": {
+   "label": "Very hot days (above 38 \u00b0C)",
+   "unit": "days/yr",
+   "group": "heat",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 37.0
+    },
+    {
+     "year": 1982,
+     "value": 41.0
+    },
+    {
+     "year": 1983,
+     "value": 70.0
+    },
+    {
+     "year": 1984,
+     "value": 21.0
+    },
+    {
+     "year": 1985,
+     "value": 50.0
+    },
+    {
+     "year": 1986,
+     "value": 61.0
+    },
+    {
+     "year": 1987,
+     "value": 62.0
+    },
+    {
+     "year": 1988,
+     "value": 45.0
+    },
+    {
+     "year": 1989,
+     "value": 56.0
+    },
+    {
+     "year": 1990,
+     "value": 61.0
+    },
+    {
+     "year": 1991,
+     "value": 51.0
+    },
+    {
+     "year": 1992,
+     "value": 61.0
+    },
+    {
+     "year": 1993,
+     "value": 60.0
+    },
+    {
+     "year": 1994,
+     "value": 38.0
+    },
+    {
+     "year": 1995,
+     "value": 18.0
+    },
+    {
+     "year": 1996,
+     "value": 38.0
+    },
+    {
+     "year": 1997,
+     "value": 40.0
+    },
+    {
+     "year": 1998,
+     "value": 73.0
+    },
+    {
+     "year": 1999,
+     "value": 34.0
+    },
+    {
+     "year": 2000,
+     "value": 36.0
+    },
+    {
+     "year": 2001,
+     "value": 36.0
+    },
+    {
+     "year": 2002,
+     "value": 57.0
+    },
+    {
+     "year": 2003,
+     "value": 36.0
+    },
+    {
+     "year": 2004,
+     "value": 29.0
+    },
+    {
+     "year": 2005,
+     "value": 24.0
+    },
+    {
+     "year": 2006,
+     "value": 41.0
+    },
+    {
+     "year": 2007,
+     "value": 33.0
+    },
+    {
+     "year": 2008,
+     "value": 15.0
+    },
+    {
+     "year": 2009,
+     "value": 48.0
+    },
+    {
+     "year": 2010,
+     "value": 34.0
+    },
+    {
+     "year": 2011,
+     "value": 25.0
+    },
+    {
+     "year": 2012,
+     "value": 37.0
+    },
+    {
+     "year": 2013,
+     "value": 45.0
+    },
+    {
+     "year": 2014,
+     "value": 31.0
+    },
+    {
+     "year": 2015,
+     "value": 16.0
+    },
+    {
+     "year": 2016,
+     "value": 50.0
+    },
+    {
+     "year": 2017,
+     "value": 51.0
+    },
+    {
+     "year": 2018,
+     "value": 22.0
+    },
+    {
+     "year": 2019,
+     "value": 74.0
+    },
+    {
+     "year": 2020,
+     "value": 40.0
+    },
+    {
+     "year": 2021,
+     "value": 19.0
+    },
+    {
+     "year": 2022,
+     "value": 9.0
+    },
+    {
+     "year": 2023,
+     "value": 31.0
+    },
+    {
+     "year": 2024,
+     "value": 45.0
+    }
+   ],
+   "sen_per_decade": -5.0,
+   "sen_ci95": [
+    -8.75,
+    -1.613
+   ],
+   "mk_p": 0.0087,
+   "direction": "falling",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 47.65,
+    "sd": 15.291
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 35.333,
+    "sd": 14.855
+   },
+   "then_vs_now_p": 0.0092,
+   "variability_change_p": 0.5652,
+   "change_point": {
+    "year": 1999,
+    "p": 0.028
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Very hot days (above 38 \u00b0C): falling by -5.0 days/yr per decade (clear trend, p<0.01). 1981\u20132000 average 48 \u2192 2001\u20132024 average 35 days/yr."
+  },
+  "warm_nights": {
+   "label": "Warm nights (above the 1981\u20132010 90th percentile)",
+   "unit": "nights/yr",
+   "group": "heat",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 23.0
+    },
+    {
+     "year": 1982,
+     "value": 31.0
+    },
+    {
+     "year": 1983,
+     "value": 44.0
+    },
+    {
+     "year": 1984,
+     "value": 21.0
+    },
+    {
+     "year": 1985,
+     "value": 31.0
+    },
+    {
+     "year": 1986,
+     "value": 47.0
+    },
+    {
+     "year": 1987,
+     "value": 57.0
+    },
+    {
+     "year": 1988,
+     "value": 48.0
+    },
+    {
+     "year": 1989,
+     "value": 41.0
+    },
+    {
+     "year": 1990,
+     "value": 43.0
+    },
+    {
+     "year": 1991,
+     "value": 43.0
+    },
+    {
+     "year": 1992,
+     "value": 39.0
+    },
+    {
+     "year": 1993,
+     "value": 27.0
+    },
+    {
+     "year": 1994,
+     "value": 21.0
+    },
+    {
+     "year": 1995,
+     "value": 18.0
+    },
+    {
+     "year": 1996,
+     "value": 26.0
+    },
+    {
+     "year": 1997,
+     "value": 31.0
+    },
+    {
+     "year": 1998,
+     "value": 69.0
+    },
+    {
+     "year": 1999,
+     "value": 20.0
+    },
+    {
+     "year": 2000,
+     "value": 41.0
+    },
+    {
+     "year": 2001,
+     "value": 30.0
+    },
+    {
+     "year": 2002,
+     "value": 42.0
+    },
+    {
+     "year": 2003,
+     "value": 39.0
+    },
+    {
+     "year": 2004,
+     "value": 22.0
+    },
+    {
+     "year": 2005,
+     "value": 40.0
+    },
+    {
+     "year": 2006,
+     "value": 30.0
+    },
+    {
+     "year": 2007,
+     "value": 38.0
+    },
+    {
+     "year": 2008,
+     "value": 24.0
+    },
+    {
+     "year": 2009,
+     "value": 51.0
+    },
+    {
+     "year": 2010,
+     "value": 51.0
+    },
+    {
+     "year": 2011,
+     "value": 30.0
+    },
+    {
+     "year": 2012,
+     "value": 29.0
+    },
+    {
+     "year": 2013,
+     "value": 59.0
+    },
+    {
+     "year": 2014,
+     "value": 37.0
+    },
+    {
+     "year": 2015,
+     "value": 17.0
+    },
+    {
+     "year": 2016,
+     "value": 49.0
+    },
+    {
+     "year": 2017,
+     "value": 69.0
+    },
+    {
+     "year": 2018,
+     "value": 39.0
+    },
+    {
+     "year": 2019,
+     "value": 91.0
+    },
+    {
+     "year": 2020,
+     "value": 55.0
+    },
+    {
+     "year": 2021,
+     "value": 27.0
+    },
+    {
+     "year": 2022,
+     "value": 17.0
+    },
+    {
+     "year": 2023,
+     "value": 41.0
+    },
+    {
+     "year": 2024,
+     "value": 39.0
+    }
+   ],
+   "sen_per_decade": 1.0,
+   "sen_ci95": [
+    -1.818,
+    5.0
+   ],
+   "mk_p": 0.6341,
+   "direction": "no clear change",
+   "confidence": "none",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 36.05,
+    "sd": 13.516
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 40.25,
+    "sd": 16.938
+   },
+   "then_vs_now_p": 0.6203,
+   "variability_change_p": 0.8021,
+   "change_point": {
+    "year": 2009,
+    "p": 0.8692
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Warm nights (above the 1981\u20132010 90th percentile): no clear trend (not significant, p=0.63). 1981\u20132000 average 36 \u2192 2001\u20132024 average 40 nights/yr."
+  },
+  "annual_rain": {
+   "label": "Rain per year",
+   "unit": "mm",
+   "group": "rain",
+   "higher_is_worse": null,
+   "series": [
+    {
+     "year": 1981,
+     "value": 1216.78
+    },
+    {
+     "year": 1982,
+     "value": 580.72
+    },
+    {
+     "year": 1983,
+     "value": 917.53
+    },
+    {
+     "year": 1984,
+     "value": 988.92
+    },
+    {
+     "year": 1985,
+     "value": 864.92
+    },
+    {
+     "year": 1986,
+     "value": 753.9
+    },
+    {
+     "year": 1987,
+     "value": 742.63
+    },
+    {
+     "year": 1988,
+     "value": 707.18
+    },
+    {
+     "year": 1989,
+     "value": 673.32
+    },
+    {
+     "year": 1990,
+     "value": 750.39
+    },
+    {
+     "year": 1991,
+     "value": 902.93
+    },
+    {
+     "year": 1992,
+     "value": 810.05
+    },
+    {
+     "year": 1993,
+     "value": 1141.24
+    },
+    {
+     "year": 1994,
+     "value": 820.3
+    },
+    {
+     "year": 1995,
+     "value": 765.31
+    },
+    {
+     "year": 1996,
+     "value": 1135.83
+    },
+    {
+     "year": 1997,
+     "value": 1037.74
+    },
+    {
+     "year": 1998,
+     "value": 1024.99
+    },
+    {
+     "year": 1999,
+     "value": 776.73
+    },
+    {
+     "year": 2000,
+     "value": 966.87
+    },
+    {
+     "year": 2001,
+     "value": 812.3
+    },
+    {
+     "year": 2002,
+     "value": 691.09
+    },
+    {
+     "year": 2003,
+     "value": 865.41
+    },
+    {
+     "year": 2004,
+     "value": 1216.65
+    },
+    {
+     "year": 2005,
+     "value": 1387.46
+    },
+    {
+     "year": 2006,
+     "value": 886.31
+    },
+    {
+     "year": 2007,
+     "value": 994.26
+    },
+    {
+     "year": 2008,
+     "value": 1262.43
+    },
+    {
+     "year": 2009,
+     "value": 959.42
+    },
+    {
+     "year": 2010,
+     "value": 1277.48
+    },
+    {
+     "year": 2011,
+     "value": 1019.06
+    },
+    {
+     "year": 2012,
+     "value": 858.52
+    },
+    {
+     "year": 2013,
+     "value": 773.79
+    },
+    {
+     "year": 2014,
+     "value": 896.37
+    },
+    {
+     "year": 2015,
+     "value": 1427.28
+    },
+    {
+     "year": 2016,
+     "value": 641.8
+    },
+    {
+     "year": 2017,
+     "value": 1103.11
+    },
+    {
+     "year": 2018,
+     "value": 849.33
+    },
+    {
+     "year": 2019,
+     "value": 1087.95
+    },
+    {
+     "year": 2020,
+     "value": 1208.57
+    },
+    {
+     "year": 2021,
+     "value": 1652.78
+    },
+    {
+     "year": 2022,
+     "value": 1173.2
+    },
+    {
+     "year": 2023,
+     "value": 1026.84
+    },
+    {
+     "year": 2024,
+     "value": 1256.84
+    }
+   ],
+   "sen_per_decade": 80.827,
+   "sen_ci95": [
+    29.981,
+    135.567
+   ],
+   "mk_p": 0.0034,
+   "direction": "rising",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 878.914,
+    "sd": 171.766
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 1055.344,
+    "sd": 249.638
+   },
+   "then_vs_now_p": 0.0167,
+   "variability_change_p": 0.1225,
+   "change_point": {
+    "year": 2004,
+    "p": 0.0137
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Rain per year: rising by +81 mm per decade (clear trend, p<0.01). 1981\u20132000 average 879 \u2192 2001\u20132024 average 1055 mm.",
+   "imerg_check": {
+    "years": [
+     2001,
+     2024
+    ],
+    "imerg_sen_per_decade": 6.727,
+    "imerg_mk_p": 0.9024,
+    "power_same_period_sen_per_decade": 142.573,
+    "power_same_period_mk_p": 0.1446,
+    "same_direction": true,
+    "note": "POWER and IMERG agree on the direction since 2001"
+   }
+  },
+  "ne_rain": {
+   "label": "Northeast monsoon rain (Oct\u2013Dec)",
+   "unit": "mm",
+   "group": "rain",
+   "higher_is_worse": null,
+   "series": [
+    {
+     "year": 1981,
+     "value": 576.4
+    },
+    {
+     "year": 1982,
+     "value": 335.08
+    },
+    {
+     "year": 1983,
+     "value": 475.74
+    },
+    {
+     "year": 1984,
+     "value": 325.19
+    },
+    {
+     "year": 1985,
+     "value": 376.0
+    },
+    {
+     "year": 1986,
+     "value": 311.78
+    },
+    {
+     "year": 1987,
+     "value": 443.32
+    },
+    {
+     "year": 1988,
+     "value": 216.9
+    },
+    {
+     "year": 1989,
+     "value": 366.77
+    },
+    {
+     "year": 1990,
+     "value": 292.91
+    },
+    {
+     "year": 1991,
+     "value": 473.29
+    },
+    {
+     "year": 1992,
+     "value": 442.17
+    },
+    {
+     "year": 1993,
+     "value": 817.87
+    },
+    {
+     "year": 1994,
+     "value": 433.7
+    },
+    {
+     "year": 1995,
+     "value": 250.98
+    },
+    {
+     "year": 1996,
+     "value": 538.95
+    },
+    {
+     "year": 1997,
+     "value": 677.43
+    },
+    {
+     "year": 1998,
+     "value": 582.07
+    },
+    {
+     "year": 1999,
+     "value": 476.01
+    },
+    {
+     "year": 2000,
+     "value": 475.47
+    },
+    {
+     "year": 2001,
+     "value": 373.0
+    },
+    {
+     "year": 2002,
+     "value": 311.07
+    },
+    {
+     "year": 2003,
+     "value": 427.57
+    },
+    {
+     "year": 2004,
+     "value": 522.5
+    },
+    {
+     "year": 2005,
+     "value": 962.25
+    },
+    {
+     "year": 2006,
+     "value": 485.95
+    },
+    {
+     "year": 2007,
+     "value": 622.6
+    },
+    {
+     "year": 2008,
+     "value": 711.46
+    },
+    {
+     "year": 2009,
+     "value": 640.57
+    },
+    {
+     "year": 2010,
+     "value": 732.6
+    },
+    {
+     "year": 2011,
+     "value": 590.53
+    },
+    {
+     "year": 2012,
+     "value": 462.15
+    },
+    {
+     "year": 2013,
+     "value": 356.06
+    },
+    {
+     "year": 2014,
+     "value": 519.44
+    },
+    {
+     "year": 2015,
+     "value": 937.65
+    },
+    {
+     "year": 2016,
+     "value": 187.47
+    },
+    {
+     "year": 2017,
+     "value": 567.18
+    },
+    {
+     "year": 2018,
+     "value": 487.01
+    },
+    {
+     "year": 2019,
+     "value": 605.63
+    },
+    {
+     "year": 2020,
+     "value": 712.36
+    },
+    {
+     "year": 2021,
+     "value": 917.22
+    },
+    {
+     "year": 2022,
+     "value": 513.94
+    },
+    {
+     "year": 2023,
+     "value": 472.5
+    },
+    {
+     "year": 2024,
+     "value": 751.61
+    }
+   ],
+   "sen_per_decade": 64.031,
+   "sen_ci95": [
+    22.918,
+    101.435
+   ],
+   "mk_p": 0.0028,
+   "direction": "rising",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 444.401,
+    "sd": 146.821
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 577.93,
+    "sd": 195.438
+   },
+   "then_vs_now_p": 0.0138,
+   "variability_change_p": 0.2206,
+   "change_point": {
+    "year": 2004,
+    "p": 0.0069
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Northeast monsoon rain (Oct\u2013Dec): rising by +64 mm per decade (clear trend, p<0.01). 1981\u20132000 average 444 \u2192 2001\u20132024 average 578 mm.",
+   "imerg_check": {
+    "years": [
+     2001,
+     2024
+    ],
+    "imerg_sen_per_decade": 7.961,
+    "imerg_mk_p": 0.9413,
+    "power_same_period_sen_per_decade": 71.446,
+    "power_same_period_mk_p": 0.2675,
+    "same_direction": true,
+    "note": "POWER and IMERG agree on the direction since 2001"
+   }
+  },
+  "sw_rain": {
+   "label": "Southwest monsoon rain (Jun\u2013Sep)",
+   "unit": "mm",
+   "group": "rain",
+   "higher_is_worse": null,
+   "series": [
+    {
+     "year": 1981,
+     "value": 472.59
+    },
+    {
+     "year": 1982,
+     "value": 163.26
+    },
+    {
+     "year": 1983,
+     "value": 386.42
+    },
+    {
+     "year": 1984,
+     "value": 379.13
+    },
+    {
+     "year": 1985,
+     "value": 343.3
+    },
+    {
+     "year": 1986,
+     "value": 311.43
+    },
+    {
+     "year": 1987,
+     "value": 232.14
+    },
+    {
+     "year": 1988,
+     "value": 394.17
+    },
+    {
+     "year": 1989,
+     "value": 253.69
+    },
+    {
+     "year": 1990,
+     "value": 293.99
+    },
+    {
+     "year": 1991,
+     "value": 413.42
+    },
+    {
+     "year": 1992,
+     "value": 326.23
+    },
+    {
+     "year": 1993,
+     "value": 265.87
+    },
+    {
+     "year": 1994,
+     "value": 186.41
+    },
+    {
+     "year": 1995,
+     "value": 314.18
+    },
+    {
+     "year": 1996,
+     "value": 451.67
+    },
+    {
+     "year": 1997,
+     "value": 247.5
+    },
+    {
+     "year": 1998,
+     "value": 369.37
+    },
+    {
+     "year": 1999,
+     "value": 163.97
+    },
+    {
+     "year": 2000,
+     "value": 321.78
+    },
+    {
+     "year": 2001,
+     "value": 316.22
+    },
+    {
+     "year": 2002,
+     "value": 188.32
+    },
+    {
+     "year": 2003,
+     "value": 303.61
+    },
+    {
+     "year": 2004,
+     "value": 413.83
+    },
+    {
+     "year": 2005,
+     "value": 194.56
+    },
+    {
+     "year": 2006,
+     "value": 246.19
+    },
+    {
+     "year": 2007,
+     "value": 283.43
+    },
+    {
+     "year": 2008,
+     "value": 277.51
+    },
+    {
+     "year": 2009,
+     "value": 166.5
+    },
+    {
+     "year": 2010,
+     "value": 407.26
+    },
+    {
+     "year": 2011,
+     "value": 292.31
+    },
+    {
+     "year": 2012,
+     "value": 296.2
+    },
+    {
+     "year": 2013,
+     "value": 329.38
+    },
+    {
+     "year": 2014,
+     "value": 227.48
+    },
+    {
+     "year": 2015,
+     "value": 265.0
+    },
+    {
+     "year": 2016,
+     "value": 270.84
+    },
+    {
+     "year": 2017,
+     "value": 368.3
+    },
+    {
+     "year": 2018,
+     "value": 238.0
+    },
+    {
+     "year": 2019,
+     "value": 447.32
+    },
+    {
+     "year": 2020,
+     "value": 432.12
+    },
+    {
+     "year": 2021,
+     "value": 430.56
+    },
+    {
+     "year": 2022,
+     "value": 413.51
+    },
+    {
+     "year": 2023,
+     "value": 316.6
+    },
+    {
+     "year": 2024,
+     "value": 291.83
+    }
+   ],
+   "sen_per_decade": 1.102,
+   "sen_ci95": [
+    -22.528,
+    24.667
+   ],
+   "mk_p": 0.9034,
+   "direction": "no clear change",
+   "confidence": "none",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 314.526,
+    "sd": 89.744
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 309.037,
+    "sd": 81.848
+   },
+   "then_vs_now_p": 0.7863,
+   "variability_change_p": 0.6396,
+   "change_point": {
+    "year": 2019,
+    "p": 0.5186
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Southwest monsoon rain (Jun\u2013Sep): no clear trend (not significant, p=0.90). 1981\u20132000 average 315 \u2192 2001\u20132024 average 309 mm.",
+   "imerg_check": {
+    "years": [
+     2001,
+     2024
+    ],
+    "imerg_sen_per_decade": 10.9,
+    "imerg_mk_p": 0.5722,
+    "power_same_period_sen_per_decade": 45.359,
+    "power_same_period_mk_p": 0.1074,
+    "same_direction": true,
+    "note": "POWER and IMERG agree on the direction since 2001"
+   }
+  },
+  "heavy_days": {
+   "label": "Heavy-rain days (\u226564.5 mm)",
+   "unit": "days/yr",
+   "group": "extremes",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 0.0
+    },
+    {
+     "year": 1982,
+     "value": 0.0
+    },
+    {
+     "year": 1983,
+     "value": 1.0
+    },
+    {
+     "year": 1984,
+     "value": 0.0
+    },
+    {
+     "year": 1985,
+     "value": 0.0
+    },
+    {
+     "year": 1986,
+     "value": 0.0
+    },
+    {
+     "year": 1987,
+     "value": 1.0
+    },
+    {
+     "year": 1988,
+     "value": 0.0
+    },
+    {
+     "year": 1989,
+     "value": 0.0
+    },
+    {
+     "year": 1990,
+     "value": 0.0
+    },
+    {
+     "year": 1991,
+     "value": 2.0
+    },
+    {
+     "year": 1992,
+     "value": 0.0
+    },
+    {
+     "year": 1993,
+     "value": 1.0
+    },
+    {
+     "year": 1994,
+     "value": 0.0
+    },
+    {
+     "year": 1995,
+     "value": 0.0
+    },
+    {
+     "year": 1996,
+     "value": 0.0
+    },
+    {
+     "year": 1997,
+     "value": 0.0
+    },
+    {
+     "year": 1998,
+     "value": 1.0
+    },
+    {
+     "year": 1999,
+     "value": 0.0
+    },
+    {
+     "year": 2000,
+     "value": 0.0
+    },
+    {
+     "year": 2001,
+     "value": 0.0
+    },
+    {
+     "year": 2002,
+     "value": 0.0
+    },
+    {
+     "year": 2003,
+     "value": 0.0
+    },
+    {
+     "year": 2004,
+     "value": 1.0
+    },
+    {
+     "year": 2005,
+     "value": 1.0
+    },
+    {
+     "year": 2006,
+     "value": 0.0
+    },
+    {
+     "year": 2007,
+     "value": 2.0
+    },
+    {
+     "year": 2008,
+     "value": 3.0
+    },
+    {
+     "year": 2009,
+     "value": 0.0
+    },
+    {
+     "year": 2010,
+     "value": 0.0
+    },
+    {
+     "year": 2011,
+     "value": 0.0
+    },
+    {
+     "year": 2012,
+     "value": 0.0
+    },
+    {
+     "year": 2013,
+     "value": 0.0
+    },
+    {
+     "year": 2014,
+     "value": 0.0
+    },
+    {
+     "year": 2015,
+     "value": 1.0
+    },
+    {
+     "year": 2016,
+     "value": 1.0
+    },
+    {
+     "year": 2017,
+     "value": 0.0
+    },
+    {
+     "year": 2018,
+     "value": 0.0
+    },
+    {
+     "year": 2019,
+     "value": 0.0
+    },
+    {
+     "year": 2020,
+     "value": 2.0
+    },
+    {
+     "year": 2021,
+     "value": 1.0
+    },
+    {
+     "year": 2022,
+     "value": 1.0
+    },
+    {
+     "year": 2023,
+     "value": 0.0
+    },
+    {
+     "year": 2024,
+     "value": 1.0
+    }
+   ],
+   "sen_per_decade": 0.0,
+   "sen_ci95": [
+    0.0,
+    0.0
+   ],
+   "mk_p": 0.1657,
+   "direction": "no clear change",
+   "confidence": "none",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 0.3,
+    "sd": 0.571
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 0.583,
+    "sd": 0.83
+   },
+   "then_vs_now_p": 0.2306,
+   "variability_change_p": 0.2034,
+   "change_point": {
+    "year": 2004,
+    "p": 0.6134
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Heavy-rain days (\u226564.5 mm): no clear trend (not significant, p=0.17). 1981\u20132000 average 0.3 \u2192 2001\u20132024 average 0.6 days/yr.",
+   "imerg_check": {
+    "years": [
+     2001,
+     2024
+    ],
+    "imerg_sen_per_decade": 0.0,
+    "imerg_mk_p": 0.3831,
+    "power_same_period_sen_per_decade": 0.0,
+    "power_same_period_mk_p": 0.4114,
+    "same_direction": false,
+    "note": "POWER and IMERG disagree on the direction since 2001: treat this rain trend as uncertain"
+   }
+  },
+  "max_1day": {
+   "label": "Biggest one-day rain",
+   "unit": "mm",
+   "group": "extremes",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 48.84
+    },
+    {
+     "year": 1982,
+     "value": 44.93
+    },
+    {
+     "year": 1983,
+     "value": 91.61
+    },
+    {
+     "year": 1984,
+     "value": 34.98
+    },
+    {
+     "year": 1985,
+     "value": 44.77
+    },
+    {
+     "year": 1986,
+     "value": 37.35
+    },
+    {
+     "year": 1987,
+     "value": 66.64
+    },
+    {
+     "year": 1988,
+     "value": 47.35
+    },
+    {
+     "year": 1989,
+     "value": 31.34
+    },
+    {
+     "year": 1990,
+     "value": 41.35
+    },
+    {
+     "year": 1991,
+     "value": 88.85
+    },
+    {
+     "year": 1992,
+     "value": 59.89
+    },
+    {
+     "year": 1993,
+     "value": 83.19
+    },
+    {
+     "year": 1994,
+     "value": 29.79
+    },
+    {
+     "year": 1995,
+     "value": 40.51
+    },
+    {
+     "year": 1996,
+     "value": 56.15
+    },
+    {
+     "year": 1997,
+     "value": 47.99
+    },
+    {
+     "year": 1998,
+     "value": 77.3
+    },
+    {
+     "year": 1999,
+     "value": 31.62
+    },
+    {
+     "year": 2000,
+     "value": 62.73
+    },
+    {
+     "year": 2001,
+     "value": 43.7
+    },
+    {
+     "year": 2002,
+     "value": 52.79
+    },
+    {
+     "year": 2003,
+     "value": 51.15
+    },
+    {
+     "year": 2004,
+     "value": 93.72
+    },
+    {
+     "year": 2005,
+     "value": 104.12
+    },
+    {
+     "year": 2006,
+     "value": 34.9
+    },
+    {
+     "year": 2007,
+     "value": 83.06
+    },
+    {
+     "year": 2008,
+     "value": 86.87
+    },
+    {
+     "year": 2009,
+     "value": 47.98
+    },
+    {
+     "year": 2010,
+     "value": 59.36
+    },
+    {
+     "year": 2011,
+     "value": 50.16
+    },
+    {
+     "year": 2012,
+     "value": 64.19
+    },
+    {
+     "year": 2013,
+     "value": 52.79
+    },
+    {
+     "year": 2014,
+     "value": 43.87
+    },
+    {
+     "year": 2015,
+     "value": 68.17
+    },
+    {
+     "year": 2016,
+     "value": 72.82
+    },
+    {
+     "year": 2017,
+     "value": 53.49
+    },
+    {
+     "year": 2018,
+     "value": 45.3
+    },
+    {
+     "year": 2019,
+     "value": 61.54
+    },
+    {
+     "year": 2020,
+     "value": 84.28
+    },
+    {
+     "year": 2021,
+     "value": 64.5
+    },
+    {
+     "year": 2022,
+     "value": 72.83
+    },
+    {
+     "year": 2023,
+     "value": 52.98
+    },
+    {
+     "year": 2024,
+     "value": 100.63
+    }
+   ],
+   "sen_per_decade": 4.903,
+   "sen_ci95": [
+    0.546,
+    9.171
+   ],
+   "mk_p": 0.0254,
+   "direction": "rising",
+   "confidence": "uncertain",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 53.359,
+    "sd": 19.395
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 64.383,
+    "sd": 19.156
+   },
+   "then_vs_now_p": 0.0439,
+   "variability_change_p": 0.9191,
+   "change_point": {
+    "year": 2004,
+    "p": 0.0959
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Biggest one-day rain: rising by +5 mm per decade (uncertain: the satellite record disagrees, p=0.03). 1981\u20132000 average 53 \u2192 2001\u20132024 average 64 mm.",
+   "imerg_check": {
+    "years": [
+     2001,
+     2024
+    ],
+    "imerg_sen_per_decade": -11.893,
+    "imerg_mk_p": 0.1313,
+    "power_same_period_sen_per_decade": 6.141,
+    "power_same_period_mk_p": 0.2435,
+    "same_direction": false,
+    "note": "POWER and IMERG disagree on the direction since 2001: treat this rain trend as uncertain"
+   }
+  },
+  "ne_dry_spell": {
+   "label": "Longest dry spell inside the NE monsoon",
+   "unit": "days",
+   "group": "extremes",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 10.0
+    },
+    {
+     "year": 1982,
+     "value": 14.0
+    },
+    {
+     "year": 1983,
+     "value": 17.0
+    },
+    {
+     "year": 1984,
+     "value": 27.0
+    },
+    {
+     "year": 1985,
+     "value": 18.0
+    },
+    {
+     "year": 1986,
+     "value": 13.0
+    },
+    {
+     "year": 1987,
+     "value": 8.0
+    },
+    {
+     "year": 1988,
+     "value": 18.0
+    },
+    {
+     "year": 1989,
+     "value": 14.0
+    },
+    {
+     "year": 1990,
+     "value": 25.0
+    },
+    {
+     "year": 1991,
+     "value": 19.0
+    },
+    {
+     "year": 1992,
+     "value": 16.0
+    },
+    {
+     "year": 1993,
+     "value": 12.0
+    },
+    {
+     "year": 1994,
+     "value": 24.0
+    },
+    {
+     "year": 1995,
+     "value": 19.0
+    },
+    {
+     "year": 1996,
+     "value": 23.0
+    },
+    {
+     "year": 1997,
+     "value": 11.0
+    },
+    {
+     "year": 1998,
+     "value": 18.0
+    },
+    {
+     "year": 1999,
+     "value": 11.0
+    },
+    {
+     "year": 2000,
+     "value": 20.0
+    },
+    {
+     "year": 2001,
+     "value": 15.0
+    },
+    {
+     "year": 2002,
+     "value": 23.0
+    },
+    {
+     "year": 2003,
+     "value": 31.0
+    },
+    {
+     "year": 2004,
+     "value": 15.0
+    },
+    {
+     "year": 2005,
+     "value": 13.0
+    },
+    {
+     "year": 2006,
+     "value": 19.0
+    },
+    {
+     "year": 2007,
+     "value": 12.0
+    },
+    {
+     "year": 2008,
+     "value": 24.0
+    },
+    {
+     "year": 2009,
+     "value": 15.0
+    },
+    {
+     "year": 2010,
+     "value": 10.0
+    },
+    {
+     "year": 2011,
+     "value": 13.0
+    },
+    {
+     "year": 2012,
+     "value": 22.0
+    },
+    {
+     "year": 2013,
+     "value": 18.0
+    },
+    {
+     "year": 2014,
+     "value": 8.0
+    },
+    {
+     "year": 2015,
+     "value": 19.0
+    },
+    {
+     "year": 2016,
+     "value": 11.0
+    },
+    {
+     "year": 2017,
+     "value": 15.0
+    },
+    {
+     "year": 2018,
+     "value": 16.0
+    },
+    {
+     "year": 2019,
+     "value": 13.0
+    },
+    {
+     "year": 2020,
+     "value": 9.0
+    },
+    {
+     "year": 2021,
+     "value": 14.0
+    },
+    {
+     "year": 2022,
+     "value": 13.0
+    },
+    {
+     "year": 2023,
+     "value": 11.0
+    },
+    {
+     "year": 2024,
+     "value": 7.0
+    }
+   ],
+   "sen_per_decade": -1.111,
+   "sen_ci95": [
+    -2.5,
+    0.0
+   ],
+   "mk_p": 0.0694,
+   "direction": "falling",
+   "confidence": "likely",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 16.85,
+    "sd": 5.284
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 15.25,
+    "sd": 5.605
+   },
+   "then_vs_now_p": 0.2668,
+   "variability_change_p": 0.8757,
+   "change_point": {
+    "year": 2009,
+    "p": 0.1621
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Longest dry spell inside the NE monsoon: falling by -1.1 days per decade (likely trend, p=0.07). 1981\u20132000 average 16.9 \u2192 2001\u20132024 average 15.2 days."
+  },
+  "et0_annual": {
+   "label": "Crop thirst (reference evapotranspiration)",
+   "unit": "mm/yr",
+   "group": "water",
+   "higher_is_worse": true,
+   "series": [
+    {
+     "year": 1981,
+     "value": 1702.617
+    },
+    {
+     "year": 1982,
+     "value": 1789.001
+    },
+    {
+     "year": 1983,
+     "value": 1802.729
+    },
+    {
+     "year": 1984,
+     "value": 1656.653
+    },
+    {
+     "year": 1985,
+     "value": 1769.464
+    },
+    {
+     "year": 1986,
+     "value": 1766.67
+    },
+    {
+     "year": 1987,
+     "value": 1789.955
+    },
+    {
+     "year": 1988,
+     "value": 1750.795
+    },
+    {
+     "year": 1989,
+     "value": 1816.759
+    },
+    {
+     "year": 1990,
+     "value": 1792.207
+    },
+    {
+     "year": 1991,
+     "value": 1764.313
+    },
+    {
+     "year": 1992,
+     "value": 1776.517
+    },
+    {
+     "year": 1993,
+     "value": 1738.163
+    },
+    {
+     "year": 1994,
+     "value": 1704.676
+    },
+    {
+     "year": 1995,
+     "value": 1723.656
+    },
+    {
+     "year": 1996,
+     "value": 1718.36
+    },
+    {
+     "year": 1997,
+     "value": 1715.744
+    },
+    {
+     "year": 1998,
+     "value": 1704.149
+    },
+    {
+     "year": 1999,
+     "value": 1713.859
+    },
+    {
+     "year": 2000,
+     "value": 1721.232
+    },
+    {
+     "year": 2001,
+     "value": 1725.233
+    },
+    {
+     "year": 2002,
+     "value": 1780.136
+    },
+    {
+     "year": 2003,
+     "value": 1725.685
+    },
+    {
+     "year": 2004,
+     "value": 1675.84
+    },
+    {
+     "year": 2005,
+     "value": 1658.795
+    },
+    {
+     "year": 2006,
+     "value": 1683.039
+    },
+    {
+     "year": 2007,
+     "value": 1710.5
+    },
+    {
+     "year": 2008,
+     "value": 1641.939
+    },
+    {
+     "year": 2009,
+     "value": 1757.53
+    },
+    {
+     "year": 2010,
+     "value": 1667.703
+    },
+    {
+     "year": 2011,
+     "value": 1692.959
+    },
+    {
+     "year": 2012,
+     "value": 1731.378
+    },
+    {
+     "year": 2013,
+     "value": 1756.917
+    },
+    {
+     "year": 2014,
+     "value": 1733.184
+    },
+    {
+     "year": 2015,
+     "value": 1681.521
+    },
+    {
+     "year": 2016,
+     "value": 1810.422
+    },
+    {
+     "year": 2017,
+     "value": 1721.942
+    },
+    {
+     "year": 2018,
+     "value": 1716.121
+    },
+    {
+     "year": 2019,
+     "value": 1735.979
+    },
+    {
+     "year": 2020,
+     "value": 1686.675
+    },
+    {
+     "year": 2021,
+     "value": 1583.669
+    },
+    {
+     "year": 2022,
+     "value": 1627.719
+    },
+    {
+     "year": 2023,
+     "value": 1718.628
+    },
+    {
+     "year": 2024,
+     "value": 1714.778
+    }
+   ],
+   "sen_per_decade": -19.197,
+   "sen_ci95": [
+    -32.154,
+    -6.546
+   ],
+   "mk_p": 0.0041,
+   "direction": "falling",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 1745.876,
+    "sd": 42.065
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 1705.762,
+    "sd": 49.682
+   },
+   "then_vs_now_p": 0.0167,
+   "variability_change_p": 0.9048,
+   "change_point": {
+    "year": 1994,
+    "p": 0.0159
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Crop thirst (reference evapotranspiration): falling by -19 mm/yr per decade (clear trend, p<0.01). 1981\u20132000 average 1746 \u2192 2001\u20132024 average 1706 mm/yr."
+  },
+  "water_balance": {
+   "label": "Rain minus crop thirst",
+   "unit": "mm/yr",
+   "group": "water",
+   "higher_is_worse": false,
+   "series": [
+    {
+     "year": 1981,
+     "value": -485.837
+    },
+    {
+     "year": 1982,
+     "value": -1208.281
+    },
+    {
+     "year": 1983,
+     "value": -885.199
+    },
+    {
+     "year": 1984,
+     "value": -667.733
+    },
+    {
+     "year": 1985,
+     "value": -904.544
+    },
+    {
+     "year": 1986,
+     "value": -1012.77
+    },
+    {
+     "year": 1987,
+     "value": -1047.325
+    },
+    {
+     "year": 1988,
+     "value": -1043.615
+    },
+    {
+     "year": 1989,
+     "value": -1143.439
+    },
+    {
+     "year": 1990,
+     "value": -1041.817
+    },
+    {
+     "year": 1991,
+     "value": -861.383
+    },
+    {
+     "year": 1992,
+     "value": -966.467
+    },
+    {
+     "year": 1993,
+     "value": -596.923
+    },
+    {
+     "year": 1994,
+     "value": -884.376
+    },
+    {
+     "year": 1995,
+     "value": -958.346
+    },
+    {
+     "year": 1996,
+     "value": -582.53
+    },
+    {
+     "year": 1997,
+     "value": -678.004
+    },
+    {
+     "year": 1998,
+     "value": -679.159
+    },
+    {
+     "year": 1999,
+     "value": -937.129
+    },
+    {
+     "year": 2000,
+     "value": -754.362
+    },
+    {
+     "year": 2001,
+     "value": -912.933
+    },
+    {
+     "year": 2002,
+     "value": -1089.046
+    },
+    {
+     "year": 2003,
+     "value": -860.275
+    },
+    {
+     "year": 2004,
+     "value": -459.19
+    },
+    {
+     "year": 2005,
+     "value": -271.335
+    },
+    {
+     "year": 2006,
+     "value": -796.729
+    },
+    {
+     "year": 2007,
+     "value": -716.24
+    },
+    {
+     "year": 2008,
+     "value": -379.509
+    },
+    {
+     "year": 2009,
+     "value": -798.11
+    },
+    {
+     "year": 2010,
+     "value": -390.223
+    },
+    {
+     "year": 2011,
+     "value": -673.899
+    },
+    {
+     "year": 2012,
+     "value": -872.858
+    },
+    {
+     "year": 2013,
+     "value": -983.127
+    },
+    {
+     "year": 2014,
+     "value": -836.814
+    },
+    {
+     "year": 2015,
+     "value": -254.241
+    },
+    {
+     "year": 2016,
+     "value": -1168.622
+    },
+    {
+     "year": 2017,
+     "value": -618.832
+    },
+    {
+     "year": 2018,
+     "value": -866.791
+    },
+    {
+     "year": 2019,
+     "value": -648.029
+    },
+    {
+     "year": 2020,
+     "value": -478.105
+    },
+    {
+     "year": 2021,
+     "value": 69.111
+    },
+    {
+     "year": 2022,
+     "value": -454.519
+    },
+    {
+     "year": 2023,
+     "value": -691.788
+    },
+    {
+     "year": 2024,
+     "value": -457.938
+    }
+   ],
+   "sen_per_decade": 100.321,
+   "sen_ci95": [
+    44.006,
+    158.915
+   ],
+   "mk_p": 0.0014,
+   "direction": "rising",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": -866.962,
+    "sd": 199.498
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": -650.418,
+    "sd": 292.485
+   },
+   "then_vs_now_p": 0.0086,
+   "variability_change_p": 0.1186,
+   "change_point": {
+    "year": 2004,
+    "p": 0.0074
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Rain minus crop thirst: rising by +100 mm/yr per decade (clear trend, p<0.01). 1981\u20132000 average -867 \u2192 2001\u20132024 average -650 mm/yr."
+  },
+  "soil_wetness": {
+   "label": "Root-zone soil wetness",
+   "unit": "0\u20131",
+   "group": "water",
+   "higher_is_worse": false,
+   "series": [
+    {
+     "year": 1981,
+     "value": 0.571
+    },
+    {
+     "year": 1982,
+     "value": 0.486
+    },
+    {
+     "year": 1983,
+     "value": 0.496
+    },
+    {
+     "year": 1984,
+     "value": 0.559
+    },
+    {
+     "year": 1985,
+     "value": 0.51
+    },
+    {
+     "year": 1986,
+     "value": 0.497
+    },
+    {
+     "year": 1987,
+     "value": 0.486
+    },
+    {
+     "year": 1988,
+     "value": 0.503
+    },
+    {
+     "year": 1989,
+     "value": 0.48
+    },
+    {
+     "year": 1990,
+     "value": 0.499
+    },
+    {
+     "year": 1991,
+     "value": 0.519
+    },
+    {
+     "year": 1992,
+     "value": 0.515
+    },
+    {
+     "year": 1993,
+     "value": 0.542
+    },
+    {
+     "year": 1994,
+     "value": 0.541
+    },
+    {
+     "year": 1995,
+     "value": 0.51
+    },
+    {
+     "year": 1996,
+     "value": 0.53
+    },
+    {
+     "year": 1997,
+     "value": 0.552
+    },
+    {
+     "year": 1998,
+     "value": 0.557
+    },
+    {
+     "year": 1999,
+     "value": 0.52
+    },
+    {
+     "year": 2000,
+     "value": 0.519
+    },
+    {
+     "year": 2001,
+     "value": 0.516
+    },
+    {
+     "year": 2002,
+     "value": 0.496
+    },
+    {
+     "year": 2003,
+     "value": 0.517
+    },
+    {
+     "year": 2004,
+     "value": 0.578
+    },
+    {
+     "year": 2005,
+     "value": 0.578
+    },
+    {
+     "year": 2006,
+     "value": 0.565
+    },
+    {
+     "year": 2007,
+     "value": 0.522
+    },
+    {
+     "year": 2008,
+     "value": 0.581
+    },
+    {
+     "year": 2009,
+     "value": 0.54
+    },
+    {
+     "year": 2010,
+     "value": 0.586
+    },
+    {
+     "year": 2011,
+     "value": 0.572
+    },
+    {
+     "year": 2012,
+     "value": 0.532
+    },
+    {
+     "year": 2013,
+     "value": 0.501
+    },
+    {
+     "year": 2014,
+     "value": 0.52
+    },
+    {
+     "year": 2015,
+     "value": 0.575
+    },
+    {
+     "year": 2016,
+     "value": 0.522
+    },
+    {
+     "year": 2017,
+     "value": 0.541
+    },
+    {
+     "year": 2018,
+     "value": 0.53
+    },
+    {
+     "year": 2019,
+     "value": 0.551
+    },
+    {
+     "year": 2020,
+     "value": 0.559
+    },
+    {
+     "year": 2021,
+     "value": 0.654
+    },
+    {
+     "year": 2022,
+     "value": 0.594
+    },
+    {
+     "year": 2023,
+     "value": 0.549
+    },
+    {
+     "year": 2024,
+     "value": 0.566
+    }
+   ],
+   "sen_per_decade": 0.014,
+   "sen_ci95": [
+    0.008,
+    0.021
+   ],
+   "mk_p": 0.0001,
+   "direction": "rising",
+   "confidence": "clear",
+   "then": {
+    "years": [
+     1981,
+     2000
+    ],
+    "mean": 0.52,
+    "sd": 0.027
+   },
+   "now": {
+    "years": [
+     2001,
+     2024
+    ],
+    "mean": 0.552,
+    "sd": 0.036
+   },
+   "then_vs_now_p": 0.0021,
+   "variability_change_p": 0.2403,
+   "change_point": {
+    "year": 2004,
+    "p": 0.0009
+   },
+   "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
+   "sentence": "Root-zone soil wetness: rising by +0.01 0\u20131 per decade (clear trend, p<0.01). 1981\u20132000 average 0.52 \u2192 2001\u20132024 average 0.55 0\u20131."
+  }
+ }
+}
