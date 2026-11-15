@@ -7,6 +7,14 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I23 | Policy: "what if X% of farms switch" → water saved per place (overlaps I7) | Nimalan | 🔄 Lane B, Policy view page |
+| I22 | Policy: early drought warning from SMAP soil moisture / NDVI anomalies, ahead of insurance and relief decisions | Nimalan | 💡 needs near-real-time SMAP + NDVI |
+| I21 | Policy: crop-to-water mismatch (rice grown on rain only) → case for millet / pulse switching subsidies (overlaps I6) | Nimalan | 💡 needs district crop areas |
+| I20 | Policy: vulnerability map: GRACE groundwater decline + rain trend + heat-day trend → one score per place (overlaps I10, I11) | Nimalan | 🔄 Lane B, Policy view page; GRACE placeholder |
+| I19 | Farmers: water budget: rain + tank / canal supply vs rotation need → expected borewell pumping | Nimalan | 💡 |
+| I18 | Farmers: flood / cyclone exposure from heavy-rain days + SRTM low-lying land (Dec 2023 floods as the example) | Nimalan | 💡 needs SRTM elevation |
+| I17 | Farmers: dry-spell risk by sowing month: chance of a 10+ day dry spell after sowing → nudge to short-duration varieties | Nimalan | 🔄 Lane B, main page |
+| I16 | Farmers: sowing window alert: "sow now or wait" from NE-monsoon onset history + SMAP soil moisture | Nimalan | 🔄 Lane B, main page |
 | I15 | Policy brief export: one-page PDF per district | Sid | 💡 |
 | I14 | Equity lens: tank-fed and smallholder-heavy blocks first | Sid | 💡 |
 | I13 | Policy scenario levers: canal shortfall, tank rehabilitation, borewell caps | Sid | 💡 |
@@ -22,6 +30,38 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 | I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `cropSuitability` |
 | I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
+
+## Nimalan's picks (2026-11-15): 4 farmer + 4 policy features
+
+Picked to build now: **I16, I17** (farmers) and **I20, I23** (policy makers). The other four are logged for later.
+
+**I16 Sowing window "sow now or wait"** (main page). For the farmer's first crop, test every allowed sowing
+month against the 24 real seasons with `scoreRotation` and compare the month they plan to sow with the best
+one. Says "sow now" if the planned month comes through about as often as the best month, otherwise "wait for
+{month}". Needs from Lane A for the full version: NE-monsoon onset date per year (daily rain), and a recent
+SMAP soil-moisture reading. Until then it uses the replay plus the usual soil wetness for that month.
+
+**I17 Dry-spell risk** (main page). The chance of a 10+ day dry spell in the first weeks after sowing, by
+sowing month, from the real years. Today only the NE-monsoon season has it (`trends/<id>.json`
+`ne_dry_spell` series, 1981–2024). Needs from Lane A: longest dry spell per month per year in `by_year` (see
+PROGRESS.md request).
+
+**I20 Vulnerability map** (new `policy.html`). One score per grid point = the average of within-state ranks
+for rain trend (falling = worse), very-hot-day trend (rising = worse) and GRACE groundwater trend (falling =
+worse). Rain and heat come from each grid file's `trends` today; GRACE is a placeholder until Lane A adds
+it. Places where IMERG and POWER disagree on the rain trend direction are marked. District boundaries
+would let us show districts instead of 0.5° squares.
+
+**I23 What-if water saving** (`policy.html`). Pick a place, a current crop and a switch-to crop (default: the
+top-ranked crop there), the water source and the % of farms that switch. Water saved = irrigation difference
+(mm, from the engine) × 10 m³/ha per mm × farm area × share. Farm area is typed in until Lane A adds district
+crop areas (DES Season and Crop Report), the same data I6 / I21 need.
+
+**Later:** I18 flood / cyclone exposure (heavy-rain days + SRTM low-lying land), I19 farm water budget
+(expected borewell pumping), I21 crop-to-water mismatch (needs district crop areas), I22 early drought
+warning (needs near-real-time SMAP / NDVI anomalies).
+
+---
 
 ## Brainstorm (Sid, 2026-11-14): making Field Shift useful for a **Tamil Nadu policy maker**
 
