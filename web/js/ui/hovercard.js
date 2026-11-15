@@ -58,8 +58,9 @@ export function mapHoverCard(map, { cellDeg, points, tip, fixed = false, onHover
     // after a redraw (new colouring, language): rebuild the text of the card that is showing
     refresh() { if (cur && !el.hidden) { const html = tip(cur); if (html) { el.innerHTML = html; ring?.bringToFront(); } else hide(); } },
     hide,
-    at: find,
-    // room on the right for the pinned card on a wide map, so the state's north-east tip is not hidden under it
-    fitPad: () => window.L.point(fixed && map.getSize().x >= 700 ? 270 : 0, 0),       // the cell or dot at a map position (the place picker picks the nearest dot on a click)
+    at: find,       // the cell or dot at a map position (the place picker picks the nearest dot on a click)
+    // room on the right for the pinned card on a wide map (fitBounds paddingBottomRight; Leaflet has no top-right
+    // option, and only the x part matters), so the state's north-east tip is not hidden under it
+    fitPad: () => window.L.point(fixed && map.getSize().x >= 700 ? 270 : 0, 0),
   };
 }

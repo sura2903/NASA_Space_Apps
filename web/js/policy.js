@@ -108,7 +108,7 @@ function initMap() {
   }).addTo(map);
   layer = L.layerGroup().addTo(map);
   card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => state.points, tip: (p) => tips.get(p.id), fixed: true });
-  map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingTopRight: card.fitPad() });
+  map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingBottomRight: card.fitPad() });
 }
 
 function drawMap() {
