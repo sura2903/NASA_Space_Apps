@@ -564,6 +564,6 @@ details.panel.fold[open] > summary { margin-bottom: 10px; }
 
 /* Policy view: "colour the map by" picker + "risk at this place" box (web/js/ui/risk.js, Lane A draft) */
 .risk-picker { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; }
-.risk-picker select { min-height: 40px; max-width: 100%; }
+.risk-picker select { min-height: 40px; width: 100%; max-width: 100%; min-width: 0; }
 .risk-box { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
 .risk-box ul { margin: 6px 0; }
