@@ -7,14 +7,16 @@ Newest iteration at the bottom. Add an entry whenever we pivot. Use the template
 ---
 
 ## Current direction (one paragraph, keep updated)
-**Field Shift**: a farmer-first crop-rotation decision tool for **Tamil Nadu**. The hero site is
-**Tirunelveli** (team member's family village); Madurai and Thanjavur are contrasts. It answers: *"given
-monsoon uncertainty and water shortage, which rotation would have held up best on my land over the
-last 24 years?"* Core idea: replay each rotation through **every real year 2001–2024** of NASA data
-(GPM IMERG rain, NASA POWER heat/ET, SoilGrids soil). Show a **Field Calendar** of bare and covered
-months, explain every suggestion with numbers, and hand off to the local agriculture officer.
-**Expanding to** a statewide suitability heatmap (I-10) and, next, **climate-change trends and NASA
-NEX-GDDP-CMIP6 projections**, so the replay also covers *future-like* years (I-11).
+**Field Shift**: a climate-robust cropping decision tool for **Tamil Nadu agricultural policy makers**
+(I-13), with a farm-level drill-down. It answers: *"given monsoon uncertainty, water shortage and a
+warming climate, which crops and rotations hold up where in the state, and where is today's cropping
+pattern risky?"*
+- **Core idea:** replay crops and rotations through **every real year 2001–2024** of NASA data (GPM IMERG
+  rain, NASA POWER heat/ET, SoilGrids soil) on a **47-point statewide grid** plus three demo sites, with
+  Tirunelveli (team member's family village) as the hero story.
+- **Climate change:** Layer 1 trends (1981–2024) and a Layer 2 consistency check against IPCC / MoES / IMD
+  are done for the demo sites. Next: NASA NEX-GDDP-CMIP6 projections, so the replay also covers
+  *future-like* years (I-11).
 
 ---
 
@@ -139,6 +141,29 @@ NEX-GDDP-CMIP6 projections**, so the replay also covers *future-like* years (I-1
 - **Lesson:** a 44-year record from one reanalysis isn't enough on its own for rain. Every rain claim needs a
   second dataset.
 - **Next:** Layer 2 (compare with IPCC AR6 / IMD), Layer 1 for the grid, then Layer 3 projections.
+
+### I-13 · Audience pivot to policy makers + Layer 2 + "does the model discriminate?"
+- **Audience:** the team reframed the user as a **Tamil Nadu agricultural policy maker** rather than a single
+  farmer. Questions become *where / how much / what if* across districts. The brainstorm is in IDEAS.md
+  (I5–I15); top three: policy framing (I5), a mismatch map of actual vs climate-suited crops (I6), and a
+  backtest against real yields (I9).
+- **Layer 2 done** (`pipeline/climate_consistency.py`). Each trend is labelled against published
+  expectations (IPCC AR6 Asia, MoES 2020, IMD NE-monsoon monograph):
+  - Tirunelveli: warming nights and highs are **consistent with climate change**, but their shift lines up
+    with the 2008 reanalysis cluster, so they're flagged.
+  - Fewer heavy-rain days: opposite to expectations, so marked **probable data artefact**.
+  - Thanjavur: fewer hot days and lower ET0 are **opposite to expectations** → check local causes
+    (delta irrigation, humidity) before any claim.
+- **Discrimination check (new standing rule: always run diagnostics on new results):**
+  - On the 47-point grid the old ranking put **cowpea #1 at 46/47 rain-fed points**, and the "fit score"
+    varied only ~2 points across the state. Cause: crop-trait sub-scores (identical everywhere) swamped the
+    site-dependent ones.
+  - Tested 5 formulas. Chose suitability = 50% reliability + 30% priority fit + 20% advantage over the
+    statewide median, with family-diverse top 3s.
+  - Result: 5–9 distinct #1 crops (was 3–4), 13–19 distinct top-3 sets (was 3–6), map spread sd up to ~12–16 points.
+  - Rejected pure "advantage over state": most diverse, but it ranked rain-fed rice #1 where it fails 70%+ of years.
+- **Known remaining weakness:** one water source for the whole state ("canal" makes rice uniform). Needs
+  district irrigation-source shares.
 
 ## Open questions / likely next pivots
 - **Long-term rain truth:** can we get IMD 0.25° gridded rainfall (1901–present) to settle the POWER-vs-IMERG

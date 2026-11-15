@@ -138,8 +138,14 @@ generateStrategies(site, crops, currentRotation, prefs, n = 2) -> Strategy[]  //
 scoreRotation(site, crops, rotation, prefs)                    -> Strategy    // score any custom rotation
 siteHighlights(site, prefs)                                    -> string[]    // plain-language site facts
 trendScenario(site, years = 10)                                -> { dT_c, dPrecip_pct }  // "extend observed trend" preset
-rankCrops(site, crops, prefs, n = 3)                           -> CropPick[]  // top crops for a spot ("click anywhere")
-cropSuitability(site, crops, cropId, prefs)                    -> CropPick    // one crop at one spot (heatmap cell)
+statewideContext(sites, crops, prefs)                          -> { median_share: {cropId: 0..1} }
+   // compute once per water source / scenario over all grid sites (~0.6 s), pass as `context` below
+rankCrops(site, crops, prefs, n = 3, context?)                 -> CropPick[]  // ordered by suitability; first picks
+                                                                  // come from different crop families
+cropSuitability(site, crops, cropId, prefs, context?)          -> CropPick    // one crop at one spot (heatmap cell)
+   // CropPick also has: suitability (0-100, COLOUR THE "FIT" MAP BY THIS, not `total`) and
+   //   advantage (share minus statewide median share; null without context)
+   // suitability = 50% reliability + 30% priority fit (total) + 20% advantage vs the state median
    // CropPick = { crop, crop_name, tamil_name, sow, sow_label, total, good_years, total_years,
    //              share (good_years/total_years: colour the heatmap by this), water_need_mm,
    //              irrigation_mm, worst[] }; rankCrops items also carry .strategy (full Strategy for a card)

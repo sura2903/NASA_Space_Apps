@@ -228,7 +228,19 @@
     "p": 0.1204
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Average daytime high: no clear trend (not significant, p=0.30). 1981\u20132000 average 33 \u2192 2001\u20132024 average 33 \u00b0C."
+   "sentence": "Average daytime high: no clear trend (not significant, p=0.30). 1981\u20132000 average 33 \u2192 2001\u20132024 average 33 \u00b0C.",
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "high",
+    "status": "not_detected",
+    "status_text": "expected change not detectable yet: it may be too small against year-to-year swings in 44 years at one place",
+    "artefact_risk": false,
+    "why_expected": "Asia and India have warmed (India ~0.7 \u00b0C since 1901); warming continues.",
+    "refs": [
+     "ipcc_asia",
+     "moes_2020"
+    ]
+   }
   },
   "hot_days": {
    "label": "Very hot days (above 38 \u00b0C)",
@@ -444,7 +456,19 @@
     "p": 0.6936
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Very hot days (above 38 \u00b0C): no clear trend (not significant, p=0.47). 1981\u20132000 average 45 \u2192 2001\u20132024 average 38 days/yr."
+   "sentence": "Very hot days (above 38 \u00b0C): no clear trend (not significant, p=0.47). 1981\u20132000 average 45 \u2192 2001\u20132024 average 38 days/yr.",
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "high",
+    "status": "not_detected",
+    "status_text": "expected change not detectable yet: it may be too small against year-to-year swings in 44 years at one place",
+    "artefact_risk": false,
+    "why_expected": "Hot extremes have increased across Asia (high confidence); India's warmest days have warmed.",
+    "refs": [
+     "ipcc_asia",
+     "moes_2020"
+    ]
+   }
   },
   "warm_nights": {
    "label": "Warm nights (above the 1981\u20132010 90th percentile)",
@@ -660,7 +684,19 @@
     "p": 0.0593
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Warm nights (above the 1981\u20132010 90th percentile): rising by +4.8 nights/yr per decade (clear trend, p=0.05). 1981\u20132000 average 35 \u2192 2001\u20132024 average 46 nights/yr."
+   "sentence": "Warm nights (above the 1981\u20132010 90th percentile): rising by +4.8 nights/yr per decade (clear trend, p=0.05). 1981\u20132000 average 35 \u2192 2001\u20132024 average 46 nights/yr.",
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "high",
+    "status": "consistent",
+    "status_text": "consistent with expected climate change",
+    "artefact_risk": false,
+    "why_expected": "Cold extremes decreasing and nights warming are among the most robust warming signals.",
+    "refs": [
+     "ipcc_asia",
+     "moes_2020"
+    ]
+   }
   },
   "annual_rain": {
    "label": "Rain per year",
@@ -888,6 +924,18 @@
     "power_same_period_mk_p": 0.8637,
     "same_direction": true,
     "note": "POWER and IMERG agree on the direction since 2001"
+   },
+   "layer2": {
+    "expected": "no robust expectation",
+    "expected_confidence": "low",
+    "status": "no_expectation",
+    "status_text": "no strong climate-change expectation here; treat any trend as local variability",
+    "artefact_risk": false,
+    "why_expected": "No robust observed trend expected for Tamil Nadu's total rain; projections lean wetter with more variability (medium confidence).",
+    "refs": [
+     "ipcc_wg2_ch10",
+     "imd_nem"
+    ]
    }
   },
   "ne_rain": {
@@ -1116,6 +1164,17 @@
     "power_same_period_mk_p": 0.4461,
     "same_direction": false,
     "note": "POWER and IMERG disagree on the direction since 2001: treat this rain trend as uncertain"
+   },
+   "layer2": {
+    "expected": "no robust expectation",
+    "expected_confidence": "low",
+    "status": "inconclusive",
+    "status_text": "inconclusive: datasets disagree",
+    "artefact_risk": false,
+    "why_expected": "The northeast monsoon is highly variable (~25% year to year) with no established long-term trend in totals.",
+    "refs": [
+     "imd_nem"
+    ]
    }
   },
   "sw_rain": {
@@ -1344,6 +1403,18 @@
     "power_same_period_mk_p": 0.7873,
     "same_direction": true,
     "note": "POWER and IMERG agree on the direction since 2001"
+   },
+   "layer2": {
+    "expected": "falling",
+    "expected_confidence": "medium",
+    "status": "consistent",
+    "status_text": "consistent with expected climate change",
+    "artefact_risk": false,
+    "why_expected": "South Asian summer-monsoon rain declined in the late 20th century (high confidence), notably over the Western Ghats; less certain for Tamil Nadu, which gets little SW rain.",
+    "refs": [
+     "ipcc_wg2_ch10",
+     "moes_2020"
+    ]
    }
   },
   "heavy_days": {
@@ -1572,6 +1643,18 @@
     "power_same_period_mk_p": 0.3164,
     "same_direction": true,
     "note": "POWER and IMERG agree on the direction since 2001"
+   },
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "medium",
+    "status": "not_consistent",
+    "status_text": "opposite to what climate change would suggest; look for local causes (irrigation, land use) or data problems",
+    "artefact_risk": false,
+    "why_expected": "Heavy rain has increased in South Asia (high confidence), but signals at one location are noisy.",
+    "refs": [
+     "ipcc_wg2_ch10",
+     "moes_2020"
+    ]
    }
   },
   "max_1day": {
@@ -1800,6 +1883,18 @@
     "power_same_period_mk_p": 0.4761,
     "same_direction": true,
     "note": "POWER and IMERG agree on the direction since 2001"
+   },
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "medium",
+    "status": "not_consistent",
+    "status_text": "opposite to what climate change would suggest; look for local causes (irrigation, land use) or data problems",
+    "artefact_risk": false,
+    "why_expected": "Rain extremes are intensifying regionally (high confidence); local single-point signals are noisy.",
+    "refs": [
+     "ipcc_wg2_ch10",
+     "moes_2020"
+    ]
    }
   },
   "ne_dry_spell": {
@@ -2016,7 +2111,18 @@
     "p": 0.1753
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Longest dry spell inside the NE monsoon: falling by -1.6 days per decade (clear trend, p=0.04). 1981\u20132000 average 17.9 \u2192 2001\u20132024 average 14.9 days."
+   "sentence": "Longest dry spell inside the NE monsoon: falling by -1.6 days per decade (clear trend, p=0.04). 1981\u20132000 average 17.9 \u2192 2001\u20132024 average 14.9 days.",
+   "layer2": {
+    "expected": "no robust expectation",
+    "expected_confidence": "low",
+    "status": "no_expectation",
+    "status_text": "no strong climate-change expectation here; treat any trend as local variability",
+    "artefact_risk": false,
+    "why_expected": "More frequent dry spells are reported for the summer monsoon; no clear expectation for the NE monsoon.",
+    "refs": [
+     "moes_2020"
+    ]
+   }
   },
   "et0_annual": {
    "label": "Crop thirst (reference evapotranspiration)",
@@ -2232,7 +2338,18 @@
     "p": 0.6471
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Crop thirst (reference evapotranspiration): no clear trend (not significant, p=0.53). 1981\u20132000 average 1830 \u2192 2001\u20132024 average 1823 mm/yr."
+   "sentence": "Crop thirst (reference evapotranspiration): no clear trend (not significant, p=0.53). 1981\u20132000 average 1830 \u2192 2001\u20132024 average 1823 mm/yr.",
+   "layer2": {
+    "expected": "rising",
+    "expected_confidence": "medium",
+    "status": "not_detected",
+    "status_text": "expected change not detectable yet: it may be too small against year-to-year swings in 44 years at one place",
+    "artefact_risk": false,
+    "why_expected": "Warming raises evaporative demand, though humidity, wind and cloud changes can offset it locally.",
+    "refs": [
+     "moes_2020"
+    ]
+   }
   },
   "water_balance": {
    "label": "Rain minus crop thirst",
@@ -2448,7 +2565,18 @@
     "p": 0.4425
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Rain minus crop thirst: no clear trend (not significant, p=0.89). 1981\u20132000 average -790 \u2192 2001\u20132024 average -819 mm/yr."
+   "sentence": "Rain minus crop thirst: no clear trend (not significant, p=0.89). 1981\u20132000 average -790 \u2192 2001\u20132024 average -819 mm/yr.",
+   "layer2": {
+    "expected": "no robust expectation",
+    "expected_confidence": "low",
+    "status": "no_expectation",
+    "status_text": "no strong climate-change expectation here; treat any trend as local variability",
+    "artefact_risk": false,
+    "why_expected": "Depends on rain (uncertain) minus crop thirst (rising with heat); no robust local expectation.",
+    "refs": [
+     "ipcc_wg2_ch10"
+    ]
+   }
   },
   "soil_wetness": {
    "label": "Root-zone soil wetness",
@@ -2664,7 +2792,43 @@
     "p": 0.3742
    },
    "source": "NASA POWER daily (MERRA-2 based), 1981\u20132024",
-   "sentence": "Root-zone soil wetness: no clear trend (not significant, p=0.87). 1981\u20132000 average 0.60 \u2192 2001\u20132024 average 0.60 0\u20131."
+   "sentence": "Root-zone soil wetness: no clear trend (not significant, p=0.87). 1981\u20132000 average 0.60 \u2192 2001\u20132024 average 0.60 0\u20131.",
+   "layer2": {
+    "expected": "no robust expectation",
+    "expected_confidence": "low",
+    "status": "no_expectation",
+    "status_text": "no strong climate-change expectation here; treat any trend as local variability",
+    "artefact_risk": false,
+    "why_expected": "No robust expectation at a single location; depends on rain and irrigation.",
+    "refs": [
+     "ipcc_wg2_ch10"
+    ]
+   }
+  }
+ },
+ "layer2_summary": [
+  "Consistent with climate change: Warm nights (above the 1981\u20132010 90th percentile); Southwest monsoon rain (Jun\u2013Sep).",
+  "Opposite to expectations (check local causes or data): Heavy-rain days (\u226564.5 mm); Biggest one-day rain.",
+  "Expected to change but not detectable yet here: Average daytime high; Very hot days (above 38 \u00b0C); Crop thirst (reference evapotranspiration).",
+  "Inconclusive because NASA POWER and satellite rain disagree: Northeast monsoon rain (Oct\u2013Dec).",
+  "This is a consistency check against published assessments, not proof that climate change caused any single trend."
+ ],
+ "references": {
+  "ipcc_asia": {
+   "short": "IPCC AR6 WGI Regional Fact Sheet: Asia (2021)",
+   "url": "https://www.ipcc.ch/report/ar6/wg1/downloads/factsheets/IPCC_AR6_WGI_Regional_Fact_Sheet_Asia.pdf"
+  },
+  "ipcc_wg2_ch10": {
+   "short": "IPCC AR6 WGII Chapter 10: Asia (2022)",
+   "url": "https://www.ipcc.ch/report/ar6/wg2/chapter/chapter-10/"
+  },
+  "moes_2020": {
+   "short": "MoES (Govt of India), Assessment of Climate Change over the Indian Region (Krishnan et al., 2020)",
+   "url": "https://link.springer.com/book/10.1007/978-981-15-4327-2"
+  },
+  "imd_nem": {
+   "short": "IMD Met Monograph: Northeast Monsoon of South Asia",
+   "url": "https://mausam.imd.gov.in/imd_latest/contents/met_monograph.pdf"
   }
  }
 }
