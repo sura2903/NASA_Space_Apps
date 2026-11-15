@@ -33,6 +33,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A19 | **Last 10 years vs full record (E6):** `memoryCheck()` incl. every-decade window range and `as_of` | ✅ |
 | A20 | **Wind / cyclone exposure (E5):** NASA POWER wind at 50 points, `wind_tolerance` in crops.json, `windRisk()`; IBTrACS tracks next | ✅ POWER; IBTrACS ⬜ |
 | A21 | **Statewide risk file** for the Policy view (`statewide_risk.json`, all layers + engine lists per grid point) | ✅ (future layers fill in after A16 grid) |
+| A22 | **Seasonal canal/tank water from dam state** (user request): canal water per season depends on whether and when the dam opens and its storage at sowing: Mettur (delta: normal opening 12 Jun, closing 28 Jan), Papanasam/Manimuthar (Thamirabarani), Vaigai/Periyar (Madurai). Plan: (1) per-season canal budget in the engine (Kuruvai needs Mettur open by ~mid-June; Samba/Thaladi depend on Aug–Oct storage), (2) historical dam data per year (have Mettur opening dates/releases in `pipeline/data/mettur_releases.json`; add others from TN WRD / India-WRIS / CWC reservoir bulletins), (3) a "dam opened on time / late / not yet" input for this season, since I-18 found the opening date isn't predictable from June information | ⬜ planned |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from

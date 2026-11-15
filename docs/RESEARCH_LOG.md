@@ -507,6 +507,33 @@ pattern risky?"*
   - The server handles ~3 files a minute, so the full run takes ~4–5 hours. The future layers fill in when
     it finishes.
 
+### I-28 · Kodo millet's "deep roots" were unsourced; fixing them removes its dominance
+- **Problem:** kodo was the top rain-fed pick at 19 of 47 grid points and the "Bigger shift" crop at all three
+  demo sites. It was the only small millet marked `root_depth: deep`, which gives a 1.4 m soil-water buffer
+  (vs 0.8 m medium, 0.4 m shallow). That value was an approximation.
+- **Evidence:**
+  - The TN Crop Production Guide confirms kodo's season length (105–120 days) and high rain-fed yield, but gives
+    no root depth or water need.
+  - Published descriptions call kodo **shallow, fibrous-rooted**.
+  - A Tamil Nadu seedling drought screen ranked kodo CO 3 the *least* tolerant of the small millets tested
+    (lab screen, seedlings only).
+  - No species-level water figures exist; the general range for millets is 300–600 mm.
+- **Change:** kodo `root_depth` deep → shallow, with the sources in crops.json; water need kept at 350 mm.
+- **Effect (rain-fed grid):**
+
+  | Root depth | Most common top pick | Kodo in a top 3 |
+  |---|---|---|
+  | deep (old) | kodo, 19 of 47 points | 22 points |
+  | medium | barnyard millet, 11 | 13 points |
+  | shallow (new) | barnyard millet, 12 | 3 points |
+
+  - Kodo still comes through a median 92% of seasons and stays Madurai's top pick.
+  - Demo "Bigger shift" plans now use **pearl millet (cumbu)**, a well-documented TN crop.
+  - District switch targets now spread over cowpea 9, barnyard 9, foxtail 5, little millet 4, green gram 4,
+    pearl millet 3.
+- **Still approximate:** barnyard millet (now the most common top pick; its "medium" flood tolerance and water
+  need are unsourced) and the other small millets' water needs. Next to check.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
