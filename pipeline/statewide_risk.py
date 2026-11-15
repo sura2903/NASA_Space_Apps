@@ -1,4 +1,4 @@
-"""One file for the Policy view: every risk layer per grid point -> web/data/statewide_risk.json (contract 2j).
+﻿"""One file for the Policy view: every risk layer per grid point -> web/data/statewide_risk.json (contract 2j).
 
 Inputs (all already built):
   web/data/grid/<id>.json            observed climate (NE-monsoon normal, hot days)
@@ -58,7 +58,8 @@ def main():
                 "rain_1day_100yr_mm": ex["rain"]["rx1"]["levels"]["100"]["mm"],
                 "rain_1day_100yr_range": ex["rain"]["rx1"]["levels"]["100"]["range"],
                 "rain_3day_100yr_mm": ex["rain"]["rx3"]["levels"]["100"]["mm"],
-                "drought_100yr_pct_of_normal": ex["drought"]["levels"]["100"]["pct_of_normal"],
+                "drought_100yr_pct_of_normal": (ex["drought"].get("levels_124yr") or ex["drought"]["levels"])["100"]["pct_of_normal"],   # 124-yr IMD when available
+                "drought_100yr_pct_of_normal_24yr": ex["drought"]["levels"]["100"]["pct_of_normal"],
                 "worst_drought": {k: ex["drought"]["record"][k] for k in ("year", "pct_of_normal", "label")},
             } if ex else None,
             "wind": {"storm_days_per_year": wi["annual"]["storm_days_per_year"],
@@ -87,7 +88,7 @@ def main():
         # return level (the gamma fit is driven by it), so the two maps would look the same.
         # Extreme rain and storm days correlate 0.88 (both peak on the north coast) but mean different things.
         {"key": "extremes.rain_1day_100yr_mm", "label": "1-in-100-year day of rain", "unit": "mm", "worse": "high"},
-        {"key": "extremes.drought_100yr_pct_of_normal", "label": "1-in-100-year NE-monsoon drought", "unit": "% of normal", "worse": "low"},
+        {"key": "extremes.drought_100yr_pct_of_normal", "label": "1-in-100-year NE-monsoon drought (IMD, 124 years)", "unit": "% of normal", "worse": "low"},
         {"key": "wind.cyclones_per_decade", "label": "Cyclones passing within 100 km (NOAA tracks)", "unit": "per decade", "worse": "high"},
         {"key": "wind.storm_days_per_year", "label": "Storm days (strong wind + heavy rain)", "unit": "per year", "worse": "high"},
         {"key": "climate.hot_days_per_year", "label": "Very hot days (>38 °C) today", "unit": "per year", "worse": "high"},

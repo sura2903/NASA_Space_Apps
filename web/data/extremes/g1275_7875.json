@@ -192,9 +192,30 @@
    "year": 2016,
    "mm": 106,
    "pct_of_normal": 28,
-   "return_period_yr": 64.8,
+   "return_period_yr": 8.3,
    "beyond_record": false,
-   "label": "about 1-in-65"
+   "label": "about 1-in-8 (15th driest Oct-Dec since 1901, IMD)",
+   "label_24yr": "about 1-in-65",
+   "return_period_24yr": 64.8,
+   "rank_since_1901": 15
+  },
+  "levels_124yr": {
+   "10": {
+    "mm": 123,
+    "pct_of_normal": 46
+   },
+   "25": {
+    "mm": 92,
+    "pct_of_normal": 34
+   },
+   "50": {
+    "mm": 75,
+    "pct_of_normal": 28
+   },
+   "100": {
+    "mm": 61,
+    "pct_of_normal": 23
+   }
   }
  },
  "lifetime_chance": {
@@ -203,5 +224,96 @@
   "1_in_50": 0.45,
   "1_in_100": 0.26
  },
- "lifetime_years": 30
+ "lifetime_years": 30,
+ "long_record": {
+  "source": "IMD Pune 1.0 x 1.0 deg daily gridded rainfall (Rajeevan et al. 2008), https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_1_NetCDF.html",
+  "cell": "12.5_78.5",
+  "years": [
+   1901,
+   2024
+  ],
+  "drought": {
+   "normal_ne_mm": 268,
+   "levels": {
+    "10": {
+     "mm": 123,
+     "pct_of_normal": 46
+    },
+    "25": {
+     "mm": 92,
+     "pct_of_normal": 34
+    },
+    "50": {
+     "mm": 75,
+     "pct_of_normal": 28
+    },
+    "100": {
+     "mm": 61,
+     "pct_of_normal": 23
+    }
+   },
+   "driest": [
+    {
+     "year": 1938,
+     "pct_of_normal": 17
+    },
+    {
+     "year": 2002,
+     "pct_of_normal": 19
+    },
+    {
+     "year": 2001,
+     "pct_of_normal": 21
+    },
+    {
+     "year": 1988,
+     "pct_of_normal": 26
+    },
+    {
+     "year": 2003,
+     "pct_of_normal": 30
+    }
+   ],
+   "rank_2016": 15,
+   "return_period_2016_yr": 8.3,
+   "imerg_24yr_100yr_pct": 25
+  },
+  "rain_1day_cell": {
+   "note": "1-deg cell average: lower than point rain; compare shapes, not levels",
+   "levels_mm": {
+    "10": 108,
+    "25": 126,
+    "50": 140,
+    "100": 154
+   },
+   "wettest": [
+    {
+     "year": 2010,
+     "mm": 187
+    },
+    {
+     "year": 1943,
+     "mm": 171
+    },
+    {
+     "year": 2015,
+     "mm": 169
+    },
+    {
+     "year": 1966,
+     "mm": 136
+    },
+    {
+     "year": 1916,
+     "mm": 125
+    }
+   ],
+   "gev_shape": 0.015,
+   "imerg_pooled_shape": -0.0571
+  },
+  "change": {
+   "deficient_share_1901_1962": 0.29,
+   "deficient_share_1963_2024": 0.42
+  }
+ }
 }

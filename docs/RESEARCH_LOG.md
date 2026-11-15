@@ -403,7 +403,7 @@ pattern risky?"*
     ~110–130 mm); highest on the north coast (Chennai/Cuddalore, 270–360 mm; the Chennai cell's record is
     1 Dec 2015). The pipeline also picks out Cyclone Nisha (Thanjavur, Nov 2008: 321 mm in 3 days, ≈1-in-100).
   - **Drought:**
-    - 2016 is the driest NE monsoon at 49/50 points: 26–43% of normal at the demo sites, rarer than 1-in-100 everywhere.
+    - 2016 is the driest NE monsoon at 49/50 points: 26–43% of normal at the demo sites, rarer than 1-in-100 everywhere. **Corrected in I-36:** the 124-year IMD record ranks 2016 2nd–4th driest at the demo sites (~1-in-30 to 1-in-60); the 24-year tail overstated its rarity.
     - A 1-in-100 NE monsoon is ~40–46% of normal (grid median 38%).
     - Return periods beyond 100 years are labelled "rarer than 1-in-100" instead of printing extrapolated numbers
       like 1-in-795.
@@ -691,6 +691,31 @@ pattern risky?"*
   - **Grid:** 18 distinct exposed-crop lists, median 2 crops per place, none at 17 places. The delta coast flags
     most tall crops, which is the honest result there.
 - **New statewide layer:** "Cyclones passing within 100 km (NOAA tracks)", 0.2–3.2 per decade.
+
+### I-36 · 124 years of IMD rainfall correct the 1-in-100 drought story (user approved the download)
+- **Data:** IMD Pune 1.0° daily gridded rainfall 1901–2024 (Rajeevan et al. 2008), ~420 MB, downloaded outside the
+  synced project by `pipeline/fetch_imd.py`. Only 25 Tamil Nadu cells are kept (`pipeline/data/imd_1deg_tn.json`).
+  Two coastal cells report whole-year zeros; these are treated as gaps.
+- **Method:** `pipeline/imd_long.py`. Each place uses its nearest 1° cell; a gamma fit on 124 NE-monsoon totals and a
+  GEV fit on 1-day maxima. Results go into `long_record` in each `extremes/<id>.json`.
+- **Findings:**
+  - **2016 was severe, not "rarer than 1-in-100".** It ranks 4th driest Oct–Dec since 1901 at Tirunelveli (~1-in-31,
+    behind 1947), 3rd at Madurai (~1-in-42, behind 2001 and 2002) and 2nd at Thanjavur (~1-in-62, behind 2001).
+    It is the driest on record at only 4 of 50 places; median rank 4. The 24-year gamma tail overstated its rarity.
+  - **The worst droughts are worse than 24 years suggested:** a 1-in-100 NE monsoon is a median 26% of normal (124 yr)
+    vs 38% (24 yr), r = 0.58 across places. The 2001–2003 run was as bad as 2016 in the south and the delta.
+  - **Dec 2023 at Tirunelveli** was the wettest day in 124 years for its cell (311 mm cell average vs 169 mm next).
+    IMERG had it at only ~1-in-50, so satellite rain under-reads local extremes (as I-24 warned).
+  - **Extreme-rain tail shape:** IMD GEV shape median −0.06 vs IMERG pooled −0.10, broadly consistent. The IMERG rain
+    levels stand, labelled conservative.
+  - **Deficient NE monsoons (≤ 80% of normal):** 32% of years in 1901–62 vs 34% in 1963–2024 at the median place, so no
+    clear statewide change. Madurai's cell rose from 21% to 37%; Tirunelveli and Thanjavur fell slightly.
+- **Changes:**
+  - Drought record labels and return periods now come from the 124-year rank (the 24-year values are kept as
+    `label_24yr`).
+  - `levels_124yr` added.
+  - The statewide drought layer uses the 124-year 1-in-100 level (18–38% of normal).
+  - The engine's `extremeYearCheck` shows the new labels automatically.
 
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal

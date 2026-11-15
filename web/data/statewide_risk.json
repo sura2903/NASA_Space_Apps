@@ -38,13 +38,13 @@
   },
   {
    "key": "extremes.drought_100yr_pct_of_normal",
-   "label": "1-in-100-year NE-monsoon drought",
+   "label": "1-in-100-year NE-monsoon drought (IMD, 124 years)",
    "unit": "% of normal",
    "worse": "low",
    "available": 47,
    "range": [
-    25,
-    51
+    18,
+    38
    ]
   },
   {
@@ -150,11 +150,12 @@
      228
     ],
     "rain_3day_100yr_mm": 258,
-    "drought_100yr_pct_of_normal": 43,
+    "drought_100yr_pct_of_normal": 38,
+    "drought_100yr_pct_of_normal_24yr": 43,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 32,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -516,11 +517,12 @@
      218
     ],
     "rain_3day_100yr_mm": 222,
-    "drought_100yr_pct_of_normal": 48,
+    "drought_100yr_pct_of_normal": 38,
+    "drought_100yr_pct_of_normal_24yr": 48,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 47,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -820,11 +822,12 @@
      156
     ],
     "rain_3day_100yr_mm": 198,
-    "drought_100yr_pct_of_normal": 46,
+    "drought_100yr_pct_of_normal": 38,
+    "drought_100yr_pct_of_normal_24yr": 46,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 43,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -1124,11 +1127,12 @@
      185
     ],
     "rain_3day_100yr_mm": 200,
-    "drought_100yr_pct_of_normal": 51,
+    "drought_100yr_pct_of_normal": 35,
+    "drought_100yr_pct_of_normal_24yr": 51,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 45,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-16 (8th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -1420,11 +1424,12 @@
      212
     ],
     "rain_3day_100yr_mm": 206,
-    "drought_100yr_pct_of_normal": 48,
+    "drought_100yr_pct_of_normal": 35,
+    "drought_100yr_pct_of_normal_24yr": 48,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 45,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-16 (8th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -1716,11 +1721,12 @@
      161
     ],
     "rain_3day_100yr_mm": 194,
-    "drought_100yr_pct_of_normal": 48,
+    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal_24yr": 48,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 41,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -2018,11 +2024,12 @@
      178
     ],
     "rain_3day_100yr_mm": 242,
-    "drought_100yr_pct_of_normal": 46,
+    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal_24yr": 46,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 39,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -2347,11 +2354,12 @@
      250
     ],
     "rain_3day_100yr_mm": 341,
-    "drought_100yr_pct_of_normal": 46,
+    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal_24yr": 46,
     "worst_drought": {
      "year": 2013,
      "pct_of_normal": 46,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-3 (45th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -2702,11 +2710,12 @@
      224
     ],
     "rain_3day_100yr_mm": 220,
-    "drought_100yr_pct_of_normal": 48,
+    "drought_100yr_pct_of_normal": 35,
+    "drought_100yr_pct_of_normal_24yr": 48,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 44,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-16 (8th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -3007,11 +3016,12 @@
      155
     ],
     "rain_3day_100yr_mm": 203,
-    "drought_100yr_pct_of_normal": 47,
+    "drought_100yr_pct_of_normal": 35,
+    "drought_100yr_pct_of_normal_24yr": 47,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 39,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-16 (8th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -3315,11 +3325,12 @@
      204
     ],
     "rain_3day_100yr_mm": 268,
-    "drought_100yr_pct_of_normal": 44,
+    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal_24yr": 44,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 36,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -3614,11 +3625,12 @@
      210
     ],
     "rain_3day_100yr_mm": 271,
-    "drought_100yr_pct_of_normal": 44,
+    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal_24yr": 44,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 36,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -3930,11 +3942,12 @@
      120
     ],
     "rain_3day_100yr_mm": 200,
-    "drought_100yr_pct_of_normal": 45,
+    "drought_100yr_pct_of_normal": 24,
+    "drought_100yr_pct_of_normal_24yr": 45,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 39,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-7 (18th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -4239,11 +4252,12 @@
      185
     ],
     "rain_3day_100yr_mm": 245,
-    "drought_100yr_pct_of_normal": 42,
+    "drought_100yr_pct_of_normal": 24,
+    "drought_100yr_pct_of_normal_24yr": 42,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 37,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-7 (18th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -4545,11 +4559,12 @@
      196
     ],
     "rain_3day_100yr_mm": 266,
-    "drought_100yr_pct_of_normal": 40,
+    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal_24yr": 40,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 35,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -4851,11 +4866,12 @@
      223
     ],
     "rain_3day_100yr_mm": 318,
-    "drought_100yr_pct_of_normal": 40,
+    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal_24yr": 40,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 34,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -5167,11 +5183,12 @@
      225
     ],
     "rain_3day_100yr_mm": 308,
-    "drought_100yr_pct_of_normal": 39,
+    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal_24yr": 39,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 33,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-62 (2nd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -5502,11 +5519,12 @@
      196
     ],
     "rain_3day_100yr_mm": 238,
-    "drought_100yr_pct_of_normal": 41,
+    "drought_100yr_pct_of_normal": 24,
+    "drought_100yr_pct_of_normal_24yr": 41,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 37,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-7 (18th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -5809,11 +5827,12 @@
      208
     ],
     "rain_3day_100yr_mm": 266,
-    "drought_100yr_pct_of_normal": 38,
+    "drought_100yr_pct_of_normal": 24,
+    "drought_100yr_pct_of_normal_24yr": 38,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-7 (18th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -6114,11 +6133,12 @@
      202
     ],
     "rain_3day_100yr_mm": 303,
-    "drought_100yr_pct_of_normal": 36,
+    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal_24yr": 36,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 30,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -6425,11 +6445,12 @@
      216
     ],
     "rain_3day_100yr_mm": 308,
-    "drought_100yr_pct_of_normal": 36,
+    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal_24yr": 36,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 30,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -6733,11 +6754,12 @@
      228
     ],
     "rain_3day_100yr_mm": 310,
-    "drought_100yr_pct_of_normal": 37,
+    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal_24yr": 37,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 27,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-62 (2nd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -7075,11 +7097,12 @@
      287
     ],
     "rain_3day_100yr_mm": 391,
-    "drought_100yr_pct_of_normal": 36,
+    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal_24yr": 36,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 25,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-62 (2nd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -7485,11 +7508,12 @@
      176
     ],
     "rain_3day_100yr_mm": 254,
-    "drought_100yr_pct_of_normal": 43,
+    "drought_100yr_pct_of_normal": 18,
+    "drought_100yr_pct_of_normal_24yr": 43,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 42,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-10 (13th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -7796,11 +7820,12 @@
      152
     ],
     "rain_3day_100yr_mm": 214,
-    "drought_100yr_pct_of_normal": 41,
+    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal_24yr": 41,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 35,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -8100,11 +8125,12 @@
      166
     ],
     "rain_3day_100yr_mm": 219,
-    "drought_100yr_pct_of_normal": 36,
+    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal_24yr": 36,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -8401,11 +8427,12 @@
      219
     ],
     "rain_3day_100yr_mm": 287,
-    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal_24yr": 33,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-125 (1st driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -8717,11 +8744,12 @@
      229
     ],
     "rain_3day_100yr_mm": 335,
-    "drought_100yr_pct_of_normal": 32,
+    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal_24yr": 32,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 26,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-125 (1st driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -9040,11 +9068,12 @@
      228
     ],
     "rain_3day_100yr_mm": 356,
-    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal": 18,
+    "drought_100yr_pct_of_normal_24yr": 33,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 20,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -9399,11 +9428,12 @@
      335
     ],
     "rain_3day_100yr_mm": 435,
-    "drought_100yr_pct_of_normal": 35,
+    "drought_100yr_pct_of_normal": 18,
+    "drought_100yr_pct_of_normal_24yr": 35,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 18,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -9752,11 +9782,12 @@
      150
     ],
     "rain_3day_100yr_mm": 207,
-    "drought_100yr_pct_of_normal": 42,
+    "drought_100yr_pct_of_normal": 18,
+    "drought_100yr_pct_of_normal_24yr": 42,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 32,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-10 (13th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -10063,11 +10094,12 @@
      141
     ],
     "rain_3day_100yr_mm": 181,
-    "drought_100yr_pct_of_normal": 38,
+    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal_24yr": 38,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 36,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -10367,11 +10399,12 @@
      166
     ],
     "rain_3day_100yr_mm": 233,
-    "drought_100yr_pct_of_normal": 33,
+    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal_24yr": 33,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-42 (3rd driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -10681,11 +10714,12 @@
      193
     ],
     "rain_3day_100yr_mm": 255,
-    "drought_100yr_pct_of_normal": 30,
+    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal_24yr": 30,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "about 1-in-100"
+     "label": "about 1-in-125 (1st driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -10988,11 +11022,12 @@
      200
     ],
     "rain_3day_100yr_mm": 313,
-    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal_24yr": 29,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 26,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-125 (1st driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -11313,11 +11348,12 @@
      242
     ],
     "rain_3day_100yr_mm": 365,
-    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal": 18,
+    "drought_100yr_pct_of_normal_24yr": 28,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 18,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -11662,11 +11698,12 @@
      218
     ],
     "rain_3day_100yr_mm": 212,
-    "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal": 20,
+    "drought_100yr_pct_of_normal_24yr": 29,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 34,
-     "label": "about 1-in-50"
+     "label": "about 1-in-9 (14th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -11970,11 +12007,12 @@
      185
     ],
     "rain_3day_100yr_mm": 249,
-    "drought_100yr_pct_of_normal": 27,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 27,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "about 1-in-50"
+     "label": "about 1-in-8 (15th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -12286,11 +12324,12 @@
      284
     ],
     "rain_3day_100yr_mm": 334,
-    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 26,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 25,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-8 (15th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -12604,11 +12643,12 @@
      261
     ],
     "rain_3day_100yr_mm": 352,
-    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 26,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 18,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-14 (9th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -12952,11 +12992,12 @@
      339
     ],
     "rain_3day_100yr_mm": 405,
-    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 25,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 20,
-     "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+     "label": "about 1-in-14 (9th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -13294,11 +13335,12 @@
      237
     ],
     "rain_3day_100yr_mm": 271,
-    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 25,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 32,
-     "label": "about 1-in-50"
+     "label": "about 1-in-8 (15th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -13607,11 +13649,12 @@
      208
     ],
     "rain_3day_100yr_mm": 286,
-    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 25,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 28,
-     "label": "about 1-in-65"
+     "label": "about 1-in-8 (15th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -13919,11 +13962,12 @@
      290
     ],
     "rain_3day_100yr_mm": 339,
-    "drought_100yr_pct_of_normal": 25,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 25,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 26,
-     "label": "about 1-in-100"
+     "label": "about 1-in-14 (9th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -14248,11 +14292,12 @@
      329
     ],
     "rain_3day_100yr_mm": 468,
-    "drought_100yr_pct_of_normal": 26,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 26,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 28,
-     "label": "about 1-in-71"
+     "label": "about 1-in-14 (9th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -14586,11 +14631,12 @@
      375
     ],
     "rain_3day_100yr_mm": 449,
-    "drought_100yr_pct_of_normal": 28,
+    "drought_100yr_pct_of_normal": 23,
+    "drought_100yr_pct_of_normal_24yr": 28,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 31,
-     "label": "about 1-in-50"
+     "label": "about 1-in-10 (13th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {
@@ -14908,10 +14954,11 @@
     ],
     "rain_3day_100yr_mm": 618,
     "drought_100yr_pct_of_normal": 29,
+    "drought_100yr_pct_of_normal_24yr": 29,
     "worst_drought": {
      "year": 2016,
      "pct_of_normal": 34,
-     "label": "about 1-in-50"
+     "label": "about 1-in-21 (6th driest Oct-Dec since 1901, IMD)"
     }
    },
    "wind": {

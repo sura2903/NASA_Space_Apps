@@ -236,7 +236,9 @@ One file per point (3 demo sites + 47 grid) plus `index.json`. Return levels poo
                                  "beyond_record": false, "label": "about 1-in-50" } } },
   "drought": { "normal_ne_mm": 515,                                   // NE monsoon (Oct-Dec) total
                "levels": { "100": {"mm": 235, "pct_of_normal": 46, "range": [..]} , ... },
-               "record": { "year": 2016, "pct_of_normal": 43, "label": "rarer than 1-in-100 (beyond what 24 years can pin down)" } },
+               "record": { "year": 2016, "pct_of_normal": 43, "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)",
+                           "rank_since_1901": 4, "label_24yr": "rarer than 1-in-100 (...)", "return_period_24yr": 166 } ,
+               "levels_124yr": { "100": {"mm": 196, "pct_of_normal": 38} , ... } },   // from IMD 1901-2024 (I-36)
   "lifetime_chance": { "1_in_10": 0.96, "1_in_25": 0.71, "1_in_50": 0.45, "1_in_100": 0.26 }, "lifetime_years": 30,
   "future": { "ssp245": { "period": [2041, 2060], "todays_100yr_rain_becomes_1_in": [53, 68, 75],   // demo sites only
                           "todays_100yr_drought_becomes_1_in": [72, 110, 1028] } } }       // [min, median, max] of 5 models
@@ -247,8 +249,9 @@ Engine: `extremeYearCheck(site, crops, prefs, extremes)` (~20 ms) →
 Each crop row is `{crop, crop_name, sow_label, reason}`. `hit_by_event` = failed for the event's own reason (water
 shortage / waterlogging); `failed_other` = failed that year for something else (e.g. heat), so it isn't blamed on the event.
 UI idea: "A 1-in-100 day of rain here is about 140 mm (115–154). Over 30 years there's a 1-in-4 chance of seeing one.
-In 2016, a drought rarer than 1-in-100, black gram and millets came through; rice and groundnut didn't."
-Always show ranges, and say "rarer than 1-in-100" rather than printing extrapolated numbers like 1-in-795.
+In 2016, the 4th driest monsoon since 1901, black gram and millets came through; rice and groundnut didn't."
+Always show ranges. Drought labels now come from the 124-year IMD record (`long_record`, I-36); the rain record
+may carry `rank_since_1901` (shown only when in the top 10) and a `note` when it is the wettest day since 1901.
 
 ## 2h. "Your last 10 years" (engine only, no new data file)
 `memoryCheck(site, crops, prefs, { recent = 10, as_of?, rotation? })` (~20–60 ms) →

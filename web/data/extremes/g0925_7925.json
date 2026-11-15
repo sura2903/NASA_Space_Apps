@@ -192,9 +192,30 @@
    "year": 2013,
    "mm": 391,
    "pct_of_normal": 46,
-   "return_period_yr": 104.4,
-   "beyond_record": true,
-   "label": "rarer than 1-in-100 (beyond what 24 years can pin down)"
+   "return_period_yr": 2.7,
+   "beyond_record": false,
+   "label": "about 1-in-3 (45th driest Oct-Dec since 1901, IMD)",
+   "label_24yr": "rarer than 1-in-100 (beyond what 24 years can pin down)",
+   "return_period_24yr": 104.4,
+   "rank_since_1901": 45
+  },
+  "levels_124yr": {
+   "10": {
+    "mm": 298,
+    "pct_of_normal": 48
+   },
+   "25": {
+    "mm": 226,
+    "pct_of_normal": 37
+   },
+   "50": {
+    "mm": 186,
+    "pct_of_normal": 30
+   },
+   "100": {
+    "mm": 155,
+    "pct_of_normal": 25
+   }
   }
  },
  "lifetime_chance": {
@@ -203,5 +224,96 @@
   "1_in_50": 0.45,
   "1_in_100": 0.26
  },
- "lifetime_years": 30
+ "lifetime_years": 30,
+ "long_record": {
+  "source": "IMD Pune 1.0 x 1.0 deg daily gridded rainfall (Rajeevan et al. 2008), https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_1_NetCDF.html",
+  "cell": "9.5_79.5",
+  "years": [
+   1901,
+   2024
+  ],
+  "drought": {
+   "normal_ne_mm": 617,
+   "levels": {
+    "10": {
+     "mm": 298,
+     "pct_of_normal": 48
+    },
+    "25": {
+     "mm": 226,
+     "pct_of_normal": 37
+    },
+    "50": {
+     "mm": 186,
+     "pct_of_normal": 30
+    },
+    "100": {
+     "mm": 155,
+     "pct_of_normal": 25
+    }
+   },
+   "driest": [
+    {
+     "year": 2001,
+     "pct_of_normal": 5
+    },
+    {
+     "year": 2002,
+     "pct_of_normal": 8
+    },
+    {
+     "year": 2003,
+     "pct_of_normal": 9
+    },
+    {
+     "year": 1974,
+     "pct_of_normal": 29
+    },
+    {
+     "year": 1952,
+     "pct_of_normal": 34
+    }
+   ],
+   "rank_2016": 9,
+   "return_period_2016_yr": 13.7,
+   "imerg_24yr_100yr_pct": 46
+  },
+  "rain_1day_cell": {
+   "note": "1-deg cell average: lower than point rain; compare shapes, not levels",
+   "levels_mm": {
+    "10": 126,
+    "25": 154,
+    "50": 175,
+    "100": 197
+   },
+   "wettest": [
+    {
+     "year": 1955,
+     "mm": 230
+    },
+    {
+     "year": 2024,
+     "mm": 222
+    },
+    {
+     "year": 1921,
+     "mm": 172
+    },
+    {
+     "year": 1983,
+     "mm": 160
+    },
+    {
+     "year": 2008,
+     "mm": 153
+    }
+   ],
+   "gev_shape": -0.073,
+   "imerg_pooled_shape": -0.028
+  },
+  "change": {
+   "deficient_share_1901_1962": 0.29,
+   "deficient_share_1963_2024": 0.29
+  }
+ }
 }
