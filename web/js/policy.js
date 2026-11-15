@@ -200,6 +200,41 @@ function drawTable() {
       })))));
 }
 
+/* ---------- ideas: crops that suit a district but are rarely grown there ---------- */
+// From data/districts.json (contract §1c): top_rainfed = the crops that came through the most seasons on rain
+// alone at the district's grid point; area_ha = today's area (DES statistics). A crop is "rarely grown" when it
+// covers under RARE_PCT % of the district's modelled crop area, or is not recorded separately (minor millets).
+const RARE_PCT = 2;      // UI cut-off for "rarely grown", not data
+const SUITS = 0.75;      // came through at least 3 seasons in 4 (same bar as the Farmers tab's "Good choice")
+function ideasFor(d) {
+  const tot = d.mismatch?.modelled_area_ha ?? 0;
+  return (d.top_rainfed ?? []).filter((x) => x.share >= SUITS).map((x) => {
+    const ha = d.area_ha?.[x.crop];
+    const pct = ha != null && tot ? (100 * ha) / tot : null;
+    return { ...x, ha, pct };
+  }).filter((x) => x.ha == null || x.pct < RARE_PCT);
+}
+function drawIdeas() {
+  const el = $("#ideas");
+  if (!el) return;
+  clear(el);
+  if (!state.districts.length) return;
+  const per = state.sites[state.districts[0].rep_point]?.period ?? {};
+  el.append(h("p", { class: "note" }, t("ideas.note", { a: per.start ?? "", b: per.end ?? "", pct: RARE_PCT, src: t("p.wi.area.src") })));
+  const rows = state.districts.map((d) => ({ d, ideas: ideasFor(d) })).filter((r) => r.ideas.length);
+  const none = state.districts.filter((d) => !ideasFor(d).length);
+  const item = (x) => h("li", {}, t("ideas.item", {
+    crop: cropName(state.cropById[x.crop]), pct: Math.round(100 * x.share),
+    area: x.ha == null ? t("ideas.unrec") : t("ideas.area", { ha: fmt(x.ha), pct: x.pct < 0.1 ? "<0.1" : fmt(Math.floor(10 * x.pct) / 10, 1) }) }));
+  const pick = (d) => { const p = state.points.find((q) => q.id === d.rep_point); if (!p) return; selectPoint(p); state.wi.district = d.id; state.wi.areaAuto = true; fillArea(); drawWhatIf(); drawIdeas(); $("#whatif-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
+  el.append(h("div", { class: "table-wrap ideas-wrap" }, h("table", { class: "compare xtable ideas-table" },
+    h("thead", {}, h("tr", {}, h("th", { scope: "col" }, t("ideas.col.d")), h("th", { scope: "col" }, t("ideas.col.c")))),
+    h("tbody", {}, ...rows.map(({ d, ideas }) => h("tr", { class: state.wi.district === d.id ? "sel" : "", onclick: () => pick(d), style: { cursor: "pointer" } },
+      h("th", { scope: "row" }, d.name, d.mismatch?.confidence === "low" ? h("small", { class: "muted" }, ` (${t("ideas.low")})`) : null),
+      h("td", {}, h("ul", { class: "ideas-list" }, ...ideas.map(item)))))))));
+  if (none.length) el.append(h("p", { class: "note" }, `${none.map((d) => d.name).join(", ")}: ${t("ideas.none")}`));
+}
+
 /* ---------- I23 what if farms switch ---------- */
 const prefs = (water) => ({ weights: WEIGHTS, water_source: water, scenario: { dT_c: 0, dPrecip_pct: 0 } });
 const ctxFor = (water) => (state.ctx[water] ??= statewideContext(Object.values(state.sites), state.crops, prefs(water)));
@@ -219,7 +254,7 @@ function selectPoint(p) {
   state.wi.district = ds[0]?.id ?? null;
   state.wi.areaAuto = true;
   fillArea();
-  drawMap(); drawTable(); drawWhatIf();
+  drawMap(); drawTable(); drawWhatIf(); drawIdeas();
 }
 
 const districtsAt = (p) => state.districts.filter((d) => d.points?.includes(p.id));
@@ -317,7 +352,7 @@ function drawControls() {
 
 function refresh() {
   computeScores();
-  drawControls(); drawMap(); drawLegend(); drawNotes(); drawTable(); drawWhatIf();
+  drawControls(); drawMap(); drawLegend(); drawNotes(); drawTable(); drawWhatIf(); drawIdeas();
 }
 
 function applyStatic() {

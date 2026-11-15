@@ -629,3 +629,12 @@ body.view-detail #more-plans > summary { display: none; }
 .mc-quick { margin-top: 14px; padding: 10px 12px; border-radius: 8px; background: var(--surface-2); }
 .mc-quick h3 { font-size: 1rem; margin: 0; }
 .mc-quick ul { margin: 6px 0 0; padding-left: 1.2rem; }
+
+/* Policy makers: "crops that suit a district but are rarely grown there" */
+.ideas-wrap { max-height: 520px; overflow: auto; }
+.ideas-list { margin: 0; padding-left: 1.1em; }
+.ideas-list li { margin: 2px 0; }
+.ideas-table td, .ideas-table th { vertical-align: top; }
+.ideas-table td, .ideas-table thead th { text-align: left; white-space: normal; }
+.ideas-table th[scope="row"] { width: 9em; }
+@media (max-width: 640px) { .ideas-table th[scope="row"] { width: 6.5em; } }
