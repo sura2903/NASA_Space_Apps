@@ -1,11 +1,11 @@
 // B5 Strategy cards: tag, rotation, score, replay, calendar, why / evidence / benefits / risks / gaps.
-import { PRIORITIES, WATER_SOURCES } from "../scoring.js";
+import { PRIORITIES, EXTRA_PRIORITIES, WATER_SOURCES } from "../scoring.js";
 import { h, fmt } from "./dom.js";
 import { decorate, term } from "./glossary.js";
 import { fieldCalendar } from "./calendar.js";
 import { t, cropName, monthShort, prioLabel, waterLabel, tagLabel, translateEngine } from "../i18n.js";
 
-const subLabel = (k) => (k === "pest" ? t("sub.pest") : prioLabel(k, PRIORITIES[k] ?? k));
+const subLabel = (k) => (k === "pest" ? t("sub.pest") : prioLabel(k, PRIORITIES[k] ?? EXTRA_PRIORITIES[k] ?? k));
 const li = (text) => h("li", { html: decorate(translateEngine(text, PRIORITIES)) });
 
 /** Slots of each rotation year, ordered from April so a green manure comes before its crop. */

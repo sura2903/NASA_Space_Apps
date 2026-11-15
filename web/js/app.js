@@ -13,6 +13,7 @@ import { renderTrends, resizeTrendCharts } from "./ui/trends.js";
 import { renderSowing } from "./ui/sowing.js";
 import { strategyCard } from "./ui/cards.js";
 import { renderPrintSheet } from "./ui/printsheet.js";
+import { renderMyCrops } from "./ui/mycrops.js";
 
 // Starting slider positions (the farmer changes these; they are preferences, not data).
 const DEFAULT_WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
@@ -192,6 +193,7 @@ function renderSowPanel() {
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
   renderSowPanel();
+  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop) });
   // highlights depend on the climate scenario
   $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 

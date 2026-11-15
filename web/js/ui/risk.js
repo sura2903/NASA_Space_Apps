@@ -47,7 +47,9 @@ const LAYER_TA = {
 const tr = (k, vars = {}) => (S[getLang()]?.[k] ?? S.en[k]).replace(/\{(\w+)\}/g, (_, x) => vars[x] ?? "");
 
 export const pathGet = (obj, key) => key.split(".").reduce((o, k) => (o && typeof o === "object" ? o[k] : undefined), obj);
-export const layerLabel = (L) => (getLang() === "ta" ? LAYER_TA[L.key] ?? L.label : L.label);
+// plain-English overrides for data labels that use "tank" (a word many readers do not know in this sense)
+const LAYER_EN = { "engine.tank.rice_long.share": "Lake / pond-fed long rice: share of seasons it came through" };
+export const layerLabel = (L) => (getLang() === "ta" ? LAYER_TA[L.key] ?? L.label : LAYER_EN[L.key] ?? L.label);
 
 export async function loadRisk(getJSON) {
   try {

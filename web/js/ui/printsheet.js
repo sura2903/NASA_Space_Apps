@@ -1,5 +1,5 @@
 // B8 Printable "take this to your agriculture officer" sheet. Shown only in print.
-import { PRIORITIES, WATER_SOURCES } from "../scoring.js";
+import { PRIORITIES, EXTRA_PRIORITIES, WATER_SOURCES } from "../scoring.js";
 import { h, clear, fmt, signed } from "./dom.js";
 import { orderedSlots } from "./cards.js";
 import { t, cropName, monthName, prioLabel, waterLabel, siteName, tagLabel, translateEngine, fmtDate } from "../i18n.js";
@@ -33,7 +33,7 @@ export function renderPrintSheet(el, { site, strategies, prefs, cropById, highli
       h("p", {}, h("strong", {}, t("ps.grow")), rotText(cur.rotation, cropById)),
       h("p", {}, h("strong", {}, t("ps.water")), waterLabel(prefs.water_source, WATER_SOURCES[prefs.water_source]?.label ?? prefs.water_source)),
       h("p", {}, h("strong", {}, t("ps.matters")),
-        Object.entries(PRIORITIES).map(([k, l]) => `${prioLabel(k, l)}: ${levels[prefs.weights[k]] ?? prefs.weights[k]}`).join(" · ")),
+        Object.entries({ ...PRIORITIES, ...EXTRA_PRIORITIES }).map(([k, l]) => `${prioLabel(k, l)}: ${levels[prefs.weights[k] ?? 0] ?? prefs.weights[k]}`).join(" · ")),
       sc.dT_c || sc.dPrecip_pct
         ? h("p", {}, h("strong", {}, t("ps.whatif")), t("ps.whatif.val", { dT: signed(sc.dT_c, 1), dP: signed(sc.dPrecip_pct) }))
         : null),

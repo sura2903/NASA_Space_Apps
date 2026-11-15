@@ -65,6 +65,7 @@
         <div id="rot-issues"></div>
         <h3 data-i18n="step.water">Water for the field</h3>
         <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
+        <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.water"></p></aside>
       </section>
 
       <!-- optional fine-tuning: folded so first-time users see only the 2 essential steps -->
@@ -81,6 +82,9 @@
     </aside>
 
     <div class="results">
+      <!-- the farmer's own crops, ranked for the season they sow in (ui/mycrops.js) -->
+      <section class="panel mycrops" id="mycrops" aria-labelledby="mc-title"></section>
+
       <!-- the main answer first -->
       <section class="panel" aria-labelledby="opts-title">
         <div class="panel-head">
@@ -103,6 +107,7 @@
           <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
         </div>
         <p class="note support" data-i18n="opts.support"></p>
+        <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.opts"></p></aside>
       </section>
 
       <!-- more detail, one tap away -->

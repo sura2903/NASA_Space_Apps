@@ -31,7 +31,7 @@ const AWC = {
 // water-year's monsoon at the site (a rough proxy for tank inflow and dam storage).
 export const WATER_SOURCES = {
   rainfed:  { label: "Rain only", budget_mm: 0, months: [], monsoon_linked: false },
-  tank:     { label: "Village tank (eri / kulam)", budget_mm: 500, months: [11, 12, 1, 2, 3], monsoon_linked: true },
+  tank:     { label: "Lake / pond", budget_mm: 500, months: [11, 12, 1, 2, 3], monsoon_linked: true },
   canal:    { label: "River canal / dam", budget_mm: 1800, months: [6, 7, 8, 9, 10, 11, 12, 1, 2], monsoon_linked: true },
   borewell: { label: "Borewell / well", budget_mm: 1200, months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monsoon_linked: false },
 };
