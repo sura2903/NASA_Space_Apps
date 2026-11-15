@@ -1,4 +1,6 @@
-# Field Shift
+# Smart Vithaippu (ஸ்மார்ட் விதைப்பு)
+
+Formerly Field Shift.
 
 NASA Space Apps 2026: a crop-rotation decision-support tool built on NASA Earth observations.
 
