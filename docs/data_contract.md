@@ -28,6 +28,28 @@ Each `<id>.json` has exactly the site format in section 2: rain from GPM IMERG, 
 POWER, plus SoilGrids soil; `ndvi` is null. Total ~4.6 MB, so load lazily (only when the map view
 opens), e.g. `Promise.all(index.map(p => fetch(...)))`. Snap clicks to the nearest point; cells are 0.5°.
 
+## 1c. `web/data/districts.json` (mismatch map + district what-ifs, by `pipeline/mismatch_build.py`)
+Lane B's requested format (PROGRESS.md, request 5), extended with mismatch metrics. 37 districts (no Chennai).
+```jsonc
+{ "meta": { "source": "...", "fail_cut": 0.5, "caveats": ["irrigation_share is unknown ...", ...] },
+  "districts": [ {
+    "id": "ramanathapuram", "name": "Ramanathapuram", "hq": [9.37, 78.83],
+    "points": ["g0925_7875", ...], "rep_point": "g0925_7875",     // grid ids; rep_point used for the engine run
+    "area_ha": { "rice_long": 121000, "cotton": 9000, ... },      // avg 2018-22, modelled crops (rice = all rice)
+    "tree_crops_ha": 2100, "other_crops_ha": 15400, "irrigation_share": null,   // null = not in the data
+    "crops": { "rice_long": { "area_ha": 121000, "rainfed_share": 0.08, "irrigation_mm": 610, "water_mcm": 738 } },
+    "mismatch": { "modelled_area_ha": 140000, "rainfed_reliability": 0.11,   // area-weighted, 0-1
+                  "water_dependent_share": 0.86, "mismatch_index": 86,      // % area failing most years on rain alone
+                  "irrigation_demand_mcm": 896, "largest_crop": "rice_long", "largest_crop_share": 0.86,
+                  "confidence": "normal" | "low", "confidence_reasons": [...], "rep_point_km": 16 },
+    "top_rainfed": [ { "crop": "pearl_millet", "share": 0.92, "suitability": 77, "sow": 9 }, ... ],
+    "switch_scenarios": [ { "fraction_switched": 0.25, "to_crop": "pearl_millet", "area_moved_ha": 30000,
+                            "rainfed_reliability": 0.29, "irrigation_demand_mcm": 672, "water_saved_mcm": 224 },
+                          { "fraction_switched": 1.0, ... } ] } ] }
+```
+**Read a high mismatch index as "depends on irrigation"**, not "failing": irrigation shares are unknown.
+Grey out `confidence: "low"` districts. 1 MCM = 1 million m³.
+
 ## 2. `web/data/sites/<id>.json`, produced by `pipeline/build_all.py`
 ```jsonc
 {

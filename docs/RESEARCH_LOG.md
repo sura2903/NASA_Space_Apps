@@ -189,6 +189,28 @@ pattern risky?"*
 - **Why it matters:** it turns "trust us" into "it would have warned about 2016". This is our strongest
   credibility point for judges and policy makers.
 
+### I-15 · Mismatch map: where today's crops depend on water the climate doesn't reliably give
+- **Data:**
+  - Real district crop areas (DES APY, avg 2018–22, 37 districts, 4.5 Mha of modelled crops).
+  - The engine's rain-fed reliability and irrigation need per crop at each district's grid point.
+  - Output `web/data/districts.json`, in Lane B's requested format.
+- **Mismatch index** = % of modelled area in crops that fail most years on rain alone. It ranges 13–99 across
+  districts (sd 26); area-weighted rain-fed reliability is 0.02–0.72.
+- **Story it tells:**
+  - The tank-fed southern rice districts top the list: **Ramanathapuram (86), Sivaganga (94),
+    Pudukkottai (83)**, where rice is ~80–90% of modelled area.
+  - The delta follows (Thanjavur 83, Thiruvarur 75), but it has canal water.
+  - Dryland sorghum/millet districts in the west are lowest (Coimbatore 19, Dindigul 18).
+  - Switching 25% of the water-dependent area to each district's best rain-fed crop saves ~15–320 MCM per district.
+- **Honest limits:**
+  - Irrigation shares are unknown, so high mismatch = "depends on irrigation", not "failing".
+  - Rice isn't split by season.
+  - 8 districts are low-confidence (tiny modelled area, e.g. Nilgiris; or the nearest grid point is >30 km
+    away, e.g. Kanniyakumari's sits in the drier rain shadow).
+- **Sanity:** spread is large and the ranking matches agronomic intuition. Best rain-fed alternatives span 6
+  different crops.
+- **Next:** DES Season & Crop Report irrigation sources per district; average several grid points per district.
+
 ## Open questions / likely next pivots
 - **Rice skill:** add reservoir storage (e.g. Mettur/Papanasam levels) or a canal-release index so the
   irrigated-rice replay reflects water actually delivered, then re-run the backtest.

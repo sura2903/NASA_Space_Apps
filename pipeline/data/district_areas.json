@@ -1,0 +1,1289 @@
+{
+ "Ariyalur": {
+  "name": "Ariyalur",
+  "hq": [
+   11.14,
+   79.08
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 1144,
+   "banana": 173,
+   "cotton": 8260,
+   "cowpea": 10,
+   "groundnut": 11019,
+   "sorghum": 49,
+   "maize": 17006,
+   "green_gram": 5,
+   "finger_millet": 21,
+   "rice_long": 24474,
+   "sesame": 1653,
+   "sugarcane": 4378,
+   "black_gram": 8178
+  },
+  "tree_crops_ha": 30778,
+  "other_crops_ha": 1160,
+  "points": [
+   "g1125_7925"
+  ],
+  "rep_point": "g1125_7925"
+ },
+ "Chengalpattu": {
+  "name": "Chengalpattu",
+  "hq": [
+   12.69,
+   79.98
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 11,
+   "banana": 169,
+   "cotton": 11,
+   "cowpea": 2,
+   "groundnut": 5544,
+   "sorghum": 2,
+   "maize": 6,
+   "green_gram": 6,
+   "finger_millet": 108,
+   "rice_long": 41362,
+   "sesame": 562,
+   "sugarcane": 622,
+   "black_gram": 1163
+  },
+  "tree_crops_ha": 2506,
+  "other_crops_ha": 232,
+  "points": [
+   "g1275_7975"
+  ],
+  "rep_point": "g1275_7975"
+ },
+ "Coimbatore": {
+  "name": "Coimbatore",
+  "hq": [
+   11.02,
+   76.96
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 203,
+   "banana": 7336,
+   "cotton": 490,
+   "cowpea": 2130,
+   "groundnut": 3806,
+   "sorghum": 25841,
+   "maize": 3546,
+   "green_gram": 561,
+   "finger_millet": 22,
+   "rice_long": 1187,
+   "sesame": 210,
+   "sugarcane": 422,
+   "black_gram": 523
+  },
+  "tree_crops_ha": 91498,
+  "other_crops_ha": 8843,
+  "points": [
+   "g1125_7675"
+  ],
+  "rep_point": "g1125_7675"
+ },
+ "Cuddalore": {
+  "name": "Cuddalore",
+  "hq": [
+   11.75,
+   79.75
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 4665,
+   "banana": 5216,
+   "cotton": 5370,
+   "cowpea": 140,
+   "groundnut": 10669,
+   "sorghum": 54,
+   "maize": 23072,
+   "green_gram": 11168,
+   "finger_millet": 59,
+   "rice_long": 136785,
+   "sesame": 3415,
+   "sugarcane": 15704,
+   "black_gram": 47067
+  },
+  "tree_crops_ha": 30945,
+  "other_crops_ha": 7332,
+  "points": [
+   "g1175_7925"
+  ],
+  "rep_point": "g1175_7925"
+ },
+ "Dharmapuri": {
+  "name": "Dharmapuri",
+  "hq": [
+   12.13,
+   78.16
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 430,
+   "banana": 540,
+   "cotton": 6500,
+   "cowpea": 12146,
+   "groundnut": 13995,
+   "sorghum": 33126,
+   "maize": 4406,
+   "green_gram": 2297,
+   "finger_millet": 14598,
+   "rice_long": 18924,
+   "sesame": 296,
+   "sugarcane": 2920,
+   "black_gram": 5867
+  },
+  "tree_crops_ha": 7550,
+  "other_crops_ha": 57945,
+  "points": [
+   "g1225_7775",
+   "g1225_7825"
+  ],
+  "rep_point": "g1225_7825"
+ },
+ "Dindigul": {
+  "name": "Dindigul",
+  "hq": [
+   10.36,
+   77.98
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 246,
+   "banana": 3745,
+   "cotton": 5401,
+   "cowpea": 5131,
+   "groundnut": 4792,
+   "sorghum": 48538,
+   "maize": 27996,
+   "green_gram": 1071,
+   "finger_millet": 11,
+   "rice_long": 10637,
+   "sesame": 246,
+   "sugarcane": 1826,
+   "black_gram": 6293
+  },
+  "tree_crops_ha": 29532,
+  "other_crops_ha": 16525,
+  "points": [
+   "g1025_7775",
+   "g1025_7825"
+  ],
+  "rep_point": "g1025_7775"
+ },
+ "Erode": {
+  "name": "Erode",
+  "hq": [
+   11.34,
+   77.72
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 146,
+   "banana": 16004,
+   "cotton": 1118,
+   "cowpea": 1042,
+   "groundnut": 19374,
+   "sorghum": 36,
+   "maize": 15502,
+   "green_gram": 579,
+   "finger_millet": 4478,
+   "rice_long": 32158,
+   "sesame": 4453,
+   "sugarcane": 15396,
+   "black_gram": 1256
+  },
+  "tree_crops_ha": 16497,
+  "other_crops_ha": 21298,
+  "points": [
+   "g1125_7775",
+   "g1175_7725"
+  ],
+  "rep_point": "g1125_7775"
+ },
+ "Kallakurichi": {
+  "name": "Kallakurichi",
+  "hq": [
+   11.74,
+   78.96
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 12309,
+   "banana": 370,
+   "cotton": 3886,
+   "cowpea": 3,
+   "groundnut": 5244,
+   "sorghum": 6,
+   "maize": 15497,
+   "green_gram": 8,
+   "finger_millet": 99,
+   "rice_long": 46490,
+   "sesame": 4014,
+   "sugarcane": 17968,
+   "black_gram": 32955
+  },
+  "tree_crops_ha": 2175,
+  "other_crops_ha": 14633,
+  "points": [
+   "g1175_7875",
+   "g1175_7925"
+  ],
+  "rep_point": "g1175_7875"
+ },
+ "Kancheepuram": {
+  "name": "Kancheepuram",
+  "hq": [
+   12.83,
+   79.7
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 3,
+   "banana": 208,
+   "cowpea": 31,
+   "groundnut": 6096,
+   "sorghum": 6,
+   "maize": 3,
+   "green_gram": 491,
+   "finger_millet": 92,
+   "rice_long": 61677,
+   "sesame": 840,
+   "sugarcane": 1045,
+   "black_gram": 1564
+  },
+  "tree_crops_ha": 1064,
+  "other_crops_ha": 221,
+  "points": [
+   "g1275_7975"
+  ],
+  "rep_point": "g1275_7975"
+ },
+ "Kanniyakumari": {
+  "name": "Kanniyakumari",
+  "hq": [
+   8.18,
+   77.41
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "banana": 4663,
+   "cowpea": 2,
+   "groundnut": 15,
+   "maize": 2,
+   "green_gram": 1,
+   "rice_long": 11427,
+   "sesame": 0,
+   "sugarcane": 0,
+   "black_gram": 331
+  },
+  "tree_crops_ha": 25857,
+  "other_crops_ha": 1404,
+  "points": [
+   "g0825_7775"
+  ],
+  "rep_point": "g0825_7775"
+ },
+ "Karur": {
+  "name": "Karur",
+  "hq": [
+   10.96,
+   78.08
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 327,
+   "banana": 2484,
+   "cotton": 411,
+   "cowpea": 348,
+   "groundnut": 2349,
+   "sorghum": 22811,
+   "maize": 981,
+   "green_gram": 304,
+   "finger_millet": 3,
+   "rice_long": 13068,
+   "sesame": 3259,
+   "sugarcane": 1153,
+   "black_gram": 2336
+  },
+  "tree_crops_ha": 7060,
+  "other_crops_ha": 10536,
+  "points": [
+   "g1075_7775",
+   "g1075_7825"
+  ],
+  "rep_point": "g1075_7825"
+ },
+ "Krishnagiri": {
+  "name": "Krishnagiri",
+  "hq": [
+   12.52,
+   78.21
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 700,
+   "banana": 579,
+   "cotton": 1542,
+   "cowpea": 8299,
+   "groundnut": 12487,
+   "sorghum": 4552,
+   "maize": 1523,
+   "green_gram": 1291,
+   "finger_millet": 40021,
+   "rice_long": 26150,
+   "sesame": 672,
+   "sugarcane": 394,
+   "black_gram": 3150
+  },
+  "tree_crops_ha": 14863,
+  "other_crops_ha": 42884,
+  "points": [
+   "g1275_7825"
+  ],
+  "rep_point": "g1275_7825"
+ },
+ "Madurai": {
+  "name": "Madurai",
+  "hq": [
+   9.93,
+   78.12
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 650,
+   "banana": 3080,
+   "cotton": 8949,
+   "cowpea": 1783,
+   "groundnut": 2191,
+   "sorghum": 10007,
+   "maize": 18669,
+   "green_gram": 2707,
+   "finger_millet": 18,
+   "rice_long": 50298,
+   "sesame": 241,
+   "sugarcane": 1504,
+   "black_gram": 1254
+  },
+  "tree_crops_ha": 10535,
+  "other_crops_ha": 6240,
+  "points": [
+   "g0975_7825"
+  ],
+  "rep_point": "g0975_7825"
+ },
+ "Mayiladuthurai": {
+  "name": "Mayiladuthurai",
+  "hq": [
+   11.1,
+   79.65
+  ],
+  "years": [
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "banana": 562,
+   "cotton": 5127,
+   "groundnut": 1093,
+   "sorghum": 9,
+   "maize": 30,
+   "green_gram": 22410,
+   "finger_millet": 7,
+   "rice_long": 106754,
+   "sesame": 343,
+   "sugarcane": 336,
+   "black_gram": 23829
+  },
+  "tree_crops_ha": 1453,
+  "other_crops_ha": 108,
+  "points": [
+   "g1125_7975"
+  ],
+  "rep_point": "g1125_7975"
+ },
+ "Nagapattinam": {
+  "name": "Nagapattinam",
+  "hq": [
+   10.77,
+   79.84
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 1,
+   "banana": 286,
+   "cotton": 2635,
+   "groundnut": 1798,
+   "sorghum": 0,
+   "maize": 10,
+   "green_gram": 29158,
+   "finger_millet": 1,
+   "rice_long": 114656,
+   "sesame": 2125,
+   "sugarcane": 129,
+   "black_gram": 16261
+  },
+  "tree_crops_ha": 4123,
+  "other_crops_ha": 129,
+  "points": [
+   "g1075_7975"
+  ],
+  "rep_point": "g1075_7975"
+ },
+ "Namakkal": {
+  "name": "Namakkal",
+  "hq": [
+   11.22,
+   78.17
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 114,
+   "banana": 2430,
+   "cotton": 2898,
+   "cowpea": 752,
+   "groundnut": 32069,
+   "sorghum": 76810,
+   "maize": 6751,
+   "green_gram": 5350,
+   "finger_millet": 413,
+   "rice_long": 9933,
+   "sesame": 797,
+   "sugarcane": 10285,
+   "black_gram": 2658
+  },
+  "tree_crops_ha": 10432,
+  "other_crops_ha": 33613,
+  "points": [
+   "g1125_7825"
+  ],
+  "rep_point": "g1125_7825"
+ },
+ "Perambalur": {
+  "name": "Perambalur",
+  "hq": [
+   11.23,
+   78.88
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 143,
+   "banana": 223,
+   "cotton": 13413,
+   "cowpea": 30,
+   "groundnut": 1991,
+   "sorghum": 512,
+   "maize": 64125,
+   "green_gram": 5,
+   "finger_millet": 3,
+   "rice_long": 6468,
+   "sesame": 381,
+   "sugarcane": 3380,
+   "black_gram": 537
+  },
+  "tree_crops_ha": 695,
+  "other_crops_ha": 11466,
+  "points": [
+   "g1125_7875"
+  ],
+  "rep_point": "g1125_7875"
+ },
+ "Pudukkottai": {
+  "name": "Pudukkottai",
+  "hq": [
+   10.38,
+   78.82
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 11,
+   "banana": 2269,
+   "cotton": 153,
+   "cowpea": 377,
+   "groundnut": 11831,
+   "sorghum": 53,
+   "maize": 2283,
+   "green_gram": 25,
+   "finger_millet": 42,
+   "rice_long": 93003,
+   "sesame": 1746,
+   "sugarcane": 2031,
+   "black_gram": 3872
+  },
+  "tree_crops_ha": 16901,
+  "other_crops_ha": 1469,
+  "points": [
+   "g1025_7875",
+   "g1025_7925"
+  ],
+  "rep_point": "g1025_7875"
+ },
+ "Ramanathapuram": {
+  "name": "Ramanathapuram",
+  "hq": [
+   9.37,
+   78.83
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 915,
+   "banana": 142,
+   "cotton": 6414,
+   "cowpea": 376,
+   "groundnut": 2860,
+   "sorghum": 5394,
+   "maize": 656,
+   "green_gram": 303,
+   "finger_millet": 386,
+   "rice_long": 131533,
+   "sesame": 947,
+   "sugarcane": 104,
+   "black_gram": 3686
+  },
+  "tree_crops_ha": 7476,
+  "other_crops_ha": 19168,
+  "points": [
+   "g0925_7875",
+   "g0925_7925"
+  ],
+  "rep_point": "g0925_7875"
+ },
+ "Ranipet": {
+  "name": "Ranipet",
+  "hq": [
+   12.93,
+   79.33
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 68,
+   "banana": 754,
+   "cotton": 15,
+   "cowpea": 511,
+   "groundnut": 7617,
+   "sorghum": 30,
+   "maize": 1,
+   "green_gram": 807,
+   "finger_millet": 532,
+   "rice_long": 31385,
+   "sesame": 157,
+   "sugarcane": 971,
+   "black_gram": 1688
+  },
+  "tree_crops_ha": 959,
+  "other_crops_ha": 1526,
+  "points": [
+   "g1275_7925"
+  ],
+  "rep_point": "g1275_7925"
+ },
+ "Salem": {
+  "name": "Salem",
+  "hq": [
+   11.66,
+   78.15
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 855,
+   "banana": 2276,
+   "cotton": 10574,
+   "cowpea": 18468,
+   "groundnut": 22383,
+   "sorghum": 58584,
+   "maize": 38533,
+   "green_gram": 8721,
+   "finger_millet": 6466,
+   "rice_long": 21676,
+   "sesame": 1791,
+   "sugarcane": 5172,
+   "black_gram": 4310
+  },
+  "tree_crops_ha": 15064,
+  "other_crops_ha": 39641,
+  "points": [
+   "g1175_7775",
+   "g1175_7825"
+  ],
+  "rep_point": "g1175_7825"
+ },
+ "Sivaganga": {
+  "name": "Sivaganga",
+  "hq": [
+   9.85,
+   78.48
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 10,
+   "banana": 1303,
+   "cotton": 712,
+   "cowpea": 296,
+   "groundnut": 2545,
+   "sorghum": 184,
+   "maize": 31,
+   "green_gram": 19,
+   "finger_millet": 340,
+   "rice_long": 75641,
+   "sesame": 123,
+   "sugarcane": 1968,
+   "black_gram": 1094
+  },
+  "tree_crops_ha": 10482,
+  "other_crops_ha": 5102,
+  "points": [
+   "g0975_7875"
+  ],
+  "rep_point": "g0975_7825"
+ },
+ "Tenkasi": {
+  "name": "Tenkasi",
+  "hq": [
+   8.96,
+   77.3
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 55,
+   "banana": 1028,
+   "cotton": 2512,
+   "cowpea": 38,
+   "groundnut": 561,
+   "sorghum": 2832,
+   "maize": 11799,
+   "green_gram": 1271,
+   "finger_millet": 5,
+   "rice_long": 29358,
+   "sesame": 481,
+   "sugarcane": 1488,
+   "black_gram": 22804
+  },
+  "tree_crops_ha": 13084,
+  "other_crops_ha": 1546,
+  "points": [
+   "g0875_7725",
+   "g0925_7725"
+  ],
+  "rep_point": "g0875_7725"
+ },
+ "Thanjavur": {
+  "name": "Thanjavur",
+  "hq": [
+   10.79,
+   79.14
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 2,
+   "banana": 3903,
+   "cotton": 2527,
+   "groundnut": 8179,
+   "sorghum": 31,
+   "maize": 1033,
+   "green_gram": 1413,
+   "finger_millet": 25,
+   "rice_long": 207234,
+   "sesame": 5291,
+   "sugarcane": 4050,
+   "black_gram": 26364
+  },
+  "tree_crops_ha": 41519,
+  "other_crops_ha": 864,
+  "points": [
+   "g1075_7925"
+  ],
+  "rep_point": "g1075_7925"
+ },
+ "The Nilgiris": {
+  "name": "The Nilgiris",
+  "hq": [
+   11.41,
+   76.7
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 0,
+   "banana": 627,
+   "sorghum": 0,
+   "maize": 2,
+   "green_gram": 0,
+   "finger_millet": 10,
+   "rice_long": 161,
+   "sugarcane": 1
+  },
+  "tree_crops_ha": 447,
+  "other_crops_ha": 3520,
+  "points": [
+   "g1125_7675",
+   "g1175_7675"
+  ],
+  "rep_point": "g1125_7675"
+ },
+ "Theni": {
+  "name": "Theni",
+  "hq": [
+   10.01,
+   77.48
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 1365,
+   "banana": 6097,
+   "cotton": 2999,
+   "cowpea": 3637,
+   "groundnut": 2004,
+   "sorghum": 9439,
+   "maize": 6364,
+   "green_gram": 742,
+   "finger_millet": 14,
+   "rice_long": 11812,
+   "sesame": 820,
+   "sugarcane": 2972,
+   "black_gram": 1397
+  },
+  "tree_crops_ha": 25316,
+  "other_crops_ha": 7906,
+  "points": [
+   "g0975_7725",
+   "g1025_7725"
+  ],
+  "rep_point": "g1025_7725"
+ },
+ "Thiruvallur": {
+  "name": "Thiruvallur",
+  "hq": [
+   13.14,
+   79.91
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 490,
+   "banana": 627,
+   "cowpea": 14,
+   "groundnut": 6043,
+   "sorghum": 3,
+   "maize": 7,
+   "green_gram": 8911,
+   "finger_millet": 178,
+   "rice_long": 98382,
+   "sesame": 2234,
+   "sugarcane": 4362,
+   "black_gram": 1115
+  },
+  "tree_crops_ha": 808,
+  "other_crops_ha": 898,
+  "points": [
+   "g1325_7975",
+   "g1325_8025"
+  ],
+  "rep_point": "g1325_7975"
+ },
+ "Thiruvarur": {
+  "name": "Thiruvarur",
+  "hq": [
+   10.77,
+   79.64
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "banana": 380,
+   "cotton": 10850,
+   "groundnut": 2647,
+   "sorghum": 1,
+   "maize": 16,
+   "green_gram": 44123,
+   "finger_millet": 1,
+   "rice_long": 197674,
+   "sesame": 1772,
+   "sugarcane": 63,
+   "black_gram": 24556
+  },
+  "tree_crops_ha": 5664,
+  "other_crops_ha": 228,
+  "points": [
+   "g1075_7975"
+  ],
+  "rep_point": "g1075_7975"
+ },
+ "Thoothukkudi": {
+  "name": "Thoothukkudi",
+  "hq": [
+   8.76,
+   78.13
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 10589,
+   "banana": 8446,
+   "cotton": 6620,
+   "cowpea": 58,
+   "groundnut": 936,
+   "sorghum": 11158,
+   "maize": 47456,
+   "green_gram": 20879,
+   "finger_millet": 20,
+   "rice_long": 15726,
+   "sesame": 347,
+   "sugarcane": 15,
+   "black_gram": 54176
+  },
+  "tree_crops_ha": 6776,
+  "other_crops_ha": 22850,
+  "points": [
+   "g0875_7775"
+  ],
+  "rep_point": "g0875_7775"
+ },
+ "Tiruchirappalli": {
+  "name": "Tiruchirappalli",
+  "hq": [
+   10.8,
+   78.69
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 164,
+   "banana": 6162,
+   "cotton": 11067,
+   "cowpea": 754,
+   "groundnut": 7851,
+   "sorghum": 34257,
+   "maize": 16528,
+   "green_gram": 854,
+   "finger_millet": 7,
+   "rice_long": 56298,
+   "sesame": 1503,
+   "sugarcane": 1746,
+   "black_gram": 6105
+  },
+  "tree_crops_ha": 5891,
+  "other_crops_ha": 13508,
+  "points": [
+   "g1075_7875"
+  ],
+  "rep_point": "g1075_7875"
+ },
+ "Tirunelveli": {
+  "name": "Tirunelveli",
+  "hq": [
+   8.71,
+   77.76
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 70,
+   "banana": 6035,
+   "cotton": 2228,
+   "cowpea": 154,
+   "groundnut": 740,
+   "sorghum": 1165,
+   "maize": 5731,
+   "green_gram": 1425,
+   "finger_millet": 9,
+   "rice_long": 57816,
+   "sesame": 422,
+   "sugarcane": 1073,
+   "black_gram": 19817
+  },
+  "tree_crops_ha": 9529,
+  "other_crops_ha": 1036,
+  "points": [
+   "g0875_7775"
+  ],
+  "rep_point": "g0875_7775"
+ },
+ "Tirupathur": {
+  "name": "Tirupathur",
+  "hq": [
+   12.5,
+   78.57
+  ],
+  "years": [
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 953,
+   "banana": 914,
+   "cotton": 2187,
+   "cowpea": 785,
+   "groundnut": 9938,
+   "sorghum": 2731,
+   "maize": 904,
+   "green_gram": 253,
+   "finger_millet": 2661,
+   "rice_long": 6600,
+   "sesame": 35,
+   "sugarcane": 414,
+   "black_gram": 670
+  },
+  "tree_crops_ha": 10873,
+  "other_crops_ha": 13453,
+  "points": [
+   "g1225_7875",
+   "g1275_7875"
+  ],
+  "rep_point": "g1275_7875"
+ },
+ "Tiruppur": {
+  "name": "Tiruppur",
+  "hq": [
+   11.11,
+   77.34
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 112,
+   "banana": 2164,
+   "cotton": 1129,
+   "cowpea": 1472,
+   "groundnut": 7788,
+   "sorghum": 35705,
+   "maize": 21107,
+   "green_gram": 1717,
+   "finger_millet": 1,
+   "rice_long": 10556,
+   "sesame": 366,
+   "sugarcane": 2972,
+   "black_gram": 2095
+  },
+  "tree_crops_ha": 65692,
+  "other_crops_ha": 18899,
+  "points": [
+   "g1075_7725",
+   "g1125_7725"
+  ],
+  "rep_point": "g1125_7725"
+ },
+ "Tiruvannamalai": {
+  "name": "Tiruvannamalai",
+  "hq": [
+   12.23,
+   79.07
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 3676,
+   "banana": 2851,
+   "cotton": 1127,
+   "cowpea": 2219,
+   "groundnut": 78394,
+   "sorghum": 30,
+   "maize": 1417,
+   "green_gram": 1736,
+   "finger_millet": 3565,
+   "rice_long": 156890,
+   "sesame": 1900,
+   "sugarcane": 15498,
+   "black_gram": 38527
+  },
+  "tree_crops_ha": 818,
+  "other_crops_ha": 18849,
+  "points": [
+   "g1225_7925"
+  ],
+  "rep_point": "g1225_7925"
+ },
+ "Vellore": {
+  "name": "Vellore",
+  "hq": [
+   12.92,
+   79.13
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 832,
+   "banana": 2308,
+   "cotton": 1672,
+   "cowpea": 1370,
+   "groundnut": 22790,
+   "sorghum": 3922,
+   "maize": 1231,
+   "green_gram": 1358,
+   "finger_millet": 3078,
+   "rice_long": 22772,
+   "sesame": 288,
+   "sugarcane": 2505,
+   "black_gram": 2876
+  },
+  "tree_crops_ha": 10161,
+  "other_crops_ha": 14983,
+  "points": [
+   "g1275_7925"
+  ],
+  "rep_point": "g1275_7925"
+ },
+ "Viluppuram": {
+  "name": "Viluppuram",
+  "hq": [
+   11.94,
+   79.49
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 17339,
+   "banana": 1195,
+   "cotton": 2752,
+   "cowpea": 44,
+   "groundnut": 34451,
+   "sorghum": 157,
+   "maize": 8832,
+   "green_gram": 1154,
+   "finger_millet": 1347,
+   "rice_long": 118980,
+   "sesame": 5223,
+   "sugarcane": 24772,
+   "black_gram": 57547
+  },
+  "tree_crops_ha": 5180,
+  "other_crops_ha": 14795,
+  "points": [
+   "g1225_7975"
+  ],
+  "rep_point": "g1175_7925"
+ },
+ "Virudhunagar": {
+  "name": "Virudhunagar",
+  "hq": [
+   9.58,
+   77.96
+  ],
+  "years": [
+   2018,
+   2019,
+   2020,
+   2021,
+   2022
+  ],
+  "area_ha": {
+   "pearl_millet": 1446,
+   "banana": 1129,
+   "cotton": 19752,
+   "cowpea": 247,
+   "groundnut": 5057,
+   "sorghum": 12821,
+   "maize": 32826,
+   "green_gram": 2978,
+   "finger_millet": 59,
+   "rice_long": 25894,
+   "sesame": 1363,
+   "sugarcane": 1243,
+   "black_gram": 3922
+  },
+  "tree_crops_ha": 10107,
+  "other_crops_ha": 10126,
+  "points": [
+   "g0925_7775",
+   "g0925_7825",
+   "g0975_7775"
+  ],
+  "rep_point": "g0975_7775"
+ }
+}
