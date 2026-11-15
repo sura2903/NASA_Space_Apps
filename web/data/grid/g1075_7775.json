@@ -3755,5 +3755,283 @@
     "ne_monsoon_correlation": 0.89,
     "driest_ne_year_power": 2016,
     "driest_ne_year_imerg": 2016
+  },
+  "dry_spells": {
+    "threshold_mm": 2.5,
+    "window_days": 30,
+    "by_sow_month": {
+      "1": {
+        "years": 24,
+        "ge10": 24,
+        "ge15": 24
+      },
+      "2": {
+        "years": 24,
+        "ge10": 24,
+        "ge15": 23
+      },
+      "3": {
+        "years": 24,
+        "ge10": 23,
+        "ge15": 21
+      },
+      "4": {
+        "years": 24,
+        "ge10": 20,
+        "ge15": 14
+      },
+      "5": {
+        "years": 24,
+        "ge10": 11,
+        "ge15": 3
+      },
+      "6": {
+        "years": 24,
+        "ge10": 17,
+        "ge15": 5
+      },
+      "7": {
+        "years": 24,
+        "ge10": 15,
+        "ge15": 4
+      },
+      "8": {
+        "years": 24,
+        "ge10": 14,
+        "ge15": 3
+      },
+      "9": {
+        "years": 24,
+        "ge10": 14,
+        "ge15": 8
+      },
+      "10": {
+        "years": 24,
+        "ge10": 9,
+        "ge15": 2
+      },
+      "11": {
+        "years": 24,
+        "ge10": 14,
+        "ge15": 7
+      },
+      "12": {
+        "years": 24,
+        "ge10": 24,
+        "ge15": 18
+      }
+    },
+    "source": "GPM IMERG Final daily V07 via NASA GES DISC Giovanni, 2001-2024",
+    "definition": "longest run of days < 2.5 mm in the 30 days starting the 1st of the sowing month"
+  },
+  "ne_onset": {
+    "method": "first day from 10 Oct with >= 20 mm over 3 days and no 10+ day dry spell (< 2.5 mm) in the next 30 days (agro-meteorological onset; IMD's official onset uses winds and coastal stations)",
+    "search_from": "10-10",
+    "median_doy": 288,
+    "median_date": "15 Oct",
+    "years_without_onset": 3,
+    "years": [
+      {
+        "year": 2001,
+        "doy": 296
+      },
+      {
+        "year": 2002,
+        "doy": 287
+      },
+      {
+        "year": 2003,
+        "doy": 292
+      },
+      {
+        "year": 2004,
+        "doy": 284
+      },
+      {
+        "year": 2005,
+        "doy": 283
+      },
+      {
+        "year": 2006,
+        "doy": 283
+      },
+      {
+        "year": 2007,
+        "doy": 283
+      },
+      {
+        "year": 2008,
+        "doy": 326
+      },
+      {
+        "year": 2009,
+        "doy": 308
+      },
+      {
+        "year": 2010,
+        "doy": 297
+      },
+      {
+        "year": 2011,
+        "doy": 283
+      },
+      {
+        "year": 2012,
+        "doy": 288
+      },
+      {
+        "year": 2013,
+        "doy": null
+      },
+      {
+        "year": 2014,
+        "doy": 288
+      },
+      {
+        "year": 2015,
+        "doy": 305
+      },
+      {
+        "year": 2016,
+        "doy": 285
+      },
+      {
+        "year": 2017,
+        "doy": 283
+      },
+      {
+        "year": 2018,
+        "doy": null
+      },
+      {
+        "year": 2019,
+        "doy": 287
+      },
+      {
+        "year": 2020,
+        "doy": 307
+      },
+      {
+        "year": 2021,
+        "doy": 288
+      },
+      {
+        "year": 2022,
+        "doy": 293
+      },
+      {
+        "year": 2023,
+        "doy": null
+      },
+      {
+        "year": 2024,
+        "doy": 284
+      }
+    ]
+  },
+  "sowing_rain_onset": {
+    "method": "same rule searching from 15 Sep: first reliable sowing rains (includes late southwest-monsoon / transition rain used for Purattasi-pattam sowing)",
+    "search_from": "09-15",
+    "median_doy": 279,
+    "median_date": "06 Oct",
+    "years_without_onset": 1,
+    "years": [
+      {
+        "year": 2001,
+        "doy": 258
+      },
+      {
+        "year": 2002,
+        "doy": 276
+      },
+      {
+        "year": 2003,
+        "doy": 292
+      },
+      {
+        "year": 2004,
+        "doy": 259
+      },
+      {
+        "year": 2005,
+        "doy": 274
+      },
+      {
+        "year": 2006,
+        "doy": 281
+      },
+      {
+        "year": 2007,
+        "doy": 283
+      },
+      {
+        "year": 2008,
+        "doy": 326
+      },
+      {
+        "year": 2009,
+        "doy": 308
+      },
+      {
+        "year": 2010,
+        "doy": 297
+      },
+      {
+        "year": 2011,
+        "doy": 271
+      },
+      {
+        "year": 2012,
+        "doy": 280
+      },
+      {
+        "year": 2013,
+        "doy": 279
+      },
+      {
+        "year": 2014,
+        "doy": 264
+      },
+      {
+        "year": 2015,
+        "doy": 305
+      },
+      {
+        "year": 2016,
+        "doy": 285
+      },
+      {
+        "year": 2017,
+        "doy": 258
+      },
+      {
+        "year": 2018,
+        "doy": 265
+      },
+      {
+        "year": 2019,
+        "doy": 287
+      },
+      {
+        "year": 2020,
+        "doy": 270
+      },
+      {
+        "year": 2021,
+        "doy": 258
+      },
+      {
+        "year": 2022,
+        "doy": 293
+      },
+      {
+        "year": 2023,
+        "doy": null
+      },
+      {
+        "year": 2024,
+        "doy": 276
+      }
+    ]
   }
 }

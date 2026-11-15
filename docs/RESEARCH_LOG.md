@@ -211,6 +211,20 @@ pattern risky?"*
   different crops.
 - **Next:** DES Season & Crop Report irrigation sources per district; average several grid points per district.
 
+### I-16 · Sowing advice data: dry spells after sowing + monsoon onset (Lane B requests 1–2)
+- Computed from **IMERG daily** (not POWER) at all 50 points (3 sites + 47 grid) in the browser.
+- **Dry spells:** chance of a 10+ day dry spell (<2.5 mm) in the 30 days after sowing on the 1st.
+  - Jan–Mar sowing: ~100%. Oct–Nov sowing: lowest (21–38% at the demo sites).
+  - October risk ranges 4–54% across the grid: useful spread.
+- **Onset, sanity-checked against IMD:**
+  - First version (searching from 1 Oct) put 34% of onsets on 1–3 Oct, picking up late-SW/transition rain.
+  - Split into `ne_onset` (from 10 Oct): medians 11–23 Oct (demo sites 16–17 Oct), close to IMD's normal ~20 Oct.
+  - And `sowing_rain_onset` (from 15 Sep): first reliable sowing rains, 21 Sep–14 Oct, which matters for
+    Purattasi-pattam sowing.
+  - 2016: no qualifying onset at 30/50 points, consistent with the failed monsoon.
+- **Caveat:** onset still clusters at the search start (40% in the first 3 days). It is an agro-meteorological
+  rule, not IMD's official declaration (winds + coastal stations).
+
 ## Open questions / likely next pivots
 - **Rice skill:** add reservoir storage (e.g. Mettur/Papanasam levels) or a canal-release index so the
   irrigated-rice replay reflects water actually delivered, then re-run the backtest.

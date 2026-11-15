@@ -84,7 +84,15 @@ Grey out `confidence: "low"` districts. 1 MCM = 1 million m³.
   ],
   "soil": { "source": "ISRIC SoilGrids 2.0 (250 m)", "clay_pct": 33, "sand_pct": 38, "silt_pct": 29,
             "soc_g_per_kg": 17.8, "ph": 7.0, "texture_class": "clay loam" },
-  "ndvi": null                        // filled from AppEEARS when available (see APPROACH.md)
+  "ndvi": null,                       // filled from AppEEARS when available (see APPROACH.md)
+
+  // From GPM IMERG daily 2001-2024 (pipeline/merge_dryspells.py); in sites/ and grid/ files:
+  "dry_spells": { "threshold_mm": 2.5, "window_days": 30, "source": "...", "definition": "...",
+                  "by_sow_month": { "10": { "years": 24, "ge10": 5, "ge15": 2 }, ... } },  // ge10 = years with a 10+ day dry spell
+  "ne_onset": { "method": "...", "search_from": "10-10", "median_doy": 289, "median_date": "16 Oct",
+                "years_without_onset": 3,                 // e.g. 2016: no qualifying onset at 30/50 places
+                "years": [{ "year": 2001, "doy": 291 }, { "year": 2016, "doy": null }, ...] },     // doy null = none
+  "sowing_rain_onset": { ...same shape..., "search_from": "09-15" }   // first reliable sowing rains (Purattasi pattam)
 }
 ```
 
