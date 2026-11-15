@@ -118,6 +118,7 @@ export function renderSowing(el, { site, trends, crops, cropById, prefs, rotatio
 
   const wet = site.monthly?.[planned - 1]?.root_soil_wetness;
   const smap = site.smap_recent;
+  const smapL = !smap && site.smap?.latest?.value != null ? site.smap : null;   // AppEEARS bundle (contract 2a-appeears)
   const onset = site.ne_onset?.years?.length ? site.ne_onset : null;
 
   el.append(...[
@@ -141,10 +142,24 @@ export function renderSowing(el, { site, trends, crops, cropById, prefs, rotatio
       h("p", { class: "note" }, t("sow.ne.note"))) : null,
     h("p", { class: "note" }, wet != null ? t("sow.wet", { m: monthName(planned), w: fmt(wet, 2) }) : "",
       smap ? " " + t("sow.smap", { date: smap.date, w: fmt(smap.root_zone, 2) }) : ""),
+    smapL ? h("p", { class: "note" }, smapLine(smapL)) : null,
     onset ? h("p", { class: "note" }, t("sow.onset", onsetStats(onset)) + (onsetStats(onset).none ? " " + t("sow.onset.none", onsetStats(onset)) : "")) : null,
     site.sowing_rain_onset?.years?.length ? h("p", { class: "note" }, t("sow.rains", onsetStats(site.sowing_rain_onset))) : null,
-    !smap || !onset ? h("p", { class: "note sow-pending" }, t(onset ? "sow.pending.smap" : "sow.pending")) : null,
+    !(smap || smapL) || !onset ? h("p", { class: "note sow-pending" }, t(onset ? "sow.pending.smap" : "sow.pending")) : null,
   ].filter(Boolean));
+}
+
+/** "Latest available NASA SMAP reading (Dec 2024): ..." plus a care note where SMAP flags the retrievals. */
+function smapLine(sm) {
+  const L = sm.latest;
+  const [y, m] = String(L.month).split("-").map(Number);
+  const yrs = sm.years || [];
+  let s = t("sow.smap.latest", { date: `${monthName(m)} ${y}`, w: fmt(L.value, 2) });
+  if (L.anomaly != null && Math.abs(L.anomaly) >= 0.005) {
+    s += " " + t(L.anomaly > 0 ? "sow.smap.wetter" : "sow.smap.drier", { d: fmt(Math.abs(L.anomaly), 2), m: monthName(m), y0: yrs[0], y1: yrs[1] });
+  }
+  if (sm.quality && !/^recommended/i.test(sm.quality)) s += " " + t("sow.smap.lowq");
+  return s;
 }
 
 function onsetStats(onset) {
