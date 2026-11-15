@@ -148,6 +148,24 @@ Use for a "Does it work?" panel: a year chart of `by_year` (model vs real), plus
 `by_target.area.by_crop.rice_long.lift` = 2.11, `by_target.production.by_crop.rice_long.lift` = 2.22. Rice
 responds by farmers not planting, so show rice on area/production. Green gram still shows no skill.
 
+## 2d. `web/data/projections/<id>.json` (climate-change Layer 3, by `pipeline/nex_deltas.py`)
+NASA NEX-GDDP-CMIP6, 5 models, baseline 1995–2014 vs future 2041–2060, SSP2-4.5 and SSP5-8.5. Demo sites only (grid later).
+```jsonc
+{ "id": "thanjavur", "baseline": [1995, 2014], "future": [2041, 2060],
+  "models": ["ACCESS-CM2", "EC-Earth3", "MPI-ESM1-2-HR", "MRI-ESM2-0", "NorESM2-MM"],
+  "scenarios": { "ssp245": "SSP2-4.5 (middle of the road)", "ssp585": "SSP5-8.5 (high emissions)" },
+  "deltas":   { "ssp245": { "ACCESS-CM2": { "d_tmax": [12], "d_tmin": [12], "p_ratio": [12],
+                                            "d_heat": [12], "d_heavy": [12], "et0_ratio": [12] } } },
+  "summary":  { "ssp245": { "ACCESS-CM2": { "d_tmax_annual": 0.9, "rain_change_pct": 4.1, "ne_rain_change_pct": 1.0,
+                                            "d_heat_days_annual": 17, "d_heavy_days_annual": 0.2 } } },
+  "ensemble": { "ssp245": { "d_tmax_annual": { "min": 0.49, "median": 0.9, "max": 1.51 }, ... } } }
+```
+Engine: `futureRange(site, crops, rotation, prefs, projection, ssp)` →
+`{ ssp, period, today: {good_years, total_years, total, irrigation_mm}, models: [{model, good_years, total, irrigation_mm}],
+   good_years: {min, median, max}, total: {...}, irrigation_mm: {...} }`. Always show the **range across models**,
+not a single number. Note: the engine applies each model's temperature change to the observed baseline
+for hot days (it doesn't use `d_heat` directly; see RESEARCH_LOG I-20).
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

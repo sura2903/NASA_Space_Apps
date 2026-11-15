@@ -82,9 +82,15 @@ function adjustMonth(m, sc, mi) {
   if (d) {
     const precip = (m.precip_mm ?? 0) * d.p_ratio[mi];
     const et0 = (m.et0_mm ?? Math.max(0, (m.precip_mm ?? 0) - (m.water_balance_mm ?? 0))) * d.et0_ratio[mi];
+    // Hot days: apply the model's TEMPERATURE change to our observed baseline (same relation as the sliders),
+    // not the model's own hot-day count change. NEX's baseline highs can sit just under 38 C, so a small warming
+    // adds +40 hot days there; adding that on top of POWER's baseline double-counted the threshold jump and made
+    // every Thanjavur rotation fail (RESEARCH_LOG I-20).
+    const dT = d.d_tmax[mi];
+    const hot = (m.heat_days ?? 0) * (1 + 0.4 * dT) + Math.max(0, (m.tmax_c ?? 0) - 34) * 0.8 * dT;
     return {
       precip_mm: precip, et0_mm: et0, water_balance_mm: precip - et0,
-      heat_days: clamp((m.heat_days ?? 0) + d.d_heat[mi], 0, 31),
+      heat_days: clamp(hot, 0, 31),
       heavy_rain_days: Math.max(0, (m.heavy_rain_days ?? 0) + d.d_heavy[mi]),
       tmax_c: (m.tmax_c ?? 0) + d.d_tmax[mi],
       max_daily_precip_mm: m.max_daily_precip_mm ?? null,

@@ -293,6 +293,29 @@ pattern risky?"*
   - a food-security lens.
 - **Status:** to review together before building.
 
+### I-20 · Layer 3 future projections (NASA NEX-GDDP-CMIP6) for the demo sites
+- **Data:**
+  - 5 CMIP6 models (ACCESS-CM2, EC-Earth3, MPI-ESM1-2-HR, MRI-ESM2-0, NorESM2-MM), daily, 0.25°,
+    bias-corrected, from NCCS THREDDS point subsets.
+  - Baseline 1995–2014 vs 2041–2060 under SSP2-4.5 and SSP5-8.5; 2,700 extracts.
+  - Two bugs fixed first: missing time range, and the gn/gr grid label.
+- **Method:** monthly change factors per model applied to every observed year 2001–2024 → future-like years
+  → the same replay; results reported as a min–max range across models.
+- **Sanity vs IPCC:**
+  - Highs warm **+0.9 °C** (SSP2-4.5) / **+1.2 °C** (SSP5-8.5) by mid-century, at the lower end of the
+    South Asia range, as expected for coastal tropical Tamil Nadu.
+  - Rain leans **wetter** (SSP5-8.5 +15–20%); SSP2-4.5 models straddle zero.
+  - Heavy-rain days rise slightly.
+- **Bug caught by the discrimination check:**
+  - Adding each model's own hot-day change (+17 to +42 days at Thanjavur) to POWER's observed baseline
+    double-counted the threshold jump, so every Thanjavur rotation failed (0/24).
+  - Fix: apply the model's temperature change to the observed baseline (same relation as the sliders).
+- **Results (range across models):**
+  - Tirunelveli rice holds or improves slightly (wetter).
+  - Madurai tank rice is very uncertain (8–19 of 24 under SSP2-4.5 vs 11 today).
+  - Thanjavur rotations decline from heat, but the millet + Samba "small step" stays most robust (14–19 vs current 12–16).
+- **Next:** grid-wide projections (future-suitability heatmap), a "Today / 2050s" switch in the UI (Lane B, B12).
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

@@ -27,8 +27,8 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A13 | Engine `rankCrops` + `cropSuitability` for the heatmap and "click anywhere" (IDEAS I3/I4) | ✅ |
 | A14 | **Climate change, Layer 1:** extend POWER to 1981–2024; Mann–Kendall + Sen trends, then-vs-now shifts for heat, monsoons, heavy rain, dry spells, ET0 (see APPROACH "Next direction") | ✅ 3 demo sites (`web/data/trends/`); grid ⬜ |
 | A15 | **Layer 2:** compare observed trends with IPCC AR6 / IMD / CMIP6 historical for South India ("consistent with", never "caused by") | ⬜ |
-| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (~5 models × SSP2-4.5 / SSP5-8.5, 2041–60 & 2081–2100) → "future-like years" → future replay in the engine | ⬜ |
-| A17 | Engine: `prefs.horizon` (today / 2040s / 2080s) + `prefs.ssp`; return model-spread ranges | ⬜ |
+| A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); grid ⬜; 2081–2100 ⬜ |
+| A17 | Engine: `futureRange()` returns today + min/median/max across models | ✅ |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from
