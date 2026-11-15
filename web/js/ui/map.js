@@ -12,21 +12,24 @@ export function createSiteMap(el, sites, onPick) {
 
   const markers = {};
   for (const s of sites) {
-    const m = L.circleMarker([s.lat, s.lon], { radius: 9, weight: 2, className: "site-marker" })
+    // detailed places get a permanent label; the statewide grid points are small dots with a hover label
+    const detailed = s.demo !== false;
+    const m = L.circleMarker([s.lat, s.lon], { radius: detailed ? 9 : 5, weight: detailed ? 2 : 1, className: detailed ? "site-marker" : "site-marker grid-marker" })
       .addTo(map)
-      .bindTooltip(siteName(s).replace(/\s*\(.*\)/, ""), { permanent: true, direction: "right", offset: [10, 0], className: "site-label" })
+      .bindTooltip(siteName(s).replace(/\s*\(.*\)/, ""), detailed ? { permanent: true, direction: "right", offset: [10, 0], className: "site-label" } : { direction: "top" })
       .on("click", () => onPick(s.id));
     m.getElement?.()?.setAttribute("aria-label", s.name);
     markers[s.id] = m;
   }
   const bounds = L.latLngBounds(sites.map((s) => [s.lat, s.lon]));
-  map.fitBounds(bounds.pad(0.6));
+  map.fitBounds(bounds.pad(sites.length > 10 ? 0.05 : 0.6));
 
   return {
     select(id) {
       for (const [k, m] of Object.entries(markers)) {
         const on = k === id;
-        m.setStyle({ radius: on ? 12 : 8, fillOpacity: on ? 0.95 : 0.55 });
+        const detailed = sites.find((s) => s.id === k)?.demo !== false;
+        m.setStyle({ radius: on ? 12 : detailed ? 8 : 5, fillOpacity: on ? 0.95 : 0.55 });
         m.getElement?.()?.classList.toggle("selected", on);
         if (on) m.bringToFront();
       }

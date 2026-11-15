@@ -16,7 +16,9 @@ import { renderPrintSheet } from "./ui/printsheet.js";
 
 // Starting slider positions (the farmer changes these; they are preferences, not data).
 const DEFAULT_WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
-const FALLBACK_CURRENT = { rotation: [[{ crop: "rice_long", sow: 9 }]], water_source: "rainfed" };
+// Places without a preset (the 47 grid points): long rice on a village tank, the common Tamil Nadu pattern.
+const FALLBACK_CURRENT = { rotation: [[{ crop: "rice_long", sow: 9 }]], water_source: "tank" };
+const SITE_KEY = "fs-site";
 
 const state = {
   sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null, sowChoice: null,
@@ -54,10 +56,10 @@ function initExpertToggle() {
 async function selectSite(id) {
   const meta = state.sites.find((s) => s.id === id) ?? state.sites[0];
   setBusy(true, t("loading.data"));
-  const site = state.siteCache[meta.id] ??= await getJSON(`data/sites/${meta.id}.json`);
+  const site = state.siteCache[meta.id] ??= await getJSON(`${meta.base ?? "data/sites/"}${meta.id}.json`);
   state.site = site;
   // B11: climate-trend file is optional (contract §2b); the panel hides when it is missing.
-  if (!(meta.id in state.trendCache)) state.trendCache[meta.id] = await getJSON(`data/trends/${meta.id}.json`).catch(() => null);
+  if (!(meta.id in state.trendCache)) state.trendCache[meta.id] = meta.demo ? await getJSON(`data/trends/${meta.id}.json`).catch(() => null) : null;
   state.trends = state.trendCache[meta.id];
   state.sowChoice = null;
   const def = DEFAULT_CURRENT[site.id] ?? FALLBACK_CURRENT;
@@ -67,7 +69,9 @@ async function selectSite(id) {
 
   $("#site-select").value = site.id;
   map?.select(site.id);
-  history.replaceState(null, "", `#site=${site.id}`);
+  if (!state.example) history.replaceState(null, "", `#site=${site.id}`);   // an example place is not a choice
+  if (!state.example) { try { localStorage.setItem(SITE_KEY, site.id); } catch {} }
+  renderExampleNote();
 
   renderSitePanel();
   renderInputs();
@@ -246,8 +250,8 @@ function applyStatic() {
 
 function rerenderAll() {
   applyStatic();
-  const sel = $("#site-select");
-  [...sel.options].forEach((o) => { o.textContent = siteName(state.sites.find((s) => s.id === o.value)); });
+  fillPlaceSelect($("#site-select"));     // also re-labels the two place groups
+  renderExampleNote();
   map?.relabel();
   renderPriorities($("#prios"), { weights: state.weights, onChange: (k, v) => { state.weights[k] = v; recomputeSoon(); } });
   if (!state.site) return;
@@ -265,8 +269,11 @@ async function init() {
   $("#lang").addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
   onLangChange(rerenderAll);
   try {
-    const [sites, crops] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json")]);
-    state.sites = sites;
+    const [sites, crops, grid] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json"),
+      getJSON("data/grid/index.json").catch(() => null)]);
+    // 3 detailed demo places + the statewide 0.5° grid (same file format, fewer extras), so any farmer can pick a place
+    const gridPts = (grid?.points ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
+    state.sites = [...sites.map((s) => ({ ...s, base: "data/sites/", demo: true })), ...gridPts.map((p) => ({ ...p, base: "data/grid/", demo: false }))];
     state.crops = crops;
     state.cropById = Object.fromEntries(crops.map((c) => [c.id, c]));
   } catch (err) {
@@ -276,9 +283,8 @@ async function init() {
   }
 
   const sel = $("#site-select");
-  sel.append(...state.sites.map((s) => h("option", { value: s.id }, siteName(s))));
-  sel.addEventListener("change", () => selectSite(sel.value));
-  map = createSiteMap($("#map"), state.sites, (id) => selectSite(id));
+  fillPlaceSelect(sel);
+  sel.addEventListener("change", () => chooseByUser(sel.value));
 
   renderPriorities($("#prios"), { weights: state.weights, onChange: (k, v) => { state.weights[k] = v; recomputeSoon(); } });
   $("#print").addEventListener("click", () => window.print());
@@ -288,8 +294,58 @@ async function init() {
     const id = new URLSearchParams(location.hash.slice(1)).get("site");
     if (id && id !== state.site?.id && state.sites.some((s) => s.id === id)) selectSite(id);
   });
+  // the folded sections hold charts: redraw them at full size when a section opens
+  document.querySelectorAll("details.fold").forEach((d) => d.addEventListener("toggle", () => { if (d.open) { resizeCharts(); resizeTrendCharts(); } }));
+
+  const known = (id) => state.sites.some((s) => s.id === id);
   const fromHash = new URLSearchParams(location.hash.slice(1)).get("site");
-  await selectSite(state.sites.some((s) => s.id === fromHash) ? fromHash : state.sites[0].id);
+  let saved = null;
+  try { saved = localStorage.getItem(SITE_KEY); } catch {}
+  // open with something useful straight away: the farmer's last place, or an example they can change
+  state.example = !known(fromHash) && !known(saved);
+  setupPlaceBar();
+  await selectSite(known(fromHash) ? fromHash : known(saved) ? saved : state.sites[0].id);
+}
+
+/* ---------------- where is your farm? ---------------- */
+function fillPlaceSelect(sel) {
+  clear(sel);
+  const opt = (s) => h("option", { value: s.id }, siteName(s));
+  sel.append(
+    h("optgroup", { label: t("places.demo") }, ...state.sites.filter((s) => s.demo).map(opt)),
+    h("optgroup", { label: t("places.grid") }, ...state.sites.filter((s) => !s.demo).map(opt)));
+  if (state.site) sel.value = state.site.id;
+}
+
+function chooseByUser(id) {        // any deliberate choice ends "example" mode and is remembered
+  state.example = false;
+  return selectSite(id);
+}
+
+function setupPlaceBar() {
+  const fold = $("#map-fold");
+  fold.addEventListener("toggle", () => {   // build the map only when first opened (Leaflet needs a visible box)
+    if (fold.open && !map) { map = createSiteMap($("#map"), state.sites, (pid) => chooseByUser(pid)); map.select(state.site?.id); }
+  });
+  const msg = $("#locate-msg");
+  $("#locate").addEventListener("click", () => {
+    if (!navigator.geolocation) { msg.textContent = t("welcome.denied"); return; }
+    msg.textContent = t("welcome.locating");
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const { latitude: la, longitude: lo } = pos.coords;
+      const km = (s) => 6371 * 2 * Math.asin(Math.sqrt(Math.sin(((s.lat - la) * Math.PI) / 360) ** 2 +
+        Math.cos((la * Math.PI) / 180) * Math.cos((s.lat * Math.PI) / 180) * Math.sin(((s.lon - lo) * Math.PI) / 360) ** 2));
+      const best = state.sites.reduce((a, b) => (km(b) < km(a) ? b : a));
+      msg.textContent = t("welcome.located", { place: siteName(best), km: Math.round(km(best)) }) + " " + t("welcome.privacy");
+      chooseByUser(best.id);
+    }, () => { msg.textContent = t("welcome.denied"); }, { timeout: 10000, maximumAge: 600000 });
+  });
+}
+
+function renderExampleNote() {
+  const el = $("#example-note");
+  el.hidden = !state.example;
+  if (state.example && state.site) el.textContent = t("welcome.example", { place: siteName(state.site) });
 }
 
 init();

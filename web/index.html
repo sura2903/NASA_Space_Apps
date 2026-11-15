@@ -13,7 +13,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
 </head>
-<body>
+<body class="farm-page">
   <header class="top">
     <div class="brand">
       <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
@@ -26,49 +26,38 @@
       <span class="lang-label" id="lang-label" data-i18n="lang.label">Language</span>
       <button type="button" id="lang" class="lang-btn" lang="ta">Tamil / தமிழ்</button>
     </div>
-    <div class="top-actions">
-      <a class="btn-ghost nav-link" href="explore.html" data-i18n="nav.map">🗺 Crop map</a>
-      <a class="btn-ghost nav-link" href="policy.html" data-i18n="nav.policy">🏛 Policy view</a>
-      <label class="switch">
-        <input type="checkbox" id="expert">
-        <span class="track" aria-hidden="true"></span>
-        <span data-i18n="expert">Expert details</span>
-      </label>
-      <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
-    </div>
+    <nav class="tabs" aria-label="Views">
+      <a class="tab active" href="index.html" aria-current="page"><span aria-hidden="true">🌾</span> <span data-i18n="tab.farm">Farm</span></a>
+      <a class="tab" href="policy.html"><span aria-hidden="true">🏛</span> <span data-i18n="tab.policy">Policy</span></a>
+    </nav>
   </header>
 
-  <section class="intro" aria-labelledby="intro-title">
-    <div class="intro-what">
-      <h2 id="intro-title" data-i18n="intro.title">What is SowSmart?</h2>
-      <p data-i18n="intro.what">A free tool for Tamil Nadu that checks crop choices against past seasons of NASA satellite and weather data, so you can see which crops held up when the monsoon let farmers down.</p>
-    </div>
-    <div class="intro-who">
-      <div>
-        <h3 data-i18n="intro.farm.h">👩‍🌾 For farmers</h3>
-        <p data-i18n="intro.farm">Pick your place and what you grow below. You will see three crop plans side by side, how your climate has changed, and whether to sow now or wait.</p>
-      </div>
-      <div>
-        <h3 data-i18n="intro.policy.h">🏛 For policy makers</h3>
-        <p><span data-i18n="intro.policy">See where farming is most exposed to climate change and how much water a crop switch would save.</span>
-          <a href="policy.html" data-i18n="intro.policy.link">Open the Policy view →</a>
-          <a href="explore.html" data-i18n="intro.map.link">See the Crop map →</a></p>
-      </div>
-    </div>
+  <section class="intro intro-short" aria-labelledby="intro-title">
+    <h2 id="intro-title" class="sr" data-i18n="intro.title">What is SowSmart?</h2>
+    <p data-i18n="intro.what">A free tool for Tamil Nadu that checks crop choices against past seasons of NASA satellite and weather data, so you can see which crops held up when the monsoon let farmers down.</p>
     <p class="note intro-note" data-i18n="intro.note">It supports your own judgement and your agriculture officer's advice. It does not replace them.</p>
   </section>
 
   <p id="error" class="error" role="alert" hidden></p>
 
-  <main class="layout">
-    <aside class="inputs" aria-label="Your farm">
-      <section class="step">
-        <h2><span class="n">1</span> <span data-i18n="step.place">Your place</span></h2>
-        <label class="sr" for="site-select" data-i18n="step.place.select">Choose a place</label>
-        <select id="site-select" class="big-select"></select>
-        <div id="map" class="map" data-i18n-aria="map.aria" aria-label="Map of the demo sites. Click a dot to choose it."></div>
-      </section>
+  <!-- where is your farm? Always visible; the page opens with an example place so it works right away -->
+  <section id="place-bar" class="panel place-bar" aria-labelledby="place-title">
+    <div class="place-row">
+      <h2 id="place-title"><span class="n">1</span> <span data-i18n="welcome.title">Where is your farm?</span></h2>
+      <label class="sr" for="site-select" data-i18n="step.place.select">Choose a place</label>
+      <select id="site-select" class="big-select"></select>
+      <button type="button" id="locate" class="btn-ghost" data-i18n="welcome.locate">📍 Use my location</button>
+    </div>
+    <p id="example-note" class="example-note" hidden></p>
+    <p id="locate-msg" class="note" role="status" aria-live="polite"></p>
+    <details class="fold map-fold" id="map-fold">
+      <summary data-i18n="welcome.map">🗺 Pick on a map</summary>
+      <div id="map" class="map" data-i18n-aria="map.aria" aria-label="Map of places. Click a dot to choose it."></div>
+    </details>
+  </section>
 
+  <main class="layout" id="farm-main">
+    <aside class="inputs" aria-label="Your farm">
       <section class="step">
         <h2><span class="n">2</span> <span data-i18n="step.grow">What you grow now</span></h2>
         <p class="note" data-i18n="step.grow.note">Pick each crop and the month you sow it.</p>
@@ -78,27 +67,62 @@
         <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
       </section>
 
-      <section class="step">
-        <h2><span class="n">3</span> <span data-i18n="step.prio">What matters to you</span></h2>
+      <!-- optional fine-tuning: folded so first-time users see only the 2 essential steps -->
+      <details class="step fold">
+        <summary><span class="n">3</span> <span data-i18n="step.prio">What matters to you</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
         <p class="note" data-i18n="step.prio.note">Slide each one. The options below re-rank as you go.</p>
         <div id="prios" class="prios"></div>
-      </section>
+      </details>
 
-      <section class="step">
-        <h2><span class="n">4</span> <span data-i18n="step.climate">What if the climate shifts?</span></h2>
+      <details class="step fold">
+        <summary><span class="n">4</span> <span data-i18n="step.climate">What if the climate shifts?</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
         <div id="climate" class="prios"></div>
-      </section>
+      </details>
     </aside>
 
     <div class="results">
-      <section class="panel site-panel" aria-labelledby="site-title">
+      <!-- the main answer first -->
+      <section class="panel" aria-labelledby="opts-title">
         <div class="panel-head">
           <div>
-            <p class="eyebrow" data-i18n="site.eyebrow">What NASA data says about this place</p>
-            <h2 id="site-title" data-i18n="loading">Loading…</h2>
-            <p id="site-meta" class="note"></p>
+            <p class="eyebrow" data-i18n="opts.eyebrow">Compare</p>
+            <h2 id="opts-title" data-i18n="opts.title">Three options for your field</h2>
           </div>
+          <span id="busy" class="busy" role="status" aria-live="polite"></span>
         </div>
+        <p id="summary" class="summary"></p>
+        <p id="scenario-note" class="scenario-note" hidden></p>
+        <p id="engine-note" class="engine-note" hidden></p>
+        <div id="cards" class="cards"></div>
+        <div class="result-tools">
+          <label class="switch">
+            <input type="checkbox" id="expert">
+            <span class="track" aria-hidden="true"></span>
+            <span data-i18n="expert">Expert details</span>
+          </label>
+          <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
+        </div>
+        <p class="note support" data-i18n="opts.support"></p>
+      </section>
+
+      <!-- more detail, one tap away -->
+      <p class="more-label" data-i18n="fold.more">More about your place (tap to open)</p>
+
+      <details class="panel fold sow-panel" id="sow-panel">
+        <summary>
+          <span class="fold-title"><span class="eyebrow" data-i18n="sow.eyebrow">When to sow</span>
+          <span class="fold-h" id="sow-title" data-i18n="sow.title">Sow now or wait?</span></span>
+        </summary>
+        <p class="note" data-i18n="sow.intro"></p>
+        <div id="sow-body"></div>
+      </details>
+
+      <details class="panel fold site-panel">
+        <summary>
+          <span class="fold-title"><span class="eyebrow" data-i18n="site.eyebrow">What NASA data says about this place</span>
+          <span class="fold-h" id="site-title" data-i18n="loading">Loading…</span></span>
+        </summary>
+        <p id="site-meta" class="note"></p>
         <ul id="highlights" class="highlights"></ul>
         <div class="charts">
           <figure>
@@ -118,42 +142,22 @@
             <p id="ndvi-note" class="note"></p>
           </figure>
         </div>
-      </section>
+      </details>
 
-      <section class="panel trend-panel" id="trend-panel" aria-labelledby="trend-title" hidden>
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow" data-i18n="tr.eyebrow">Climate change</p>
-            <h2 id="trend-title" data-i18n="tr.title">How has the climate here changed?</h2>
-          </div>
-        </div>
+      <details class="panel fold trend-panel" id="trend-panel" hidden>
+        <summary>
+          <span class="fold-title"><span class="eyebrow" data-i18n="tr.eyebrow">Climate change</span>
+          <span class="fold-h" id="trend-title" data-i18n="tr.title">How has the climate here changed?</span></span>
+        </summary>
         <div id="trend-body"></div>
-      </section>
+      </details>
 
-      <section class="panel" aria-labelledby="opts-title">
-        <div class="panel-head">
-          <div>
-            <p class="eyebrow" data-i18n="opts.eyebrow">Compare</p>
-            <h2 id="opts-title" data-i18n="opts.title">Three options for your field</h2>
-          </div>
-          <span id="busy" class="busy" role="status" aria-live="polite"></span>
-        </div>
-        <p id="summary" class="summary"></p>
-        <p id="scenario-note" class="scenario-note" hidden></p>
-        <p id="engine-note" class="engine-note" hidden></p>
-        <div id="cards" class="cards"></div>
-        <p class="note support" data-i18n="opts.support"></p>
-      </section>
-
-      <section class="panel sow-panel" id="sow-panel" aria-labelledby="sow-title">
-        <p class="eyebrow" data-i18n="sow.eyebrow">When to sow</p>
-        <h2 id="sow-title" data-i18n="sow.title">Sow now or wait?</h2>
-        <p class="note" data-i18n="sow.intro"></p>
-        <div id="sow-body"></div>
-      </section>
-
-      <section class="panel about" aria-labelledby="gloss-title">
-        <h2 id="gloss-title" data-i18n="gloss.title">Words used here</h2>
+      <details class="panel fold about">
+        <summary>
+          <span class="fold-title"><span class="eyebrow" data-i18n="fold.about.eyebrow">About this tool</span>
+          <span class="fold-h" id="gloss-title" data-i18n="fold.about">Words used here, honest limits and data sources</span></span>
+        </summary>
+        <h2 data-i18n="gloss.title">Words used here</h2>
         <dl id="glossary-list" class="glossary"></dl>
         <h2 data-i18n="limits.title">Honest limits</h2>
         <ul class="limits">
@@ -163,7 +167,7 @@
           <li data-i18n="limits.4"></li>
         </ul>
         <p class="note" id="data-sources"></p>
-      </section>
+      </details>
     </div>
   </main>
 
