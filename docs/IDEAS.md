@@ -7,6 +7,10 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
+| I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Siddarth | 💡 **medium** (priority flag is quick) |
+| I25 | Hill-region fruits (strawberry, avocado; kiwi, raspberry) for Nilgiris / Kodaikanal | Siddarth | ⏸ later: needs elevation-corrected temperature + a perennial-crop model |
+| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | 💡 **high** (quick, fits TN Millet Mission) |
 | I23 | Policy: "what if X% of farms switch" → water saved per place (overlaps I7) | Nimalan | 🔄 Lane B, Policy view page |
 | I22 | Policy: early drought warning from SMAP soil moisture / NDVI anomalies, ahead of insurance and relief decisions | Nimalan | 💡 needs near-real-time SMAP + NDVI |
 | I21 | Policy: crop-to-water mismatch (rice grown on rain only) → case for millet / pulse switching subsidies (overlaps I6) | Nimalan | 💡 needs district crop areas |
@@ -60,6 +64,47 @@ crop areas (DES Season and Crop Report), the same data I6 / I21 need.
 **Later:** I18 flood / cyclone exposure (heavy-rain days + SRTM low-lying land), I19 farm water budget
 (expected borewell pumping), I21 crop-to-water mismatch (needs district crop areas), I22 early drought
 warning (needs near-real-time SMAP / NDVI anomalies).
+
+---
+
+## Siddarth's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
+
+**I24 More millets and grains (high priority, quick).**
+- **Why:** millets are getting more popular, the state runs a Millet Mission, and 2023 was the International Year
+  of Millets. They're drought-hardy, low-input and nutritious.
+- **Today:** pearl millet, finger millet and sorghum are modelled.
+- **Add:** the five **small millets**, using seasons, durations and water needs from the TN Crop Production Guide
+  chapter `02_Small_Millets.pdf` (same source as the other crops):
+  - kodo (varagu), little (samai), foxtail (thinai), barnyard (kuthiraivali), proso (panivaragu).
+- **Engine:** no changes needed. They flow into the heatmap, top-3 and mismatch "switch to" suggestions.
+- **Check after adding:** do they diversify the top picks, or just replace cowpea everywhere? (Discrimination rule.)
+
+**I25 Hill-region fruits (later).**
+- **Where:** strawberry and avocado are already grown around Kodaikanal and the Nilgiris. Raspberry is possible
+  at altitude. Kiwi needs winter chilling and is probably marginal in Tamil Nadu (it grows in the NE Indian hills
+  and Himachal); we should say so honestly.
+- **Blockers:**
+  1. Our 0.5° grid averages hills with plains. Hill temperatures need an elevation correction (SRTM elevation,
+     ~6.5 °C cooler per km), and SRTM is in the pending AppEEARS request.
+  2. Fruits are multi-year perennials with chilling and frost needs, a different model from seasonal crops.
+- **Recommendation:** park until SRTM arrives, then a small "hill crops" add-on for the Nilgiris / Dindigul hills.
+
+**I26 Import-dependence lens (medium).**
+- **Why:** India imports a large share of its pulses and edible oils.
+- **Quick version:** tag pulses (black gram, green gram, cowpea; later red gram, Bengal gram) and oilseeds
+  (groundnut, sesame, sunflower) as "national priority / import-substituting". Add an optional priority slider
+  "Reduce import dependence" so the policy view can rank districts where these crops are climate-robust.
+- **Bigger version (later):** climate analogues. Find dryland regions abroad with similar rain and heat (e.g.
+  parts of Australia, Israel, East Africa) and check which crops they rely on that we don't model yet.
+
+**I27 Least-resource land suitability (high, mostly existing data).**
+- **Water productivity:** income or yield per mm of water. A crop that gets through most seasons on rain alone
+  ranks above one needing irrigation.
+- **Soil constraints from SoilGrids:** pH, texture and organic carbon. Flag crops that dislike heavy clay or
+  acidic/alkaline soils.
+- **Terrain:** SRTM slope when available.
+- **Output:** a per-place "least-resource crop set" view and a "land suitability by crop type" map layer
+  (cereals / pulses / oilseeds / millets), feeding the policy view.
 
 ---
 
