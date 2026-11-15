@@ -48,8 +48,19 @@
    ]
   },
   {
+   "key": "wind.cyclones_per_decade",
+   "label": "Cyclones passing within 100 km (NOAA tracks)",
+   "unit": "per decade",
+   "worse": "high",
+   "available": 47,
+   "range": [
+    0.2,
+    3.2
+   ]
+  },
+  {
    "key": "wind.storm_days_per_year",
-   "label": "Cyclone / storm days",
+   "label": "Storm days (strong wind + heavy rain)",
    "unit": "per year",
    "worse": "high",
    "available": 47,
@@ -74,16 +85,22 @@
    "label": "Extra very hot days by 2041-60 (SSP2-4.5)",
    "unit": "per year",
    "worse": "high",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    0.0,
+    21.0
+   ]
   },
   {
    "key": "future.ssp245.ne_rain_change_pct",
    "label": "NE-monsoon change by 2041-60 (SSP2-4.5)",
    "unit": "%",
    "worse": "low",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    -10.4,
+    10.2
+   ]
   },
   {
    "key": "engine.tank.rice_long.share",
@@ -101,14 +118,18 @@
    "label": "Rain-fed long rice by 2041-60 (seasons of 24)",
    "unit": "of 24",
    "worse": "low",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    0,
+    9
+   ]
   }
  ],
  "points": [
   {
    "id": "g0825_7775",
    "name": "near Nagercoil (Kanyakumari) (38 km)",
+   "name_ta": "நாகர்கோவில் (கன்னியாகுமரி) அருகில் (38 கி.மீ.)",
    "lat": 8.25,
    "lon": 77.75,
    "district": {
@@ -139,9 +160,40 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12",
+     "Ockhi 2017-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.93,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -10.9,
+      25.4
+     ],
+     "rain_change_pct": 9.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.23,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 20.5,
+     "ne_rain_change_range": [
+      -8.6,
+      32.0
+     ],
+     "rain_change_pct": 11.6
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -253,7 +305,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 17,
+        "median": 18,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 18,
+        "median": 18,
+        "max": 18
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -368,13 +454,48 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 11,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0875_7725",
    "name": "near Tenkasi (24 km)",
+   "name_ta": "தென்காசி அருகில் (24 கி.மீ.)",
    "lat": 8.75,
    "lon": 77.25,
    "district": {
@@ -405,9 +526,39 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 1.9,
+     "ne_rain_change_range": [
+      -0.4,
+      35.9
+     ],
+     "rain_change_pct": 11.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.27,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 26.1,
+     "ne_rain_change_range": [
+      0.8,
+      35.8
+     ],
+     "rain_change_pct": 14.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -490,7 +641,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 8
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -573,13 +758,48 @@
        "rice_short"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0875_7775",
    "name": "near Tirunelveli (5 km)",
+   "name_ta": "திருநெல்வேலி அருகில் (5 கி.மீ.)",
    "lat": 8.75,
    "lon": 77.75,
    "district": {
@@ -610,9 +830,39 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.94,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 0.5,
+     "ne_rain_change_range": [
+      -4.2,
+      37.0
+     ],
+     "rain_change_pct": 5.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.23,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 26.9,
+     "ne_rain_change_range": [
+      -1.7,
+      33.9
+     ],
+     "rain_change_pct": 13.6
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -696,7 +946,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 3
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -778,13 +1062,48 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 13,
+        "median": 14,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0925_7725",
    "name": "near Tenkasi (33 km)",
+   "name_ta": "தென்காசி அருகில் (33 கி.மீ.)",
    "lat": 9.25,
    "lon": 77.25,
    "district": {
@@ -815,9 +1134,38 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Unnamed 1992-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.99,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": -1.6,
+     "ne_rain_change_range": [
+      -6.2,
+      25.7
+     ],
+     "rain_change_pct": 9.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.3,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 25.5,
+     "ne_rain_change_range": [
+      0.1,
+      30.6
+     ],
+     "rain_change_pct": 11.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -894,7 +1242,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -976,13 +1358,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 17,
+        "median": 22,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "sugarcane",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 14,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 17,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0925_7775",
    "name": "near Virudhunagar (43 km)",
+   "name_ta": "விருதுநகர் அருகில் (43 கி.மீ.)",
    "lat": 9.25,
    "lon": 77.75,
    "district": {
@@ -1013,9 +1430,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 0.7,
+     "ne_rain_change_pct": -0.6,
+     "ne_rain_change_range": [
+      -5.4,
+      32.8
+     ],
+     "rain_change_pct": 5.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 1.2,
+     "ne_rain_change_pct": 26.3,
+     "ne_rain_change_range": [
+      -3.3,
+      37.2
+     ],
+     "rain_change_pct": 12.5
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1090,7 +1537,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1173,13 +1654,48 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 11,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 15,
+        "median": 18,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0925_7825",
    "name": "near Virudhunagar (48 km)",
+   "name_ta": "விருதுநகர் அருகில் (48 கி.மீ.)",
    "lat": 9.25,
    "lon": 78.25,
    "district": {
@@ -1210,9 +1726,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 0.4,
+     "ne_rain_change_pct": 0.0,
+     "ne_rain_change_range": [
+      -8.8,
+      34.8
+     ],
+     "rain_change_pct": -0.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.16,
+     "hot_days_change": 1.2,
+     "ne_rain_change_pct": 23.6,
+     "ne_rain_change_range": [
+      -3.9,
+      40.9
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1294,7 +1840,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1376,13 +1956,48 @@
        "sesame"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 13,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0925_7875",
    "name": "near Ramanathapuram (16 km)",
+   "name_ta": "இராமநாதபுரம் அருகில் (16 கி.மீ.)",
    "lat": 9.25,
    "lon": 78.75,
    "district": {
@@ -1413,9 +2028,39 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-12",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": -3.6,
+     "ne_rain_change_range": [
+      -11.2,
+      31.5
+     ],
+     "rain_change_pct": -3.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 1.3,
+     "ne_rain_change_pct": 19.5,
+     "ne_rain_change_range": [
+      -3.6,
+      35.7
+     ],
+     "rain_change_pct": 14.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1505,7 +2150,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1606,13 +2285,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 14,
+        "median": 16,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0925_7925",
    "name": "near Ramanathapuram (48 km)",
+   "name_ta": "இராமநாதபுரம் அருகில் (48 கி.மீ.)",
    "lat": 9.25,
    "lon": 79.25,
    "district": {
@@ -1643,11 +2357,41 @@
    "wind": {
     "storm_days_per_year": 0.46,
     "years_with_storm_day": 10,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Burevi 2020-12"
+    ],
     "storm_months": [
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.8,
+     "hot_days_change": 0.8,
+     "ne_rain_change_pct": -10.4,
+     "ne_rain_change_range": [
+      -12.5,
+      28.5
+     ],
+     "rain_change_pct": -2.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.08,
+     "hot_days_change": 3.0,
+     "ne_rain_change_pct": 15.5,
+     "ne_rain_change_range": [
+      -6.5,
+      33.2
+     ],
+     "rain_change_pct": 16.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1753,7 +2497,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 3,
+        "median": 4,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 4,
+        "median": 12,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "proso_millet",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1862,13 +2640,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 24
+       }
+      },
+      "top_crop": {
+       "crop": "rice_long",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0975_7725",
    "name": "near Theni (38 km)",
+   "name_ta": "தேனி அருகில் (38 கி.மீ.)",
    "lat": 9.75,
    "lon": 77.25,
    "district": {
@@ -1899,9 +2712,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.98,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": -3.3,
+     "ne_rain_change_range": [
+      -19.7,
+      20.3
+     ],
+     "rain_change_pct": 7.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.31,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 24.0,
+     "ne_rain_change_range": [
+      -17.3,
+      27.2
+     ],
+     "rain_change_pct": 10.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1981,7 +2824,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 2,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2068,13 +2945,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 13,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "groundnut",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0975_7775",
    "name": "near Virudhunagar (30 km)",
+   "name_ta": "விருதுநகர் அருகில் (30 கி.மீ.)",
    "lat": 9.75,
    "lon": 77.75,
    "district": {
@@ -2105,9 +3017,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 1.1,
+     "ne_rain_change_pct": -6.2,
+     "ne_rain_change_range": [
+      -16.0,
+      27.4
+     ],
+     "rain_change_pct": 5.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 3.2,
+     "ne_rain_change_pct": 24.0,
+     "ne_rain_change_range": [
+      -9.6,
+      35.7
+     ],
+     "rain_change_pct": 16.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2191,7 +3133,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2277,13 +3253,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 9,
+        "n": 24,
+        "min": 4,
+        "median": 10,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 9,
+        "n": 24,
+        "min": 8,
+        "median": 19,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0975_7825",
    "name": "near Madurai (25 km)",
+   "name_ta": "மதுரை அருகில் (25 கி.மீ.)",
    "lat": 9.75,
    "lon": 78.25,
    "district": {
@@ -2314,9 +3325,38 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 3.8,
+     "ne_rain_change_pct": 0.3,
+     "ne_rain_change_range": [
+      -10.1,
+      32.4
+     ],
+     "rain_change_pct": 1.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.16,
+     "hot_days_change": 8.7,
+     "ne_rain_change_pct": 21.5,
+     "ne_rain_change_range": [
+      -4.7,
+      42.2
+     ],
+     "rain_change_pct": 19.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2395,7 +3435,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2478,13 +3552,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 11,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 11,
+        "median": 16,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g0975_7875",
    "name": "near Sivaganga (32 km)",
+   "name_ta": "சிவகங்கை அருகில் (32 கி.மீ.)",
    "lat": 9.75,
    "lon": 78.75,
    "district": {
@@ -2515,9 +3624,40 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 4.9,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -13.2,
+      31.1
+     ],
+     "rain_change_pct": 5.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 9.2,
+     "ne_rain_change_pct": 22.1,
+     "ne_rain_change_range": [
+      -4.7,
+      40.7
+     ],
+     "rain_change_pct": 22.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2603,7 +3743,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 3,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2694,13 +3868,48 @@
        "sorghum"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1025_7725",
    "name": "near Theni (37 km)",
+   "name_ta": "தேனி அருகில் (37 கி.மீ.)",
    "lat": 10.25,
    "lon": 77.25,
    "district": {
@@ -2731,9 +3940,40 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.93,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": -4.0,
+     "ne_rain_change_range": [
+      -12.6,
+      23.3
+     ],
+     "rain_change_pct": 7.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.29,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 23.8,
+     "ne_rain_change_range": [
+      -12.0,
+      31.7
+     ],
+     "rain_change_pct": 12.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2817,7 +4057,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 4,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2903,13 +4177,48 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 15,
+        "n": 24,
+        "min": 9,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 15,
+        "n": 24,
+        "min": 7,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1025_7775",
    "name": "near Dindigul (28 km)",
+   "name_ta": "திண்டுக்கல் அருகில் (28 கி.மீ.)",
    "lat": 10.25,
    "lon": 77.75,
    "district": {
@@ -2940,9 +4249,38 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.95,
+     "hot_days_change": 0.7,
+     "ne_rain_change_pct": -8.1,
+     "ne_rain_change_range": [
+      -12.9,
+      25.0
+     ],
+     "rain_change_pct": 5.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.22,
+     "hot_days_change": 2.6,
+     "ne_rain_change_pct": 23.2,
+     "ne_rain_change_range": [
+      -6.6,
+      33.5
+     ],
+     "rain_change_pct": 16.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3026,7 +4364,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3111,13 +4483,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 9,
+        "n": 24,
+        "min": 4,
+        "median": 8,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 9,
+        "n": 24,
+        "min": 5,
+        "median": 15,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1025_7825",
    "name": "near Dindigul (32 km)",
+   "name_ta": "திண்டுக்கல் அருகில் (32 கி.மீ.)",
    "lat": 10.25,
    "lon": 78.25,
    "district": {
@@ -3148,9 +4555,39 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 4.0,
+     "ne_rain_change_pct": 4.6,
+     "ne_rain_change_range": [
+      -11.6,
+      26.0
+     ],
+     "rain_change_pct": 4.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 9.1,
+     "ne_rain_change_pct": 20.4,
+     "ne_rain_change_range": [
+      -4.8,
+      36.6
+     ],
+     "rain_change_pct": 18.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3232,7 +4669,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 3
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3318,13 +4789,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 10,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 13,
+        "median": 17,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1025_7875",
    "name": "near Pudukkottai (16 km)",
+   "name_ta": "புதுக்கோட்டை அருகில் (16 கி.மீ.)",
    "lat": 10.25,
    "lon": 78.75,
    "district": {
@@ -3355,9 +4861,39 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 3,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 11.3,
+     "ne_rain_change_pct": 5.6,
+     "ne_rain_change_range": [
+      -14.9,
+      24.8
+     ],
+     "rain_change_pct": 6.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 15.4,
+     "ne_rain_change_pct": 25.9,
+     "ne_rain_change_range": [
+      -5.5,
+      38.3
+     ],
+     "rain_change_pct": 19.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3443,7 +4979,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3535,13 +5105,48 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 10,
+        "median": 18,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 13,
+        "median": 19,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1025_7925",
    "name": "near Pudukkottai (49 km)",
+   "name_ta": "புதுக்கோட்டை அருகில் (49 கி.மீ.)",
    "lat": 10.25,
    "lon": 79.25,
    "district": {
@@ -3572,9 +5177,40 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 13.4,
+     "ne_rain_change_pct": -1.6,
+     "ne_rain_change_range": [
+      -15.5,
+      24.1
+     ],
+     "rain_change_pct": 3.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.14,
+     "hot_days_change": 20.6,
+     "ne_rain_change_pct": 14.7,
+     "ne_rain_change_range": [
+      -4.9,
+      30.7
+     ],
+     "rain_change_pct": 17.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3670,7 +5306,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 9,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3770,13 +5440,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 15,
+        "median": 17,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 17,
+        "median": 22,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7725",
    "name": "near Tiruppur (41 km)",
+   "name_ta": "திருப்பூர் அருகில் (41 கி.மீ.)",
    "lat": 10.75,
    "lon": 77.25,
    "district": {
@@ -3807,9 +5512,40 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 15.2,
+     "ne_rain_change_pct": 2.4,
+     "ne_rain_change_range": [
+      -8.5,
+      32.0
+     ],
+     "rain_change_pct": 6.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.28,
+     "hot_days_change": 19.8,
+     "ne_rain_change_pct": 22.9,
+     "ne_rain_change_range": [
+      0.9,
+      36.5
+     ],
+     "rain_change_pct": 13.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3894,7 +5630,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3977,13 +5747,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 6,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 6,
+        "n": 24,
+        "min": 5,
+        "median": 14,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7775",
    "name": "near Karur (43 km)",
+   "name_ta": "கரூர் அருகில் (43 கி.மீ.)",
    "lat": 10.75,
    "lon": 77.75,
    "district": {
@@ -4014,9 +5819,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 15.1,
+     "ne_rain_change_pct": -2.1,
+     "ne_rain_change_range": [
+      -10.3,
+      27.9
+     ],
+     "rain_change_pct": 6.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.21,
+     "hot_days_change": 19.9,
+     "ne_rain_change_pct": 21.8,
+     "ne_rain_change_range": [
+      -2.4,
+      36.3
+     ],
+     "rain_change_pct": 17.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4100,7 +5935,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4183,13 +6052,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 5,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 14,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7825",
    "name": "near Karur (30 km)",
+   "name_ta": "கரூர் அருகில் (30 கி.மீ.)",
    "lat": 10.75,
    "lon": 78.25,
    "district": {
@@ -4220,9 +6124,39 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 16.6,
+     "ne_rain_change_pct": 10.2,
+     "ne_rain_change_range": [
+      -12.7,
+      22.2
+     ],
+     "rain_change_pct": 6.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.2,
+     "hot_days_change": 20.4,
+     "ne_rain_change_pct": 19.4,
+     "ne_rain_change_range": [
+      -4.6,
+      35.9
+     ],
+     "rain_change_pct": 15.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4309,7 +6243,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4395,13 +6363,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 8,
+        "n": 24,
+        "min": 6,
+        "median": 8,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 8,
+        "n": 24,
+        "min": 8,
+        "median": 15,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7875",
    "name": "near Tiruchirappalli (9 km)",
+   "name_ta": "திருச்சிராப்பள்ளி அருகில் (9 கி.மீ.)",
    "lat": 10.75,
    "lon": 78.75,
    "district": {
@@ -4432,9 +6435,41 @@
    "wind": {
     "storm_days_per_year": 0.12,
     "years_with_storm_day": 2,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.9,
+     "ne_rain_change_pct": 7.8,
+     "ne_rain_change_range": [
+      -15.2,
+      20.0
+     ],
+     "rain_change_pct": 7.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 23.2,
+     "ne_rain_change_pct": 24.7,
+     "ne_rain_change_range": [
+      -5.7,
+      35.4
+     ],
+     "rain_change_pct": 19.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4516,7 +6551,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4602,13 +6671,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 10,
+        "n": 24,
+        "min": 8,
+        "median": 14,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 10,
+        "n": 24,
+        "min": 13,
+        "median": 18,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7925",
    "name": "near Thanjavur (13 km)",
+   "name_ta": "தஞ்சாவூர் அருகில் (13 கி.மீ.)",
    "lat": 10.75,
    "lon": 79.25,
    "district": {
@@ -4639,9 +6743,41 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 5,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 18.2,
+     "ne_rain_change_pct": -2.6,
+     "ne_rain_change_range": [
+      -16.0,
+      25.7
+     ],
+     "rain_change_pct": 2.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 28.1,
+     "ne_rain_change_pct": 17.6,
+     "ne_rain_change_range": [
+      -5.2,
+      35.1
+     ],
+     "rain_change_pct": 16.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4707,7 +6843,14 @@
       "cowpea"
      ],
      "wind_most_exposed": [
-      "banana"
+      "banana",
+      "sugarcane",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "proso_millet",
+      "barnyard_millet",
+      "sorghum"
      ],
      "drought_2016": {
       "came_through": [],
@@ -4731,7 +6874,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 7,
+        "max": 10
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4804,7 +6981,15 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "rice_long",
+      "banana",
+      "finger_millet",
+      "proso_millet",
+      "barnyard_millet",
+      "sorghum"
+     ],
      "drought_2016": {
       "came_through": [
        "green_gram",
@@ -4828,13 +7013,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1075_7975",
    "name": "near Nagapattinam (10 km)",
+   "name_ta": "நாகப்பட்டினம் அருகில் (10 கி.மீ.)",
    "lat": 10.75,
    "lon": 79.75,
    "district": {
@@ -4865,11 +7085,43 @@
    "wind": {
     "storm_days_per_year": 0.42,
     "years_with_storm_day": 9,
+    "cyclones_per_decade": 2.0,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nada 2016-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.92,
+     "hot_days_change": 17.5,
+     "ne_rain_change_pct": -9.3,
+     "ne_rain_change_range": [
+      -15.9,
+      24.8
+     ],
+     "rain_change_pct": -2.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 28.3,
+     "ne_rain_change_pct": 8.7,
+     "ne_rain_change_range": [
+      -3.4,
+      28.5
+     ],
+     "rain_change_pct": 13.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5000,7 +7252,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 7,
+        "median": 11,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5137,13 +7423,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "rice_long",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7675",
    "name": "near Udhagamandalam (Nilgiris) (19 km)",
+   "name_ta": "உதகமண்டலம் (நீலகிரி) அருகில் (19 கி.மீ.)",
    "lat": 11.25,
    "lon": 76.75,
    "district": {
@@ -5174,9 +7495,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": 0.7,
+     "ne_rain_change_range": [
+      -11.4,
+      20.2
+     ],
+     "rain_change_pct": 10.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.34,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": 20.1,
+     "ne_rain_change_range": [
+      5.3,
+      38.3
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5263,7 +7614,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 4,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5349,13 +7734,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 10,
+        "n": 24,
+        "min": 8,
+        "median": 13,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 10,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7725",
    "name": "near Tiruppur (18 km)",
+   "name_ta": "திருப்பூர் அருகில் (18 கி.மீ.)",
    "lat": 11.25,
    "lon": 77.25,
    "district": {
@@ -5386,9 +7806,40 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 19.1,
+     "ne_rain_change_pct": 3.6,
+     "ne_rain_change_range": [
+      -13.3,
+      28.0
+     ],
+     "rain_change_pct": 4.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.26,
+     "hot_days_change": 24.8,
+     "ne_rain_change_pct": 20.6,
+     "ne_rain_change_range": [
+      1.2,
+      36.9
+     ],
+     "rain_change_pct": 13.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5473,7 +7924,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5553,13 +8038,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 14,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7775",
    "name": "near Erode (11 km)",
+   "name_ta": "ஈரோடு அருகில் (11 கி.மீ.)",
    "lat": 11.25,
    "lon": 77.75,
    "district": {
@@ -5590,9 +8110,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1984-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 19.7,
+     "ne_rain_change_pct": 7.5,
+     "ne_rain_change_range": [
+      -13.8,
+      24.1
+     ],
+     "rain_change_pct": 3.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 28.2,
+     "ne_rain_change_pct": 19.0,
+     "ne_rain_change_range": [
+      -2.1,
+      34.0
+     ],
+     "rain_change_pct": 15.3
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5673,7 +8225,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5753,13 +8339,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7825",
    "name": "near Namakkal (9 km)",
+   "name_ta": "நாமக்கல் அருகில் (9 கி.மீ.)",
    "lat": 11.25,
    "lon": 78.25,
    "district": {
@@ -5790,9 +8411,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 18.7,
+     "ne_rain_change_pct": 7.4,
+     "ne_rain_change_range": [
+      -14.9,
+      19.4
+     ],
+     "rain_change_pct": 4.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 22.2,
+     "ne_rain_change_pct": 24.4,
+     "ne_rain_change_range": [
+      -4.1,
+      32.7
+     ],
+     "rain_change_pct": 18.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5852,7 +8505,11 @@
      "decade_dependent": [
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -5876,7 +8533,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5935,7 +8626,12 @@
       "rice_long",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "maize",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -5959,13 +8655,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 8,
+        "n": 24,
+        "min": 4,
+        "median": 9,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 8,
+        "n": 24,
+        "min": 9,
+        "median": 13,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7875",
    "name": "near Perambalur (14 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (14 கி.மீ.)",
    "lat": 11.25,
    "lon": 78.75,
    "district": {
@@ -5996,9 +8727,41 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.2,
+     "ne_rain_change_pct": 3.7,
+     "ne_rain_change_range": [
+      -15.6,
+      21.0
+     ],
+     "rain_change_pct": 3.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 22.2,
+     "ne_rain_change_pct": 21.5,
+     "ne_rain_change_range": [
+      -5.0,
+      37.9
+     ],
+     "rain_change_pct": 17.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6058,7 +8821,13 @@
       "groundnut"
      ],
      "wind_most_exposed": [
-      "banana"
+      "banana",
+      "sugarcane",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -6083,7 +8852,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 5,
+        "max": 8
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 15,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6145,7 +8948,12 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -6170,13 +8978,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 7,
+        "median": 13,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 14,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 15,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7925",
    "name": "near Perambalur (40 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (40 கி.மீ.)",
    "lat": 11.25,
    "lon": 79.25,
    "district": {
@@ -6207,11 +9050,43 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 5,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 17.8,
+     "ne_rain_change_pct": -4.0,
+     "ne_rain_change_range": [
+      -15.7,
+      23.5
+     ],
+     "rain_change_pct": 0.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 29.5,
+     "ne_rain_change_pct": 16.3,
+     "ne_rain_change_range": [
+      -3.9,
+      35.7
+     ],
+     "rain_change_pct": 17.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6285,7 +9160,15 @@
       "cotton",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -6309,7 +9192,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 0,
+        "median": 3,
+        "max": 11
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6389,7 +9306,14 @@
       "sugarcane",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "finger_millet",
+      "sorghum",
+      "cotton"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -6413,13 +9337,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 10,
+        "median": 16,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1125_7975",
    "name": "near Nagapattinam (54 km)",
+   "name_ta": "நாகப்பட்டினம் அருகில் (54 கி.மீ.)",
    "lat": 11.25,
    "lon": 79.75,
    "district": {
@@ -6450,11 +9409,43 @@
    "wind": {
     "storm_days_per_year": 0.58,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 2.0,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.92,
+     "hot_days_change": 20.1,
+     "ne_rain_change_pct": -9.2,
+     "ne_rain_change_range": [
+      -15.2,
+      22.8
+     ],
+     "rain_change_pct": -1.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.12,
+     "hot_days_change": 29.8,
+     "ne_rain_change_pct": 12.8,
+     "ne_rain_change_range": [
+      -1.6,
+      29.5
+     ],
+     "rain_change_pct": 13.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6559,7 +9550,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 4,
+        "median": 6,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 8,
+        "median": 15,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6665,13 +9690,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 17,
+        "median": 17,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 23,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "black_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7675",
    "name": "near Udhagamandalam (Nilgiris) (38 km)",
+   "name_ta": "உதகமண்டலம் (நீலகிரி) அருகில் (38 கி.மீ.)",
    "lat": 11.75,
    "lon": 76.75,
    "district": {
@@ -6702,9 +9762,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 1.7,
+     "ne_rain_change_pct": 5.8,
+     "ne_rain_change_range": [
+      -13.7,
+      25.9
+     ],
+     "rain_change_pct": 11.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.32,
+     "hot_days_change": 2.1,
+     "ne_rain_change_pct": 18.4,
+     "ne_rain_change_range": [
+      6.7,
+      37.9
+     ],
+     "rain_change_pct": 16.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6790,7 +9880,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6877,13 +10001,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 7
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7725",
    "name": "near Erode (68 km)",
+   "name_ta": "ஈரோடு அருகில் (68 கி.மீ.)",
    "lat": 11.75,
    "lon": 77.25,
    "district": {
@@ -6914,9 +10073,39 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 3.1,
+     "ne_rain_change_pct": 7.1,
+     "ne_rain_change_range": [
+      -16.9,
+      22.4
+     ],
+     "rain_change_pct": 5.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 8.0,
+     "ne_rain_change_pct": 20.1,
+     "ne_rain_change_range": [
+      2.1,
+      40.9
+     ],
+     "rain_change_pct": 16.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6998,7 +10187,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7082,13 +10305,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 6,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 7,
+        "median": 9,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7775",
    "name": "near Salem (45 km)",
+   "name_ta": "சேலம் அருகில் (45 கி.மீ.)",
    "lat": 11.75,
    "lon": 77.75,
    "district": {
@@ -7119,9 +10377,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.84,
+     "hot_days_change": 19.9,
+     "ne_rain_change_pct": 8.7,
+     "ne_rain_change_range": [
+      -17.0,
+      20.8
+     ],
+     "rain_change_pct": 6.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 25.5,
+     "ne_rain_change_pct": 22.4,
+     "ne_rain_change_range": [
+      -1.4,
+      34.0
+     ],
+     "rain_change_pct": 14.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7181,7 +10471,11 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7206,7 +10500,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7262,7 +10590,11 @@
      "decade_dependent": [
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7287,13 +10619,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 6
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 4,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7825",
    "name": "near Salem (15 km)",
+   "name_ta": "சேலம் அருகில் (15 கி.மீ.)",
    "lat": 11.75,
    "lon": 78.25,
    "district": {
@@ -7324,9 +10691,41 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 17.4,
+     "ne_rain_change_pct": 4.3,
+     "ne_rain_change_range": [
+      -16.9,
+      18.9
+     ],
+     "rain_change_pct": 9.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 20.3,
+     "ne_rain_change_pct": 21.3,
+     "ne_rain_change_range": [
+      -3.4,
+      32.0
+     ],
+     "rain_change_pct": 17.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7380,7 +10779,11 @@
       "groundnut",
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7404,7 +10807,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7461,7 +10898,11 @@
       "maize",
       "sugarcane"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7485,13 +10926,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 7,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 9,
+        "median": 15,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7875",
    "name": "near Perambalur (59 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (59 கி.மீ.)",
    "lat": 11.75,
    "lon": 78.75,
    "district": {
@@ -7522,9 +10998,41 @@
    "wind": {
     "storm_days_per_year": 0.08,
     "years_with_storm_day": 2,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 14.5,
+     "ne_rain_change_pct": -0.3,
+     "ne_rain_change_range": [
+      -16.2,
+      19.9
+     ],
+     "rain_change_pct": 4.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 15.8,
+     "ne_rain_change_pct": 18.7,
+     "ne_rain_change_range": [
+      -4.2,
+      40.0
+     ],
+     "rain_change_pct": 18.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7586,7 +11094,11 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "banana",
+      "rice_long",
+      "sugarcane"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7610,7 +11122,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 6
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 5,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 20,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7677,7 +11223,11 @@
       "cotton",
       "sugarcane"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -7701,13 +11251,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 14,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 15,
+        "median": 17,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 20,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1175_7925",
    "name": "near Villupuram (34 km)",
+   "name_ta": "விழுப்புரம் அருகில் (34 கி.மீ.)",
    "lat": 11.75,
    "lon": 79.25,
    "district": {
@@ -7738,11 +11323,43 @@
    "wind": {
     "storm_days_per_year": 0.29,
     "years_with_storm_day": 6,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 19.3,
+     "ne_rain_change_pct": -5.6,
+     "ne_rain_change_range": [
+      -15.4,
+      22.0
+     ],
+     "rain_change_pct": -0.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.13,
+     "hot_days_change": 30.1,
+     "ne_rain_change_pct": 15.0,
+     "ne_rain_change_range": [
+      -2.5,
+      37.5
+     ],
+     "rain_change_pct": 17.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7816,7 +11433,10 @@
       "cowpea"
      ],
      "wind_most_exposed": [
-      "rice_long"
+      "rice_long",
+      "banana",
+      "maize",
+      "sugarcane"
      ],
      "drought_2016": {
       "came_through": [
@@ -7841,7 +11461,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 3,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 3,
+        "median": 8,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7917,7 +11571,12 @@
       "cotton",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "maize"
+     ],
      "drought_2016": {
       "came_through": [
        "green_gram",
@@ -7941,13 +11600,48 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 10,
+        "median": 16,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 18,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1225_7775",
    "name": "near Dharmapuri (46 km)",
+   "name_ta": "தருமபுரி அருகில் (46 கி.மீ.)",
    "lat": 12.25,
    "lon": 77.75,
    "district": {
@@ -7978,9 +11672,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.0,
+     "ne_rain_change_pct": 6.5,
+     "ne_rain_change_range": [
+      -15.7,
+      23.9
+     ],
+     "rain_change_pct": 10.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.2,
+     "hot_days_change": 19.3,
+     "ne_rain_change_pct": 21.9,
+     "ne_rain_change_range": [
+      -0.5,
+      39.2
+     ],
+     "rain_change_pct": 17.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8069,7 +11795,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 14,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8148,13 +11908,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 4,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 7,
+        "median": 8,
+        "max": 11
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 18,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1225_7825",
    "name": "near Dharmapuri (17 km)",
+   "name_ta": "தருமபுரி அருகில் (17 கி.மீ.)",
    "lat": 12.25,
    "lon": 78.25,
    "district": {
@@ -8185,9 +11980,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Vardah 2016-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 17.4,
+     "ne_rain_change_pct": 1.3,
+     "ne_rain_change_range": [
+      -16.7,
+      16.8
+     ],
+     "rain_change_pct": 9.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 20.5,
+     "ne_rain_change_pct": 20.3,
+     "ne_rain_change_range": [
+      -2.5,
+      38.0
+     ],
+     "rain_change_pct": 19.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8250,7 +12077,8 @@
      ],
      "wind_most_exposed": [
       "banana",
-      "sugarcane"
+      "sugarcane",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -8276,7 +12104,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8335,7 +12197,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -8361,13 +12224,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 2,
+        "median": 4,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1225_7875",
    "name": "near Tiruvannamalai (35 km)",
+   "name_ta": "திருவண்ணாமலை அருகில் (35 கி.மீ.)",
    "lat": 12.25,
    "lon": 78.75,
    "district": {
@@ -8398,11 +12296,43 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 14.4,
+     "ne_rain_change_pct": -1.9,
+     "ne_rain_change_range": [
+      -14.9,
+      19.8
+     ],
+     "rain_change_pct": 5.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 15.4,
+     "ne_rain_change_pct": 20.5,
+     "ne_rain_change_range": [
+      -3.0,
+      44.0
+     ],
+     "rain_change_pct": 19.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8463,7 +12393,8 @@
      ],
      "wind_most_exposed": [
       "banana",
-      "sugarcane"
+      "sugarcane",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -8488,7 +12419,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8551,7 +12516,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -8576,13 +12542,48 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 11,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 14,
+        "median": 16,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1225_7925",
    "name": "near Tiruvannamalai (20 km)",
+   "name_ta": "திருவண்ணாமலை அருகில் (20 கி.மீ.)",
    "lat": 12.25,
    "lon": 79.25,
    "district": {
@@ -8613,11 +12614,43 @@
    "wind": {
     "storm_days_per_year": 0.42,
     "years_with_storm_day": 7,
+    "cyclones_per_decade": 2.5,
+    "cyclones_recent": [
+     "Nilam 2012-10",
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 18.3,
+     "ne_rain_change_pct": -5.6,
+     "ne_rain_change_range": [
+      -13.9,
+      25.5
+     ],
+     "rain_change_pct": 1.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.13,
+     "hot_days_change": 24.1,
+     "ne_rain_change_pct": 17.8,
+     "ne_rain_change_range": [
+      -0.3,
+      45.6
+     ],
+     "rain_change_pct": 18.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8690,7 +12723,8 @@
       "pearl_millet",
       "finger_millet",
       "sorghum",
-      "maize"
+      "maize",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -8715,7 +12749,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 8,
+        "max": 14
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8796,7 +12864,8 @@
       "pearl_millet",
       "finger_millet",
       "sorghum",
-      "maize"
+      "maize",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -8821,13 +12890,48 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 10,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 14,
+        "median": 19,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 20
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1225_7975",
    "name": "near Villupuram (44 km)",
+   "name_ta": "விழுப்புரம் அருகில் (44 கி.மீ.)",
    "lat": 12.25,
    "lon": 79.75,
    "district": {
@@ -8858,12 +12962,44 @@
    "wind": {
     "storm_days_per_year": 0.75,
     "years_with_storm_day": 13,
+    "cyclones_per_decade": 3.2,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11,
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 20.6,
+     "ne_rain_change_pct": -6.5,
+     "ne_rain_change_range": [
+      -13.2,
+      25.8
+     ],
+     "rain_change_pct": 0.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.09,
+     "hot_days_change": 28.6,
+     "ne_rain_change_pct": 13.7,
+     "ne_rain_change_range": [
+      3.6,
+      41.0
+     ],
+     "rain_change_pct": 14.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8962,7 +13098,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 8,
+        "median": 11,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9062,13 +13232,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 13,
+        "median": 18,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1275_7825",
    "name": "near Krishnagiri (26 km)",
+   "name_ta": "கிருஷ்ணகிரி அருகில் (26 கி.மீ.)",
    "lat": 12.75,
    "lon": 78.25,
    "district": {
@@ -9099,9 +13304,41 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12"
+    ],
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 15.3,
+     "ne_rain_change_pct": -0.3,
+     "ne_rain_change_range": [
+      -14.7,
+      17.1
+     ],
+     "rain_change_pct": 8.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.21,
+     "hot_days_change": 17.8,
+     "ne_rain_change_pct": 21.4,
+     "ne_rain_change_range": [
+      -1.2,
+      40.2
+     ],
+     "rain_change_pct": 20.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9161,7 +13398,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -9187,7 +13425,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9273,13 +13545,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1275_7875",
    "name": "near Vellore (45 km)",
+   "name_ta": "வேலூர் அருகில் (45 கி.மீ.)",
    "lat": 12.75,
    "lon": 78.75,
    "district": {
@@ -9310,11 +13617,43 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12",
+     "Nivar 2020-11"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 14.2,
+     "ne_rain_change_pct": -2.9,
+     "ne_rain_change_range": [
+      -12.8,
+      20.7
+     ],
+     "rain_change_pct": 2.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 15.6,
+     "ne_rain_change_pct": 21.6,
+     "ne_rain_change_range": [
+      -1.4,
+      46.2
+     ],
+     "rain_change_pct": 20.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9398,7 +13737,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9484,13 +13857,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 6,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 6,
+        "n": 24,
+        "min": 10,
+        "median": 14,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1275_7925",
    "name": "near Vellore (23 km)",
+   "name_ta": "வேலூர் அருகில் (23 கி.மீ.)",
    "lat": 12.75,
    "lon": 79.25,
    "district": {
@@ -9521,11 +13929,43 @@
    "wind": {
     "storm_days_per_year": 0.33,
     "years_with_storm_day": 7,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 19.7,
+     "ne_rain_change_pct": -3.8,
+     "ne_rain_change_range": [
+      -12.0,
+      26.0
+     ],
+     "rain_change_pct": 2.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.14,
+     "hot_days_change": 25.1,
+     "ne_rain_change_pct": 20.3,
+     "ne_rain_change_range": [
+      2.2,
+      50.4
+     ],
+     "rain_change_pct": 19.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9615,7 +14055,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 7
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 7,
+        "max": 11
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9712,13 +14186,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 7,
+        "median": 9,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 12,
+        "median": 15,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1275_7975",
    "name": "near Kanchipuram (10 km)",
+   "name_ta": "காஞ்சிபுரம் அருகில் (10 கி.மீ.)",
    "lat": 12.75,
    "lon": 79.75,
    "district": {
@@ -9749,12 +14258,44 @@
    "wind": {
     "storm_days_per_year": 0.92,
     "years_with_storm_day": 13,
+    "cyclones_per_decade": 2.3,
+    "cyclones_recent": [
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11,
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 21.0,
+     "ne_rain_change_pct": -2.1,
+     "ne_rain_change_range": [
+      -11.8,
+      30.1
+     ],
+     "rain_change_pct": 1.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.09,
+     "hot_days_change": 29.2,
+     "ne_rain_change_pct": 15.6,
+     "ne_rain_change_range": [
+      7.3,
+      51.5
+     ],
+     "rain_change_pct": 14.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9850,7 +14391,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 6,
+        "median": 8,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9949,13 +14524,48 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 10,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 18,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1325_7975",
    "name": "near Tiruvallur (21 km)",
+   "name_ta": "திருவள்ளூர் அருகில் (21 கி.மீ.)",
    "lat": 13.25,
    "lon": 79.75,
    "district": {
@@ -9986,12 +14596,44 @@
    "wind": {
     "storm_days_per_year": 0.83,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 2.5,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12"
+    ],
     "storm_months": [
      11,
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 20.9,
+     "ne_rain_change_pct": 2.2,
+     "ne_rain_change_range": [
+      -9.9,
+      35.4
+     ],
+     "rain_change_pct": 4.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 30.6,
+     "ne_rain_change_pct": 14.5,
+     "ne_rain_change_range": [
+      10.3,
+      60.2
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -10079,7 +14721,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 2,
+        "n": 24,
+        "min": 2,
+        "median": 3,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 2,
+        "n": 24,
+        "min": 5,
+        "median": 6,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -10169,13 +14845,48 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
   {
    "id": "g1325_8025",
    "name": "near Chennai (19 km)",
+   "name_ta": "சென்னை அருகில் (19 கி.மீ.)",
    "lat": 13.25,
    "lon": 80.25,
    "district": {
@@ -10206,12 +14917,44 @@
    "wind": {
     "storm_days_per_year": 0.83,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 3.0,
+    "cyclones_recent": [
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12",
+     "Michaung 2023-12"
+    ],
     "storm_months": [
      11,
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 19.5,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -10.0,
+      37.4
+     ],
+     "rain_change_pct": 2.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.07,
+     "hot_days_change": 30.8,
+     "ne_rain_change_pct": 11.1,
+     "ne_rain_change_range": [
+      10.7,
+      58.9
+     ],
+     "rain_change_pct": 11.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -10311,7 +15054,41 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 11,
+        "median": 12,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -10410,7 +15187,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   }

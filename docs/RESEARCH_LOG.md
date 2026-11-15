@@ -635,6 +635,63 @@ pattern risky?"*
 - **Also rerun after the barnyard fix (I-30):** district switch targets are now cowpea 10, foxtail 7, green gram 7,
   little millet 6, pearl millet 4, kodo 2, finger millet 1.
 
+### I-33 · Grid projections complete (5 models) + the site reorganised around two audiences
+- **Grid projections (A16):**
+  - **Fetch:** the first run lost 190 of 900 files to NCCS server timeouts, so EC-Earth3 and MPI-ESM1-2-HR were
+    missing everywhere. A resumed run fetched all 190; every one of the 47 points now has all 5 models.
+  - **Results (2041–60, SSP2-4.5, model median):**
+    - Daytime highs +0.86 to +0.95 °C across the grid.
+    - Extra very hot days: up to +21 a year in the north (Kanchipuram, Tiruvallur, Villupuram), ~0 on the south
+      coast, which rarely passes 38 °C today.
+    - NE-monsoon change −6% to +7%, but **the 5 models disagree on its sign at all 47 points** (median spread
+      38 points). The honest message is "no reliable direction".
+  - **Method check:** the grid point beside Thanjavur matches the separately fetched demo site (+0.9 °C both; NE
+    rain −2.6% vs −4.9%; 18 vs 17 extra hot days).
+  - `statewide_risk.json` now has the future for all 47 points, so all 9 map layers are filled.
+- **Site organisation (user request, PR #15, Lane A draft for Lane B review):** the farm page was ~8,000 px of
+  text and charts. Nothing was removed. The changes:
+  - **Navigation:** Farm | Policy tabs; the Crop map is a Policy sub-tab.
+  - **Place choice:** the page opens with a labelled example place, with a "Where is your farm?" bar offering all
+    50 places (3 detailed + 47 grid points) and "use my location" (computed in the browser).
+  - **Order and folding:** the three plans come first; detail sections and the per-card calendar, benefits and
+    risks sit in one-tap folds.
+  - **Size:** phone height ~8,400 → ~4,600 px.
+
+### I-34 · Cowpea traits checked; Tamil names for the grid places
+- **Cowpea** is the most common rain-fed top pick (14 of 47 points) since I-30, so its traits were checked.
+  - TN CPG: seasons, 70–80 days, "sensitive to waterlogging, though less than other legumes".
+  - TNAU: water need 200–450 mm.
+  - FAO: long taproot and stomatal control give strong drought tolerance. Roots reach ~2.4 m, but most water comes
+    from the top 30 cm, so `root_depth` stays at medium (conservative).
+  - **No values changed; sources recorded.** Cowpea's lead is defensible.
+- **Tamil names:** `name_ta` for all 47 grid places (`pipeline/add_tamil_names.py`), e.g. "கரூர் அருகில் (30 கி.மீ.)".
+  Also in `statewide_risk.json`. The UI picks it up in the Tamil view (PR #15).
+- **Encoding:** grid files now contain Tamil text, so every pipeline reader of them opens with UTF-8 (Windows
+  defaulted to cp1252 and failed).
+
+### I-35 · Real cyclone tracks (NOAA IBTrACS) fix the missed Gaja (user approved the download)
+- **Why:** NASA POWER's ~50 km daily wind missed compact storms; Gaja (2018) ranked ~400th at Thanjavur (I-26).
+- **Data:** NOAA NCEI IBTrACS v04r01, North Indian basin best tracks (28 MB CSV, kept outside the repo).
+  `pipeline/cyclone_tracks.py` counts storms whose 3-hourly track came within 100 km at cyclonic-storm strength
+  (≥ 34 kt), 1981–2024, and adds `cyclones` to `web/data/wind/<id>.json`.
+- **Validation:**
+  - Gaja (Nov 2018) now appears at 23 places, including Thanjavur (70 kt, 42 km away).
+  - Thane at 18 places, Vardah at 10 (Chennai area), Nivar at 7, Ockhi near Kanyakumari.
+- **Geography:**
+  - Chennai coast: 3.2 passes per decade (Nilam, Vardah, Nivar, Mandous, Michaung).
+  - Delta: ~2 per decade (Nisha, Thane, Gaja, Fengal).
+  - Madurai and Tirunelveli: 0.5 per decade.
+  - Every place had at least one pass in 44 years.
+- **Engine (`windRisk`):** each crop now also gets "cyclone passes in its vulnerable months".
+  - Low wind tolerance: any cyclonic storm counts. Medium: severe storms only (≥ 48 kt); counting every storm had
+    flagged 12 crops on the delta coast.
+  - "Exposed" = damaging POWER wind in ≥ 25% of seasons, or a cyclone in ≥ 10% of seasons.
+  - **Results:** Thanjavur Samba rice hit near harvest in 8 of 44 seasons (Nisha, Thane, Gaja), Chennai-area
+    Samba 9 of 44, Madurai and Tirunelveli below the threshold.
+  - **Grid:** 18 distinct exposed-crop lists, median 2 crops per place, none at 17 places. The delta coast flags
+    most tall crops, which is the honest result there.
+- **New statewide layer:** "Cyclones passing within 100 km (NOAA tracks)", 0.2–3.2 per decade.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

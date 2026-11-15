@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 10.25N 79.25E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 10.25N 79.25E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 1070,
     "imerg_annual_mean_mm": 1225,
@@ -4244,5 +4244,6 @@
       "2016: closing 2017-11-11 implausible, read as 2017-01-11",
       "2016: paddy-area row has release date 20.09.2017 (other year), areas skipped"
     ]
-  }
+  },
+  "name_ta": "புதுக்கோட்டை அருகில் (49 கி.மீ.)"
 }

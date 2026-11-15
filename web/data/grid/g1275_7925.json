@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 12.75N 79.25E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 12.75N 79.25E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 1105,
     "imerg_annual_mean_mm": 1229,
@@ -4033,5 +4033,6 @@
         "doy": 267
       }
     ]
-  }
+  },
+  "name_ta": "வேலூர் அருகில் (23 கி.மீ.)"
 }

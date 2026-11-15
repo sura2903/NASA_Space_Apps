@@ -41,7 +41,7 @@ def main() -> None:
     df = df[df.season != "Total"]
     df["y0"] = df.year.str.slice(0, 4).astype(int)
     rec = df[df.y0.isin(RECENT)]
-    grid = json.loads(GRID.read_text())
+    grid = json.loads(GRID.read_text(encoding="utf-8"))
     pts = grid["points"] if isinstance(grid, dict) else grid
 
     districts = {}

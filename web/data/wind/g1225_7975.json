@@ -1191,5 +1191,121 @@
    "max_wind_ms": 13.3,
    "rain_mm": 32.7
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 14,
+  "per_decade": 3.2,
+  "severe_count": 8,
+  "months": {
+   "10": 2,
+   "11": 6,
+   "12": 6
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1984-11-12",
+    "dist_km": 93,
+    "wind_kt": 80,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1984-12-01",
+    "dist_km": 97,
+    "wind_kt": 65,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1991-11-15",
+    "dist_km": 92,
+    "wind_kt": 38,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1994-10-30",
+    "dist_km": 87,
+    "wind_kt": 43,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1996-12-06",
+    "dist_km": 18,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2000-11-29",
+    "dist_km": 74,
+    "wind_kt": 65,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Nisha",
+    "date": "2008-11-27",
+    "dist_km": 72,
+    "wind_kt": 50,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Jal",
+    "date": "2010-11-07",
+    "dist_km": 98,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Thane",
+    "date": "2011-12-30",
+    "dist_km": 63,
+    "wind_kt": 75,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Nilam",
+    "date": "2012-10-31",
+    "dist_km": 50,
+    "wind_kt": 50,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Vardah",
+    "date": "2016-12-12",
+    "dist_km": 96,
+    "wind_kt": 65,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Nivar",
+    "date": "2020-11-25",
+    "dist_km": 38,
+    "wind_kt": 60,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Mandous",
+    "date": "2022-12-09",
+    "dist_km": 72,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Fengal",
+    "date": "2024-12-01",
+    "dist_km": 18,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

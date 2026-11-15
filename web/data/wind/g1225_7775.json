@@ -1191,5 +1191,50 @@
    "max_wind_ms": 12.5,
    "rain_mm": 7.8
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 4,
+  "per_decade": 0.9,
+  "severe_count": 0,
+  "months": {
+   "11": 2,
+   "12": 2
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1993-12-04",
+    "dist_km": 32,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2000-11-30",
+    "dist_km": 95,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Nisha",
+    "date": "2008-11-27",
+    "dist_km": 63,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Thane",
+    "date": "2011-12-30",
+    "dist_km": 49,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

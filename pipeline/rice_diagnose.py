@@ -35,7 +35,7 @@ rows = []
 for d, s in g.groupby("district_name"):
     if d not in areas or len(s) < 15 or s.area.median() < 5000:
         continue
-    site = json.loads((ROOT / "web" / "data" / "grid" / f"{areas[d]['rep_point']}.json").read_text())
+    site = json.loads((ROOT / "web" / "data" / "grid" / f"{areas[d]['rep_point']}.json").read_text(encoding="utf-8"))
     by = {y["year"]: y["months"] for y in site["by_year"]}
     ne = {y: sum(m["precip_mm"] for m in ms[9:12]) for y, ms in by.items()}
     jd = {y: sum(m["precip_mm"] for m in ms[5:12]) for y, ms in by.items()}

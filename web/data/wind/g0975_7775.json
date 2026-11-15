@@ -1191,5 +1191,35 @@
    "max_wind_ms": 10.0,
    "rain_mm": 10.4
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 2,
+  "per_decade": 0.5,
+  "severe_count": 1,
+  "months": {
+   "11": 2
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1992-11-13",
+    "dist_km": 63,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Gaja",
+    "date": "2018-11-16",
+    "dist_km": 85,
+    "wind_kt": 55,
+    "category": "severe cyclonic storm"
+   }
+  ]
+ }
 }

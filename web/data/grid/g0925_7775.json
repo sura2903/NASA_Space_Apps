@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 9.25N 77.75E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 9.25N 77.75E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 1338,
     "imerg_annual_mean_mm": 954,
@@ -4033,5 +4033,6 @@
         "doy": 279
       }
     ]
-  }
+  },
+  "name_ta": "விருதுநகர் அருகில் (43 கி.மீ.)"
 }

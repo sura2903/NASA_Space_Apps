@@ -69,3 +69,16 @@ Known gaps / next:
   `extremes/<id>.json` + `extremeYearCheck()`, five small millets in crops.json. All additive: the current UI
   still runs clean on main (smoke tests t3/t5/t7/t9). None of these are shown in the UI yet; candidates for
   the next Lane B panels (El Niño odds and "avoid this season" on the main page, extremes in the Policy view).
+
+### Contract changes seen 2026-11-15 05:18Z (main 2a7f622)
+- §2j `web/data/statewide_risk.json` for the Policy view: per grid point climate, 1-in-100-year extremes, storm
+  wind, NEX-GDDP future (null until grid projections finish) and precomputed engine results (top 3, avoid lists,
+  2016 drought replay) for rainfed and tank. Additive; the current UI runs clean on it (t3/t5/t7/t8/t9/t14).
+  Candidate "colour the map by" layers for the Policy view exposure map.
+
+### Contract changes seen 2026-11-15 06:30Z (main 9114792)
+- §2a-dam `dam` (Mettur season) in Cauvery-delta files + `damCheck()`; §2a-appeears `ndvi`, `smap`, `elevation_m`
+  in the demo-site files; §3a `storage` per crop (perishability sub-score). All additive; the UI runs clean
+  (t3/t5/t7/t8/t9/t14).
+- Follow-up for Lane B: the sowing panel reads `site.smap_recent`; the data now has `site.smap.latest`
+  ({month, value, anomaly}, surface 0–5 cm). Switch to it so the "pending SMAP" note goes away.

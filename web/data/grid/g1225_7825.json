@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 12.25N 78.25E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 12.25N 78.25E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 950,
     "imerg_annual_mean_mm": 1036,
@@ -4033,5 +4033,6 @@
         "doy": 276
       }
     ]
-  }
+  },
+  "name_ta": "தருமபுரி அருகில் (17 கி.மீ.)"
 }

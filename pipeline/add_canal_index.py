@@ -39,7 +39,7 @@ def main() -> None:
              "raw_index": {y: round(v, 3) for y, v in raw.items()},
              "years": idx}
     targets = [ROOT / "web" / "data" / "sites" / "thanjavur.json"]
-    grid = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text())
+    grid = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text(encoding="utf-8"))
     for p in grid["points"]:
         if 10.25 <= p["lat"] <= 11.25 and p["lon"] >= 78.75:
             targets.append(ROOT / "web" / "data" / "grid" / f"{p['id']}.json")

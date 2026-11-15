@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 9.75N 78.25E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 9.75N 78.25E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 1004,
     "imerg_annual_mean_mm": 975,
@@ -4033,5 +4033,6 @@
         "doy": 277
       }
     ]
-  }
+  },
+  "name_ta": "மதுரை அருகில் (25 கி.மீ.)"
 }

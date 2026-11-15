@@ -110,7 +110,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 3
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 3,
+      "max": 6
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 18,
+      "n": 24,
+      "min": 17,
+      "median": 18,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 18,
+      "n": 24,
+      "min": 18,
+      "median": 18,
+      "max": 18
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -225,7 +259,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 16,
+      "n": 24,
+      "min": 11,
+      "median": 17,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 16,
+      "n": 24,
+      "min": 16,
+      "median": 19,
+      "max": 22
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 19,
+      "n": 24,
+      "min": 19,
+      "median": 19,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 19,
+      "n": 24,
+      "min": 19,
+      "median": 19,
+      "max": 19
+     }
+    }
+   }
   }
  },
  "g0875_7725": {
@@ -310,7 +378,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 3,
+      "max": 8
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 3,
+      "median": 5,
+      "max": 8
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -393,7 +495,41 @@
      "rice_short"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g0875_7775": {
@@ -479,7 +615,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 3
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 3
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 21
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 21
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -561,7 +731,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 13,
+      "n": 24,
+      "min": 13,
+      "median": 14,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 13,
+      "n": 24,
+      "min": 14,
+      "median": 17,
+      "max": 20
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g0925_7725": {
@@ -640,7 +844,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 3,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 3,
+      "median": 5,
+      "max": 5
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -722,7 +960,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 16,
+      "n": 24,
+      "min": 14,
+      "median": 17,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 16,
+      "n": 24,
+      "min": 17,
+      "median": 22,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "sugarcane",
+     "ssp245": {
+      "today": 20,
+      "n": 24,
+      "min": 14,
+      "median": 20,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 20,
+      "n": 24,
+      "min": 17,
+      "median": 20,
+      "max": 20
+     }
+    }
+   }
   }
  },
  "g0925_7775": {
@@ -799,7 +1071,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -882,7 +1188,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 13,
+      "n": 24,
+      "min": 11,
+      "median": 14,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 13,
+      "n": 24,
+      "min": 15,
+      "median": 18,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g0925_7825": {
@@ -966,7 +1306,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1048,7 +1422,41 @@
      "sesame"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 9,
+      "median": 13,
+      "max": 18
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 13,
+      "median": 16,
+      "max": 18
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g0925_7875": {
@@ -1140,7 +1548,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 4
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 20,
+      "n": 24,
+      "min": 20,
+      "median": 20,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 20,
+      "n": 24,
+      "min": 20,
+      "median": 20,
+      "max": 20
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1241,7 +1683,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 16,
+      "n": 24,
+      "min": 14,
+      "median": 16,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 16,
+      "n": 24,
+      "min": 16,
+      "median": 21,
+      "max": 22
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g0925_7925": {
@@ -1349,7 +1825,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 5,
+      "n": 24,
+      "min": 3,
+      "median": 4,
+      "max": 14
+     },
+     "ssp585": {
+      "today": 5,
+      "n": 24,
+      "min": 4,
+      "median": 12,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "proso_millet",
+     "ssp245": {
+      "today": 19,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 19,
+      "n": 24,
+      "min": 19,
+      "median": 19,
+      "max": 19
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1458,7 +1968,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 18,
+      "median": 19,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 24
+     }
+    },
+    "top_crop": {
+     "crop": "rice_long",
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 18,
+      "median": 19,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g0975_7725": {
@@ -1540,7 +2084,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 2
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 2,
+      "max": 2
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1627,7 +2205,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 6,
+      "median": 13,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 6,
+      "median": 20,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "groundnut",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g0975_7775": {
@@ -1713,7 +2325,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 20,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1799,7 +2445,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 9,
+      "n": 24,
+      "min": 4,
+      "median": 10,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 9,
+      "n": 24,
+      "min": 8,
+      "median": 19,
+      "max": 20
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g0975_7825": {
@@ -1880,7 +2560,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 20,
+      "median": 21,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -1963,7 +2677,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 9,
+      "median": 11,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 11,
+      "median": 16,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g0975_7875": {
@@ -2051,7 +2799,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 3,
+      "max": 5
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 20,
+      "median": 21,
+      "max": 21
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 21
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -2142,7 +2924,41 @@
      "sorghum"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 14,
+      "median": 17,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 15,
+      "median": 19,
+      "max": 20
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g1025_7725": {
@@ -2228,7 +3044,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 4,
+      "max": 6
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 20,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -2314,7 +3164,41 @@
      "cotton"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 15,
+      "n": 24,
+      "min": 9,
+      "median": 14,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 15,
+      "n": 24,
+      "min": 7,
+      "median": 20,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 20,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1025_7775": {
@@ -2400,7 +3284,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -2485,7 +3403,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 9,
+      "n": 24,
+      "min": 4,
+      "median": 8,
+      "max": 16
+     },
+     "ssp585": {
+      "today": 9,
+      "n": 24,
+      "min": 5,
+      "median": 15,
+      "max": 18
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1025_7825": {
@@ -2569,7 +3521,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 2
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 3
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -2655,7 +3641,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 9,
+      "median": 10,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 13,
+      "median": 17,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1025_7875": {
@@ -2743,7 +3763,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 7
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -2835,7 +3889,41 @@
      "maize"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 13,
+      "n": 24,
+      "min": 10,
+      "median": 18,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 13,
+      "n": 24,
+      "min": 13,
+      "median": 19,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "kodo_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1025_7925": {
@@ -2933,7 +4021,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 12
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 4,
+      "median": 9,
+      "max": 15
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3033,7 +4155,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 18,
+      "n": 24,
+      "min": 15,
+      "median": 17,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 18,
+      "n": 24,
+      "min": 17,
+      "median": 22,
+      "max": 22
+     }
+    },
+    "top_crop": {
+     "crop": "kodo_millet",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1075_7725": {
@@ -3120,7 +4276,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 2
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 2
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3203,7 +4393,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 6,
+      "n": 24,
+      "min": 5,
+      "median": 7,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 6,
+      "n": 24,
+      "min": 5,
+      "median": 14,
+      "max": 17
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1075_7775": {
@@ -3289,7 +4513,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 18,
+      "median": 21,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3372,7 +4630,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 5,
+      "n": 24,
+      "min": 5,
+      "median": 5,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 5,
+      "n": 24,
+      "min": 5,
+      "median": 14,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1075_7825": {
@@ -3461,7 +4753,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3547,7 +4873,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 8,
+      "n": 24,
+      "min": 6,
+      "median": 8,
+      "max": 14
+     },
+     "ssp585": {
+      "today": 8,
+      "n": 24,
+      "min": 8,
+      "median": 15,
+      "max": 17
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1075_7875": {
@@ -3631,7 +4991,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 3
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 6
+     }
+    },
+    "top_crop": {
+     "crop": "kodo_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 19,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3717,7 +5111,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 10,
+      "n": 24,
+      "min": 8,
+      "median": 14,
+      "max": 16
+     },
+     "ssp585": {
+      "today": 10,
+      "n": 24,
+      "min": 13,
+      "median": 18,
+      "max": 20
+     }
+    },
+    "top_crop": {
+     "crop": "kodo_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 19,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1075_7925": {
@@ -3785,7 +5213,14 @@
     "cowpea"
    ],
    "wind_most_exposed": [
-    "banana"
+    "banana",
+    "sugarcane",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
    ],
    "drought_2016": {
     "came_through": [],
@@ -3809,7 +5244,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 10
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 2,
+      "median": 7,
+      "max": 10
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 20,
+      "n": 24,
+      "min": 19,
+      "median": 20,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 20,
+      "n": 24,
+      "min": 19,
+      "median": 20,
+      "max": 20
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -3882,7 +5351,15 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "rice_long",
+    "banana",
+    "finger_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
+   ],
    "drought_2016": {
     "came_through": [
      "green_gram",
@@ -3906,7 +5383,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 13,
+      "median": 16,
+      "max": 21
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 22
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 21,
+      "n": 24,
+      "min": 20,
+      "median": 21,
+      "max": 21
+     },
+     "ssp585": {
+      "today": 21,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 21
+     }
+    }
+   }
   }
  },
  "g1075_7975": {
@@ -4039,7 +5550,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 4,
+      "median": 5,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 7,
+      "median": 11,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 19,
+      "n": 24,
+      "min": 21,
+      "median": 21,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 19,
+      "n": 24,
+      "min": 20,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4176,7 +5721,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 19,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 19,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "rice_long",
+     "ssp245": {
+      "today": 19,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 19,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1125_7675": {
@@ -4265,7 +5844,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 4,
+      "max": 5
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4351,7 +5964,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 10,
+      "n": 24,
+      "min": 8,
+      "median": 13,
+      "max": 16
+     },
+     "ssp585": {
+      "today": 10,
+      "n": 24,
+      "min": 15,
+      "median": 16,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1125_7725": {
@@ -4438,7 +6085,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4518,7 +6199,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 4,
+      "median": 5,
+      "max": 14
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 6,
+      "median": 14,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1125_7775": {
@@ -4601,7 +6316,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "kodo_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4681,7 +6430,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 4
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 3,
+      "max": 4
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1125_7825": {
@@ -4743,7 +6526,11 @@
    "decade_dependent": [
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -4767,7 +6554,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4826,7 +6647,12 @@
     "rice_long",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "maize",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -4850,7 +6676,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 8,
+      "n": 24,
+      "min": 4,
+      "median": 9,
+      "max": 13
+     },
+     "ssp585": {
+      "today": 8,
+      "n": 24,
+      "min": 9,
+      "median": 13,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "little_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1125_7875": {
@@ -4912,7 +6772,13 @@
     "groundnut"
    ],
    "wind_most_exposed": [
-    "banana"
+    "banana",
+    "sugarcane",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -4937,7 +6803,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 5
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 2,
+      "median": 5,
+      "max": 8
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 15,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -4999,7 +6899,12 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -5024,7 +6929,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 7,
+      "median": 13,
+      "max": 18
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 14,
+      "median": 19,
+      "max": 22
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 15,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1125_7925": {
@@ -5100,7 +7039,15 @@
     "cotton",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -5124,7 +7071,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 3,
+      "n": 24,
+      "min": 0,
+      "median": 3,
+      "max": 11
+     },
+     "ssp585": {
+      "today": 3,
+      "n": 24,
+      "min": 2,
+      "median": 7,
+      "max": 13
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -5204,7 +7185,14 @@
     "sugarcane",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -5228,7 +7216,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 16,
+      "n": 24,
+      "min": 10,
+      "median": 16,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 16,
+      "n": 24,
+      "min": 17,
+      "median": 19,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g1125_7975": {
@@ -5335,7 +7357,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 7,
+      "n": 24,
+      "min": 4,
+      "median": 6,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 7,
+      "n": 24,
+      "min": 8,
+      "median": 15,
+      "max": 17
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -5441,7 +7497,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 20,
+      "n": 24,
+      "min": 17,
+      "median": 17,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 20,
+      "n": 24,
+      "min": 20,
+      "median": 23,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "black_gram",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 13,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1175_7675": {
@@ -5529,7 +7619,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -5616,7 +7740,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 3,
+      "median": 5,
+      "max": 7
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 5,
+      "median": 7,
+      "max": 13
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1175_7725": {
@@ -5700,7 +7858,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 0
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -5784,7 +7976,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 3,
+      "median": 6,
+      "max": 10
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 7,
+      "median": 9,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1175_7775": {
@@ -5846,7 +8072,11 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -5871,7 +8101,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -5927,7 +8191,11 @@
    "decade_dependent": [
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -5952,7 +8220,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 6
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 4,
+      "max": 5
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 21,
+      "median": 22,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g1175_7825": {
@@ -6008,7 +8310,11 @@
     "groundnut",
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6032,7 +8338,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 2
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 15,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 16,
+      "median": 22,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6089,7 +8429,11 @@
     "maize",
     "sugarcane"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6113,7 +8457,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 3,
+      "median": 7,
+      "max": 14
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 9,
+      "median": 15,
+      "max": 16
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 15,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 16,
+      "median": 22,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1175_7875": {
@@ -6177,7 +8555,11 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "banana",
+    "rice_long",
+    "sugarcane"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6201,7 +8583,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 6
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 2,
+      "median": 5,
+      "max": 7
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 20,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 13,
+      "median": 20,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6268,7 +8684,11 @@
     "cotton",
     "sugarcane"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6292,7 +8712,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 6,
+      "median": 14,
+      "max": 17
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 15,
+      "median": 17,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 20,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 13,
+      "median": 20,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1175_7925": {
@@ -6368,7 +8822,10 @@
     "cowpea"
    ],
    "wind_most_exposed": [
-    "rice_long"
+    "rice_long",
+    "banana",
+    "maize",
+    "sugarcane"
    ],
    "drought_2016": {
     "came_through": [
@@ -6393,7 +8850,41 @@
      "cotton"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 3,
+      "n": 24,
+      "min": 2,
+      "median": 3,
+      "max": 13
+     },
+     "ssp585": {
+      "today": 3,
+      "n": 24,
+      "min": 3,
+      "median": 8,
+      "max": 15
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 16,
+      "median": 21,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 13,
+      "median": 16,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6469,7 +8960,12 @@
     "cotton",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "maize"
+   ],
    "drought_2016": {
     "came_through": [
      "green_gram",
@@ -6493,7 +8989,41 @@
      "maize"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 16,
+      "n": 24,
+      "min": 10,
+      "median": 16,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 16,
+      "n": 24,
+      "min": 16,
+      "median": 18,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 16,
+      "median": 21,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 13,
+      "median": 16,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1225_7775": {
@@ -6584,7 +9114,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 14,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 20,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6663,7 +9227,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 3,
+      "n": 24,
+      "min": 2,
+      "median": 4,
+      "max": 8
+     },
+     "ssp585": {
+      "today": 3,
+      "n": 24,
+      "min": 7,
+      "median": 8,
+      "max": 11
+     }
+    },
+    "top_crop": {
+     "crop": "finger_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 18,
+      "median": 21,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g1225_7825": {
@@ -6728,7 +9326,8 @@
    ],
    "wind_most_exposed": [
     "banana",
-    "sugarcane"
+    "sugarcane",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -6754,7 +9353,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6813,7 +9446,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -6839,7 +9473,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 2,
+      "median": 4,
+      "max": 8
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 6,
+      "median": 9,
+      "max": 15
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 22,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1225_7875": {
@@ -6902,7 +9570,8 @@
    ],
    "wind_most_exposed": [
     "banana",
-    "sugarcane"
+    "sugarcane",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -6927,7 +9596,41 @@
      "cotton"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 4
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 3,
+      "max": 7
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 13,
+      "median": 21,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 20,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -6990,7 +9693,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -7015,7 +9719,41 @@
      "cotton"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 11,
+      "n": 24,
+      "min": 6,
+      "median": 11,
+      "max": 17
+     },
+     "ssp585": {
+      "today": 11,
+      "n": 24,
+      "min": 14,
+      "median": 16,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 13,
+      "median": 21,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 20,
+      "max": 22
+     }
+    }
+   }
   }
  },
  "g1225_7925": {
@@ -7090,7 +9828,8 @@
     "pearl_millet",
     "finger_millet",
     "sorghum",
-    "maize"
+    "maize",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -7115,7 +9854,41 @@
      "cotton"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 12
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 4,
+      "median": 8,
+      "max": 14
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 19,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 16,
+      "max": 20
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -7196,7 +9969,8 @@
     "pearl_millet",
     "finger_millet",
     "sorghum",
-    "maize"
+    "maize",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -7221,7 +9995,41 @@
      "maize"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 13,
+      "n": 24,
+      "min": 10,
+      "median": 14,
+      "max": 19
+     },
+     "ssp585": {
+      "today": 13,
+      "n": 24,
+      "min": 14,
+      "median": 19,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "green_gram",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 19,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 15,
+      "median": 16,
+      "max": 20
+     }
+    }
+   }
   }
  },
  "g1225_7975": {
@@ -7322,7 +10130,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 5,
+      "n": 24,
+      "min": 5,
+      "median": 7,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 5,
+      "n": 24,
+      "min": 8,
+      "median": 11,
+      "max": 18
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -7422,7 +10264,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 13,
+      "median": 18,
+      "max": 21
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 19,
+      "median": 21,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1275_7825": {
@@ -7484,7 +10360,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -7510,7 +10387,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     },
+     "ssp585": {
+      "today": 0,
+      "n": 24,
+      "min": 0,
+      "median": 0,
+      "max": 1
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -7596,7 +10507,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 4,
+      "n": 24,
+      "min": 3,
+      "median": 5,
+      "max": 10
+     },
+     "ssp585": {
+      "today": 4,
+      "n": 24,
+      "min": 6,
+      "median": 7,
+      "max": 13
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 19,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1275_7875": {
@@ -7682,7 +10627,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 2
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 1,
+      "median": 1,
+      "max": 4
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 15,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -7768,7 +10747,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 6,
+      "n": 24,
+      "min": 6,
+      "median": 9,
+      "max": 15
+     },
+     "ssp585": {
+      "today": 6,
+      "n": 24,
+      "min": 10,
+      "median": 14,
+      "max": 20
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 15,
+      "median": 23,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 18,
+      "median": 23,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1275_7925": {
@@ -7860,7 +10873,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 1,
+      "n": 24,
+      "min": 0,
+      "median": 1,
+      "max": 7
+     },
+     "ssp585": {
+      "today": 1,
+      "n": 24,
+      "min": 4,
+      "median": 7,
+      "max": 11
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 20,
+      "median": 20,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 19,
+      "median": 20,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -7957,7 +11004,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 7,
+      "n": 24,
+      "min": 7,
+      "median": 9,
+      "max": 17
+     },
+     "ssp585": {
+      "today": 7,
+      "n": 24,
+      "min": 12,
+      "median": 15,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 20,
+      "median": 20,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 19,
+      "median": 20,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1275_7975": {
@@ -8055,7 +11136,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 5,
+      "n": 24,
+      "min": 4,
+      "median": 5,
+      "max": 12
+     },
+     "ssp585": {
+      "today": 5,
+      "n": 24,
+      "min": 6,
+      "median": 8,
+      "max": 18
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -8154,7 +11269,41 @@
      "banana"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 10,
+      "median": 19,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 18,
+      "median": 20,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 23,
+      "median": 23,
+      "max": 23
+     }
+    }
+   }
   }
  },
  "g1325_7975": {
@@ -8244,7 +11393,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 2,
+      "n": 24,
+      "min": 2,
+      "median": 3,
+      "max": 13
+     },
+     "ssp585": {
+      "today": 2,
+      "n": 24,
+      "min": 5,
+      "median": 6,
+      "max": 17
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -8334,7 +11517,41 @@
      "cowpea"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 17,
+      "n": 24,
+      "min": 14,
+      "median": 17,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 17,
+      "n": 24,
+      "min": 18,
+      "median": 19,
+      "max": 21
+     }
+    },
+    "top_crop": {
+     "crop": "cowpea",
+     "ssp245": {
+      "today": 23,
+      "n": 24,
+      "min": 23,
+      "median": 24,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 23,
+      "n": 24,
+      "min": 24,
+      "median": 24,
+      "max": 24
+     }
+    }
+   }
   }
  },
  "g1325_8025": {
@@ -8436,7 +11653,41 @@
      "maize"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 7,
+      "n": 24,
+      "min": 6,
+      "median": 9,
+      "max": 18
+     },
+     "ssp585": {
+      "today": 7,
+      "n": 24,
+      "min": 11,
+      "median": 12,
+      "max": 19
+     }
+    },
+    "top_crop": {
+     "crop": "foxtail_millet",
+     "ssp245": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     },
+     "ssp585": {
+      "today": 22,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 22
+     }
+    }
+   }
   },
   "tank": {
    "top": [
@@ -8535,7 +11786,41 @@
      "sugarcane"
     ]
    },
-   "future": null
+   "future": {
+    "rice_long": {
+     "ssp245": {
+      "today": 18,
+      "n": 24,
+      "min": 15,
+      "median": 19,
+      "max": 20
+     },
+     "ssp585": {
+      "today": 18,
+      "n": 24,
+      "min": 19,
+      "median": 19,
+      "max": 23
+     }
+    },
+    "top_crop": {
+     "crop": "pearl_millet",
+     "ssp245": {
+      "today": 24,
+      "n": 24,
+      "min": 22,
+      "median": 22,
+      "max": 24
+     },
+     "ssp585": {
+      "today": 24,
+      "n": 24,
+      "min": 20,
+      "median": 22,
+      "max": 24
+     }
+    }
+   }
   }
  }
 }
