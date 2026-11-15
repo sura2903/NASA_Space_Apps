@@ -665,4 +665,58 @@ export function phaseOdds(site, crops, rotation, prefs, indices) {
   return { by_enso: by.enso, by_iod: by.iod, current, evidence, overall: { good: st.replay.good_years, n: st.replay.total_years } };
 }
 
+// ---------- "Avoid this season" (FIELD_NOTES E2; RESEARCH_LOG I-23) ----------
+// Classifies each replay year at this place by its NE-monsoon (Oct-Dec) rain vs the 2001-2024 mean, using IMD's
+// categories: deficient (<= -20%, drought-type), excess (>= +20%, flood-prone), else normal. Then, for every crop
+// at its usual best sowing month here, counts how often it came through in each season type. Crops that fail in
+// most seasons of a type go on that type's "avoid" list; crops that came through >= 80% go on "safer".
+// The season type isn't known for sure at sowing, so the UI pairs this with early signals (sowing-rain onset,
+// El Nino phase odds) rather than a forecast.
+export function avoidThisSeason(site, crops, prefs, opts = {}) {
+  const AVOID_BELOW = opts.avoid_below ?? 0.5, SAFE_FROM = opts.safe_from ?? 0.8;
+  const ne = (site.by_year || []).map((y) => ({ year: y.year, mm: sum(y.months.slice(9, 12).map((m) => m.precip_mm)) }));
+  const normal = mean(ne.map((x) => x.mm)) || 1;
+  const typeOf = Object.fromEntries(ne.map((x) => [x.year,
+    x.mm <= 0.8 * normal ? "deficient" : x.mm >= 1.2 * normal ? "excess" : "normal"]));
+  const years = { deficient: [], normal: [], excess: [] };
+  for (const [y, t] of Object.entries(typeOf)) years[t].push(Number(y));
+
+  const rows = crops.filter((c) => c.type !== "green_manure").map((c) => {
+    const pick = bestSlot(site, crops, c, prefs);
+    const counts = { deficient: { good: 0, n: 0 }, normal: { good: 0, n: 0 }, excess: { good: 0, n: 0 } };
+    const why = { deficient: {}, excess: {} };
+    for (const y of pick.replay.years) {
+      const t = typeOf[y.year];
+      if (!t) continue;
+      counts[t].n++; if (y.ok) counts[t].good++;
+      if (!y.ok && why[t]) {                        // tally failure causes for drought/flood seasons
+        const k = /water/.test(y.reason || "") ? "water" : /waterlog/.test(y.reason || "") ? "waterlogging"
+          : /heat/.test(y.reason || "") ? "heat" : "other";
+        why[t][k] = (why[t][k] || 0) + 1;
+      }
+    }
+    const share = (t) => (counts[t].n ? counts[t].good / counts[t].n : null);
+    return { crop: c.id, crop_name: shortName(c), tamil_name: c.tamil_name ?? null, sow: pick.rotation[0][0].sow,
+             sow_label: MONTHS[pick.rotation[0][0].sow - 1], counts,
+             share: { deficient: share("deficient"), normal: share("normal"), excess: share("excess") }, failure_causes: why };
+  });
+  // Crops that fail most NORMAL seasons too are "not suitable here" (with this water source), not a
+  // season-specific warning; keep them off the season lists so those lists mean "fine normally, risky this time".
+  // threshold: fails at least 2 of 3 normal seasons (a borderline crop like Madurai tank rice, 6/13 normal but 0/5
+  // in droughts, stays a season-specific "avoid in a drought year" rather than "not suitable")
+  const NOT_SUITABLE_BELOW = opts.not_suitable_below ?? 0.34;
+  const notSuitable = rows.filter((r) => r.share.normal != null && r.share.normal < NOT_SUITABLE_BELOW).map((r) => r.crop);
+  const list = (t, test) => rows.filter((r) => r.counts[t].n >= 2 && test(r.share[t]))
+    .sort((a, b) => a.share[t] - b.share[t]).map((r) => r.crop);
+  const seasonAvoid = (t) => list(t, (s) => s < AVOID_BELOW).filter((c) => !notSuitable.includes(c));
+  return {
+    normal_ne_mm: Math.round(normal),
+    rule: "NE monsoon (Oct-Dec) rain vs 2001-2024 mean: deficient <= -20%, excess >= +20% (IMD categories)",
+    years, crops: rows,
+    not_suitable_here: notSuitable,
+    avoid: { deficient: seasonAvoid("deficient"), excess: seasonAvoid("excess") },
+    safer: { deficient: list("deficient", (s) => s >= SAFE_FROM).reverse(), excess: list("excess", (s) => s >= SAFE_FROM).reverse() },
+  };
+}
+
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }

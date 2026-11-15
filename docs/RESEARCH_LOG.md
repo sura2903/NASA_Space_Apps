@@ -348,6 +348,30 @@ pattern risky?"*
 - **Engine:** `phaseOdds()` + `web/data/climate_indices.json` (evidence block). Not yet: forecast-based (NMME/IMD)
   outlooks; hindcast of phase-conditioned advice against real yields.
 
+### I-23 · "Avoid this season" lists (FIELD_NOTES E2)
+- **Method:**
+  - Each place's 24 seasons are classed by NE-monsoon rain using IMD categories: deficient ≤ −20% (drought-type),
+    excess ≥ +20% (flood-prone), else normal.
+  - Every crop is replayed at its usual best sowing month and the outcomes counted per season type.
+  - Lists: **avoid** = fine in normal seasons but < 50% in that type; **safer** = ≥ 80%.
+  - **Not suitable here** = fails ≥ 2/3 of normal seasons with that water source, kept separate so season lists
+    mean "risky this time".
+- **Results match the farmer's own advice:**
+  - On tank water, long-duration rice is "avoid in a drought year" at all three demo sites. At Tirunelveli it
+    came through 0/7 drought-type seasons vs 7/7 wet ones.
+  - Safer in drought: black gram, sesame, green gram, millets.
+  - Flood-prone seasons are place-specific: the Cauvery delta warns against pulses, cotton and maize
+    (waterlogging); Madurai and Tirunelveli have no flood-specific avoid list.
+- **Two refinements from the sanity check:**
+  - Rain-fed rice showed on every list, so it was split out as "not suitable".
+  - The first 50% cut labelled Madurai tank rice (6/13 normal) "not suitable", so the cut moved to 1/3 and it is
+    now "avoid in drought".
+- **Grid diversity (tank):** 6 distinct drought-avoid lists, 15 distinct flood-avoid lists across 47 points.
+- **Limits:**
+  - Season type isn't known at sowing, so it's paired with early signals (onset, ENSO odds) rather than presented
+    as a forecast.
+  - Sample sizes are small (5–8 seasons per type), so the UI should show "X of N", not percentages alone.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

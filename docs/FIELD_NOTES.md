@@ -61,7 +61,9 @@ Honest framing for the team:
 - E1 ENSO / IOD tagging of replay years + "odds this season" (seasonal outlook). **✅ done (RESEARCH_LOG I-22):**
   the ENSO rain link is weak/unstable; rice and groundnut odds shift by phase; black gram, sesame and millets are
   steady in every phase. Current season: strong El Niño.
-- E2 "Avoid this season" lists per place for drought / flood / normal years.
+- E2 "Avoid this season" lists per place for drought / flood / normal years. **✅ done (RESEARCH_LOG I-23):**
+  `avoidThisSeason()`; e.g. tank rice is "avoid in a drought year" at all demo sites, and black gram / sesame /
+  millets are safer.
 - E3 Price history and income risk (Agmarknet / MSP), yield × price = income reliability.
 - E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record.
 - E5 Wind / cyclone exposure from NASA POWER wind.

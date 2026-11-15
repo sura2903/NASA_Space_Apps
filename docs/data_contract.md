@@ -181,6 +181,22 @@ Engine: `phaseOdds(site, crops, rotation, prefs, indices)` →
 **UI rule:** show "In past El Niño seasons this came through X of N" next to the statewide `verdict`. Never call it a
 forecast. Where the verdict says "steady in every phase", say that's the safer choice when the season is uncertain.
 
+## 2f. "Avoid this season" (engine only, no new data file)
+`avoidThisSeason(site, crops, prefs, opts?)` (~10–15 ms per place) →
+```jsonc
+{ "normal_ne_mm": 515, "rule": "NE monsoon (Oct-Dec) vs 2001-2024 mean: deficient <= -20%, excess >= +20% (IMD)",
+  "years": { "deficient": [2001, 2003, 2016, ...], "normal": [...], "excess": [2006, 2015, 2023, ...] },
+  "not_suitable_here": ["rice_short", "sugarcane", "banana"],   // fail >= 2/3 of NORMAL seasons with this water source
+  "avoid":  { "deficient": ["rice_long"], "excess": ["groundnut", "cotton", ...] },  // fine normally, < 50% in that season type
+  "safer":  { "deficient": ["black_gram", "sesame", ...], "excess": [...] },        // >= 80% in that season type
+  "crops":  [{ "crop", "crop_name", "tamil_name", "sow", "sow_label",
+               "counts": { "deficient": {good, n}, "normal": {...}, "excess": {...} },
+               "share": { "deficient": 0.0, "normal": 0.56, "excess": 1.0 },
+               "failure_causes": { "deficient": { "water": 7 }, "excess": { "waterlogging": 3 } } }] }
+```
+UI idea: "In a drought-type year (like 2016) avoid: long rice (came through 0 of 7). Safer: black gram 7/7, sesame…".
+Pair it with early signals (sowing-rain onset, `phaseOdds`), since the season type isn't known for sure at sowing.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",
