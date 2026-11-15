@@ -57,3 +57,9 @@ Known gaps / next:
 - Story framing (T3): Tirunelveli family farm, 2016 failed monsoon, Dec 2023 flood.
 - Chart.js and Leaflet load from CDN per CLAUDE.md; without internet the map hides and
   charts are skipped, but the cards still work.
+
+### Contract changes seen 2026-11-15 01:48Z (main d4441ac)
+- `dry_spells.by_sow_month`, `ne_onset`, `sowing_rain_onset` in site and grid files (§2). The sowing panel now shows the
+  10+ dry-day odds per sowing month, the NE-monsoon onset and the sowing-rain onset (null `doy` = no onset that year).
+- `canal_index` for Cauvery-command places; the engine scales the canal budget with it (no UI change needed).
+- WIP Layer 3 (`futureRange` in scoring.js, NEX-GDDP-CMIP6): nothing to show yet; B12 waits for the data.

@@ -4,7 +4,7 @@
 // Data used when present (requested from Lane A in docs/PROGRESS.md, not in the contract yet):
 //   site.dry_spells = { threshold_mm: 2.5, window_days: 30, by_sow_month: { "10": { years, ge10, ge15 } } }
 //     (or by_year[].months[].max_dry_spell_days, longest run of dry days inside that month)
-//   site.ne_onset = { years: [{ year, doy }], method }   northeast-monsoon onset day per year
+//   site.ne_onset / site.sowing_rain_onset = { years: [{ year, doy|null }], median_doy, method }
 //   site.smap_recent = { date, root_zone, surface, anomaly }   latest SMAP reading for the place
 // Without them: replay per sowing month, the usual soil wetness for the month, and the NE-monsoon
 // dry-spell series from trends/<id>.json (one season, not per month).
@@ -141,13 +141,15 @@ export function renderSowing(el, { site, trends, crops, cropById, prefs, rotatio
       h("p", { class: "note" }, t("sow.ne.note"))) : null,
     h("p", { class: "note" }, wet != null ? t("sow.wet", { m: monthName(planned), w: fmt(wet, 2) }) : "",
       smap ? " " + t("sow.smap", { date: smap.date, w: fmt(smap.root_zone, 2) }) : ""),
-    onset ? h("p", { class: "note" }, t("sow.onset", onsetStats(onset))) : null,
-    !smap || !onset ? h("p", { class: "note sow-pending" }, t("sow.pending")) : null,
+    onset ? h("p", { class: "note" }, t("sow.onset", onsetStats(onset)) + (onsetStats(onset).none ? " " + t("sow.onset.none", onsetStats(onset)) : "")) : null,
+    site.sowing_rain_onset?.years?.length ? h("p", { class: "note" }, t("sow.rains", onsetStats(site.sowing_rain_onset))) : null,
+    !smap || !onset ? h("p", { class: "note sow-pending" }, t(onset ? "sow.pending.smap" : "sow.pending")) : null,
   ].filter(Boolean));
 }
 
 function onsetStats(onset) {
-  const d = onset.years.map((y) => y.doy).sort((a, b) => a - b);
+  const d = onset.years.map((y) => y.doy).filter((x) => x != null).sort((a, b) => a - b);
   const date = (doy) => { const x = new Date(Date.UTC(2001, 0, doy)); return `${x.getUTCDate()} ${monthName(x.getUTCMonth() + 1)}`; };
-  return { median: date(d[Math.floor(d.length / 2)]), late: date(d.at(-1)), early: date(d[0]), n: d.length };
+  return { median: date(onset.median_doy ?? d[Math.floor(d.length / 2)]), late: date(d.at(-1)), early: date(d[0]), n: d.length,
+    none: onset.years.length - d.length };
 }
