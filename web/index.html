@@ -25,7 +25,10 @@
     <div class="top-actions">
       <a class="btn-ghost nav-link" href="explore.html" data-i18n="nav.map">🗺 Crop map</a>
       <a class="btn-ghost nav-link" href="policy.html" data-i18n="nav.policy">🏛 Policy view</a>
-      <button type="button" id="lang" class="lang-btn" lang="ta">தமிழ்</button>
+      <div class="lang-wrap">
+        <span class="lang-label" id="lang-label">Language · <span lang="ta">மொழி</span></span>
+        <button type="button" id="lang" class="lang-btn" lang="ta" aria-describedby="lang-label">தமிழ்</button>
+      </div>
       <label class="switch">
         <input type="checkbox" id="expert">
         <span class="track" aria-hidden="true"></span>
@@ -34,6 +37,26 @@
       <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
     </div>
   </header>
+
+  <section class="intro" aria-labelledby="intro-title">
+    <div class="intro-what">
+      <h2 id="intro-title" data-i18n="intro.title">What is Field Shift?</h2>
+      <p data-i18n="intro.what">A free tool for Tamil Nadu that checks crop choices against past seasons of NASA satellite and weather data, so you can see which crops held up when the monsoon let farmers down.</p>
+    </div>
+    <div class="intro-who">
+      <div>
+        <h3 data-i18n="intro.farm.h">👩‍🌾 For farmers</h3>
+        <p data-i18n="intro.farm">Pick your place and what you grow below. You will see three crop plans side by side, how your climate has changed, and whether to sow now or wait.</p>
+      </div>
+      <div>
+        <h3 data-i18n="intro.policy.h">🏛 For policy makers</h3>
+        <p><span data-i18n="intro.policy">See where farming is most exposed to climate change and how much water a crop switch would save.</span>
+          <a href="policy.html" data-i18n="intro.policy.link">Open the Policy view →</a>
+          <a href="explore.html" data-i18n="intro.map.link">See the Crop map →</a></p>
+      </div>
+    </div>
+    <p class="note intro-note" data-i18n="intro.note">It supports your own judgement and your agriculture officer's advice. It does not replace them.</p>
+  </section>
 
   <p id="error" class="error" role="alert" hidden></p>
 
