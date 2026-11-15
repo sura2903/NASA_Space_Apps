@@ -115,10 +115,10 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 74,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
     "sow": 6,
-    "irrigation_mm": 0,
+    "irrigation_mm": 1,
     "water_need_mm": 350
    },
    "proso_millet": {
@@ -129,19 +129,19 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.88,
-    "rainfed_suitability": 68,
-    "sow": 9,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.96,
-    "suitability": 74,
-    "sow": 6
+    "crop": "foxtail_millet",
+    "share": 0.92,
+    "suitability": 71,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -273,8 +273,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -296,16 +296,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.96,
-    "suitability": 75,
-    "sow": 6
-   },
-   {
     "crop": "cowpea",
     "share": 0.92,
     "suitability": 74,
     "sow": 8
+   },
+   {
+    "crop": "foxtail_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -432,7 +432,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -445,9 +445,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 76,
-    "sow": 6,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -460,10 +460,10 @@
     "sow": 9
    },
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 76,
-    "sow": 6
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 10
    },
    {
     "crop": "sesame",
@@ -590,7 +590,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 70,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -747,8 +747,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 74,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -770,9 +770,9 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
+    "crop": "foxtail_millet",
     "share": 1,
-    "suitability": 78,
+    "suitability": 76,
     "sow": 7
    },
    {
@@ -905,8 +905,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -921,7 +921,7 @@
    "barnyard_millet": {
     "rainfed_share": 0.96,
     "rainfed_suitability": 73,
-    "sow": 9,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -1063,8 +1063,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 74,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -1077,8 +1077,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -1087,8 +1087,8 @@
   "top_rainfed": [
    {
     "crop": "kodo_millet",
-    "share": 1,
-    "suitability": 78,
+    "share": 0.96,
+    "suitability": 74,
     "sow": 7
    },
    {
@@ -1222,7 +1222,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -1235,8 +1235,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 73,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -1372,8 +1372,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -1402,16 +1402,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.96,
-    "suitability": 75,
-    "sow": 6
-   },
-   {
     "crop": "cowpea",
     "share": 0.92,
     "suitability": 74,
     "sow": 8
+   },
+   {
+    "crop": "foxtail_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -1523,10 +1523,10 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
-    "sow": 7,
-    "irrigation_mm": 0,
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 55,
+    "sow": 9,
+    "irrigation_mm": 28,
     "water_need_mm": 350
    },
    "proso_millet": {
@@ -1537,8 +1537,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 71,
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 60,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -1560,16 +1560,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.92,
-    "suitability": 72,
-    "sow": 7
-   },
-   {
     "crop": "cowpea",
     "share": 0.75,
     "suitability": 64,
     "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.75,
+    "suitability": 62,
+    "sow": 9
    },
    {
     "crop": "cotton",
@@ -1695,8 +1695,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -1711,7 +1711,7 @@
    "barnyard_millet": {
     "rainfed_share": 0.96,
     "rainfed_suitability": 73,
-    "sow": 9,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -1853,8 +1853,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -1867,8 +1867,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -1882,10 +1882,10 @@
     "sow": 9
    },
    {
-    "crop": "barnyard_millet",
-    "share": 0.96,
-    "suitability": 73,
-    "sow": 6
+    "crop": "pearl_millet",
+    "share": 0.92,
+    "suitability": 72,
+    "sow": 5
    },
    {
     "crop": "sesame",
@@ -2011,8 +2011,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -2025,8 +2025,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -2034,16 +2034,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 1,
-    "suitability": 78,
-    "sow": 7
-   },
-   {
     "crop": "green_gram",
     "share": 0.92,
     "suitability": 73,
     "sow": 9
+   },
+   {
+    "crop": "kodo_millet",
+    "share": 0.92,
+    "suitability": 71,
+    "sow": 7
    },
    {
     "crop": "cotton",
@@ -2162,10 +2162,10 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 71,
-    "sow": 6,
-    "irrigation_mm": 0,
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 60,
+    "sow": 7,
+    "irrigation_mm": 12,
     "water_need_mm": 350
    },
    "proso_millet": {
@@ -2176,9 +2176,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.79,
-    "rainfed_suitability": 63,
-    "sow": 9,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    },
@@ -2192,10 +2192,10 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
+    "crop": "foxtail_millet",
     "share": 0.92,
-    "suitability": 71,
-    "sow": 6
+    "suitability": 70,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -2320,9 +2320,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 74,
-    "sow": 6,
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 59,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -2334,10 +2334,10 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 71,
-    "sow": 10,
-    "irrigation_mm": 0,
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 43,
+    "sow": 9,
+    "irrigation_mm": 11,
     "water_need_mm": 300
    },
    "cowpea": {
@@ -2350,10 +2350,10 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.96,
-    "suitability": 74,
-    "sow": 6
+    "crop": "little_millet",
+    "share": 0.79,
+    "suitability": 61,
+    "sow": 7
    },
    {
     "crop": "black_gram",
@@ -2486,7 +2486,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_suitability": 74,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -2499,8 +2499,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 73,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -2644,7 +2644,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_suitability": 73,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -2659,7 +2659,7 @@
    "barnyard_millet": {
     "rainfed_share": 0.96,
     "rainfed_suitability": 73,
-    "sow": 9,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -2672,9 +2672,9 @@
     "sow": 9
    },
    {
-    "crop": "kodo_millet",
+    "crop": "foxtail_millet",
     "share": 0.96,
-    "suitability": 75,
+    "suitability": 73,
     "sow": 6
    },
    {
@@ -2802,7 +2802,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_suitability": 76,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -2815,8 +2815,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -2824,9 +2824,9 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
+    "crop": "little_millet",
     "share": 1,
-    "suitability": 78,
+    "suitability": 76,
     "sow": 7
    },
    {
@@ -2959,8 +2959,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.83,
-    "rainfed_suitability": 67,
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 63,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -2973,8 +2973,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 74,
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 65,
     "sow": 10,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -2982,9 +2982,9 @@
   },
   "top_rainfed": [
    {
-    "crop": "barnyard_millet",
-    "share": 0.96,
-    "suitability": 74,
+    "crop": "pearl_millet",
+    "share": 0.83,
+    "suitability": 68,
     "sow": 10
    },
    {
@@ -3118,7 +3118,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 71,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -3131,8 +3131,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 73,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -3140,9 +3140,9 @@
   },
   "top_rainfed": [
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 75,
+    "crop": "foxtail_millet",
+    "share": 0.96,
+    "suitability": 73,
     "sow": 6
    },
    {
@@ -3276,7 +3276,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_suitability": 76,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -3289,19 +3289,19 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
-    "sow": 9,
+    "rainfed_share": 1,
+    "rainfed_suitability": 75,
+    "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
+    "crop": "pearl_millet",
     "share": 1,
-    "suitability": 78,
-    "sow": 7
+    "suitability": 77,
+    "sow": 5
    },
    {
     "crop": "sesame",
@@ -3433,8 +3433,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -3447,8 +3447,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -3456,16 +3456,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 1,
-    "suitability": 78,
-    "sow": 7
-   },
-   {
     "crop": "green_gram",
     "share": 0.92,
     "suitability": 73,
     "sow": 9
+   },
+   {
+    "crop": "kodo_millet",
+    "share": 0.92,
+    "suitability": 71,
+    "sow": 7
    },
    {
     "crop": "cotton",
@@ -3591,9 +3591,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
-    "sow": 7,
+    "rainfed_share": 1,
+    "rainfed_suitability": 76,
+    "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -3742,9 +3742,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 77,
-    "sow": 6,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -3756,8 +3756,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 65,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -3772,16 +3772,16 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 1,
-    "suitability": 77,
-    "sow": 6
-   },
-   {
     "crop": "green_gram",
     "share": 0.83,
     "suitability": 68,
     "sow": 10
+   },
+   {
+    "crop": "kodo_millet",
+    "share": 0.88,
+    "suitability": 68,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -3894,7 +3894,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 71,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -3907,9 +3907,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 76,
-    "sow": 6,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    },
@@ -3936,10 +3936,10 @@
     "sow": 9
    },
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 76,
-    "sow": 6
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 10
    },
    {
     "crop": "sesame",
@@ -4066,8 +4066,8 @@
    },
    "kodo_millet": {
     "rainfed_share": 1,
-    "rainfed_suitability": 78,
-    "sow": 6,
+    "rainfed_suitability": 76,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -4094,10 +4094,10 @@
     "sow": 7
    },
    {
-    "crop": "kodo_millet",
+    "crop": "sorghum",
     "share": 1,
     "suitability": 78,
-    "sow": 6
+    "sow": 5
    },
    {
     "crop": "cotton",
@@ -4217,7 +4217,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 1,
-    "rainfed_suitability": 77,
+    "rainfed_suitability": 76,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -4230,9 +4230,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
-    "sow": 9,
+    "rainfed_share": 1,
+    "rainfed_suitability": 75,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    },
@@ -4252,10 +4252,10 @@
     "sow": 8
    },
    {
-    "crop": "kodo_millet",
+    "crop": "foxtail_millet",
     "share": 1,
-    "suitability": 77,
-    "sow": 6
+    "suitability": 76,
+    "sow": 7
    },
    {
     "crop": "sesame",
@@ -4374,9 +4374,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 74,
-    "sow": 6,
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 59,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -4388,10 +4388,10 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.92,
-    "rainfed_suitability": 71,
-    "sow": 10,
-    "irrigation_mm": 0,
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 43,
+    "sow": 9,
+    "irrigation_mm": 11,
     "water_need_mm": 300
    },
    "cowpea": {
@@ -4404,10 +4404,10 @@
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 0.96,
-    "suitability": 74,
-    "sow": 6
+    "crop": "little_millet",
+    "share": 0.79,
+    "suitability": 61,
+    "sow": 7
    },
    {
     "crop": "black_gram",
@@ -4539,8 +4539,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.83,
-    "rainfed_suitability": 67,
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 63,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -4553,25 +4553,25 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 76,
-    "sow": 10,
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 65,
+    "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
   },
   "top_rainfed": [
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 76,
-    "sow": 10
-   },
-   {
     "crop": "green_gram",
     "share": 0.88,
     "suitability": 71,
     "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
    },
    {
     "crop": "sesame",
@@ -4698,7 +4698,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 1,
-    "rainfed_suitability": 78,
+    "rainfed_suitability": 76,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -4711,8 +4711,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -4722,7 +4722,7 @@
    {
     "crop": "kodo_millet",
     "share": 1,
-    "suitability": 78,
+    "suitability": 76,
     "sow": 7
    },
    {
@@ -4855,8 +4855,8 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.83,
-    "rainfed_suitability": 67,
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 63,
     "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -4869,25 +4869,25 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 76,
-    "sow": 10,
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 65,
+    "sow": 9,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
   },
   "top_rainfed": [
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 76,
-    "sow": 10
-   },
-   {
     "crop": "green_gram",
     "share": 0.88,
     "suitability": 71,
     "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
    },
    {
     "crop": "sesame",
@@ -5013,9 +5013,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 0.88,
-    "rainfed_suitability": 70,
-    "sow": 7,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 71,
+    "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -5027,9 +5027,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
-    "sow": 7,
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 70,
+    "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -5172,7 +5172,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.96,
-    "rainfed_suitability": 75,
+    "rainfed_suitability": 74,
     "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -5187,7 +5187,7 @@
    "barnyard_millet": {
     "rainfed_share": 0.96,
     "rainfed_suitability": 73,
-    "sow": 9,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -5330,7 +5330,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.88,
-    "rainfed_suitability": 69,
+    "rainfed_suitability": 68,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -5343,9 +5343,9 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 75,
-    "sow": 7,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 72,
+    "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
@@ -5358,10 +5358,10 @@
     "sow": 7
    },
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 75,
-    "sow": 7
+    "crop": "foxtail_millet",
+    "share": 0.96,
+    "suitability": 73,
+    "sow": 6
    },
    {
     "crop": "sesame",
@@ -5488,7 +5488,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 71,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -5501,8 +5501,8 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 75,
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 73,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 300
@@ -5510,9 +5510,9 @@
   },
   "top_rainfed": [
    {
-    "crop": "barnyard_millet",
-    "share": 1,
-    "suitability": 75,
+    "crop": "foxtail_millet",
+    "share": 0.96,
+    "suitability": 73,
     "sow": 6
    },
    {
@@ -5646,7 +5646,7 @@
    },
    "kodo_millet": {
     "rainfed_share": 0.92,
-    "rainfed_suitability": 72,
+    "rainfed_suitability": 70,
     "sow": 6,
     "irrigation_mm": 0,
     "water_need_mm": 350
@@ -5803,9 +5803,9 @@
     "water_need_mm": 280
    },
    "kodo_millet": {
-    "rainfed_share": 1,
-    "rainfed_suitability": 77,
-    "sow": 6,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
+    "sow": 7,
     "irrigation_mm": 0,
     "water_need_mm": 350
    },
@@ -5817,25 +5817,25 @@
     "water_need_mm": 250
    },
    "barnyard_millet": {
-    "rainfed_share": 0.96,
-    "rainfed_suitability": 73,
-    "sow": 9,
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 68,
+    "sow": 10,
     "irrigation_mm": 0,
     "water_need_mm": 300
    }
   },
   "top_rainfed": [
    {
-    "crop": "kodo_millet",
-    "share": 1,
-    "suitability": 77,
-    "sow": 6
-   },
-   {
     "crop": "green_gram",
     "share": 0.92,
     "suitability": 73,
     "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 10
    },
    {
     "crop": "cotton",

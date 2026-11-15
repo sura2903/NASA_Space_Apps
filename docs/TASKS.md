@@ -19,7 +19,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A5 | Season-based scoring engine: calendar, water from rain + soil + canal/tank/borewell, heat/flood checks, 24-year replay, sub-scores, plain-language why/evidence/risks/gaps, strategy generator | ✅ first version |
 | A6 | `pipeline/points.csv` for the AppEEARS request (MODIS NDVI, SMAP, ECOSTRESS, SRTM) | ✅ |
 | A7 | Earthdata account + submit AppEEARS point request | ✅ submitted, waiting on results |
-| A8 | Load AppEEARS CSVs → `ndvi` (observed bare months) + SMAP soil-moisture anomaly per site | ⬜ |
+| A8 | Load AppEEARS CSVs → `ndvi` (observed bare months) + SMAP soil-moisture anomaly per site | ✅ demo sites (`merge_appeears.py`, RESEARCH_LOG I-31); SMAP into the engine ⬜ |
 | A9 | Cross-check POWER rainfall with GPM IMERG; IMERG now the rainfall source (Tirunelveli 948 vs POWER 1300 mm/yr) | ✅ |
 | A10 | Tune crop values against official TN sources (TN Agri Dept Crop Production Guide + TNAU notes) | ✅ (family/farmer sanity review still welcome) |
 | A11 | ⭐ GRACE groundwater trend panel for Tamil Nadu | ⭐ |
@@ -33,6 +33,8 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A19 | **Last 10 years vs full record (E6):** `memoryCheck()` incl. every-decade window range and `as_of` | ✅ |
 | A20 | **Wind / cyclone exposure (E5):** NASA POWER wind at 50 points, `wind_tolerance` in crops.json, `windRisk()`; IBTrACS tracks next | ✅ POWER; IBTrACS ⬜ |
 | A21 | **Statewide risk file** for the Policy view (`statewide_risk.json`, all layers + engine lists per grid point) | ✅ (future layers fill in after A16 grid) |
+| A22 | **Seasonal canal/tank water from dam state** (user request): canal water per season depends on whether and when the dam opens and its storage at sowing: Mettur (delta: normal opening 12 Jun, closing 28 Jan), Papanasam/Manimuthar (Thamirabarani), Vaigai/Periyar (Madurai). Plan: (1) per-season canal budget in the engine (Kuruvai needs Mettur open by ~mid-June; Samba/Thaladi depend on Aug–Oct storage), (2) historical dam data per year (have Mettur opening dates/releases in `pipeline/data/mettur_releases.json`; add others from TN WRD / India-WRIS / CWC reservoir bulletins), (3) a "dam opened on time / late / not yet" input for this season, since I-18 found the opening date isn't predictable from June information | ✅ delta (Mettur, `damCheck()`, RESEARCH_LOG I-29); Papanasam / Vaigai data ⬜ |
+| A23 | **Storage / perishability factor** (user request, IDEAS I28): `storage` field per crop + "Can store and sell later" priority; combine with prices (E3) later | ✅ engine + data (RESEARCH_LOG I-32); UI slider ⬜ (Lane B); prices ⬜ |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from

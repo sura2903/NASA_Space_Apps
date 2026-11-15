@@ -7,10 +7,11 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
+| I28 | Storage and perishability: how long each crop keeps after harvest, as a farmer factor (sell when prices are good vs forced quick sale) | Siddarth | 💡 **medium-high** (crop field + priority; pairs with E3 prices) |
 | I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
 | I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Siddarth | 💡 **medium** (priority flag is quick) |
 | I25 | Hill-region fruits (strawberry, avocado; kiwi, raspberry) for Nilgiris / Kodaikanal | Siddarth | ⏸ later: needs elevation-corrected temperature + a perennial-crop model |
-| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | ✅ added (21 crops); kodo leads rain-fed picks at 19/47, partly from approximate water/root values |
+| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | ✅ added (21 crops); kodo's unsourced deep roots fixed in RESEARCH_LOG I-28, no crop dominates now |
 | I23 | Policy: "what if X% of farms switch" → water saved per place (overlaps I7) | Nimalan | 🔄 Lane B, Policy view page |
 | I22 | Policy: early drought warning from SMAP soil moisture / NDVI anomalies, ahead of insurance and relief decisions | Nimalan | 💡 needs near-real-time SMAP + NDVI |
 | I21 | Policy: crop-to-water mismatch (rice grown on rain only) → case for millet / pulse switching subsidies (overlaps I6) | Nimalan | 💡 needs district crop areas |
@@ -68,6 +69,27 @@ warning (needs near-real-time SMAP / NDVI anomalies).
 ---
 
 ## Siddarth's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
+
+**I28 Storage and perishability (medium-high; Siddarth, 2026-11-15).**
+Some crops keep for a year or more after harvest; others must be sold within days. That changes a farmer's risk:
+a storable crop can wait out a price slump or be eaten by the family in a bad year; a perishable one forces a
+quick sale at whatever the market pays.
+- **Crop field:** `storage` = { `keeps_months` (typical on-farm storage with basic care), `level`
+  (high / medium / low), `main_risk` (e.g. pulse beetles, aflatoxin, ripening), `source` }. Rough starting
+  points to be sourced from TNAU / ICAR post-harvest guides:
+  - **Very storable:** millets (small millets keep for years with little loss), sorghum.
+  - **Months:** rice (paddy 6–12), pulses (6–12, bruchid beetles), groundnut in shell (6–9, aflatoxin if damp),
+    sesame (6–12), maize (3–6 in humid TN, aflatoxin), cotton lint (stores well, quality falls).
+  - **Days:** banana (ripens in about a week).
+  - **Must be processed at once:** sugarcane (crush within 1–2 days; depends on the mill), cowpea grown as fodder.
+- **Engine:** a new priority "Can store and sell later" (sub-score from `storage.level`) next to Income and
+  Reliability. A farmer who has no storage or needs cash right after harvest can turn it down.
+- **With prices (E3):** storable crops can use the price rise after harvest season; perishable crops carry the
+  full harvest-time price swing. That makes income risk = yield risk × price risk × "can you wait?".
+- **Policy view:** storage capacity (godowns, cold chain) is a lever for the state. Flag places pushed toward
+  perishable crops without nearby storage.
+- **Depends on:** a sourced post-harvest table (TNAU agritech post-harvest pages have an expired certificate,
+  so use ICAR / FAO / CPG PDFs).
 
 **I24 More millets and grains (high priority, quick).**
 - **Why:** millets are getting more popular, the state runs a Millet Mission, and 2023 was the International Year

@@ -507,6 +507,134 @@ pattern risky?"*
   - The server handles ~3 files a minute, so the full run takes ~4–5 hours. The future layers fill in when
     it finishes.
 
+### I-28 · Kodo millet's "deep roots" were unsourced; fixing them removes its dominance
+- **Problem:** kodo was the top rain-fed pick at 19 of 47 grid points and the "Bigger shift" crop at all three
+  demo sites. It was the only small millet marked `root_depth: deep`, which gives a 1.4 m soil-water buffer
+  (vs 0.8 m medium, 0.4 m shallow). That value was an approximation.
+- **Evidence:**
+  - The TN Crop Production Guide confirms kodo's season length (105–120 days) and high rain-fed yield, but gives
+    no root depth or water need.
+  - Published descriptions call kodo **shallow, fibrous-rooted**.
+  - A Tamil Nadu seedling drought screen ranked kodo CO 3 the *least* tolerant of the small millets tested
+    (lab screen, seedlings only).
+  - No species-level water figures exist; the general range for millets is 300–600 mm.
+- **Change:** kodo `root_depth` deep → shallow, with the sources in crops.json; water need kept at 350 mm.
+- **Effect (rain-fed grid):**
+
+  | Root depth | Most common top pick | Kodo in a top 3 |
+  |---|---|---|
+  | deep (old) | kodo, 19 of 47 points | 22 points |
+  | medium | barnyard millet, 11 | 13 points |
+  | shallow (new) | barnyard millet, 12 | 3 points |
+
+  - Kodo still comes through a median 92% of seasons and stays Madurai's top pick.
+  - Demo "Bigger shift" plans now use **pearl millet (cumbu)**, a well-documented TN crop.
+  - District switch targets now spread over cowpea 9, barnyard 9, foxtail 5, little millet 4, green gram 4,
+    pearl millet 3.
+- **Still approximate:** barnyard millet (now the most common top pick; its "medium" flood tolerance and water
+  need are unsourced) and the other small millets' water needs. Next to check.
+
+### I-29 · Canal water follows what Mettur dam actually did (TASKS A22, user request)
+- **Why:** a canal farmer's water depends on the season and on whether and when the dam has opened, not only on
+  rain. Until now the delta's canal budget scaled with upstream-catchment rain (I-17).
+- **Data:** the TN Agriculture Dept Season & Crop tables, parsed and cached by `pipeline/add_dam_season.py` into
+  `pipeline/data/mettur_seasons.json`:
+  - VII.10: Mettur opening and closing dates, storage and release each water-year, 2000–2020.
+  - VII.12: opening date against Kuruvai / Samba / Thaladi paddy area.
+  - Two table errors were fixed, both logged in the file: the 2016–17 closing printed as "11.11.17" (read as
+    11 Jan 2017), and a misdated 2016 area row was skipped.
+  - Papanasam (Tirunelveli) and Vaigai (Madurai) aren't in these tables, so only the delta has dam seasons.
+- **The pattern in the tables:**
+  - **Kuruvai:** paddy averaged ~3.35 lakh acres in the 6 years Mettur opened by mid-June, vs ~1.95 in the 12 late
+    years. Down ~40%, not to zero, because of borewells.
+  - **Samba:** dipped in the very late years (2002 opened 6 Sep: 9.95; 2003 opened 7 Oct: 8.8; normal ~11).
+- **Engine:** where a site has `dam` (Thanjavur + 8 delta grid points), canal water flows only in months whose 15th
+  falls between that year's opening and closing, and the budget scales with that year's release (median 193 TMC).
+  Years without dam data (2021–24) fall back to the rain index.
+  - New export `damCheck()`: came through per opening class (on time ≤ 15 Jun / late / very late ≥ 1 Sep), plus a
+    what-if that replays all 24 years with the canals opening 12 Jun / 1 Aug / 15 Sep / never.
+  - Opening can't be forecast from June information (I-18), so "has the dam opened?" is an input, not a prediction.
+- **Results (Thanjavur, canal water):**
+
+  | Crop | On time | Late | Very late | What-if: opens 1 Aug | What-if: never opens |
+  |---|---|---|---|---|---|
+  | Kuruvai (short rice, sown Jun) | 5/5 | 0/11 | 0/4 | 0/24 | 0/24 |
+  | Samba (long rice, sown Aug) | 5/5 | 10/11 | 3/4 | 24/24 | 2/24 |
+
+  - **Kuruvai:** without an on-time dam, Kuruvai needs a borewell. That matches the real ~40% area drop, with the
+    rest grown on groundwater.
+  - **Samba / Thaladi** fail in 2002, 2003 and 2016, the real delta crisis years. This fixes the I-24 limit where
+    canal farms showed no damage in 2016.
+  - **The default Kuruvai → Thaladi canal rotation drops from 19/24 to 9/24.** That's the same fact: Kuruvai on canal
+    water alone is a bet on Mettur opening on time.
+- **Backtest (delta rice production, 3 districts, 2001–2020, bad = production well below normal):**
+
+  | Run | Engine failure years | Share of bad district-years caught | P(bad \| failure) | Lift |
+  |---|---|---|---|---|
+  | Before (rain index) | 2002 | ~18% | 1.00 | 3.5× |
+  | After (dam season) | 2002, 2003, 2016 | ~35% | 0.67 | 2.4× |
+
+  The dam version catches more of the real bad years with slightly lower precision. With 20 years the evidence is
+  thin either way; the main gain is mechanical. 2012 (opened 17 Sep, half release) is still missed.
+
+### I-30 · Barnyard millet's flood tolerance was unsourced too
+- **Problem:** after the kodo fix (I-28), barnyard millet became the most common rain-fed top pick (12 of 47
+  points). It was the only small millet rated `flood_tolerance: medium`, and that rating was unsourced.
+- **Evidence:**
+  - Seedling waterlogging cut barnyard grain yield by ~51%.
+  - Finger millet (rated low here) tolerated transient waterlogging better than barnyard.
+  - No species-level water figure exists. The CPG gives duration (95–100 days) and rain-fed yield (1.5–2.65 t/ha).
+- **Change:** flood_tolerance medium → low, with the sources in crops.json.
+- **Effect:**
+  - Barnyard still comes through a median 96% of seasons, but is no longer anyone's top pick.
+  - Rain-fed top picks spread over cowpea 14, foxtail 8, pearl millet 7, green gram 6, little millet 5,
+    finger millet 4, kodo 2. No crop holds more than 30% of points.
+  - Cowpea's water need and its heat and flood tolerance are now the ones to source next.
+
+### I-31 · NASA AppEEARS results arrived: 10 years of greenness, soil moisture and elevation (TASKS A8)
+- **Request `field-shift-tn-points`:** 3 points around each demo site, Apr 2015 – Dec 2024. Merged by
+  `pipeline/merge_appeears.py`; the raw files are in `data/raw/appeears/` (gitignored).
+  - MODIS NDVI (250 m, 16-day): 84% good-quality pixels. It replaces the 2019–24 single-window ORNL NDVI with the
+    same keys, plus `by_year`.
+  - SMAP L3 enhanced soil moisture (9 km, daily AM).
+  - SRTM elevation: Madurai 148 m, Tirunelveli 52 m, Thanjavur 32 m.
+- **SMAP quality:** Madurai and Tirunelveli use recommended-quality retrievals. At Thanjavur almost every retrieval
+  is flagged "not recommended" (standing water from paddy, tanks and canals in the 9 km cell). Those are kept and
+  labelled, because they still track rain.
+- **Sanity checks:**
+  - SMAP monthly soil moisture vs IMERG rain: r = 0.72 Madurai, 0.73 Thanjavur, 0.60 Tirunelveli.
+  - SMAP seasonal cycle vs POWER root-zone wetness: r = 0.97 at Madurai.
+  - The delta's soil is the wettest (0.29 m³/m³).
+  - NDVI follows each place's crop calendar: Thanjavur peaks Nov–Dec (Samba/Thaladi, 0.86), dips at the Feb–Mar
+    harvest and has a May–Jun bump (Kuruvai); Tirunelveli peaks Nov–Jan (Pishanam), lowest Jul–Sep; Madurai
+    peaks Sep–Dec.
+  - No month drops below 0.3 (bare soil), because the pixels mix in trees, as before.
+- **Not yet used by the engine:** soil moisture at sowing could set each year's starting soil water from 2015 on.
+  Logged as a next step.
+
+### I-32 · Storage and perishability as a farmer factor (IDEAS I28, TASKS A23, user request)
+- **Why:** a crop that keeps can wait for a better price or feed the family in a bad year; a perishable one
+  forces a quick sale.
+- **Data:** `storage: { level, keeps_months, main_risk, source }` for 19 crops; null for green manures.
+
+  | Level | Crops | Basis |
+  |---|---|---|
+  | High | small millets, finger millet, cotton | ~1–2 years cool and dry (FAO millet compendium, consumer guides; approximate) |
+  | Medium | rice, pulses, groundnut, sesame, pearl millet, sorghum, maize | pulses: beetles damage 55–70% of untreated black / green gram in 120 days (sourced); the rest approximate |
+  | Low | sugarcane, banana | sugarcane must be crushed within ~24 h (sourced); banana lasts days without cold chain |
+
+- **Engine:** `storage` sub-score = duration-weighted storage level of the cash crops (high 1, medium 0.6,
+  low 0.15). It counts only when `prefs.weights.storage` > 0. Exported as `EXTRA_PRIORITIES` (not in
+  `PRIORITIES`) so the live site doesn't show an unlabelled slider before Lane B adds it with a Tamil label.
+- **Check:**
+  - With default priorities, every score is unchanged.
+  - With storage at full weight, demo "Bigger shift" plans move from pearl millet to finger / little millet, and
+    rankings change by one crop at most. A clear effect that doesn't override everything else.
+- **Next:** combine with prices (E3). Storable crops can catch the price rise after harvest season; perishable ones
+  carry the full harvest-time price swing.
+- **Also rerun after the barnyard fix (I-30):** district switch targets are now cowpea 10, foxtail 7, green gram 7,
+  little millet 6, pearl millet 4, kodo 2, finger millet 1.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

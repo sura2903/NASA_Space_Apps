@@ -36,6 +36,9 @@ export const WATER_SOURCES = {
   borewell: { label: "Borewell / well", budget_mm: 1200, months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monsoon_linked: false },
 };
 
+// Extra priorities the engine understands but the UI doesn't show yet (add to the slider list + Tamil label
+// first, then they count when prefs.weights[key] > 0).
+export const EXTRA_PRIORITIES = { storage: "Can store and sell later" };
 export const PRIORITIES = {
   water: "Save water", income: "Income", soil_structure: "Soil health", nitrogen: "Natural nitrogen",
   erosion: "Erosion control", forage: "Fodder for animals", reliability: "Reliability in bad years",
@@ -199,10 +202,11 @@ function evalSlots(L, getMonth, yearOf, src, soilBuffer) {
     let irr = 0;
     if (deficit > 0 && srcDef.budget_mm > 0) {
       const calMonths = s.abs.map((a) => (a % 12) + 1);
-      const servable = calMonths.filter((m) => srcDef.months.includes(m)).length / calMonths.length;
       const wyIdx = yearOf(s.abs[0] + (calMonths[0] < 6 ? -12 : 0)); // water-year starts in June
+      const ds = damSeason(wyIdx);                                    // actual canal season, when known
+      const servable = calMonths.filter((m) => (ds ? ds.months.has(m) : srcDef.months.includes(m))).length / calMonths.length;
       const key = String(wyIdx ?? Math.floor(s.start / 12));
-      if (!(key in budgets)) budgets[key] = srcDef.budget_mm * sourceIndex(cl_ref, src, wyIdx);
+      if (!(key in budgets)) budgets[key] = srcDef.budget_mm * (ds ? clamp(ds.release_index, 0, 1.3) : sourceIndex(cl_ref, src, wyIdx));
       irr = Math.min(deficit * servable, budgets[key]);
       budgets[key] -= irr;
       deficit -= irr;
@@ -225,6 +229,38 @@ function evalSlots(L, getMonth, yearOf, src, soilBuffer) {
 }
 let cl_ref = null; // climate object for sourceIndex inside evalSlots (set per scoring call)
 
+// ---------- dam season for canal water (TASKS A22; RESEARCH_LOG I-29) ----------
+// Where site.dam exists (Cauvery delta: Mettur), canal water flows only while the canals are open that water-year
+// (actual opening and closing dates) and the canal budget scales with that year's release instead of the
+// rain-based canal_index. prefs.dam = { open: "MM-DD" | null, release_index?: 1 } overrides every year
+// ("what if the dam opens late this season / doesn't open"), null open = canals stay shut.
+let dam_ref = null;
+const wyOrd = (m, d) => ((m - 6 + 12) % 12) * 31 + d;           // position inside a Jun-May water year
+const parseMD = (s) => { const [m, d] = s.split("-").slice(-2).map(Number); return wyOrd(m, d); };
+function damContext(site, prefs, src) {
+  if (src !== "canal") return null;
+  if (prefs.dam) return { override: prefs.dam, normal: site.dam?.normal ?? { open: "06-12", close: "01-28" } };
+  return site.dam ? { years: site.dam.years, normal: site.dam.normal } : null;
+}
+function damSeason(wyIdx) {
+  if (!dam_ref) return null;
+  const close0 = parseMD(dam_ref.normal.close);
+  let open, close, idx;
+  if (dam_ref.override) {
+    if (dam_ref.override.open == null) return { months: new Set(), release_index: 0 };
+    open = parseMD(dam_ref.override.open); close = close0; idx = dam_ref.override.release_index ?? 1;
+  } else {
+    const yr = wyIdx == null ? null : cl_ref?.byYear[wyIdx]?.year;
+    const e = yr == null ? null : dam_ref.years[String(yr)];
+    if (wyIdx == null) { open = parseMD(dam_ref.normal.open); close = close0; idx = 1; }   // average year
+    else if (!e) return null;                                                              // no data: canal_index
+    else { open = parseMD(e.open); close = parseMD(e.close); idx = e.release_index; }
+  }
+  // a month counts as served if the canals are open on its 15th
+  const months = new Set([6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5].filter((m) => open <= wyOrd(m, 15) && wyOrd(m, 15) <= close));
+  return { months, release_index: idx };
+}
+
 // ---------- main scoring ----------
 export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
   const cm = cropMap(crops);
@@ -232,6 +268,7 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
   cl_ref = cl;
   const L = layout(rotation, cm);
   const src = prefs.water_source || "rainfed";
+  dam_ref = damContext(site, prefs, src);
   const soilBuffer = 0.5 * (AWC[site.soil?.texture_class] ?? 150);
 
   // 1) average year
@@ -293,7 +330,12 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
   const grossIncome = sum(cashSlots.map((s) => LEVEL[s.crop.market] * Math.min(2, s.crop.duration_days / 110) * (s.crop.msp ? 1.1 : 1))) / L.years / 2.4;
   const income = clamp(grossIncome * (0.5 + 0.5 * reliability));
   const forage = L.slots.length ? Math.max(...L.slots.map((s) => LEVEL[s.crop.forage_value])) : 0;
-  const subscores = { water, income, soil_structure, nitrogen, erosion, forage, reliability, pest };
+  // storage (IDEAS I28 / TASKS A23): can the harvest wait for a better price or feed the family later?
+  // Duration-weighted over cash crops; only counts when prefs.weights.storage is set (see EXTRA_PRIORITIES).
+  const STORE = { high: 1, medium: 0.6, low: 0.15 };
+  const cashLen = sum(cashSlots.map((s) => s.len)) || 1;
+  const storage = cashSlots.length ? sum(cashSlots.map((s) => (STORE[s.crop.storage?.level] ?? 0.6) * s.len)) / cashLen : 0;
+  const subscores = { water, income, soil_structure, nitrogen, erosion, forage, reliability, pest, storage };
 
   // 4) total
   const weights = { ...prefs.weights, pest: PEST_WEIGHT };
@@ -751,6 +793,36 @@ export function extremeYearCheck(site, crops, prefs, extremes) {
     lifetime_chance: extremes?.lifetime_chance ?? null, lifetime_years: extremes?.lifetime_years ?? 30,
     future: extremes?.future ?? null,
   };
+}
+
+// ---------- "Has the dam opened?" (TASKS A22; RESEARCH_LOG I-29) ----------
+// damCheck(site, crops, rotation, prefs) for canal-fed places with site.dam (Cauvery delta / Mettur):
+//  - history: the rotation's replay years grouped by when Mettur actually opened that water-year
+//    (on time <= 15 Jun, late 16 Jun - 31 Aug, very late >= 1 Sep), "came through X of N" per group;
+//  - what_if: every year's weather replayed with the canals opening on a chosen date this season
+//    (12 Jun / 1 Aug / 15 Sep / not at all), so a farmer can answer "the dam is late this year, what now?".
+// Mettur's opening can't be forecast from June information (I-18), so this is an input, not a prediction.
+export const DAM_OPTIONS = { on_time: "06-12", late: "08-01", very_late: "09-15", not_opened: null };
+export function damCheck(site, crops, rotation, prefs) {
+  if (!site.dam) return null;
+  const p = { ...prefs, water_source: "canal" };
+  const st = scoreRotation(site, crops, rotation, p, { skipText: true });
+  const cls = (e) => { const o = parseMD(e.open); return o <= wyOrd(6, 15) ? "on_time" : o <= wyOrd(8, 31) ? "late" : "very_late"; };
+  const history = { on_time: { good: 0, n: 0, years: [] }, late: { good: 0, n: 0, years: [] }, very_late: { good: 0, n: 0, years: [] } };
+  for (const y of st.replay.years) {
+    const e = site.dam.years[String(y.year)];
+    if (!e) continue;
+    const h = history[cls(e)];
+    h.n++; if (y.ok) h.good++;
+    h.years.push({ year: y.year, ok: y.ok, opened: e.open.slice(5) });
+  }
+  const what_if = Object.fromEntries(Object.entries(DAM_OPTIONS).map(([k, open]) => {
+    const r = scoreRotation(site, crops, rotation, { ...p, dam: { open } }, { skipText: true });
+    return [k, { open, good_years: r.replay.good_years, total_years: r.replay.total_years, irrigation_mm: r.water_use.irrigation_mm }];
+  }));
+  return { dam: site.dam.name, normal: site.dam.normal, overall: { good: st.replay.good_years, n: st.replay.total_years },
+           history, what_if,
+           note: "Mettur's opening date can't be forecast from June information; choose what has happened this season." };
 }
 
 // ---------- "Your last 10 years vs the full record" (FIELD_NOTES E6; RESEARCH_LOG I-25) ----------
