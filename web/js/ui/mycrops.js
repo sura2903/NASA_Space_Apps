@@ -13,9 +13,11 @@ import { toggleWater } from "./inputs.js";
 import { decorate } from "./glossary.js";
 import { getLang, cropName, monthName, monthShort, waterLabel } from "../i18n.js";
 
-const GOOD = 0.75, RISKY = 0.5;      // share of seasons the crop came through: >= 3 in 4 good, >= 2 in 4 risky
+const GOOD = 0.75, RISKY = 0.5;      // chance of success: >= 75% (about 3 seasons in 4) good, >= 50% risky
 // The climate has been changing, so the most recent seasons say more about next season: the last RECENT years of the
-// record count RECENT_WEIGHT times in the share that sets the verdict and the ranking. Both counts are shown.
+// record count RECENT_WEIGHT times in the chance that sets the verdict and the ranking. Both raw counts sit behind the ⓘ.
+// The chance is smoothed (Laplace): one good and one failed season are added, (good + 1) / (seasons + 2), so a perfect
+// record shows just under 100% and a short record is pulled toward 50% instead of jumping to 0% or 100%.
 const RECENT = 10, RECENT_WEIGHT = 2;
 const QUICK_DAYS = 95;                // "quick crop": about 3 months in the field
 const MAX_PICK = 8;
@@ -72,13 +74,14 @@ const S = {
     quickH: "Quick crops for this gap",
     quickNote: "Short crops (about 3 months) that came through most years when sown then. Useful between your main crops.",
     quickRow: "{crop}: ready by about {ready}, came through {good} of {n}",
-    key: "Good choice: came through at least 3 seasons in 4. Risky: at least 2 in 4. Not advised: fewer than half.",
-    tileCap: "seasons came through",
+    key: "Good choice: a chance of 75% or more (about 3 seasons in 4). Risky: 50% or more. Not advised: below 50%.",
+    tileCap: "chance it comes through",
+    pctNote: "How the % is worked out: the last {rn} seasons count twice, and one good and one failed season are added, so even a perfect record shows a little under 100%.",
     tileReady: "Ready by about {ready}",
     tileUsual: "Usually sown {months}",
     more: "More about {crop}",
     how: "How to read this",
-    quickTile: "{good} of {n}",
+    quickTile: "{pct}%",
     askH: "Ask locally before you decide",
     ask: "Seed and fertiliser supply, this year's prices at your market, pests seen nearby, and how much water your lake, canal or well really has this year. Only you and local experts know these.",
   },
@@ -121,13 +124,14 @@ const S = {
     quickH: "இடைவெளிக்கான குறுகிய காலப் பயிர்கள்",
     quickNote: "அப்போது விதைத்தபோது பெரும்பாலான ஆண்டுகளில் தாக்குப்பிடித்த குறுகிய காலப் பயிர்கள் (சுமார் 3 மாதம்). உங்கள் முக்கியப் பயிர்களுக்கு இடையே பயன்படும்.",
     quickRow: "{crop}: சுமார் {ready} மாதத்துக்குள் தயார், {n}-இல் {good} பருவங்களில் தாக்குப்பிடித்தது",
-    key: "நல்ல தேர்வு: 4 பருவங்களில் குறைந்தது 3-இல் தாக்குப்பிடித்தது. ஆபத்தானது: 4-இல் குறைந்தது 2. பரிந்துரைக்கப்படவில்லை: பாதிக்கும் குறைவு.",
-    tileCap: "பருவங்களில் தாக்குப்பிடித்தது",
+    key: "நல்ல தேர்வு: 75% அல்லது அதற்கு மேல் வாய்ப்பு (சுமார் 4 பருவங்களில் 3). ஆபத்தானது: 50% அல்லது அதற்கு மேல். பரிந்துரைக்கப்படவில்லை: 50%-க்குக் கீழ்.",
+    tileCap: "தாக்குப்பிடிக்கும் வாய்ப்பு",
+    pctNote: "இந்த % எப்படிக் கணக்கிடப்படுகிறது: கடைசி {rn} பருவங்கள் இரு முறை எண்ணப்படுகின்றன; ஒரு நல்ல, ஒரு தோல்வியடைந்த பருவம் சேர்க்கப்படுகிறது. அதனால் முழு வெற்றிப் பதிவும் 100%-க்குச் சற்றுக் குறைவாகவே காட்டும்.",
     tileReady: "சுமார் {ready} மாதத்துக்குள் தயார்",
     tileUsual: "வழக்கமாக {months} விதைப்பு",
     more: "{crop} பற்றி மேலும்",
     how: "இதை எப்படிப் படிப்பது",
-    quickTile: "{n}-இல் {good}",
+    quickTile: "{pct}%",
     askH: "முடிவெடுக்கும் முன் உள்ளூரில் கேளுங்கள்",
     ask: "விதை, உரம் கிடைப்பது, உங்கள் சந்தையில் இந்த ஆண்டு விலை, அருகில் காணப்பட்ட பூச்சிகள், உங்கள் ஏரி, கால்வாய் அல்லது கிணற்றில் இந்த ஆண்டு உண்மையில் எவ்வளவு நீர் உள்ளது. இவை உங்களுக்கும் உள்ளூர் நிபுணர்களுக்கும் மட்டுமே தெரியும்.",
   },
@@ -172,14 +176,15 @@ function windowPick(site, crops, crop, months, prefs, srcs, damOpen) {
     const good = [...okBy.values()].filter(Boolean).length, n = okBy.size;
     const last = Math.max(...okBy.keys()), recent = [...okBy].filter(([y]) => y > last - RECENT);
     const rgood = recent.filter(([, ok]) => ok).length, rn = recent.length;
-    const wshare = (good + (RECENT_WEIGHT - 1) * rgood) / (n + (RECENT_WEIGHT - 1) * rn || 1);
+    const wgood = good + (RECENT_WEIGHT - 1) * rgood, wn = n + (RECENT_WEIGHT - 1) * rn;
+    const wshare = (wgood + 1) / (wn + 2);     // smoothed, recency-weighted chance of success (see the top of the file)
     const total = Math.max(...runs.map((st) => st.total));
     const cand = { sow, good, n, rgood, rn, wshare, from: last - rn + 1, to: last, total, need: runs[0].water_use.need_mm };
     if (!best || cand.wshare > best.wshare || (cand.wshare === best.wshare && cand.total > best.total)) best = cand;
   }
-  const share = best.wshare;      // recency-weighted; sets the verdict and the order
+  const share = best.wshare;      // smoothed and recency-weighted; the shown %, the verdict and the order all use it
   return {
-    crop, ...best, share, ready: readyMonth(best.sow, crop),
+    crop, ...best, share, pct: Math.round(100 * share), ready: readyMonth(best.sow, crop),
     verdict: share >= GOOD ? "good" : share >= RISKY ? "risky" : "poor",
   };
 }
@@ -196,8 +201,8 @@ function allPicks(site, crops, prefs, months, srcs, damOpen) {
 const order = (a, b) => (a.off - b.off) || (b.share ?? 0) - (a.share ?? 0) || (b.total ?? 0) - (a.total ?? 0);
 const diverse = (list, n) => { const fams = new Set(); return list.filter((p) => !fams.has(p.crop.pest_family) && fams.add(p.crop.pest_family)).slice(0, n); };
 
-// One big tile per crop: a symbol + word (never colour alone), the crop, and how many seasons it came through.
-// The full sentence, water need and recent-years count sit behind the ⓘ.
+// One big tile per crop: a symbol + word (never colour alone), the crop, and its chance of success as a %.
+// The season counts ("came through 20 of 23"), how the % is worked out and the water need sit behind the ⓘ.
 const ICON = { good: "✓", risky: "!", poor: "✕", off: "–" };
 function tile(p, extra = null) {
   const v = p.off ? "off" : p.verdict;
@@ -205,6 +210,7 @@ function tile(p, extra = null) {
   const detail = p.off
     ? [h("p", {}, s("usual", { months: usual }))]
     : [h("p", { html: decorate(s("line", { good: p.good, n: p.n, rgood: p.rgood, rn: p.rn, month: monthName(p.sow), ready: monthName(p.ready) })) }),
+       h("p", { class: "note" }, s("pctNote", { rn: p.rn })),
        h("p", {}, s("need", { mm: fmt(p.need) }))];
   return h("li", { class: `mc-tile mc-t-${v}` },
     h("div", { class: "mc-tile-top" },
@@ -213,7 +219,7 @@ function tile(p, extra = null) {
     h("strong", { class: "mc-tile-crop" }, cropName(p.crop)),
     p.off
       ? h("span", { class: "mc-tile-sub" }, s("tileUsual", { months: usual }))
-      : [h("span", { class: "mc-tile-num" }, `${p.good}/${p.n}`), h("span", { class: "mc-tile-sub" }, s("tileCap"))],
+      : [h("span", { class: "mc-tile-num" }, `${p.pct}%`), h("span", { class: "mc-tile-sub" }, s("tileCap"))],
     p.off ? null : h("span", { class: "mc-tile-sub" }, s("tileReady", { ready: monthShort(p.ready) })),
     h("details", { class: "mc-more" },
       h("summary", { "aria-label": s("more", { crop: cropName(p.crop) }), title: s("more", { crop: cropName(p.crop) }) }, "ⓘ"),
@@ -334,7 +340,7 @@ export function renderMyCrops(el, args) {
   if (quick.length) {
     result.append(h("div", { class: "mc-quick" }, h("h3", {}, s("quickH")),
       h("ul", { class: "mc-quick-chips" }, quick.map((p) => h("li", { title: s("quickRow", { crop: cropName(p.crop), ready: monthName(p.ready), good: p.good, n: p.n }) },
-        h("span", { "aria-hidden": "true" }, "✓ "), h("strong", {}, cropName(p.crop)), " ", h("span", { class: "mc-quick-n" }, s("quickTile", { good: p.good, n: p.n })))))));
+        h("span", { "aria-hidden": "true" }, "✓ "), h("strong", {}, cropName(p.crop)), " ", h("span", { class: "mc-quick-n" }, s("quickTile", { pct: p.pct })))))));
   }
   // the reading key, recent-years weighting and multi-source rule: one fold instead of three paragraphs
   const anyIn = picks.find((p) => !p.off);
