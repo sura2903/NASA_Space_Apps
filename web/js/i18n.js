@@ -36,9 +36,10 @@ const STR = {
     "welcome.denied": "Location is not available. Please choose from the list.",
     "welcome.privacy": "Your location stays on this device; it is only used to find the nearest place.",
     "welcome.or": "or pick a detailed place:", "welcome.go": "Show my options",
-    "places.group": "{town} area",
-    "places.note": "Each place is a square of NASA data about {km} km wide, named after the nearest district town and how far the square's centre is from it. Pick the one closest to your village, or use the map or your location.",
-    "place.dir": "{town}, {km} km {dir}", "place.away": "{town}, {km} km away", "place.near": "{town}, next to the town",
+    "places.group": "{town} district",
+    "places.note": "Each place is a square of NASA data about {km} km wide, named after the village or town at its centre and its taluk, with how far it is from the nearest district town. Pick the one closest to your village, or use the map or your location.",
+    "place.full": "{local} ({where})",
+    "place.dir": "{km} km {dir} of {town}", "place.away": "{km} km from {town}", "place.near": "next to {town}",
     "dir.n": "north", "dir.ne": "north-east", "dir.e": "east", "dir.se": "south-east", "dir.s": "south", "dir.sw": "south-west", "dir.w": "west", "dir.nw": "north-west",
     "change.place": "Change place",
     "welcome.example": "You are looking at an example place: {place}. Choose your own place above to see results for your farm.",
@@ -411,9 +412,10 @@ const STR = {
     "welcome.denied": "இருப்பிடம் கிடைக்கவில்லை. பட்டியலிலிருந்து தேர்ந்தெடுக்கவும்.",
     "welcome.privacy": "உங்கள் இருப்பிடம் இந்தச் சாதனத்திலேயே இருக்கும்; அருகிலுள்ள இடத்தைக் கண்டறிய மட்டுமே பயன்படும்.",
     "welcome.or": "அல்லது விரிவான இடத்தைத் தேர்ந்தெடுக்கவும்:", "welcome.go": "என் தேர்வுகளைக் காட்டு",
-    "places.group": "{town} பகுதி",
-    "places.note": "ஒவ்வொரு இடமும் சுமார் {km} கி.மீ. அகலமுள்ள நாசா தரவுச் சதுரம். அருகிலுள்ள மாவட்ட நகரத்தின் பெயரும், சதுரத்தின் மையம் அதிலிருந்து எவ்வளவு தொலைவு என்பதும் அதன் பெயர். உங்கள் ஊருக்கு மிக அருகில் உள்ளதைத் தேர்ந்தெடுங்கள், அல்லது வரைபடத்தையோ உங்கள் இருப்பிடத்தையோ பயன்படுத்துங்கள்.",
-    "place.dir": "{town}, {dir} {km} கி.மீ.", "place.away": "{town}, {km} கி.மீ. தொலைவில்", "place.near": "{town}, நகரை ஒட்டி",
+    "places.group": "{town} மாவட்டம்",
+    "places.note": "ஒவ்வொரு இடமும் சுமார் {km} கி.மீ. அகலமுள்ள நாசா தரவுச் சதுரம். அதன் மையத்தில் உள்ள ஊரின் பெயரும், அருகிலுள்ள மாவட்ட நகரத்திலிருந்து அது எவ்வளவு தொலைவு என்பதும் அதன் பெயர். உங்கள் ஊருக்கு மிக அருகில் உள்ளதைத் தேர்ந்தெடுங்கள், அல்லது வரைபடத்தையோ உங்கள் இருப்பிடத்தையோ பயன்படுத்துங்கள்.",
+    "place.full": "{local} ({where})",
+    "place.dir": "{town}, {dir} {km} கி.மீ.", "place.away": "{town}, {km} கி.மீ.", "place.near": "{town} அருகில்",
     "dir.n": "வடக்கே", "dir.ne": "வடகிழக்கே", "dir.e": "கிழக்கே", "dir.se": "தென்கிழக்கே", "dir.s": "தெற்கே", "dir.sw": "தென்மேற்கே", "dir.w": "மேற்கே", "dir.nw": "வடமேற்கே",
     "change.place": "இடத்தை மாற்று",
     "welcome.example": "இது ஒரு எடுத்துக்காட்டு இடம்: {place}. உங்கள் பண்ணைக்கான முடிவுகளைக் காண மேலே உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்.",
@@ -819,9 +821,13 @@ export const setPlaceInfo = (info) => Object.assign(PLACES, info);
 function placeLabel(id) {
   const p = PLACES[id];
   if (!p) return null;
-  const town = lang === "ta" && p.town_ta ? p.town_ta : p.town;
-  if (p.km < 5) return t("place.near", { town, km: p.km });
-  return p.dir ? t("place.dir", { town, km: p.km, dir: t(`dir.${p.dir}`) }) : t("place.away", { town, km: p.km });
+  const ta = lang === "ta";
+  const town = ta && p.town_ta ? p.town_ta : p.town;
+  const where = p.km < 5 ? t("place.near", { town, km: p.km })
+    : p.dir ? t("place.dir", { town, km: p.km, dir: t(`dir.${p.dir}`) }) : t("place.away", { town, km: p.km });
+  // the village / town at the square's centre and its taluk (ui/places.js), then where that is from the district town
+  const local = ta ? (p.local_ta ?? p.local) : p.local;
+  return local ? t("place.full", { local, where }) : where;
 }
 /** Town a place is grouped under in the place list, in the current language. */
 export const placeTown = (id) => { const p = PLACES[id]; return p ? (lang === "ta" && p.town_ta ? p.town_ta : p.town) : null; };

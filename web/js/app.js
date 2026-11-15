@@ -344,7 +344,7 @@ async function init() {
 function fillPlaceSelect(sel) {
   clear(sel);
   const opt = (s) => h("option", { value: s.id }, siteName(s));
-  // one list, grouped by the nearest district town; the three demo places sit first in their town's group
+  // one list, grouped by district; the three demo places sit first in their district's group
   const { info = {}, townOf = {}, townTa = {} } = state.places ?? {};
   const groups = new Map();
   for (const s of state.sites) {
@@ -354,7 +354,8 @@ function fillPlaceSelect(sel) {
   }
   const label = (town) => t("places.group", { town: getLang() === "ta" && townTa[town] ? townTa[town] : town });
   [...groups.keys()].sort((a, b) => a.localeCompare(b)).forEach((town) => {
-    const list = groups.get(town).sort((a, b) => (info[a.id]?.km ?? -1) - (info[b.id]?.km ?? -1));
+    // demo place first, then villages A–Z (in the current language)
+    const list = groups.get(town).sort((a, b) => (a.demo ? -1 : 0) - (b.demo ? -1 : 0) || siteName(a).localeCompare(siteName(b)));
     sel.append(h("optgroup", { label: label(town) }, ...list.map(opt)));
   });
   if (state.site) sel.value = state.site.id;
