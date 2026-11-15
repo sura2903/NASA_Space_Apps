@@ -1191,5 +1191,100 @@
    "max_wind_ms": 14.3,
    "rain_mm": 160.3
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 11,
+  "per_decade": 2.5,
+  "severe_count": 4,
+  "months": {
+   "10": 4,
+   "11": 4,
+   "12": 3
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1982-10-18",
+    "dist_km": 94,
+    "wind_kt": 38,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1984-11-13",
+    "dist_km": 62,
+    "wind_kt": 83,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1994-10-31",
+    "dist_km": 23,
+    "wind_kt": 55,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1996-12-06",
+    "dist_km": 78,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2001-10-15",
+    "dist_km": 88,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Jal",
+    "date": "2010-11-07",
+    "dist_km": 32,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Nilam",
+    "date": "2012-10-31",
+    "dist_km": 61,
+    "wind_kt": 50,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Vardah",
+    "date": "2016-12-12",
+    "dist_km": 23,
+    "wind_kt": 65,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Nivar",
+    "date": "2020-11-26",
+    "dist_km": 17,
+    "wind_kt": 43,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2021-11-11",
+    "dist_km": 80,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Mandous",
+    "date": "2022-12-09",
+    "dist_km": 63,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

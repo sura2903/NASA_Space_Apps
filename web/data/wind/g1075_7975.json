@@ -1191,5 +1191,85 @@
    "max_wind_ms": 12.9,
    "rain_mm": 12.1
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 9,
+  "per_decade": 2.0,
+  "severe_count": 6,
+  "months": {
+   "11": 4,
+   "12": 5
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1984-12-01",
+    "dist_km": 53,
+    "wind_kt": 70,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1991-11-14",
+    "dist_km": 53,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "1993-12-04",
+    "dist_km": 32,
+    "wind_kt": 77,
+    "category": "very severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2000-11-29",
+    "dist_km": 87,
+    "wind_kt": 60,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Fanoos",
+    "date": "2005-12-10",
+    "dist_km": 42,
+    "wind_kt": 45,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Nisha",
+    "date": "2008-11-26",
+    "dist_km": 55,
+    "wind_kt": 50,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Thane",
+    "date": "2011-12-30",
+    "dist_km": 98,
+    "wind_kt": 58,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Nada",
+    "date": "2016-12-01",
+    "dist_km": 93,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Gaja",
+    "date": "2018-11-15",
+    "dist_km": 28,
+    "wind_kt": 75,
+    "category": "very severe cyclonic storm"
+   }
+  ]
+ }
 }

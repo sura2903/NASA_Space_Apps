@@ -308,6 +308,14 @@ Not part of pass/fail. UI idea: "Cyclone months here: Nov–Dec. Samba rice was 
 UI: read `layers` for the picker, colour each point by `key` (dot path), and use `worse` for the colour direction.
 One click on a point shows its `engine` lists ("avoid in a drought year", "came through 2016", "wind-exposed").
 
+### 2i-cyclones. `cyclones` in `web/data/wind/<id>.json` (`pipeline/cyclone_tracks.py`, NOAA IBTrACS)
+`"cyclones": { "source", "rule": "track within 100 km at >= 34 kt, 1981-2024", "years": [1981, 2024], "count": 8,
+  "per_decade": 1.8, "severe_count": 6, "months": {"11": 4, "12": 4}, "passes": [{ "name": "Gaja", "date": "2018-11-16",
+  "dist_km": 42, "wind_kt": 70, "category": "very severe cyclonic storm" }] }`.
+`windRisk()` now also returns `cyclones: { count, per_decade, severe_count, years, recent[] }`, and each crop row has
+`cyclones: { seasons_hit, seasons, share, storms[] }`. `name_ta` (Tamil place name) is in `grid/index.json`,
+`grid/<id>.json` and `statewide_risk.json` points.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

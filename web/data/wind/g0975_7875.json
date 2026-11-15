@@ -1191,5 +1191,43 @@
    "max_wind_ms": 10.8,
    "rain_mm": 0.1
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 3,
+  "per_decade": 0.7,
+  "severe_count": 1,
+  "months": {
+   "11": 1,
+   "12": 2
+  },
+  "passes": [
+   {
+    "name": "Fanoos",
+    "date": "2005-12-10",
+    "dist_km": 55,
+    "wind_kt": 38,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Gaja",
+    "date": "2018-11-16",
+    "dist_km": 77,
+    "wind_kt": 63,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Burevi",
+    "date": "2020-12-03",
+    "dist_km": 78,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

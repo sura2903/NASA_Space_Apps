@@ -20,7 +20,7 @@ files = [f for f in files if f.stem in ("tirunelveli", "madurai", "thanjavur")] 
 rho_oni, rho_dmi, pooled = [], [], {"el_nino": [], "la_nina": [], "neutral": [],
                                     "iod_positive": [], "iod_negative": [], "iod_neutral": []}
 for f in files:
-    s = json.loads(f.read_text())
+    s = json.loads(f.read_text(encoding="utf-8"))
     ne = {y["year"]: sum(m["precip_mm"] for m in y["months"][9:12]) for y in s["by_year"]}
     yrs = [y for y in ne if str(y) in IDX and IDX[str(y)]["oni_ond"] is not None]
     v = np.array([ne[y] for y in yrs])

@@ -3745,7 +3745,7 @@
     "texture_class": "clay loam"
   },
   "ndvi": null,
-  "precip_source": "GPM IMERG Final daily V07 at 11.75N 79.25E (0.1\u00b0 grid); temperature/ET0 from NASA POWER",
+  "precip_source": "GPM IMERG Final daily V07 at 11.75N 79.25E (0.1° grid); temperature/ET0 from NASA POWER",
   "rain_comparison": {
     "power_annual_mean_mm": 1128,
     "imerg_annual_mean_mm": 1245,
@@ -4033,5 +4033,6 @@
         "doy": 316
       }
     ]
-  }
+  },
+  "name_ta": "விழுப்புரம் அருகில் (34 கி.மீ.)"
 }

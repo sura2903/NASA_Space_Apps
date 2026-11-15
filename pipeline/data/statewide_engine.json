@@ -5213,7 +5213,14 @@
     "cowpea"
    ],
    "wind_most_exposed": [
-    "banana"
+    "banana",
+    "sugarcane",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
    ],
    "drought_2016": {
     "came_through": [],
@@ -5344,7 +5351,15 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "rice_long",
+    "banana",
+    "finger_millet",
+    "proso_millet",
+    "barnyard_millet",
+    "sorghum"
+   ],
    "drought_2016": {
     "came_through": [
      "green_gram",
@@ -6511,7 +6526,11 @@
    "decade_dependent": [
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6628,7 +6647,12 @@
     "rice_long",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "maize",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -6748,7 +6772,13 @@
     "groundnut"
    ],
    "wind_most_exposed": [
-    "banana"
+    "banana",
+    "sugarcane",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -6869,7 +6899,12 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -7004,7 +7039,15 @@
     "cotton",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "maize",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -7142,7 +7185,14 @@
     "sugarcane",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "finger_millet",
+    "sorghum",
+    "cotton"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8022,7 +8072,11 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8137,7 +8191,11 @@
    "decade_dependent": [
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8252,7 +8310,11 @@
     "groundnut",
     "maize"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8367,7 +8429,11 @@
     "maize",
     "sugarcane"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "rice_long",
+    "sugarcane",
+    "banana"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8489,7 +8555,11 @@
     "maize",
     "cotton"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "banana",
+    "rice_long",
+    "sugarcane"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8614,7 +8684,11 @@
     "cotton",
     "sugarcane"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long"
+   ],
    "drought_2016": {
     "came_through": [
      "sesame",
@@ -8748,7 +8822,10 @@
     "cowpea"
    ],
    "wind_most_exposed": [
-    "rice_long"
+    "rice_long",
+    "banana",
+    "maize",
+    "sugarcane"
    ],
    "drought_2016": {
     "came_through": [
@@ -8883,7 +8960,12 @@
     "cotton",
     "cowpea"
    ],
-   "wind_most_exposed": [],
+   "wind_most_exposed": [
+    "sugarcane",
+    "banana",
+    "rice_long",
+    "maize"
+   ],
    "drought_2016": {
     "came_through": [
      "green_gram",
@@ -9244,7 +9326,8 @@
    ],
    "wind_most_exposed": [
     "banana",
-    "sugarcane"
+    "sugarcane",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -9363,7 +9446,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -9486,7 +9570,8 @@
    ],
    "wind_most_exposed": [
     "banana",
-    "sugarcane"
+    "sugarcane",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -9608,7 +9693,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -9742,7 +9828,8 @@
     "pearl_millet",
     "finger_millet",
     "sorghum",
-    "maize"
+    "maize",
+    "cotton"
    ],
    "drought_2016": {
     "came_through": [
@@ -9882,7 +9969,8 @@
     "pearl_millet",
     "finger_millet",
     "sorghum",
-    "maize"
+    "maize",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [
@@ -10272,7 +10360,8 @@
    ],
    "wind_most_exposed": [
     "sugarcane",
-    "banana"
+    "banana",
+    "rice_long"
    ],
    "drought_2016": {
     "came_through": [

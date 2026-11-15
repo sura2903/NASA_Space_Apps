@@ -48,8 +48,19 @@
    ]
   },
   {
+   "key": "wind.cyclones_per_decade",
+   "label": "Cyclones passing within 100 km (NOAA tracks)",
+   "unit": "per decade",
+   "worse": "high",
+   "available": 47,
+   "range": [
+    0.2,
+    3.2
+   ]
+  },
+  {
    "key": "wind.storm_days_per_year",
-   "label": "Cyclone / storm days",
+   "label": "Storm days (strong wind + heavy rain)",
    "unit": "per year",
    "worse": "high",
    "available": 47,
@@ -118,6 +129,7 @@
   {
    "id": "g0825_7775",
    "name": "near Nagercoil (Kanyakumari) (38 km)",
+   "name_ta": "நாகர்கோவில் (கன்னியாகுமரி) அருகில் (38 கி.மீ.)",
    "lat": 8.25,
    "lon": 77.75,
    "district": {
@@ -148,6 +160,12 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12",
+     "Ockhi 2017-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -477,6 +495,7 @@
   {
    "id": "g0875_7725",
    "name": "near Tenkasi (24 km)",
+   "name_ta": "தென்காசி அருகில் (24 கி.மீ.)",
    "lat": 8.75,
    "lon": 77.25,
    "district": {
@@ -507,6 +526,11 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -775,6 +799,7 @@
   {
    "id": "g0875_7775",
    "name": "near Tirunelveli (5 km)",
+   "name_ta": "திருநெல்வேலி அருகில் (5 கி.மீ.)",
    "lat": 8.75,
    "lon": 77.75,
    "district": {
@@ -805,6 +830,11 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -1073,6 +1103,7 @@
   {
    "id": "g0925_7725",
    "name": "near Tenkasi (33 km)",
+   "name_ta": "தென்காசி அருகில் (33 கி.மீ.)",
    "lat": 9.25,
    "lon": 77.25,
    "district": {
@@ -1103,6 +1134,10 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Unnamed 1992-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -1364,6 +1399,7 @@
   {
    "id": "g0925_7775",
    "name": "near Virudhunagar (43 km)",
+   "name_ta": "விருதுநகர் அருகில் (43 கி.மீ.)",
    "lat": 9.25,
    "lon": 77.75,
    "district": {
@@ -1394,6 +1430,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -1654,6 +1695,7 @@
   {
    "id": "g0925_7825",
    "name": "near Virudhunagar (48 km)",
+   "name_ta": "விருதுநகர் அருகில் (48 கி.மீ.)",
    "lat": 9.25,
    "lon": 78.25,
    "district": {
@@ -1684,6 +1726,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Unnamed 2000-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -1950,6 +1997,7 @@
   {
    "id": "g0925_7875",
    "name": "near Ramanathapuram (16 km)",
+   "name_ta": "இராமநாதபுரம் அருகில் (16 கி.மீ.)",
    "lat": 9.25,
    "lon": 78.75,
    "district": {
@@ -1980,6 +2028,11 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-12",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -2273,6 +2326,7 @@
   {
    "id": "g0925_7925",
    "name": "near Ramanathapuram (48 km)",
+   "name_ta": "இராமநாதபுரம் அருகில் (48 கி.மீ.)",
    "lat": 9.25,
    "lon": 79.25,
    "district": {
@@ -2303,6 +2357,11 @@
    "wind": {
     "storm_days_per_year": 0.46,
     "years_with_storm_day": 10,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Burevi 2020-12"
+    ],
     "storm_months": [
      12
     ]
@@ -2622,6 +2681,7 @@
   {
    "id": "g0975_7725",
    "name": "near Theni (38 km)",
+   "name_ta": "தேனி அருகில் (38 கி.மீ.)",
    "lat": 9.75,
    "lon": 77.25,
    "district": {
@@ -2652,6 +2712,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -2921,6 +2986,7 @@
   {
    "id": "g0975_7775",
    "name": "near Virudhunagar (30 km)",
+   "name_ta": "விருதுநகர் அருகில் (30 கி.மீ.)",
    "lat": 9.75,
    "lon": 77.75,
    "district": {
@@ -2951,6 +3017,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -3223,6 +3294,7 @@
   {
    "id": "g0975_7825",
    "name": "near Madurai (25 km)",
+   "name_ta": "மதுரை அருகில் (25 கி.மீ.)",
    "lat": 9.75,
    "lon": 78.25,
    "district": {
@@ -3253,6 +3325,10 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -3517,6 +3593,7 @@
   {
    "id": "g0975_7875",
    "name": "near Sivaganga (32 km)",
+   "name_ta": "சிவகங்கை அருகில் (32 கி.மீ.)",
    "lat": 9.75,
    "lon": 78.75,
    "district": {
@@ -3547,6 +3624,12 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -3826,6 +3909,7 @@
   {
    "id": "g1025_7725",
    "name": "near Theni (37 km)",
+   "name_ta": "தேனி அருகில் (37 கி.மீ.)",
    "lat": 10.25,
    "lon": 77.25,
    "district": {
@@ -3856,6 +3940,12 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 1992-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -4128,6 +4218,7 @@
   {
    "id": "g1025_7775",
    "name": "near Dindigul (28 km)",
+   "name_ta": "திண்டுக்கல் அருகில் (28 கி.மீ.)",
    "lat": 10.25,
    "lon": 77.75,
    "district": {
@@ -4158,6 +4249,10 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.2,
+    "cyclones_recent": [
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -4429,6 +4524,7 @@
   {
    "id": "g1025_7825",
    "name": "near Dindigul (32 km)",
+   "name_ta": "திண்டுக்கல் அருகில் (32 கி.மீ.)",
    "lat": 10.25,
    "lon": 78.25,
    "district": {
@@ -4459,6 +4555,11 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -4729,6 +4830,7 @@
   {
    "id": "g1025_7875",
    "name": "near Pudukkottai (16 km)",
+   "name_ta": "புதுக்கோட்டை அருகில் (16 கி.மீ.)",
    "lat": 10.25,
    "lon": 78.75,
    "district": {
@@ -4759,6 +4861,11 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 3,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -5039,6 +5146,7 @@
   {
    "id": "g1025_7925",
    "name": "near Pudukkottai (49 km)",
+   "name_ta": "புதுக்கோட்டை அருகில் (49 கி.மீ.)",
    "lat": 10.25,
    "lon": 79.25,
    "district": {
@@ -5069,6 +5177,12 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Gaja 2018-11",
+     "Burevi 2020-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -5367,6 +5481,7 @@
   {
    "id": "g1075_7725",
    "name": "near Tiruppur (41 km)",
+   "name_ta": "திருப்பூர் அருகில் (41 கி.மீ.)",
    "lat": 10.75,
    "lon": 77.25,
    "district": {
@@ -5397,6 +5512,12 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -5667,6 +5788,7 @@
   {
    "id": "g1075_7775",
    "name": "near Karur (43 km)",
+   "name_ta": "கரூர் அருகில் (43 கி.மீ.)",
    "lat": 10.75,
    "lon": 77.75,
    "district": {
@@ -5697,6 +5819,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -5966,6 +6093,7 @@
   {
    "id": "g1075_7825",
    "name": "near Karur (30 km)",
+   "name_ta": "கரூர் அருகில் (30 கி.மீ.)",
    "lat": 10.75,
    "lon": 78.25,
    "district": {
@@ -5996,6 +6124,11 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -6271,6 +6404,7 @@
   {
    "id": "g1075_7875",
    "name": "near Tiruchirappalli (9 km)",
+   "name_ta": "திருச்சிராப்பள்ளி அருகில் (9 கி.மீ.)",
    "lat": 10.75,
    "lon": 78.75,
    "district": {
@@ -6301,6 +6435,13 @@
    "wind": {
     "storm_days_per_year": 0.12,
     "years_with_storm_day": 2,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Fanoos 2005-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -6571,6 +6712,7 @@
   {
    "id": "g1075_7925",
    "name": "near Thanjavur (13 km)",
+   "name_ta": "தஞ்சாவூர் அருகில் (13 கி.மீ.)",
    "lat": 10.75,
    "lon": 79.25,
    "district": {
@@ -6601,6 +6743,13 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 5,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Fanoos 2005-12",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -6694,7 +6843,14 @@
       "cowpea"
      ],
      "wind_most_exposed": [
-      "banana"
+      "banana",
+      "sugarcane",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "proso_millet",
+      "barnyard_millet",
+      "sorghum"
      ],
      "drought_2016": {
       "came_through": [],
@@ -6825,7 +6981,15 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "rice_long",
+      "banana",
+      "finger_millet",
+      "proso_millet",
+      "barnyard_millet",
+      "sorghum"
+     ],
      "drought_2016": {
       "came_through": [
        "green_gram",
@@ -6890,6 +7054,7 @@
   {
    "id": "g1075_7975",
    "name": "near Nagapattinam (10 km)",
+   "name_ta": "நாகப்பட்டினம் அருகில் (10 கி.மீ.)",
    "lat": 10.75,
    "lon": 79.75,
    "district": {
@@ -6920,6 +7085,13 @@
    "wind": {
     "storm_days_per_year": 0.42,
     "years_with_storm_day": 9,
+    "cyclones_per_decade": 2.0,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nada 2016-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": [
      11
     ]
@@ -7292,6 +7464,7 @@
   {
    "id": "g1125_7675",
    "name": "near Udhagamandalam (Nilgiris) (19 km)",
+   "name_ta": "உதகமண்டலம் (நீலகிரி) அருகில் (19 கி.மீ.)",
    "lat": 11.25,
    "lon": 76.75,
    "district": {
@@ -7322,6 +7495,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -7597,6 +7775,7 @@
   {
    "id": "g1125_7725",
    "name": "near Tiruppur (18 km)",
+   "name_ta": "திருப்பூர் அருகில் (18 கி.மீ.)",
    "lat": 11.25,
    "lon": 77.25,
    "district": {
@@ -7627,6 +7806,12 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.7,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -7894,6 +8079,7 @@
   {
    "id": "g1125_7775",
    "name": "near Erode (11 km)",
+   "name_ta": "ஈரோடு அருகில் (11 கி.மீ.)",
    "lat": 11.25,
    "lon": 77.75,
    "district": {
@@ -7924,6 +8110,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1984-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -8187,6 +8380,7 @@
   {
    "id": "g1125_7825",
    "name": "near Namakkal (9 km)",
+   "name_ta": "நாமக்கல் அருகில் (9 கி.மீ.)",
    "lat": 11.25,
    "lon": 78.25,
    "district": {
@@ -8217,6 +8411,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -8304,7 +8505,11 @@
      "decade_dependent": [
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -8421,7 +8626,12 @@
       "rice_long",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "maize",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -8486,6 +8696,7 @@
   {
    "id": "g1125_7875",
    "name": "near Perambalur (14 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (14 கி.மீ.)",
    "lat": 11.25,
    "lon": 78.75,
    "district": {
@@ -8516,6 +8727,13 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -8603,7 +8821,13 @@
       "groundnut"
      ],
      "wind_most_exposed": [
-      "banana"
+      "banana",
+      "sugarcane",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -8724,7 +8948,12 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -8790,6 +9019,7 @@
   {
    "id": "g1125_7925",
    "name": "near Perambalur (40 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (40 கி.மீ.)",
    "lat": 11.25,
    "lon": 79.25,
    "district": {
@@ -8820,6 +9050,13 @@
    "wind": {
     "storm_days_per_year": 0.25,
     "years_with_storm_day": 5,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11"
+    ],
     "storm_months": [
      11
     ]
@@ -8923,7 +9160,15 @@
       "cotton",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "maize",
+      "finger_millet",
+      "sorghum",
+      "cotton"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -9061,7 +9306,14 @@
       "sugarcane",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "finger_millet",
+      "sorghum",
+      "cotton"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -9126,6 +9378,7 @@
   {
    "id": "g1125_7975",
    "name": "near Nagapattinam (54 km)",
+   "name_ta": "நாகப்பட்டினம் அருகில் (54 கி.மீ.)",
    "lat": 11.25,
    "lon": 79.75,
    "district": {
@@ -9156,6 +9409,13 @@
    "wind": {
     "storm_days_per_year": 0.58,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 2.0,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Gaja 2018-11",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
@@ -9471,6 +9731,7 @@
   {
    "id": "g1175_7675",
    "name": "near Udhagamandalam (Nilgiris) (38 km)",
+   "name_ta": "உதகமண்டலம் (நீலகிரி) அருகில் (38 கி.மீ.)",
    "lat": 11.75,
    "lon": 76.75,
    "district": {
@@ -9501,6 +9762,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1981-10",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -9776,6 +10042,7 @@
   {
    "id": "g1175_7725",
    "name": "near Erode (68 km)",
+   "name_ta": "ஈரோடு அருகில் (68 கி.மீ.)",
    "lat": 11.75,
    "lon": 77.25,
    "district": {
@@ -9806,6 +10073,11 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.5,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11"
+    ],
     "storm_months": []
    },
    "future": {
@@ -10074,6 +10346,7 @@
   {
    "id": "g1175_7775",
    "name": "near Salem (45 km)",
+   "name_ta": "சேலம் அருகில் (45 கி.மீ.)",
    "lat": 11.75,
    "lon": 77.75,
    "district": {
@@ -10104,6 +10377,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -10191,7 +10471,11 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10306,7 +10590,11 @@
      "decade_dependent": [
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10372,6 +10660,7 @@
   {
    "id": "g1175_7825",
    "name": "near Salem (15 km)",
+   "name_ta": "சேலம் அருகில் (15 கி.மீ.)",
    "lat": 11.75,
    "lon": 78.25,
    "district": {
@@ -10402,6 +10691,13 @@
    "wind": {
     "storm_days_per_year": 0.04,
     "years_with_storm_day": 1,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -10483,7 +10779,11 @@
       "groundnut",
       "maize"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10598,7 +10898,11 @@
       "maize",
       "sugarcane"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "rice_long",
+      "sugarcane",
+      "banana"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10663,6 +10967,7 @@
   {
    "id": "g1175_7875",
    "name": "near Perambalur (59 km)",
+   "name_ta": "பெரம்பலூர் அருகில் (59 கி.மீ.)",
    "lat": 11.75,
    "lon": 78.75,
    "district": {
@@ -10693,6 +10998,13 @@
    "wind": {
     "storm_days_per_year": 0.08,
     "years_with_storm_day": 2,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -10782,7 +11094,11 @@
       "maize",
       "cotton"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "banana",
+      "rice_long",
+      "sugarcane"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10907,7 +11223,11 @@
       "cotton",
       "sugarcane"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long"
+     ],
      "drought_2016": {
       "came_through": [
        "sesame",
@@ -10972,6 +11292,7 @@
   {
    "id": "g1175_7925",
    "name": "near Villupuram (34 km)",
+   "name_ta": "விழுப்புரம் அருகில் (34 கி.மீ.)",
    "lat": 11.75,
    "lon": 79.25,
    "district": {
@@ -11002,6 +11323,13 @@
    "wind": {
     "storm_days_per_year": 0.29,
     "years_with_storm_day": 6,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
@@ -11105,7 +11433,10 @@
       "cowpea"
      ],
      "wind_most_exposed": [
-      "rice_long"
+      "rice_long",
+      "banana",
+      "maize",
+      "sugarcane"
      ],
      "drought_2016": {
       "came_through": [
@@ -11240,7 +11571,12 @@
       "cotton",
       "cowpea"
      ],
-     "wind_most_exposed": [],
+     "wind_most_exposed": [
+      "sugarcane",
+      "banana",
+      "rice_long",
+      "maize"
+     ],
      "drought_2016": {
       "came_through": [
        "green_gram",
@@ -11305,6 +11641,7 @@
   {
    "id": "g1225_7775",
    "name": "near Dharmapuri (46 km)",
+   "name_ta": "தருமபுரி அருகில் (46 கி.மீ.)",
    "lat": 12.25,
    "lon": 77.75,
    "district": {
@@ -11335,6 +11672,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 0.9,
+    "cyclones_recent": [
+     "Unnamed 1993-12",
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -11605,6 +11949,7 @@
   {
    "id": "g1225_7825",
    "name": "near Dharmapuri (17 km)",
+   "name_ta": "தருமபுரி அருகில் (17 கி.மீ.)",
    "lat": 12.25,
    "lon": 78.25,
    "district": {
@@ -11635,6 +11980,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.4,
+    "cyclones_recent": [
+     "Unnamed 2000-11",
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Vardah 2016-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -11725,7 +12077,8 @@
      ],
      "wind_most_exposed": [
       "banana",
-      "sugarcane"
+      "sugarcane",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -11844,7 +12197,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -11911,6 +12265,7 @@
   {
    "id": "g1225_7875",
    "name": "near Tiruvannamalai (35 km)",
+   "name_ta": "திருவண்ணாமலை அருகில் (35 கி.மீ.)",
    "lat": 12.25,
    "lon": 78.75,
    "district": {
@@ -11941,6 +12296,13 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.6,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12"
+    ],
     "storm_months": [
      11
     ]
@@ -12031,7 +12393,8 @@
      ],
      "wind_most_exposed": [
       "banana",
-      "sugarcane"
+      "sugarcane",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -12153,7 +12516,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -12219,6 +12583,7 @@
   {
    "id": "g1225_7925",
    "name": "near Tiruvannamalai (20 km)",
+   "name_ta": "திருவண்ணாமலை அருகில் (20 கி.மீ.)",
    "lat": 12.25,
    "lon": 79.25,
    "district": {
@@ -12249,6 +12614,13 @@
    "wind": {
     "storm_days_per_year": 0.42,
     "years_with_storm_day": 7,
+    "cyclones_per_decade": 2.5,
+    "cyclones_recent": [
+     "Nilam 2012-10",
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
@@ -12351,7 +12723,8 @@
       "pearl_millet",
       "finger_millet",
       "sorghum",
-      "maize"
+      "maize",
+      "cotton"
      ],
      "drought_2016": {
       "came_through": [
@@ -12491,7 +12864,8 @@
       "pearl_millet",
       "finger_millet",
       "sorghum",
-      "maize"
+      "maize",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -12557,6 +12931,7 @@
   {
    "id": "g1225_7975",
    "name": "near Villupuram (44 km)",
+   "name_ta": "விழுப்புரம் அருகில் (44 கி.மீ.)",
    "lat": 12.25,
    "lon": 79.75,
    "district": {
@@ -12587,6 +12962,13 @@
    "wind": {
     "storm_days_per_year": 0.75,
     "years_with_storm_day": 13,
+    "cyclones_per_decade": 3.2,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11,
      12
@@ -12891,6 +13273,7 @@
   {
    "id": "g1275_7825",
    "name": "near Krishnagiri (26 km)",
+   "name_ta": "கிருஷ்ணகிரி அருகில் (26 கி.மீ.)",
    "lat": 12.75,
    "lon": 78.25,
    "district": {
@@ -12921,6 +13304,13 @@
    "wind": {
     "storm_days_per_year": 0.0,
     "years_with_storm_day": 0,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Nisha 2008-11",
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12"
+    ],
     "storm_months": []
    },
    "future": {
@@ -13008,7 +13398,8 @@
      ],
      "wind_most_exposed": [
       "sugarcane",
-      "banana"
+      "banana",
+      "rice_long"
      ],
      "drought_2016": {
       "came_through": [
@@ -13195,6 +13586,7 @@
   {
    "id": "g1275_7875",
    "name": "near Vellore (45 km)",
+   "name_ta": "வேலூர் அருகில் (45 கி.மீ.)",
    "lat": 12.75,
    "lon": 78.75,
    "district": {
@@ -13225,6 +13617,13 @@
    "wind": {
     "storm_days_per_year": 0.17,
     "years_with_storm_day": 4,
+    "cyclones_per_decade": 1.1,
+    "cyclones_recent": [
+     "Thane 2011-12",
+     "Nilam 2012-10",
+     "Vardah 2016-12",
+     "Nivar 2020-11"
+    ],
     "storm_months": [
      11
     ]
@@ -13499,6 +13898,7 @@
   {
    "id": "g1275_7925",
    "name": "near Vellore (23 km)",
+   "name_ta": "வேலூர் அருகில் (23 கி.மீ.)",
    "lat": 12.75,
    "lon": 79.25,
    "district": {
@@ -13529,6 +13929,13 @@
    "wind": {
     "storm_days_per_year": 0.33,
     "years_with_storm_day": 7,
+    "cyclones_per_decade": 1.8,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11
     ]
@@ -13820,6 +14227,7 @@
   {
    "id": "g1275_7975",
    "name": "near Kanchipuram (10 km)",
+   "name_ta": "காஞ்சிபுரம் அருகில் (10 கி.மீ.)",
    "lat": 12.75,
    "lon": 79.75,
    "district": {
@@ -13850,6 +14258,13 @@
    "wind": {
     "storm_days_per_year": 0.92,
     "years_with_storm_day": 13,
+    "cyclones_per_decade": 2.3,
+    "cyclones_recent": [
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12",
+     "Fengal 2024-12"
+    ],
     "storm_months": [
      11,
      12
@@ -14150,6 +14565,7 @@
   {
    "id": "g1325_7975",
    "name": "near Tiruvallur (21 km)",
+   "name_ta": "திருவள்ளூர் அருகில் (21 கி.மீ.)",
    "lat": 13.25,
    "lon": 79.75,
    "district": {
@@ -14180,6 +14596,13 @@
    "wind": {
     "storm_days_per_year": 0.83,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 2.5,
+    "cyclones_recent": [
+     "Vardah 2016-12",
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12"
+    ],
     "storm_months": [
      11,
      12
@@ -14463,6 +14886,7 @@
   {
    "id": "g1325_8025",
    "name": "near Chennai (19 km)",
+   "name_ta": "சென்னை அருகில் (19 கி.மீ.)",
    "lat": 13.25,
    "lon": 80.25,
    "district": {
@@ -14493,6 +14917,13 @@
    "wind": {
     "storm_days_per_year": 0.83,
     "years_with_storm_day": 11,
+    "cyclones_per_decade": 3.0,
+    "cyclones_recent": [
+     "Nivar 2020-11",
+     "Unnamed 2021-11",
+     "Mandous 2022-12",
+     "Michaung 2023-12"
+    ],
     "storm_months": [
      11,
      12

@@ -1191,5 +1191,36 @@
    "max_wind_ms": 10.7,
    "rain_mm": 0.9
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 2,
+  "per_decade": 0.5,
+  "severe_count": 0,
+  "months": {
+   "10": 1,
+   "11": 1
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1981-10-27",
+    "dist_km": 39,
+    "wind_kt": 37,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2000-11-30",
+    "dist_km": 52,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

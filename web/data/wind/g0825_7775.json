@@ -1191,5 +1191,43 @@
    "max_wind_ms": 11.6,
    "rain_mm": 36.0
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 3,
+  "per_decade": 0.7,
+  "severe_count": 2,
+  "months": {
+   "11": 2,
+   "12": 1
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "1992-11-13",
+    "dist_km": 23,
+    "wind_kt": 63,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Unnamed",
+    "date": "2000-12-28",
+    "dist_km": 18,
+    "wind_kt": 40,
+    "category": "cyclonic storm"
+   },
+   {
+    "name": "Ockhi",
+    "date": "2017-11-30",
+    "dist_km": 92,
+    "wind_kt": 48,
+    "category": "severe cyclonic storm"
+   }
+  ]
+ }
 }

@@ -1191,5 +1191,35 @@
    "max_wind_ms": 11.6,
    "rain_mm": 0.1
   }
- ]
+ ],
+ "cyclones": {
+  "source": "NOAA NCEI IBTrACS v04r01, North Indian basin best tracks",
+  "rule": "track within 100 km at >= 34 kt (cyclonic-storm strength), 1981-2024",
+  "years": [
+   1981,
+   2024
+  ],
+  "count": 2,
+  "per_decade": 0.5,
+  "severe_count": 1,
+  "months": {
+   "12": 2
+  },
+  "passes": [
+   {
+    "name": "Unnamed",
+    "date": "2000-12-27",
+    "dist_km": 98,
+    "wind_kt": 55,
+    "category": "severe cyclonic storm"
+   },
+   {
+    "name": "Burevi",
+    "date": "2020-12-04",
+    "dist_km": 52,
+    "wind_kt": 35,
+    "category": "cyclonic storm"
+   }
+  ]
+ }
 }

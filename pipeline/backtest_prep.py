@@ -66,7 +66,7 @@ def main() -> None:
     g = g[(g.area > 0) & (g.production > 0)]
     g["yield"] = g.production / g.area
 
-    grid = json.loads(GRID.read_text())
+    grid = json.loads(GRID.read_text(encoding="utf-8"))
     pts = grid["points"] if isinstance(grid, dict) else grid
 
     def nearest(la, lo):

@@ -26,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 AREAS = json.loads((HERE / "data" / "district_areas.json").read_text())
 ENGINE = json.loads((HERE / "data" / "mismatch_engine.json").read_text())
-_g = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text())
+_g = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text(encoding="utf-8"))
 GRID_PTS = _g["points"] if isinstance(_g, dict) else _g
 FAIL_CUT = 0.5
 MCM_PER_HA_MM = 10 / 1e6   # 1 mm over 1 ha = 10 m3

@@ -27,7 +27,7 @@ from nex_deltas import OUT, build_projection, print_summary
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw" / "nex_grid"
-GRID = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text())["points"]
+GRID = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text(encoding="utf-8"))["points"]
 BBOX = {"north": 13.6, "south": 8.0, "west": 76.1, "east": 80.4}
 
 
