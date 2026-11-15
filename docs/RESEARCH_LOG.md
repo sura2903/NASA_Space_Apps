@@ -807,6 +807,32 @@ pattern risky?"*
   - (b) Model Vaigai's opening from the 4,000 Mcft rule, using CWC storage (2015+).
   - (c) Request the full records from WRD's Periyar-Vaigai and Thamirabarani divisions.
 
+### I-40 · Local names for the grid places (user request)
+- **Trigger:** the place list read "near Chennai (47 km)", "near Chennai (9 km)" and so on. That gives no
+  direction, and many cells share one district HQ.
+- **Options considered:**
+  - (a) Add a compass direction from the HQ. Nimalan did this in the UI in PR #25 ("Chennai, 19 km north-west").
+  - (b) Use the real local place at each cell centre.
+- **Decision:** do both. They complement each other.
+- **How (b) works:**
+  - OpenStreetMap Nominatim reverse lookups, cached in `pipeline/data/nominatim_grid.json` (185 × English/Tamil,
+    1.1 s apart per its usage policy), give the village or town, taluk and district at each centre.
+  - Repeated taluk-only names get a compass side.
+  - 12 cells centred over the Kerala, Karnataka, Andhra or Puducherry border are named by the nearest Tamil Nadu
+    district.
+  - Names are added as `local_name` / `local_name_ta`. `name` stays unchanged because the UI parses it.
+- **Limits:**
+  - A cell is about 28 km wide, so the centre village is a pointer, not the farmer's own village.
+  - Taluk names have no Tamil in OSM, so they stay in English inside the Tamil labels; we don't guess spellings.
+- **Demo places:** with the 0.25° grid, the three demo places are no longer the only well-covered ones. They still
+  add four things:
+  - a climate-trend file;
+  - the SMAP soil-moisture reading;
+  - elevation;
+  - a typical local rotation pre-filled.
+  
+  So they stay, but inside their district group rather than a separate "Detailed places" list (PR #25).
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

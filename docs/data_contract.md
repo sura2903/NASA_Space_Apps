@@ -34,6 +34,20 @@ opens), e.g. `Promise.all(index.map(p => fetch(...)))`. Snap clicks to the neare
 power_precip_mm_per_decade, heat_days_per_decade, root_soil_wetness_per_decade}, groundwater: {lwe_trend_cm_per_year},
 has_soil }] }` (72 KB) for drawing the maps without loading every full file.
 
+### 1b-names. Local place names (RESEARCH_LOG I-40, `pipeline/name_grid_points.py`)
+Each `grid/index.json` point also has these fields (`name` is unchanged):
+- `local_name` / `local_name_ta`: for example `"Sethiathoppu (Bhuvanagiri taluk, Cuddalore)"` /
+  `"சேத்தியாத்தோப்பு (கடலூர்)"`.
+- `place`, `place_ta`: the village or town at the cell centre, from OpenStreetMap. Where there is none, this is
+  `"<taluk> taluk"`.
+- `taluk`: English only.
+- `district`, `district_ta`: 38 districts.
+- `side` (optional): the compass side within a repeated taluk name, e.g. `"west"`.
+- `border_state` (optional): set on 12 cells whose centre falls just over the state border. These are named by the
+  nearest Tamil Nadu district instead.
+
+`sites/index.json` entries have `district` and `district_ta`.
+
 ## 1c. `web/data/districts.json` (mismatch map + district what-ifs, by `pipeline/mismatch_build.py`)
 Lane B's requested format (PROGRESS.md, request 5), extended with mismatch metrics. 37 districts (no Chennai).
 ```jsonc
