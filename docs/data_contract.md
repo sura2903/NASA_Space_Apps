@@ -319,6 +319,14 @@ One click on a point shows its `engine` lists ("avoid in a drought year", "came 
 `cyclones: { seasons_hit, seasons, share, storms[] }`. `name_ta` (Tamil place name) is in `grid/index.json`,
 `grid/<id>.json` and `statewide_risk.json` points.
 
+### 2k. `groundwater` in grid and site files (`pipeline/grace_groundwater.py`)
+`"groundwater": { "source": "NASA GLDAS-2.2 CLSM ... GRACE data assimilation ...", "period": ["2003-02", "2024-12"],
+  "lwe_trend_cm_per_year": -0.2, "trend_p": 0.006, "trend_significant": true, "then_vs_now_cm": -2.8,
+  "drought_low": { "ending": "2014-09", "anomaly_cm": -7.9 }, "latest_vs_normal_cm": { "month": "2024-12", "anomaly_cm": 6.5 },
+  "note": "GRACE resolves ~300 km; read as regional groundwater change, not one village's wells" }`
+(the shape Lane B asked for in PROGRESS.md request 4). Missing for the all-sea point g0925_7925.
+`statewide_risk.json` points carry `climate.groundwater_trend_cm_per_year` and a matching layer.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

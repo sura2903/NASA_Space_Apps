@@ -53,7 +53,9 @@ def main():
                          "rainfed_reliability": d["mismatch"]["rainfed_reliability"]} if d else None,
             "climate": {"ne_monsoon_mm": round(float(np.mean(ne))),
                         "ne_monsoon_cv_pct": round(float(100 * np.std(ne) / np.mean(ne))),
-                        "hot_days_per_year": round(float(np.mean([sum(m["heat_days"] for m in y["months"]) for y in g["by_year"]])), 1)},
+                        "hot_days_per_year": round(float(np.mean([sum(m["heat_days"] for m in y["months"]) for y in g["by_year"]])), 1),
+                        "groundwater_trend_cm_per_year": (g.get("groundwater") or {}).get("lwe_trend_cm_per_year"),
+                        "groundwater_then_vs_now_cm": (g.get("groundwater") or {}).get("then_vs_now_cm")},
             "extremes": {
                 "rain_1day_100yr_mm": ex["rain"]["rx1"]["levels"]["100"]["mm"],
                 "rain_1day_100yr_range": ex["rain"]["rx1"]["levels"]["100"]["range"],
@@ -92,6 +94,7 @@ def main():
         {"key": "wind.cyclones_per_decade", "label": "Cyclones passing within 100 km (NOAA tracks)", "unit": "per decade", "worse": "high"},
         {"key": "wind.storm_days_per_year", "label": "Storm days (strong wind + heavy rain)", "unit": "per year", "worse": "high"},
         {"key": "climate.hot_days_per_year", "label": "Very hot days (>38 °C) today", "unit": "per year", "worse": "high"},
+        {"key": "climate.groundwater_trend_cm_per_year", "label": "Groundwater trend 2003-2024 (NASA GRACE-assimilated GLDAS)", "unit": "cm per year", "worse": "low"},
         {"key": "future.ssp245.hot_days_change", "label": "Extra very hot days by 2041-60 (SSP2-4.5)", "unit": "per year", "worse": "high"},
         {"key": "future.ssp245.ne_rain_change_pct", "label": "NE-monsoon change by 2041-60 (SSP2-4.5)", "unit": "%", "worse": "low"},
         {"key": "engine.tank.rice_long.share", "label": "Tank-fed long rice: share of seasons it came through", "unit": "0-1", "worse": "low"},

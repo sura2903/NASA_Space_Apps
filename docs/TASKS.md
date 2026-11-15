@@ -22,7 +22,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A8 | Load AppEEARS CSVs → `ndvi` (observed bare months) + SMAP soil-moisture anomaly per site | ✅ demo sites (`merge_appeears.py`, RESEARCH_LOG I-31); SMAP into the engine ⬜ |
 | A9 | Cross-check POWER rainfall with GPM IMERG; IMERG now the rainfall source (Tirunelveli 948 vs POWER 1300 mm/yr) | ✅ |
 | A10 | Tune crop values against official TN sources (TN Agri Dept Crop Production Guide + TNAU notes) | ✅ (family/farmer sanity review still welcome) |
-| A11 | ⭐ GRACE groundwater trend panel for Tamil Nadu | ⭐ |
+| A11 | ⭐ GRACE groundwater trend panel for Tamil Nadu | ✅ via GRACE-assimilated GLDAS (`grace_groundwater.py`, RESEARCH_LOG I-37); fills the Policy view's groundwater sign |
 | A12 | Tamil Nadu 0.5° grid (47 points): POWER + SoilGrids + IMERG rain → `web/data/grid/` | ✅ |
 | A13 | Engine `rankCrops` + `cropSuitability` for the heatmap and "click anywhere" (IDEAS I3/I4) | ✅ |
 | A14 | **Climate change, Layer 1:** extend POWER to 1981–2024; Mann–Kendall + Sen trends, then-vs-now shifts for heat, monsoons, heavy rain, dry spells, ET0 (see APPROACH "Next direction") | ✅ 3 demo sites (`web/data/trends/`); grid ⬜ |

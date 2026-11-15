@@ -97,6 +97,7 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 | **MODIS MOD13Q1 NDVI** (via **AppEEARS**) | 2015–2024 greenness by month, matching each place's crop calendar |
 | **SMAP L3 enhanced soil moisture** (via **AppEEARS**) | Latest soil moisture vs normal in "Sow now or wait?"; checked against rainfall (r = 0.60–0.73) |
 | **SRTM elevation** (via **AppEEARS**) | Elevation of the demo sites |
+| **GLDAS-2.2 with GRACE data assimilation** (via **Giovanni**) | Groundwater storage trend 2003–2024 at every place (Policy map); the delta is falling (Thanjavur −0.2 cm/yr) |
 
 **Other data:**
 - NOAA ONI and PSL IOD indices: El Niño and Indian Ocean Dipole odds.
@@ -115,8 +116,8 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
   - Mettur's opening date cannot be predicted in June, so the farmer chooses it [I-18].
 - **Satellite rain under-reads local extremes:** it put the Dec 2023 Tirunelveli flood at about 1-in-50. Our
   1-in-100 rain levels are therefore conservative.
-- **Water politics and groundwater are not modelled.** Interstate releases are covered only through Mettur's actual
-  record, and groundwater depletion is not covered at all.
+- **Water politics and groundwater pumping are not modelled.** Interstate releases are covered only through
+  Mettur's actual record. Groundwater is shown as a regional GRACE-based trend, which can't see local over-pumping.
 - **Crop traits:** some (for example the small millets' water needs) are approximate. We checked the ones that drive
   the top recommendations and record every source in `crops.json` [I-28, I-30, I-34].
 - **The tool supports a farmer's judgement and the agriculture officer's advice; it does not replace them.**
@@ -129,8 +130,8 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 3. **Equipment and labour needs** per crop.
 4. **Pest and disease resistance:** weather-driven pest risk per crop from NASA humidity and temperature, and
    resistant varieties from the Tamil Nadu crop guides.
-5. **NASA GRACE groundwater:** add groundwater trends, so borewell plans account for falling water tables (today a
-   stated limit).
+5. **Groundwater in the plans:** GRACE-based groundwater trends are on the Policy map now. Next, borewell plans
+   should account for falling water tables, using CGWB well data where GRACE is too coarse.
 
 ## 9. Use of AI
 - **Code and analysis:** we used Anthropic's Claude (Claude Code) as a coding and analysis assistant. It wrote most of
@@ -144,6 +145,10 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
   is shown as data.
 
 ---
+
+## 30-second video
+Requested from Nimalan in issue #20 (script, shot list and format there): problem, Thanjavur plans (9 vs 16 of
+24 seasons), Policy map layers, Tamil view, then an end card with the link and the NASA datasets.
 
 ## Demo script (2–3 minutes)
 *Screen: the live site. Speak slowly; each beat is about 20 seconds.*

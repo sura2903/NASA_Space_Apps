@@ -717,6 +717,31 @@ pattern risky?"*
   - The statewide drought layer uses the 124-year 1-in-100 level (18–38% of normal).
   - The engine's `extremeYearCheck` shows the new labels automatically.
 
+### I-37 · NASA GRACE groundwater (via GRACE-assimilated GLDAS) fills the Policy view's groundwater sign (TASKS A11)
+- **Data:** NASA GLDAS-2.2 Catchment model, 0.25° daily, **with GRACE / GRACE-FO data assimilation**
+  (`GLDAS_CLSM025_DA1_D.2.2`, doi 10.5067/TXBMLX370XX8), groundwater storage `GWS_tavg`, Feb 2003 – Dec 2024.
+  - Fetched in the browser from Giovanni with the user's Earthdata session: 191 cell series, grid points averaged
+    over their 4 surrounding cells, monthly means only (`pipeline/data/gldas_gws_monthly.json`).
+  - **Process slip:** the first form post opened a new tab, was sent as a plain request and lost the data; the run
+    was repeated with a same-tab post.
+- **Method:** `pipeline/grace_groundwater.py`.
+  - Deseasonalised monthly series; Sen slope (cm/yr) with a Mann–Kendall test on every third month (less
+    autocorrelation).
+  - Then vs now (2014–24 minus 2003–13), lowest 12-month window, and latest vs normal.
+  - Written as `groundwater` into grid and site files; the Policy view's existing "Groundwater trend" sign reads it.
+- **Results (49 places; the Ramanathapuram coastal point is all sea):**
+  - **Cauvery delta falling, significantly:** Thanjavur −0.20 cm/yr (p = 0.006, −2.8 cm then-vs-now);
+    Nagapattinam, Pudukkottai and Tiruchirappalli similar. This is consistent with Kuruvai depending on borewells
+    when Mettur is late (I-18, I-29).
+  - **West and hills rising slightly:** Nilgiris up to +0.37, Theni +0.27, Tiruppur +0.18 cm/yr, plausibly from the
+    wetter monsoons after 2017.
+  - Median +0.03 cm/yr; 12 of 49 trends significant. The lowest 12-month storage ended in 2014 (after the
+    2012–13 dry years) at the demo sites.
+- **Caveat:** the Catchment model has **no pumping**. GRACE's ~300 km gravity signal is spread using rain and soil, so
+  known over-exploited blocks (e.g. around Coimbatore and Tiruppur, CGWB) don't show as declines. Read this as
+  regional storage change, not well levels; it can't replace CGWB well data.
+- **New statewide layer:** "Groundwater trend 2003–2024" (−0.19 to +0.37 cm/yr).
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

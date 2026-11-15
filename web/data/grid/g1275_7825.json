@@ -4034,5 +4034,26 @@
       }
     ]
   },
-  "name_ta": "கிருஷ்ணகிரி அருகில் (26 கி.மீ.)"
+  "name_ta": "கிருஷ்ணகிரி அருகில் (26 கி.மீ.)",
+  "groundwater": {
+    "source": "NASA GLDAS-2.2 CLSM 0.25 deg daily with GRACE data assimilation (GLDAS_CLSM025_DA1_D.2.2, doi 10.5067/TXBMLX370XX8), GWS_tavg, via Giovanni",
+    "units_note": "groundwater storage, cm of water",
+    "period": [
+      "2003-02",
+      "2024-12"
+    ],
+    "lwe_trend_cm_per_year": 0.1,
+    "trend_p": 0.301,
+    "trend_significant": false,
+    "then_vs_now_cm": -0.1,
+    "drought_low": {
+      "ending": "2019-09",
+      "anomaly_cm": -6.5
+    },
+    "latest_vs_normal_cm": {
+      "month": "2024-12",
+      "anomaly_cm": 3.9
+    },
+    "note": "GRACE resolves ~300 km; read as regional groundwater change, not one village's wells"
+  }
 }
