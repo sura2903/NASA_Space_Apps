@@ -85,6 +85,7 @@ const STR = {
     "future.1": "Crop economics: add cultivation costs, local market prices and minimum support prices, so each option shows the likely profit and the chance of losing money, not only whether the crop came through.",
     "future.2": "Planning for severe seasons: when forecasts or climate projections point to a severe drought or flood season ahead, warn early which food crops Tamil Nadu is likely to fall short of, and suggest buying them in from other states or countries in time, so prices and food supply stay steady.",
     "future.3": "Equipment and labour needs for each crop, so a farmer's own limits can be scored directly instead of ruled out by hand.",
+    "future.4": "Pest and disease resistance: score each crop's risk from weather that favours its main pests and diseases (for example humid, warm spells for rice blast, or cloudy, humid flowering for pod borer in pulses) using NASA humidity, temperature and rain, and point to resistant varieties from the Tamil Nadu crop guides.",
 
     "meta.rain": "Rain: {rain}; temperature and evapotranspiration: NASA POWER",
     "monsoon.note": "{n} of {total} northeast monsoons were 20% or more below this site's average: {years}.",
@@ -429,6 +430,7 @@ const STR = {
     "future.1": "பயிர் பொருளாதாரம்: சாகுபடிச் செலவு, உள்ளூர் சந்தை விலை, குறைந்தபட்ச ஆதரவு விலை ஆகியவற்றைச் சேர்த்து, ஒவ்வொரு தேர்வும் பயிர் தாக்குப்பிடித்ததா என்பதோடு, எதிர்பார்க்கும் லாபத்தையும் நஷ்ட வாய்ப்பையும் காட்டுதல்.",
     "future.2": "கடுமையான பருவங்களுக்கான திட்டமிடல்: வரும் பருவம் கடும் வறட்சி அல்லது வெள்ளமாக இருக்கும் என்று முன்னறிவிப்புகளோ காலநிலைக் கணிப்புகளோ காட்டும்போது, தமிழ்நாட்டில் எந்த உணவுப் பயிர்கள் பற்றாக்குறையாகும் என்று முன்கூட்டியே எச்சரித்து, விலையும் உணவு வழங்கலும் சீராக இருக்க அவற்றைப் பிற மாநிலங்கள் அல்லது நாடுகளிலிருந்து சரியான நேரத்தில் வாங்க பரிந்துரைத்தல்.",
     "future.3": "ஒவ்வொரு பயிருக்கும் தேவையான கருவிகள், வேலையாட்கள் விவரம், அதனால் விவசாயியின் வரம்புகளைக் கையால் நீக்காமல் நேரடியாக மதிப்பிடலாம்.",
+    "future.4": "பூச்சி, நோய் எதிர்ப்புத் திறன்: ஒவ்வொரு பயிரின் முக்கியப் பூச்சிகளுக்கும் நோய்களுக்கும் சாதகமான வானிலையைக் கொண்டு (எ.கா. நெல் குலைநோய்க்குச் சாதகமான ஈரப்பதமும் வெப்பமும் கூடிய நாட்கள், பயறு வகைகளில் காய்ப்புழுவுக்குச் சாதகமான மேகமூட்டமான பூக்கும் பருவம்) அபாயத்தை மதிப்பிடுதல்; இதற்கு நாசாவின் ஈரப்பதம், வெப்பநிலை, மழைத் தரவைப் பயன்படுத்துதல்; தமிழ்நாடு பயிர் உற்பத்தி வழிகாட்டிகளில் உள்ள எதிர்ப்புத் திறன் கொண்ட ரகங்களைப் பரிந்துரைத்தல்.",
 
     "meta.rain": "மழை: {rain}; வெப்பநிலை, ஆவியுயிர்ப்பு: நாசா POWER",
     "monsoon.note": "{total} வடகிழக்கு பருவமழைகளில் {n}, இந்த இடத்தின் சராசரியை விட 20% அல்லது அதற்கு மேல் குறைவு: {years}.",
