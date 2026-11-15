@@ -68,6 +68,14 @@ const REFS = {
       doi: "10.1038/s41597-022-01393-4",
     },
     {
+      name: "GLDAS-2.2 Catchment Land Surface Model with GRACE data assimilation (GLDAS_CLSM025_DA1_D.2.2), daily, 0.25° (2003–2024)",
+      used: { en: "The groundwater trend in the Policy view: whether stored groundwater has been rising or falling since 2003. GRACE sees regions about 300 km across, so this is a regional signal, not one village's wells.",
+              ta: "கொள்கைப் பார்வையில் நிலத்தடி நீர்ப் போக்கு: 2003 முதல் நிலத்தடி நீர் சேமிப்பு உயர்கிறதா குறைகிறதா. GRACE சுமார் 300 கி.மீ பரப்பைப் பார்க்கிறது, எனவே இது ஒரு பகுதியின் போக்கு, ஒரு கிராமத்தின் கிணறுகள் அல்ல." },
+      cite: "Li, B., Beaudoing, H., Rodell, M. (2020). GLDAS Catchment Land Surface Model L4 daily 0.25 x 0.25 degree GRACE-DA1 V2.2. Goddard Earth Sciences Data and Information Services Center (GES DISC). Method: Li, B., et al. (2019). Global GRACE data assimilation for groundwater and drought monitoring. Water Resources Research 55, 7564–7586. Accessed through NASA Giovanni.",
+      url: "https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary",
+      doi: "10.5067/TXBMLX370XX8",
+    },
+    {
       name: "NASA AppEEARS (Application for Extracting and Exploring Analysis Ready Samples)",
       used: { en: "The tool we used to extract the MODIS and SMAP point samples around each place.",
               ta: "ஒவ்வொரு இடத்தைச் சுற்றியும் MODIS, SMAP மாதிரிகளைப் பிரித்தெடுக்கப் பயன்பட்ட கருவி." },
