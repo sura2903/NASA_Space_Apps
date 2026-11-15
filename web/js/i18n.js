@@ -24,9 +24,9 @@ const MONTHS_INITIAL = {
 const STR = {
   en: {
     "lang.switch": "தமிழ்", "lang.switch.aria": "Switch to Tamil",
-    brand: "Field Shift",
+    brand: "Smart Vithaippu",
     tagline: "Crop rotation choices for an uncertain monsoon, checked against NASA data",
-    "intro.title": "What is Field Shift?",
+    "intro.title": "What is Smart Vithaippu?",
     "intro.what": "A free tool for Tamil Nadu that checks crop choices against past seasons of NASA satellite and weather data, so you can see which crops held up when the monsoon let farmers down.",
     "intro.farm.h": "👩‍🌾 For farmers",
     "intro.farm": "Pick your place and what you grow below. You will see three crop plans side by side, how your climate has changed, and whether to sow now or wait.",
@@ -138,7 +138,7 @@ const STR = {
     "replay.ok": "{year}: came through", "replay.bad": "{year}: {reason}",
 
     // print
-    "ps.title": "Field Shift: crop plan notes for my agriculture officer",
+    "ps.title": "Smart Vithaippu: crop plan notes for my agriculture officer",
     "ps.printed": "printed {date}",
     "ps.farm": "My farm today", "ps.grow": "What I grow: ", "ps.water": "Water source: ",
     "ps.matters": "What matters to me: ", "ps.whatif": "Climate what-if used: ",
@@ -152,7 +152,7 @@ const STR = {
     "ps.newcrop": "Is {crop} suited to my soil and village? Good seed variety and sowing window?",
     "ps.notes": "Officer's notes",
     "ps.data": "Data {start}–{end}: {rain}{weather}; soil: {soil}{ndvi}. Weather data describes the region, not this exact field. Scores are simple, explainable rules, not a prediction.",
-    "ps.support": "Field Shift supports your judgment and local advice; it does not replace them.",
+    "ps.support": "Smart Vithaippu supports your judgment and local advice; it does not replace them.",
     "ps.sown": "sown {m}",
     "ps.levels": ["not important", "a little", "somewhat", "important", "very important", "top priority"],
 
@@ -342,9 +342,9 @@ const STR = {
 
   ta: {
     "lang.switch": "English", "lang.switch.aria": "Switch to English",
-    brand: "வயல் மாற்றம்",
+    brand: "ஸ்மார்ட் விதைப்பு",
     tagline: "நிச்சயமற்ற பருவமழைக்கு ஏற்ற பயிர் சுழற்சி தேர்வுகள், நாசா தரவுகளுடன் சரிபார்க்கப்பட்டவை",
-    "intro.title": "வயல் மாற்றம் என்றால் என்ன?",
+    "intro.title": "ஸ்மார்ட் விதைப்பு என்றால் என்ன?",
     "intro.what": "தமிழ்நாட்டுக்கான இலவசக் கருவி. கடந்த பருவங்களின் நாசா செயற்கைக்கோள் மற்றும் வானிலைத் தரவுகளுடன் பயிர்த் தேர்வுகளைச் சரிபார்க்கிறது. பருவமழை கைவிட்ட ஆண்டுகளில் எந்தப் பயிர்கள் தாங்கின என்று பார்க்கலாம்.",
     "intro.farm.h": "👩‍🌾 விவசாயிகளுக்கு",
     "intro.farm": "கீழே உங்கள் இடத்தையும் நீங்கள் பயிரிடுவதையும் தேர்ந்தெடுங்கள். மூன்று பயிர்த் திட்டங்களை அருகருகே ஒப்பிடலாம், உங்கள் பகுதியின் காலநிலை எப்படி மாறியுள்ளது என்று பார்க்கலாம், இப்போது விதைக்கலாமா காத்திருக்கலாமா என்றும் அறியலாம்.",
@@ -451,7 +451,7 @@ const STR = {
     "sub.pest": "பூச்சி, நோய் சுழற்சி முறிவு",
     "replay.ok": "{year}: தாங்கியது", "replay.bad": "{year}: {reason}",
 
-    "ps.title": "வயல் மாற்றம்: என் வேளாண் அலுவலருக்கான பயிர்த் திட்டக் குறிப்புகள்",
+    "ps.title": "ஸ்மார்ட் விதைப்பு: என் வேளாண் அலுவலருக்கான பயிர்த் திட்டக் குறிப்புகள்",
     "ps.printed": "அச்சிட்ட நாள் {date}",
     "ps.farm": "இன்று என் பண்ணை", "ps.grow": "நான் பயிரிடுவது: ", "ps.water": "நீர் ஆதாரம்: ",
     "ps.matters": "எனக்கு முக்கியமானவை: ", "ps.whatif": "பயன்படுத்திய காலநிலை மாற்றம்: ",
@@ -465,7 +465,7 @@ const STR = {
     "ps.newcrop": "{crop} என் மண்ணுக்கும் ஊருக்கும் ஏற்றதா? நல்ல விதை ரகம், விதைப்புப் பருவம் எது?",
     "ps.notes": "அலுவலர் குறிப்புகள்",
     "ps.data": "தரவு {start}–{end}: {rain}{weather}; மண்: {soil}{ndvi}. வானிலைத் தரவு பகுதியை விவரிக்கிறது, இந்த வயலை மட்டும் அல்ல. மதிப்பெண்கள் விளக்கக்கூடிய எளிய விதிகள், கணிப்பு அல்ல.",
-    "ps.support": "வயல் மாற்றம் உங்கள் முடிவுக்கும் உள்ளூர் ஆலோசனைக்கும் துணை; அவற்றுக்கு மாற்று அல்ல.",
+    "ps.support": "ஸ்மார்ட் விதைப்பு உங்கள் முடிவுக்கும் உள்ளூர் ஆலோசனைக்கும் துணை; அவற்றுக்கு மாற்று அல்ல.",
     "ps.sown": "{m} விதைப்பு",
     "ps.levels": ["முக்கியமில்லை", "சிறிது", "ஓரளவு", "முக்கியம்", "மிக முக்கியம்", "முதன்மை"],
 
