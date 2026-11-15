@@ -3,18 +3,24 @@
     "id": "tirunelveli",
     "name": "Tirunelveli (Thamirabarani valley)",
     "lat": 8.7,
-    "lon": 77.75
+    "lon": 77.75,
+    "district": "Tirunelveli",
+    "district_ta": "திருநெல்வேலி"
   },
   {
     "id": "madurai",
     "name": "Madurai (Vaigai / Periyar command)",
     "lat": 10.03,
-    "lon": 78.33
+    "lon": 78.33,
+    "district": "Madurai",
+    "district_ta": "மதுரை"
   },
   {
     "id": "thanjavur",
     "name": "Thanjavur (Cauvery delta)",
     "lat": 10.85,
-    "lon": 79.25
+    "lon": 79.25,
+    "district": "Thanjavur",
+    "district_ta": "தஞ்சாவூர்"
   }
 ]
