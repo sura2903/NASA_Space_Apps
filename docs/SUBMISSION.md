@@ -23,32 +23,41 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 - **What to avoid matters as much as what to plant**, and farmers want odds, not promises [FN-1].
 
 ## 3. What SowSmart does
-**For a farmer (Farm tab)**
-1. **Choose your place:** any of 50 places in Tamil Nadu, or "use my location". It opens with an example, so it works
-   straight away.
-2. **Say what you grow and your water** (rain only, lake / pond, river canal, borewell).
-3. **Get three plans side by side:** your current rotation, a small step and a bigger shift. Each plan shows how many
-   of the 24 real seasons it came through, the water it needs and why.
-4. **One tap away:**
-   - *Which of your crops suit this season?*
-   - *Sow now or wait?*: dry-spell risk after sowing, monsoon onset, the latest NASA SMAP soil-moisture reading.
-   - *What NASA data says about this place*.
-   - *How the climate here has changed*.
+The site has two tabs: **Farmers** and **Policy makers**.
 
-**For a policy maker (Policy tab)**
-- **Colour the state map by any risk:**
+**For a farmer (Farmers tab)**
+1. **Where is your farm?** Pick any of 185 places on a 28 km grid covering Tamil Nadu, or tap "use my location". The
+   tab opens on an example place, so it works straight away.
+2. **Your crops and water.** Tick what you grow and every water source you have: rain only, lake / pond, river canal /
+   dam, borewell. A delta farmer on canal water is also asked "Has Mettur reservoir opened this year?" The answers are
+   not known yet, on time, late, very late or not opened, and the advice changes with the answer.
+3. **When do you sow?** Pick a traditional sowing season (pattam) or a month. Each crop then shows how many real
+   seasons it came through when sown then, and how many of the last 10. It is marked a good choice or not advised,
+   with quick crops for any gap.
+4. **Three options for your field:** your current rotation, a small step and a bigger shift side by side. Each card
+   has 24 squares, one per real year, plus the water the plan needs and why.
+5. **Printable** for the farmer's agriculture officer.
+
+Everything else (climate change at this place, extremes, NASA data in detail) is one click away under *This place in
+detail*. Nothing was removed from the farmer's page; it was moved there.
+
+**For a policy maker (Policy makers tab)**
+- **Colour the state map (185 squares) by any of 12 layers:**
+  - an overall exposure score;
   - crop mix vs rain (mismatch);
-  - 1-in-100-year rain and drought;
-  - cyclone passes and storm days;
+  - 1-in-100-year rain and 1-in-100-year drought (124-year IMD record);
+  - cyclone passes (NOAA tracks) and storm days;
   - very hot days today and by 2041–2060;
+  - groundwater trend (NASA GRACE-assimilated GLDAS);
   - northeast-monsoon change;
-  - tank rice reliability.
-- **Click a place:** what to avoid in a drought year, what came through 2016, wind-exposed crops, and how much
-  irrigation water a crop switch would save in its district.
+  - lake-fed rice reliability, today and by 2041–2060.
+- **Click a square:** the worst drought on record, what to avoid and what is safer in a drought year, what came
+  through 2016, and how much irrigation water a crop switch would save in its district.
+- **Crop ideas:** a chart of crops that suit a district's rain but are rarely grown there.
 - **Crop map:** where each crop does well across the state.
 
 ## 4. How it works (the engine)
-- **Data in:** for every place, 24 years (2001–2024) of real daily weather from NASA. Rain comes from GPM IMERG;
+- **Data in:** for every one of the 185 places (a 0.25°, about 28 km grid), 24 years (2001–2024) of real daily weather from NASA. Rain comes from GPM IMERG;
   temperature, crop water demand, wind and soil wetness from NASA POWER.
 - **Crops:** 21 crops with sowing months, season length, water need and heat, flood and wind tolerance, taken from the
   Tamil Nadu Agriculture Department Crop Production Guides and TNAU.
@@ -80,8 +89,9 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
   black gram, sesame and millets came through [I-23].
 - **Which decade you remember changes the answer:** Madurai tank rice came through anywhere from 20% to 60% of seasons,
   depending on the decade [I-25].
-- **Kuruvai depends on the dam or a borewell:** if Mettur opens in August, Kuruvai on canal water came through 0 of 24
-  replayed seasons. Samba still came through 24 of 24 [I-29].
+- **Kuruvai depends on the dam or a borewell:** at Thanjavur, short rice sown in June on canal water came through 22 of
+  24 seasons if Mettur opens on time, and 0 of 24 if it opens in August. Long (Samba) rice sown in October still came
+  through every season [I-29].
 - **Cyclones:** Samba rice in the delta was hit near harvest in 8 of 44 seasons since 1981 (Nisha, Thane, Gaja) [I-35].
 - **2041–2060 (NASA NEX-GDDP-CMIP6, 5 models):**
   - Daytime highs rise about 0.9 °C everywhere.
@@ -91,9 +101,9 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 ## 7. NASA data used
 | NASA dataset | How we used it |
 |---|---|
-| **GPM IMERG Final daily V07** (via NASA GES DISC **Giovanni** Time Series API) | Daily rain 2001–2024 at 50 places: monthly rain, dry spells after sowing, monsoon onset, 1-in-100-year rain (GEV) |
+| **GPM IMERG Final daily V07** (via NASA GES DISC **Giovanni** Time Series API) | Daily rain 2001–2024 at all 185 places: monthly rain, dry spells after sowing, monsoon onset, 1-in-100-year rain (GEV) |
 | **NASA POWER** daily (MERRA-2) | Temperature, very hot days, crop water demand (Hargreaves ET0), root-zone soil wetness, wind and storm days, 1981–2024 climate trends |
-| **NASA NEX-GDDP-CMIP6** (NCCS THREDDS) | 5 climate models, SSP2-4.5 and SSP5-8.5, 2041–2060 vs 1995–2014, all 50 places; future replay of every plan |
+| **NASA NEX-GDDP-CMIP6** (NCCS THREDDS) | 5 climate models, SSP2-4.5 and SSP5-8.5, 2041–2060 vs 1995–2014, all 185 places; future replay of every plan |
 | **MODIS MOD13Q1 NDVI** (via **AppEEARS**) | 2015–2024 greenness by month, matching each place's crop calendar |
 | **SMAP L3 enhanced soil moisture** (via **AppEEARS**) | Latest soil moisture vs normal in "Sow now or wait?"; checked against rainfall (r = 0.60–0.73) |
 | **SRTM elevation** (via **AppEEARS**) | Elevation of the demo sites |
@@ -154,23 +164,30 @@ Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs reco
 ## Demo script (2–3 minutes)
 *Screen: the live site. Speak slowly; each beat is about 20 seconds.*
 
-1. **Hook (Farm tab, example place).** "In Tamil Nadu, the monsoon decides the harvest, and farmers judge risk by the
+1. **Hook (Farmers tab, example place).** "In Tamil Nadu, the monsoon decides the harvest, and farmers judge risk by the
    last ten seasons. SowSmart gives them twenty-four, from NASA satellites."
-2. **Choose a place.** Pick Thanjavur. "Any of 50 places, or use your location."
-3. **Three plans.** "Your current rice-rice rotation came through 9 of 24 real seasons on canal water. The bigger shift
-   came through 16." Point at the 24 squares. "Each square is a real year; red ones failed. Hover shows why."
-4. **The memory trap.** Switch water to *Lake / pond*. "On lake water, a farmer remembering 2005–2014 saw long rice
-   come through 9 of 10 seasons. Over 24 years it's 16 of 23, and 2016 came right after."
-5. **Has the dam opened?** (if the dam control is in the UI; otherwise say it.) "If Mettur opens in August, Kuruvai on
-   canal water never made it in 24 seasons. Our replay matches the real drop in Kuruvai area."
-6. **Sow now or wait?** Open the fold. "Dry-spell risk after sowing, and the latest NASA SMAP soil moisture."
-7. **Policy tab.** "Now the same engine for the whole state." Colour by *cyclones (NOAA tracks)*, then the
-   *1-in-100-year drought*. "The north coast and north interior carry the most risk."
-8. **Click a delta square.** "In a drought year avoid long rice. Crops that came through 2016: pulses and millets."
+2. **Choose a place.** Pick *Thanjavur (Cauvery delta)*. "Any of 185 places on a 28-kilometre grid, or use your
+   location."
+3. **Three options.** Scroll to *Three options for your field*. "Their current rice-rice rotation on canal water came
+   through 9 of 24 real seasons. The bigger shift came through 16." Point at the squares. "Each square is a real year.
+   Hover to see why a year failed."
+4. **Has the dam opened?** In step 2, keep *River canal / dam* ticked. Press *Jun* under *When do you sow?*, then
+   switch the Mettur answer from *Opened on time* to *Opened late*. "Short rice sown in June came through 22 of 24
+   seasons when Mettur opened on time, and none when it opened late. That matches the real drop in Kuruvai area."
+5. **The memory trap** (say it over the `memory_vs_record.png` graphic from docs/video; the app itself does not show
+   this comparison). "On lake water, a farmer remembering 2005–2014 saw long rice come through 9 of 10 seasons. Over
+   24 years it's 16 of 23, and 2016 came right after."
+6. **This place in detail.** Open it from the top bar and show *Sow now or wait?*: "Dry-spell risk after sowing,
+   and the latest NASA SMAP soil moisture."
+7. **Policy makers tab.** "Now the same engine for the whole state." Colour by *Cyclones passing within 100 km (NOAA
+   tracks)*, then the *1-in-100-year NE-monsoon drought*, then *Groundwater trend*. "The delta's groundwater is falling."
+8. **Click a square.** Read out the worst drought on record, *Safer in a drought year* and *Came through 2016*
+   (usually the millets and pulses). Then scroll to the crop-ideas chart.
 9. **Does it work?** "Backtested on 22 years of government crop statistics: when we warn, a bad year follows a third
    of the time, versus a quarter otherwise. We also corrected ourselves: 2016 was the fourth driest since 1901, not
    once in a century."
 10. **Close.** "Free, in English and Tamil, on a phone. It supports the farmer's judgement; it doesn't replace it."
 
 *Before recording:* clear the site's saved place (or use a private window) so it opens on the example; set the screen
-to about 1280 px wide; and check that the Thanjavur numbers in beat 3 still match what the app shows.
+to about 1280 px wide; and check that the Thanjavur numbers in beats 3 and 4 still match what the app shows (checked
+on the live site on 15 Nov 2026: 9 and 16 of 24; June short rice 22 of 24 with the dam on time, 0 of 24 when late).
