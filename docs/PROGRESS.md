@@ -89,3 +89,41 @@ Newest first. Note contract changes here.
   - Heavy-rain waterlogging rule (≥2 heavy days per season for flood-intolerant crops)
     may be strict. Review it.
   - Crop values are approximate (TNAU check pending).
+
+## 2026-11-15 · Lane B · B11 "How has my climate changed?" panel
+- New panel on the main page under the site panel, fed only by `web/data/trends/<id>.json` (contract §2b); hidden if the file is missing.
+- "What has clearly changed" list (clear + likely trends only), the site's `caveats` in a "Read with care" box, and a fold-out with all 12 indicators: 1981–2000 vs 2001–2024 averages, a 44-year sparkline with both averages, direction chip and confidence.
+- `confidence: "uncertain"` indicators are greyed out with a dashed border, labelled "Datasets disagree", and show the IMERG vs POWER slopes; they never appear as findings.
+- Orange = harder for crops, green = easier (from `higher_is_worse`), grey = no clear change. Sen's slope, CI, Mann–Kendall p and change points sit behind Expert details.
+- English + Tamil labels; the caveat and method sentences come from the data in English.
+- TASKS.md: B1–B8, B10, B11 marked done.
+
+## 2026-11-15 · Lane B · Sow now or wait, dry spells, Policy view (IDEAS I16, I17, I20, I23)
+- **Main page, "Sow now or wait?" panel (I16 + I17).** For a crop from the farmer's rotation (or any crop), every allowed
+  sowing month is replayed with `scoreRotation` against the 24 real seasons using the farmer's water source. It says
+  sow now / wait for {month} / think again, and suggests a shorter variety of the same family or a hardier crop when the
+  odds are poor. Dry spells: the NE-monsoon season from `trends/<id>.json` `ne_dry_spell` (share of years with 10+,
+  15+, 20+ day breaks). Usual soil wetness from `monthly[].root_soil_wetness`.
+- **New `web/policy.html` (I20 + I23).** Climate-exposure map on the 47-point grid: each place is ranked within Tamil Nadu
+  on rain trend (IMERG), very-hot-day trend and (when it lands) GRACE groundwater trend, plus an optional soil-drying
+  trend; the score is the mean rank (0–100). It warns that IMERG and POWER disagree on the rain-trend sign at 31 of 47
+  places. "What if farms switch": irrigation saved = engine `irrigation_mm` difference × 10 m³/ha/mm × area × share,
+  with the 24-season reliability of both crops. Farm area now fills in from `districts.json` (DES 2018–22) for the clicked place's district; low-confidence districts are dimmed.
+- **Crop map:** now passes `statewideContext` to `cropSuitability` / `rankCrops` and colours "Suitability" by
+  `suitability` (contract update in ac2a179).
+
+### Data requests for Lane A (Sid): new fields, all optional, the UI already reads them when present
+1. **Dry spells after sowing** (I17), using Sid's definition (≥ 10 days < 2.5 mm within 30 days after sowing on the 1st):
+   in every `sites/<id>.json` and `grid/<id>.json`,
+   `dry_spells: { threshold_mm: 2.5, window_days: 30, by_sow_month: { "10": { years: 24, ge10: 18, ge15: 9 }, ... } }`.
+   The UI then adds a "10+ dry days soon after sowing" column per sowing month (it already reads this shape).
+2. **NE-monsoon onset per year** (I16): `ne_onset: { method, years: [{ year, doy }] }` (e.g. IMD-style: first day after
+   1 Oct with ≥ 20 mm over 3 days and no 10-day dry spell in the next 30 days).
+3. **Latest SMAP soil moisture** (I16): `smap_recent: { date, root_zone, surface, anomaly }` (SMAP L4, last available
+   week), so "sow now" can use this season's soil, not just the usual month.
+4. **GRACE groundwater trend per grid point** (I20): `groundwater: { source, period, lwe_trend_cm_per_year }` in
+   `grid/<id>.json` (GRACE / GRACE-FO mascons). It joins the exposure score automatically.
+5. **District crop areas** (I23, also I6 / I21): `web/data/districts.json` =
+   `[{ id, name, area_ha: { rice_long, rice_short, ... }, irrigation_share: { canal, tank, borewell, rainfed }, points: [grid ids] }]`
+   (DES Season and Crop Report; `pipeline/data/apy_tamil_nadu.csv` from the backtest already has district areas). Then the what-if fills the area in and the map can show districts.
+6. Optional: district boundaries (`web/data/districts.geojson`) to draw districts instead of 0.5° squares.

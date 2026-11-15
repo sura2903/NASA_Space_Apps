@@ -4,7 +4,7 @@
 // Scores come only from scoring.js: cropSuitability (one crop at one place, for the map)
 // and rankCrops (all crops at one place, for the top 3). No scoring logic here.
 // Places: Lane A's grid (data/grid/index.json) when it exists, otherwise the 3 demo sites.
-import { cropSuitability, rankCrops, PRIORITIES, WATER_SOURCES } from "./scoring.js";
+import { cropSuitability, rankCrops, statewideContext, PRIORITIES, WATER_SOURCES } from "./scoring.js";
 import { $, h, clear, fmt } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
@@ -44,14 +44,21 @@ const prefs = () => ({ weights: WEIGHTS, water_source: state.water, scenario: { 
 const fromPick = (k) => ({
   crop: state.cropById[k.crop], sow: k.sow, total: k.total, good: k.good_years, years: k.total_years,
   share: k.share ?? (k.total_years ? k.good_years / k.total_years : 0), need: k.water_need_mm, st: k.strategy ?? null,
+  suit: k.suitability ?? k.total,
 });
+
+/** Statewide median pass rate per crop (contract: computed once per water source, ~0.6 s). */
+const ctxCache = {};
+function ctx() {
+  return (ctxCache[state.water] ??= statewideContext(Object.values(state.sites), state.crops, prefs()));
+}
 
 /** The selected crop at every place (heatmap). ~1 ms per place. */
 function suitFor(id) {
   const key = `${state.water}|${state.crop}`;
   const m = (state.suit[key] ??= {});
   if (!(id in m)) {
-    try { m[id] = fromPick(cropSuitability(state.sites[id], state.crops, state.crop, prefs())); } catch { m[id] = null; }
+    try { m[id] = fromPick(cropSuitability(state.sites[id], state.crops, state.crop, prefs(), ctx())); } catch { m[id] = null; }
   }
   return m[id];
 }
@@ -60,15 +67,15 @@ function suitFor(id) {
 function ranksFor(id) {
   const key = state.water;
   const m = (state.ranks[key] ??= {});
-  m[id] ??= rankCrops(state.sites[id], state.crops, prefs(), state.crops.length).map(fromPick);
+  m[id] ??= rankCrops(state.sites[id], state.crops, prefs(), state.crops.length, ctx()).map(fromPick);
   return m[id];
 }
 
 /* ---------- colour scale: one hue, light -> dark ---------- */
 const LIGHT = [227, 240, 223], DARK = [27, 94, 32];
 const colour = (v) => `rgb(${LIGHT.map((l, i) => Math.round(l + (DARK[i] - l) * Math.max(0, Math.min(1, v)))).join(",")})`;
-const measureOf = (r) => (state.measure === "came" ? r.share : r.total / 100);
-const measureText = (r) => (state.measure === "came" ? t("x.came.short", { good: r.good, total: r.years }) : `${r.total}/100`);
+const measureOf = (r) => (state.measure === "came" ? r.share : r.suit / 100);
+const measureText = (r) => (state.measure === "came" ? t("x.came.short", { good: r.good, total: r.years }) : `${r.suit}/100`);
 
 /* ---------- map ---------- */
 let map = null, layer = null, clickMarker = null;
@@ -131,7 +138,7 @@ function drawCropTable() {
       h("th", { scope: "row" }, placeName(p)),
       h("td", {}, monthName(r.sow)),
       h("td", {}, t("x.came.short", { good: r.good, total: r.years })),
-      h("td", {}, String(r.total)),
+      h("td", {}, String(r.suit)),
       h("td", {}, `${fmt(r.need)} mm`)))))));
 }
 
@@ -195,7 +202,7 @@ function drawTop3() {
         h("div", {},
           h("h3", {}, cropName(r.crop)),
           h("p", { class: "note" }, t("x.sow", { m: monthName(r.sow) }) + " · " + t("x.water.need", { mm: fmt(r.need) }))),
-        h("div", { class: "score" }, h("span", { class: "score-n" }, String(st.total)), h("span", { class: "score-l" }, t("card.outof"), h("br"), t("card.fit")))),
+        h("div", { class: "score" }, h("span", { class: "score-n" }, String(r.suit)), h("span", { class: "score-l" }, t("card.outof"), h("br"), t("x.suit.l")))),
       h("div", { class: "replay" },
         h("div", { class: "replay-l", html: rich(t("x.came.long", { good: st.replay.good_years, total: st.replay.total_years })) }),
         squares),
@@ -215,7 +222,7 @@ function drawTop3() {
       h("th", { scope: "row" }, cropName(r.crop)),
       h("td", {}, monthName(r.sow)),
       h("td", {}, t("x.came.short", { good: r.good, total: r.years })),
-      h("td", {}, String(r.total)))))));
+      h("td", {}, String(r.suit)))))));
   $("#all-crops").hidden = false;
 }
 
