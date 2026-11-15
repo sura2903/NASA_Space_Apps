@@ -1,4 +1,4 @@
-# Smart Vithaippu (ஸ்மார்ட் விதைப்பு)
+# SowSmart (ஸ்மார்ட் விதைப்பு)
 
 Formerly Field Shift.
 

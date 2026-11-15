@@ -1,4 +1,4 @@
-/* Smart Vithaippu UI (Lane B). Plain CSS, tokens on :root, light + dark. */
+/* SowSmart UI (Lane B). Plain CSS, tokens on :root, light + dark. */
 :root {
   color-scheme: light;
   --bg: #f5f3ec;

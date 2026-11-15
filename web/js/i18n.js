@@ -24,9 +24,9 @@ const MONTHS_INITIAL = {
 const STR = {
   en: {
     "lang.switch": "Tamil / தமிழ்", "lang.switch.aria": "Switch to Tamil", "lang.label": "Language",
-    brand: "Smart Vithaippu",
+    brand: "SowSmart",
     tagline: "Crop rotation choices for an uncertain monsoon, checked against NASA data",
-    "intro.title": "What is Smart Vithaippu?",
+    "intro.title": "What is SowSmart?",
     "intro.what": "A free tool for Tamil Nadu that checks crop choices against past seasons of NASA satellite and weather data, so you can see which crops held up when the monsoon let farmers down.",
     "intro.farm.h": "👩‍🌾 For farmers",
     "intro.farm": "Pick your place and what you grow below. You will see three crop plans side by side, how your climate has changed, and whether to sow now or wait.",
@@ -138,7 +138,7 @@ const STR = {
     "replay.ok": "{year}: came through", "replay.bad": "{year}: {reason}",
 
     // print
-    "ps.title": "Smart Vithaippu: crop plan notes for my agriculture officer",
+    "ps.title": "SowSmart: crop plan notes for my agriculture officer",
     "ps.printed": "printed {date}",
     "ps.farm": "My farm today", "ps.grow": "What I grow: ", "ps.water": "Water source: ",
     "ps.matters": "What matters to me: ", "ps.whatif": "Climate what-if used: ",
@@ -152,7 +152,7 @@ const STR = {
     "ps.newcrop": "Is {crop} suited to my soil and village? Good seed variety and sowing window?",
     "ps.notes": "Officer's notes",
     "ps.data": "Data {start}–{end}: {rain}{weather}; soil: {soil}{ndvi}. Weather data describes the region, not this exact field. Scores are simple, explainable rules, not a prediction.",
-    "ps.support": "Smart Vithaippu supports your judgment and local advice; it does not replace them.",
+    "ps.support": "SowSmart supports your judgment and local advice; it does not replace them.",
     "ps.sown": "sown {m}",
     "ps.levels": ["not important", "a little", "somewhat", "important", "very important", "top priority"],
 
