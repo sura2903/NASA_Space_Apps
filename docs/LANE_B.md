@@ -63,3 +63,9 @@ Known gaps / next:
   10+ dry-day odds per sowing month, the NE-monsoon onset and the sowing-rain onset (null `doy` = no onset that year).
 - `canal_index` for Cauvery-command places; the engine scales the canal budget with it (no UI change needed).
 - WIP Layer 3 (`futureRange` in scoring.js, NEX-GDDP-CMIP6): nothing to show yet; B12 waits for the data.
+
+### Contract changes seen 2026-11-15 04:21Z (main ba9db09)
+- §2d projections (Layer 3), §2e `climate_indices.json` + `phaseOdds()`, §2f `avoidThisSeason()`, §2g
+  `extremes/<id>.json` + `extremeYearCheck()`, five small millets in crops.json. All additive: the current UI
+  still runs clean on main (smoke tests t3/t5/t7/t9). None of these are shown in the UI yet; candidates for
+  the next Lane B panels (El Niño odds and "avoid this season" on the main page, extremes in the Policy view).
