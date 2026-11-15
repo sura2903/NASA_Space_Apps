@@ -638,4 +638,31 @@ export function futureRange(site, crops, rotation, prefs, projection, ssp = "ssp
   };
 }
 
+// ---------- El Nino / IOD odds (FIELD_NOTES E1; RESEARCH_LOG I-22) ----------
+// phaseOdds(site, crops, rotation, prefs, indices) groups the rotation's replay years by the ENSO and IOD phase
+// of each year's NE-monsoon season (web/data/climate_indices.json) and reports "came through X of N" per phase,
+// plus the current phase from the latest ONI. Statewide tests (indices.evidence) say whether a crop's odds
+// really differ by phase: only water-hungry crops (rice, groundnut) do, and the link isn't stable over decades,
+// so the UI must present this as odds, never a forecast.
+export function phaseOdds(site, crops, rotation, prefs, indices) {
+  const st = scoreRotation(site, crops, rotation, prefs, { skipText: true });
+  const by = { enso: {}, iod: {} };
+  for (const y of st.replay.years) {
+    const ph = indices?.years?.[String(y.year)];
+    if (!ph) continue;
+    for (const [k, v] of [["enso", ph.enso], ["iod", ph.iod]]) {
+      if (!v) continue;
+      const a = (by[k][v] ??= { good: 0, n: 0, years: [] });
+      a.n++; if (y.ok) a.good++;
+      a.years.push({ year: y.year, ok: y.ok });
+    }
+  }
+  const oni = indices?.latest?.oni;
+  const current = oni ? { oni: oni.value, season: `${oni.season} ${oni.year}`,
+                          enso: oni.value >= 0.5 ? "el_nino" : oni.value <= -0.5 ? "la_nina" : "neutral" } : null;
+  const crops_in = [...new Set(rotation.flat().map((s) => s.crop))];
+  const evidence = Object.fromEntries(crops_in.map((c) => [c, indices?.evidence?.crops?.[c] ?? null]));
+  return { by_enso: by.enso, by_iod: by.iod, current, evidence, overall: { good: st.replay.good_years, n: st.replay.total_years } };
+}
+
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }

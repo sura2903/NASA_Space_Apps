@@ -1,0 +1,357 @@
+{
+ "source": {
+  "oni": "NOAA CPC ONI (ERSSTv5), https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt",
+  "dmi": "NOAA PSL Dipole Mode Index (HadISST), https://psl.noaa.gov/gcos_wgsp/Timeseries/Data/dmi.had.long.data"
+ },
+ "rules": {
+  "enso": "OND ONI >= +0.5 El Nino, <= -0.5 La Nina",
+  "iod": "Sep-Nov DMI >= +0.4 positive, <= -0.4 negative"
+ },
+ "latest": {
+  "oni": {
+   "year": 2026,
+   "season": "ASO",
+   "value": 2.46
+  },
+  "dmi": {
+   "year": 2026,
+   "month": 5,
+   "value": 0.146
+  }
+ },
+ "years": {
+  "1981": {
+   "oni_ond": -0.19,
+   "enso": "neutral",
+   "dmi_son": -0.563,
+   "iod": "negative"
+  },
+  "1982": {
+   "oni_ond": 2.03,
+   "enso": "el_nino",
+   "dmi_son": 0.45,
+   "iod": "positive"
+  },
+  "1983": {
+   "oni_ond": -0.96,
+   "enso": "la_nina",
+   "dmi_son": -0.233,
+   "iod": "neutral"
+  },
+  "1984": {
+   "oni_ond": -0.95,
+   "enso": "la_nina",
+   "dmi_son": -0.56,
+   "iod": "negative"
+  },
+  "1985": {
+   "oni_ond": -0.28,
+   "enso": "neutral",
+   "dmi_son": -0.221,
+   "iod": "neutral"
+  },
+  "1986": {
+   "oni_ond": 1.06,
+   "enso": "el_nino",
+   "dmi_son": -0.144,
+   "iod": "neutral"
+  },
+  "1987": {
+   "oni_ond": 1.2,
+   "enso": "el_nino",
+   "dmi_son": 0.198,
+   "iod": "neutral"
+  },
+  "1988": {
+   "oni_ond": -1.81,
+   "enso": "la_nina",
+   "dmi_son": -0.368,
+   "iod": "neutral"
+  },
+  "1989": {
+   "oni_ond": -0.12,
+   "enso": "neutral",
+   "dmi_son": -0.325,
+   "iod": "neutral"
+  },
+  "1990": {
+   "oni_ond": 0.31,
+   "enso": "neutral",
+   "dmi_son": -0.208,
+   "iod": "neutral"
+  },
+  "1991": {
+   "oni_ond": 1.18,
+   "enso": "el_nino",
+   "dmi_son": 0.036,
+   "iod": "neutral"
+  },
+  "1992": {
+   "oni_ond": -0.24,
+   "enso": "neutral",
+   "dmi_son": -0.62,
+   "iod": "negative"
+  },
+  "1993": {
+   "oni_ond": 0.2,
+   "enso": "neutral",
+   "dmi_son": -0.158,
+   "iod": "neutral"
+  },
+  "1994": {
+   "oni_ond": 0.93,
+   "enso": "el_nino",
+   "dmi_son": 0.508,
+   "iod": "positive"
+  },
+  "1995": {
+   "oni_ond": -1.05,
+   "enso": "la_nina",
+   "dmi_son": -0.281,
+   "iod": "neutral"
+  },
+  "1996": {
+   "oni_ond": -0.39,
+   "enso": "neutral",
+   "dmi_son": -0.873,
+   "iod": "negative"
+  },
+  "1997": {
+   "oni_ond": 2.34,
+   "enso": "el_nino",
+   "dmi_son": 0.975,
+   "iod": "positive"
+  },
+  "1998": {
+   "oni_ond": -1.31,
+   "enso": "la_nina",
+   "dmi_son": -0.631,
+   "iod": "negative"
+  },
+  "1999": {
+   "oni_ond": -1.35,
+   "enso": "la_nina",
+   "dmi_son": -0.118,
+   "iod": "neutral"
+  },
+  "2000": {
+   "oni_ond": -0.76,
+   "enso": "la_nina",
+   "dmi_son": -0.181,
+   "iod": "neutral"
+  },
+  "2001": {
+   "oni_ond": -0.33,
+   "enso": "neutral",
+   "dmi_son": -0.306,
+   "iod": "neutral"
+  },
+  "2002": {
+   "oni_ond": 1.19,
+   "enso": "el_nino",
+   "dmi_son": 0.262,
+   "iod": "neutral"
+  },
+  "2003": {
+   "oni_ond": 0.29,
+   "enso": "neutral",
+   "dmi_son": -0.154,
+   "iod": "neutral"
+  },
+  "2004": {
+   "oni_ond": 0.64,
+   "enso": "el_nino",
+   "dmi_son": -0.088,
+   "iod": "neutral"
+  },
+  "2005": {
+   "oni_ond": -0.57,
+   "enso": "la_nina",
+   "dmi_son": -0.414,
+   "iod": "negative"
+  },
+  "2006": {
+   "oni_ond": 0.88,
+   "enso": "el_nino",
+   "dmi_son": 0.502,
+   "iod": "positive"
+  },
+  "2007": {
+   "oni_ond": -1.57,
+   "enso": "la_nina",
+   "dmi_son": 0.093,
+   "iod": "neutral"
+  },
+  "2008": {
+   "oni_ond": -0.57,
+   "enso": "la_nina",
+   "dmi_son": -0.004,
+   "iod": "neutral"
+  },
+  "2009": {
+   "oni_ond": 1.31,
+   "enso": "el_nino",
+   "dmi_son": -0.061,
+   "iod": "neutral"
+  },
+  "2010": {
+   "oni_ond": -1.57,
+   "enso": "la_nina",
+   "dmi_son": -0.4,
+   "iod": "negative"
+  },
+  "2011": {
+   "oni_ond": -1.02,
+   "enso": "la_nina",
+   "dmi_son": 0.298,
+   "iod": "neutral"
+  },
+  "2012": {
+   "oni_ond": 0.13,
+   "enso": "neutral",
+   "dmi_son": 0.155,
+   "iod": "neutral"
+  },
+  "2013": {
+   "oni_ond": -0.12,
+   "enso": "neutral",
+   "dmi_son": -0.093,
+   "iod": "neutral"
+  },
+  "2014": {
+   "oni_ond": 0.7,
+   "enso": "el_nino",
+   "dmi_son": 0.002,
+   "iod": "neutral"
+  },
+  "2015": {
+   "oni_ond": 2.45,
+   "enso": "el_nino",
+   "dmi_son": 0.374,
+   "iod": "neutral"
+  },
+  "2016": {
+   "oni_ond": -0.49,
+   "enso": "neutral",
+   "dmi_son": -0.397,
+   "iod": "neutral"
+  },
+  "2017": {
+   "oni_ond": -0.61,
+   "enso": "la_nina",
+   "dmi_son": 0.113,
+   "iod": "neutral"
+  },
+  "2018": {
+   "oni_ond": 1.04,
+   "enso": "el_nino",
+   "dmi_son": 0.596,
+   "iod": "positive"
+  },
+  "2019": {
+   "oni_ond": 0.72,
+   "enso": "el_nino",
+   "dmi_son": 0.897,
+   "iod": "positive"
+  },
+  "2020": {
+   "oni_ond": -1.11,
+   "enso": "la_nina",
+   "dmi_son": -0.032,
+   "iod": "neutral"
+  },
+  "2021": {
+   "oni_ond": -0.91,
+   "enso": "la_nina",
+   "dmi_son": -0.027,
+   "iod": "neutral"
+  },
+  "2022": {
+   "oni_ond": -0.82,
+   "enso": "la_nina",
+   "dmi_son": -0.427,
+   "iod": "negative"
+  },
+  "2023": {
+   "oni_ond": 1.9,
+   "enso": "el_nino",
+   "dmi_son": 0.89,
+   "iod": "positive"
+  },
+  "2024": {
+   "oni_ond": -0.29,
+   "enso": "neutral",
+   "dmi_son": -0.154,
+   "iod": "neutral"
+  },
+  "2025": {
+   "oni_ond": -0.61,
+   "enso": "la_nina",
+   "dmi_son": -0.39,
+   "iod": "neutral"
+  }
+ },
+ "evidence": {
+  "method": "Statewide (47 grid points), seasons 2001-2024. Share of points where the crop came through, by the season's phase. p = permutation test over the 24 seasons (not over points, which share the same years).",
+  "crops": {
+   "rice_long": {
+    "water_source": "tank",
+    "el_nino": 0.48,
+    "la_nina": 0.67,
+    "neutral": 0.16,
+    "enso_p": 0.002,
+    "iod_p": 0.449,
+    "verdict": "odds differ by ENSO phase (2001-2024); neutral seasons included the 2016 and 2012 droughts"
+   },
+   "groundnut": {
+    "water_source": "rainfed",
+    "el_nino": 0.44,
+    "la_nina": 0.59,
+    "neutral": 0.32,
+    "enso_p": 0.008,
+    "iod_p": 0.876,
+    "verdict": "odds differ by ENSO phase (2001-2024)"
+   },
+   "cotton": {
+    "water_source": "rainfed",
+    "el_nino": 0.74,
+    "la_nina": 0.66,
+    "neutral": 0.55,
+    "enso_p": 0.182,
+    "iod_p": 0.828,
+    "verdict": "no reliable difference by phase"
+   },
+   "black_gram": {
+    "water_source": "rainfed",
+    "el_nino": 0.84,
+    "la_nina": 0.91,
+    "neutral": 0.79,
+    "enso_p": 0.552,
+    "iod_p": 0.9,
+    "verdict": "steady in every phase"
+   },
+   "sesame": {
+    "water_source": "rainfed",
+    "el_nino": 0.93,
+    "la_nina": 0.91,
+    "neutral": 0.91,
+    "enso_p": 0.895,
+    "iod_p": 0.87,
+    "verdict": "steady in every phase"
+   },
+   "kodo_millet": {
+    "water_source": "rainfed",
+    "el_nino": 0.96,
+    "la_nina": 0.94,
+    "neutral": 0.95,
+    "enso_p": 0.867,
+    "iod_p": 0.833,
+    "verdict": "steady in every phase"
+   }
+  },
+  "rain_link": {
+   "summary": "NE-monsoon rain vs ONI is weak and unstable: 2001-2024 IMERG at 50 points median rho -0.28 (La Nina seasons +19%, El Nino -4%, neutral -23%); POWER 1981-2024 rho Tirunelveli +0.24, Madurai -0.12, Thanjavur -0.10, none significant, and the sign flipped inland between 1981-2000 and 2001-2024.",
+   "usable_as_forecast": false
+  }
+ }
+}

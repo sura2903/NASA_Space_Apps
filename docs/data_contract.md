@@ -166,6 +166,21 @@ Engine: `futureRange(site, crops, rotation, prefs, projection, ssp)` →
 not a single number. Note: the engine applies each model's temperature change to the observed baseline
 for hot days (it doesn't use `d_heat` directly; see RESEARCH_LOG I-20).
 
+## 2e. `web/data/climate_indices.json` (El Niño / IOD odds; `pipeline/fetch_indices.py` + `add_enso_evidence.py`)
+```jsonc
+{ "rules": { "enso": "OND ONI >= +0.5 El Nino, <= -0.5 La Nina", "iod": "SON DMI >= +0.4 positive ..." },
+  "latest": { "oni": { "year": 2026, "season": "ASO", "value": 2.46 }, "dmi": { ... } },   // "this season"
+  "years": { "2016": { "oni_ond": -0.7, "enso": "la_nina", "dmi_son": -0.2, "iod": "neutral" }, ... },  // 1981-2025
+  "evidence": { "crops": { "rice_long": { "el_nino": 0.48, "la_nina": 0.67, "neutral": 0.16, "enso_p": 0.002,
+                                          "verdict": "odds differ by ENSO phase ..." }, "black_gram": { ..., "verdict": "steady in every phase" } },
+                "rain_link": { "summary": "...weak and unstable...", "usable_as_forecast": false } } }
+```
+Engine: `phaseOdds(site, crops, rotation, prefs, indices)` →
+`{ by_enso: { el_nino: {good, n, years}, la_nina, neutral }, by_iod: {...}, current: {enso, oni, season},
+   evidence: { cropId: {...verdict} | null }, overall: {good, n} }`.
+**UI rule:** show "In past El Niño seasons this came through X of N" next to the statewide `verdict`. Never call it a
+forecast. Where the verdict says "steady in every phase", say that's the safer choice when the season is uncertain.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

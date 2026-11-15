@@ -58,7 +58,9 @@ Honest framing for the team:
   events are by definition outside a short record; we can estimate their likelihood, not their date.
 
 ### Candidate work items (to discuss before building)
-- E1 ENSO / IOD tagging of replay years + "odds this season" (seasonal outlook).
+- E1 ENSO / IOD tagging of replay years + "odds this season" (seasonal outlook). **✅ done (RESEARCH_LOG I-22):**
+  the ENSO rain link is weak/unstable; rice and groundnut odds shift by phase; black gram, sesame and millets are
+  steady in every phase. Current season: strong El Niño.
 - E2 "Avoid this season" lists per place for drought / flood / normal years.
 - E3 Price history and income risk (Agmarknet / MSP), yield × price = income reliability.
 - E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record.

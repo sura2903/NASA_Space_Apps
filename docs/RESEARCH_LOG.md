@@ -329,6 +329,25 @@ pattern risky?"*
   - **Next:** source small-millet water use and rooting depth, and consider a market/price signal
     (FN-1 E3) before presenting kodo as a headline recommendation.
 
+### I-22 · El Niño odds (FIELD_NOTES E1): a weak rain signal, but a clear crop message
+- **Data:** NOAA ONI (OND) and NOAA PSL DMI (SON), 1981–2025 → each NE-monsoon season tagged El Niño / La Niña / neutral
+  and IOD +/−/neutral. Latest: **ONI +2.46 (ASO 2026), a strong El Niño**.
+- **Rain link, tested against the textbook (El Niño → wetter NE monsoon):**
+  - In 2001–2024 at 50 points, La Niña seasons were *wetter* (+19%), El Niño −4%, neutral −23%.
+  - In POWER 1981–2024: weak and unstable. Tirunelveli +0.24, Madurai −0.12, Thanjavur −0.10, none significant,
+    and the sign flipped inland between decades.
+  - **Conclusion: ENSO alone can't forecast this season's monsoon here.** Consistent with literature on a
+    non-stationary ENSO–NE-monsoon link.
+- **Crop outcomes:** year-level permutation test over 24 seasons (not inflated by spatially correlated points).
+  - Water-hungry crops' odds **do** differ by phase: tank rice El Niño 48% / La Niña 67% / neutral 16% (p=0.002);
+    groundnut 44/59/32% (p=0.008).
+  - Drought-hardy crops are **steady in every phase**: black gram 79–91%, sesame 91–93%, kodo millet 94–96% (p>0.5).
+  - IOD: no usable signal.
+- **Message for farmers and policy:** when the season is uncertain, the robust move is the farmer's own instinct
+  (black gram / sesame / millets). ENSO-phase odds for rice are a recent pattern, shown with that caveat.
+- **Engine:** `phaseOdds()` + `web/data/climate_indices.json` (evidence block). Not yet: forecast-based (NMME/IMD)
+  outlooks; hindcast of phase-conditioned advice against real yields.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
