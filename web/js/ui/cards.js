@@ -109,9 +109,12 @@ export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenar
       t("card.water", { need: fmt(st.water_use.need_mm) }) +
       (st.water_use.irrigation_mm > 0 ? t("card.water.irr", { irr: fmt(st.water_use.irrigation_mm), src: src.toLowerCase() }) : t("card.water.rain"))) }),
 
-    cal.el,
-
     section(t("card.why"), st.why, "why"),
+
+    // everything else is one tap away, so three cards side by side (or stacked on a phone) stay readable
+    h("details", { class: "card-more" },
+      h("summary", {}, t("card.more")),
+    cal.el,
     h("section", { class: "card-sec evidence" },
       h("h4", {}, t("card.evidence"), h("span", { class: "hint" }, t("card.hint"))),
       h("div", { class: "chips" }, chips)),
@@ -126,5 +129,6 @@ export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenar
       h("div", { class: "subs" }, subs),
       st.issues.length ? h("ul", { class: "rot-issues" }, st.issues.map((x) => h("li", {}, "⚠ " + x))) : null,
       h("p", { class: "note" }, t("card.engine", { label: st.label, src }))),
+    ),
   );
 }

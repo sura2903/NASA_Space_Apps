@@ -24,6 +24,21 @@ const MONTHS_INITIAL = {
 const STR = {
   en: {
     "lang.switch": "Tamil / தமிழ்", "lang.switch.aria": "Switch to Tamil", "lang.label": "Language",
+    "tab.farm": "Farm", "tab.policy": "Policy", "tab.exposure": "Exposure & crop switch", "tab.map": "Crop map",
+    "fold.optional": "optional", "fold.more": "More about your place (tap a heading to open)",
+    "fold.about.eyebrow": "About this tool", "fold.about": "Words used here, honest limits and data sources",
+    "welcome.title": "Where is your farm?",
+    "welcome.note": "Choose the nearest place. Three places have extra-detailed data; the rest of Tamil Nadu is covered at about 50 km detail.",
+    "welcome.locate": "📍 Use my location", "welcome.locating": "Finding the nearest place…",
+    "welcome.located": "Nearest place: {place} ({km} km away)",
+    "welcome.denied": "Location is not available. Please choose from the list.",
+    "welcome.privacy": "Your location stays on this device; it is only used to find the nearest place.",
+    "welcome.or": "or pick a detailed place:", "welcome.go": "Show my options",
+    "places.demo": "Detailed places", "places.grid": "Anywhere in Tamil Nadu (nearest point)",
+    "change.place": "Change place",
+    "welcome.example": "You are looking at an example place: {place}. Choose your own place above to see results for your farm.",
+    "welcome.map": "🗺 Pick on a map",
+    "card.more": "See the month calendar, benefits and risks",
     brand: "SowSmart",
     tagline: "Crop rotation choices for an uncertain monsoon, checked against NASA data",
     "intro.title": "What is SowSmart?",
@@ -346,6 +361,21 @@ const STR = {
 
   ta: {
     "lang.switch": "English", "lang.switch.aria": "Switch to English", "lang.label": "மொழி",
+    "tab.farm": "பண்ணை", "tab.policy": "கொள்கை", "tab.exposure": "பாதிப்பு & பயிர் மாற்றம்", "tab.map": "பயிர் வரைபடம்",
+    "fold.optional": "விருப்பம்", "fold.more": "உங்கள் இடத்தைப் பற்றி மேலும் (தலைப்பைத் தட்டித் திறக்கவும்)",
+    "fold.about.eyebrow": "இந்தக் கருவி பற்றி", "fold.about": "இங்கு பயன்படும் சொற்கள், வரம்புகள், தரவு ஆதாரங்கள்",
+    "welcome.title": "உங்கள் பண்ணை எங்கே உள்ளது?",
+    "welcome.note": "அருகிலுள்ள இடத்தைத் தேர்ந்தெடுக்கவும். மூன்று இடங்களுக்கு கூடுதல் விரிவான தரவு உள்ளது; மற்ற தமிழ்நாடு சுமார் 50 கி.மீ. அளவில் உள்ளது.",
+    "welcome.locate": "📍 என் இருப்பிடத்தைப் பயன்படுத்து", "welcome.locating": "அருகிலுள்ள இடத்தைத் தேடுகிறது…",
+    "welcome.located": "அருகிலுள்ள இடம்: {place} ({km} கி.மீ. தொலைவு)",
+    "welcome.denied": "இருப்பிடம் கிடைக்கவில்லை. பட்டியலிலிருந்து தேர்ந்தெடுக்கவும்.",
+    "welcome.privacy": "உங்கள் இருப்பிடம் இந்தச் சாதனத்திலேயே இருக்கும்; அருகிலுள்ள இடத்தைக் கண்டறிய மட்டுமே பயன்படும்.",
+    "welcome.or": "அல்லது விரிவான இடத்தைத் தேர்ந்தெடுக்கவும்:", "welcome.go": "என் தேர்வுகளைக் காட்டு",
+    "places.demo": "விரிவான இடங்கள்", "places.grid": "தமிழ்நாட்டில் எங்கும் (அருகிலுள்ள புள்ளி)",
+    "change.place": "இடத்தை மாற்று",
+    "welcome.example": "இது ஒரு எடுத்துக்காட்டு இடம்: {place}. உங்கள் பண்ணைக்கான முடிவுகளைக் காண மேலே உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்.",
+    "welcome.map": "🗺 வரைபடத்தில் தேர்ந்தெடுக்கவும்",
+    "card.more": "மாத நாட்காட்டி, நன்மைகள், அபாயங்களைப் பார்க்கவும்",
     brand: "ஸ்மார்ட் விதைப்பு",
     tagline: "நிச்சயமற்ற பருவமழைக்கு ஏற்ற பயிர் சுழற்சி தேர்வுகள், நாசா தரவுகளுடன் சரிபார்க்கப்பட்டவை",
     "intro.title": "ஸ்மார்ட் விதைப்பு என்றால் என்ன?",
@@ -707,7 +737,8 @@ export const cropShort = (c) => (lang === "ta" && c?.tamil_name ? c.tamil_name.r
 
 export const prioLabel = (k, fallback) => LABELS[lang]?.prio?.[k] ?? fallback;
 export const waterLabel = (k, fallback) => LABELS[lang]?.water?.[k] ?? fallback;
-export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? s.name;
+// Tamil view: hand-written labels for the demo sites, then the data's name_ta (grid places, add_tamil_names.py)
+export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? (lang === "ta" ? s.name_ta : null) ?? s.name;
 export const tagLabel = (tag) => t(`tag.${tag}`);
 
 /** Translate the short engine sentences we know the shape of; others stay as written. */
