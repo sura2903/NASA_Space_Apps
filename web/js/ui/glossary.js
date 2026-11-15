@@ -15,7 +15,7 @@ export const GLOSSARY = {
   },
   ne_monsoon: {
     term: "Northeast monsoon",
-    def: "The October to December rains (வடகிழக்கு பருவமழை). It is the main rainy season for most of Tamil Nadu and fills the village tanks, but it changes a lot from year to year.",
+    def: "The October to December rains. It is the main rainy season for most of Tamil Nadu and fills the village tanks, but it changes a lot from year to year.",
     match: /north-?east monsoon/i,
   },
   heavy_rain: {
@@ -25,7 +25,7 @@ export const GLOSSARY = {
   },
   green_manure: {
     term: "Green manure",
-    def: "A fast-growing plant such as daincha (தக்கைப்பூண்டு) or sunnhemp (சணப்பு), grown for a few weeks and then ploughed into wet soil. It adds organic matter and nitrogen for the next crop and covers the soil.",
+    def: "A fast-growing plant such as daincha or sunnhemp, grown for a few weeks and then ploughed into wet soil. It adds organic matter and nitrogen for the next crop and covers the soil.",
     match: /green manure/i,
   },
   msp: {

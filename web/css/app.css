@@ -84,9 +84,18 @@ body:not(.expert) .expert-only { display: none !important; }
 }
 .lang-btn:hover { background: var(--accent-soft); }
 .lang-btn[lang="ta"] { font-family: var(--font-ta); }
-.lang-wrap { display: flex; flex-direction: column; align-items: center; gap: 2px; }
-.lang-label { font-size: 0.72rem; font-weight: 600; color: var(--ink-3); line-height: 1.2; white-space: nowrap; }
-.lang-label [lang="ta"] { font-family: var(--font-ta); }
+/* language switch: its own top-right corner, away from the nav links */
+.top { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+.top .brand { grid-column: 1; grid-row: 1; }
+.top .lang-wrap { grid-column: 2; grid-row: 1; align-self: start; }
+.top .top-actions { grid-column: 1 / -1; }
+.lang-wrap { display: flex; align-items: center; gap: 8px; }
+.lang-label { font-size: 0.8rem; font-weight: 600; color: var(--ink-3); line-height: 1.2; white-space: nowrap; }
+.lang-wrap .lang-btn { min-height: 40px; padding: 6px 12px; white-space: nowrap; }
+@media (max-width: 640px) {
+  .top .lang-wrap { grid-column: 1 / -1; grid-row: 1; justify-self: end; }
+  .top .brand { grid-column: 1 / -1; grid-row: 2; }
+}
 /* intro card under the header (main page) */
 .intro {
   box-sizing: border-box; width: calc(100% - 48px); max-width: 1632px; margin: 16px auto 0; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line);
