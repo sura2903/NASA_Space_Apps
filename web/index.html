@@ -56,10 +56,37 @@
     </details>
   </section>
 
-  <main class="layout" id="farm-main">
+  <!-- Farm view (phone-first): crops + water, sowing time, the answer. Everything else is one tap away.
+       index.html?view=detail is the "This place in detail" view (Policy tab) for agriculture officers and planners:
+       the same page with the full plans, charts and climate trends open. -->
+  <nav class="subtabs detail-only" aria-label="Policy views">
+    <a class="subtab" href="policy.html"><span data-i18n="tab.exposure">Exposure &amp; crop switch</span></a>
+    <a class="subtab" href="explore.html"><span aria-hidden="true">🗺</span> <span data-i18n="tab.map">Crop map</span></a>
+    <a class="subtab active" href="index.html?view=detail" aria-current="page"><span aria-hidden="true">📊</span> <span data-i18n="tab.detail">This place in detail</span></a>
+  </nav>
+
+  <div class="farm-flow">
+    <!-- the farmer's own crops, water and sowing time, and the ranked answer (ui/mycrops.js) -->
+    <section class="panel mycrops" id="mycrops" aria-labelledby="mc-answer-title"></section>
+
+    <details class="panel fold sow-panel" id="sow-panel">
+      <summary>
+        <span class="fold-title"><span class="eyebrow" data-i18n="sow.eyebrow">When to sow</span>
+        <span class="fold-h" id="sow-title" data-i18n="sow.title">Sow now or wait?</span></span>
+      </summary>
+      <p class="note" data-i18n="sow.intro"></p>
+      <div id="sow-body"></div>
+    </details>
+
+    <details class="panel fold more-plans" id="more-plans">
+      <summary>
+        <span class="fold-title"><span class="eyebrow" data-i18n="more.eyebrow">For the whole year</span>
+        <span class="fold-h" data-i18n="more.title">More plans: full-year rotations, your priorities and climate what-ifs</span></span>
+      </summary>
+      <main class="layout" id="farm-main">
     <aside class="inputs" aria-label="Your farm">
       <section class="step">
-        <h2><span class="n">2</span> <span data-i18n="step.grow">What you grow now</span></h2>
+        <h2><span data-i18n="step.grow">What you grow now</span></h2>
         <p class="note" data-i18n="step.grow.note">Pick each crop and the month you sow it.</p>
         <div id="rot-editor" class="rot-editor"></div>
         <div id="rot-issues"></div>
@@ -68,23 +95,19 @@
         <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.water"></p></aside>
       </section>
 
-      <!-- optional fine-tuning: folded so first-time users see only the 2 essential steps -->
       <details class="step fold">
-        <summary><span class="n">3</span> <span data-i18n="step.prio">What matters to you</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
+        <summary><span data-i18n="step.prio">What matters to you</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
         <p class="note" data-i18n="step.prio.note">Slide each one. The options below re-rank as you go.</p>
         <div id="prios" class="prios"></div>
       </details>
 
       <details class="step fold">
-        <summary><span class="n">4</span> <span data-i18n="step.climate">What if the climate shifts?</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
+        <summary><span data-i18n="step.climate">What if the climate shifts?</span> <small class="fold-hint" data-i18n="fold.optional">optional</small></summary>
         <div id="climate" class="prios"></div>
       </details>
     </aside>
 
-    <div class="results">
-      <!-- the farmer's own crops, ranked for the season they sow in (ui/mycrops.js) -->
-      <section class="panel mycrops" id="mycrops" aria-labelledby="mc-title"></section>
-
+        <div class="results">
       <!-- the main answer first -->
       <section class="panel" aria-labelledby="opts-title">
         <div class="panel-head">
@@ -109,19 +132,11 @@
         <p class="note support" data-i18n="opts.support"></p>
         <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.opts"></p></aside>
       </section>
+        </div>
+      </main>
+    </details>
 
-      <!-- more detail, one tap away -->
-      <p class="more-label" data-i18n="fold.more">More about your place (tap to open)</p>
-
-      <details class="panel fold sow-panel" id="sow-panel">
-        <summary>
-          <span class="fold-title"><span class="eyebrow" data-i18n="sow.eyebrow">When to sow</span>
-          <span class="fold-h" id="sow-title" data-i18n="sow.title">Sow now or wait?</span></span>
-        </summary>
-        <p class="note" data-i18n="sow.intro"></p>
-        <div id="sow-body"></div>
-      </details>
-
+    <div class="detail-only detail-sections">
       <details class="panel fold site-panel">
         <summary>
           <span class="fold-title"><span class="eyebrow" data-i18n="site.eyebrow">What NASA data says about this place</span>
@@ -148,7 +163,6 @@
           </figure>
         </div>
       </details>
-
       <details class="panel fold trend-panel" id="trend-panel" hidden>
         <summary>
           <span class="fold-title"><span class="eyebrow" data-i18n="tr.eyebrow">Climate change</span>
@@ -156,32 +170,32 @@
         </summary>
         <div id="trend-body"></div>
       </details>
-
-      <details class="panel fold about">
-        <summary>
-          <span class="fold-title"><span class="eyebrow" data-i18n="fold.about.eyebrow">About this tool</span>
-          <span class="fold-h" id="gloss-title" data-i18n="fold.about">Words used here, honest limits, data sources and future work</span></span>
-        </summary>
-        <h2 data-i18n="gloss.title">Words used here</h2>
-        <dl id="glossary-list" class="glossary"></dl>
-        <h2 data-i18n="limits.title">Honest limits</h2>
-        <ul class="limits">
-          <li data-i18n="limits.1"></li>
-          <li data-i18n="limits.2"></li>
-          <li data-i18n="limits.3"></li>
-          <li data-i18n="limits.4"></li>
-        </ul>
-        <p class="note" id="data-sources"></p>
-        <h2 data-i18n="future.title">Future work</h2>
-        <ul class="limits future">
-          <li data-i18n="future.1"></li>
-          <li data-i18n="future.2"></li>
-          <li data-i18n="future.3"></li>
-          <li data-i18n="future.4"></li>
-        </ul>
-      </details>
     </div>
-  </main>
+
+    <details class="panel fold about">
+      <summary>
+        <span class="fold-title"><span class="eyebrow" data-i18n="fold.about.eyebrow">About this tool</span>
+        <span class="fold-h" id="gloss-title" data-i18n="fold.about">Words used here, honest limits, data sources and future work</span></span>
+      </summary>
+      <h2 data-i18n="gloss.title">Words used here</h2>
+      <dl id="glossary-list" class="glossary"></dl>
+      <h2 data-i18n="limits.title">Honest limits</h2>
+      <ul class="limits">
+        <li data-i18n="limits.1"></li>
+        <li data-i18n="limits.2"></li>
+        <li data-i18n="limits.3"></li>
+        <li data-i18n="limits.4"></li>
+      </ul>
+      <p class="note" id="data-sources"></p>
+      <h2 data-i18n="future.title">Future work</h2>
+      <ul class="limits future">
+        <li data-i18n="future.1"></li>
+        <li data-i18n="future.2"></li>
+        <li data-i18n="future.3"></li>
+        <li data-i18n="future.4"></li>
+      </ul>
+    </details>
+  </div>
 
   <div id="print-sheet" class="print-sheet"></div>
 
