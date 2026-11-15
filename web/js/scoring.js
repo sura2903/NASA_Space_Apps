@@ -36,6 +36,9 @@ export const WATER_SOURCES = {
   borewell: { label: "Borewell / well", budget_mm: 1200, months: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], monsoon_linked: false },
 };
 
+// Extra priorities the engine understands but the UI doesn't show yet (add to the slider list + Tamil label
+// first, then they count when prefs.weights[key] > 0).
+export const EXTRA_PRIORITIES = { storage: "Can store and sell later" };
 export const PRIORITIES = {
   water: "Save water", income: "Income", soil_structure: "Soil health", nitrogen: "Natural nitrogen",
   erosion: "Erosion control", forage: "Fodder for animals", reliability: "Reliability in bad years",
@@ -327,7 +330,12 @@ export function scoreRotation(site, crops, rotation, prefs, opts = {}) {
   const grossIncome = sum(cashSlots.map((s) => LEVEL[s.crop.market] * Math.min(2, s.crop.duration_days / 110) * (s.crop.msp ? 1.1 : 1))) / L.years / 2.4;
   const income = clamp(grossIncome * (0.5 + 0.5 * reliability));
   const forage = L.slots.length ? Math.max(...L.slots.map((s) => LEVEL[s.crop.forage_value])) : 0;
-  const subscores = { water, income, soil_structure, nitrogen, erosion, forage, reliability, pest };
+  // storage (IDEAS I28 / TASKS A23): can the harvest wait for a better price or feed the family later?
+  // Duration-weighted over cash crops; only counts when prefs.weights.storage is set (see EXTRA_PRIORITIES).
+  const STORE = { high: 1, medium: 0.6, low: 0.15 };
+  const cashLen = sum(cashSlots.map((s) => s.len)) || 1;
+  const storage = cashSlots.length ? sum(cashSlots.map((s) => (STORE[s.crop.storage?.level] ?? 0.6) * s.len)) / cashLen : 0;
+  const subscores = { water, income, soil_structure, nitrogen, erosion, forage, reliability, pest, storage };
 
   // 4) total
   const weights = { ...prefs.weights, pest: PEST_WEIGHT };

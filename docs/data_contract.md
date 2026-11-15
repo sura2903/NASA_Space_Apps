@@ -325,6 +325,10 @@ One click on a point shows its `engine` lists ("avoid in a drought year", "came 
   "source": "approximate; ..." }
 ```
 
+### 3a. `storage` per crop (IDEAS I28)
+`"storage": { "level": "high" | "medium" | "low", "keeps_months": 12, "main_risk": "pulse beetle", "source": "..." }`,
+null for green manures. The engine's `storage` sub-score uses it (see `EXTRA_PRIORITIES` in §4).
+
 ## 4. Scoring API (`web/js/scoring.js`)
 
 ### Inputs
@@ -368,6 +372,8 @@ extremeYearCheck(site, crops, prefs, extremes)                 -> see §2g      
 memoryCheck(site, crops, prefs, opts)                          -> see §2h          // last 10 years vs full record
 windRisk(site, crops, prefs, wind)                             -> see §2i          // wind / cyclone exposure per crop
 damCheck(site, crops, rotation, prefs)                         -> see §2a-dam      // "has the dam opened?" (delta)
+EXTRA_PRIORITIES  -> { storage: "Can store and sell later" }     // engine-ready priorities not yet in PRIORITIES;
+                                                                  // add a slider + Tamil label, then pass weights.storage
 DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
 WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
 cropLabel(crop)          -> "Black gram · உளுந்து"

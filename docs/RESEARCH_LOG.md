@@ -612,6 +612,29 @@ pattern risky?"*
 - **Not yet used by the engine:** soil moisture at sowing could set each year's starting soil water from 2015 on.
   Logged as a next step.
 
+### I-32 · Storage and perishability as a farmer factor (IDEAS I28, TASKS A23, user request)
+- **Why:** a crop that keeps can wait for a better price or feed the family in a bad year; a perishable one
+  forces a quick sale.
+- **Data:** `storage: { level, keeps_months, main_risk, source }` for 19 crops; null for green manures.
+
+  | Level | Crops | Basis |
+  |---|---|---|
+  | High | small millets, finger millet, cotton | ~1–2 years cool and dry (FAO millet compendium, consumer guides; approximate) |
+  | Medium | rice, pulses, groundnut, sesame, pearl millet, sorghum, maize | pulses: beetles damage 55–70% of untreated black / green gram in 120 days (sourced); the rest approximate |
+  | Low | sugarcane, banana | sugarcane must be crushed within ~24 h (sourced); banana lasts days without cold chain |
+
+- **Engine:** `storage` sub-score = duration-weighted storage level of the cash crops (high 1, medium 0.6,
+  low 0.15). It counts only when `prefs.weights.storage` > 0. Exported as `EXTRA_PRIORITIES` (not in
+  `PRIORITIES`) so the live site doesn't show an unlabelled slider before Lane B adds it with a Tamil label.
+- **Check:**
+  - With default priorities, every score is unchanged.
+  - With storage at full weight, demo "Bigger shift" plans move from pearl millet to finger / little millet, and
+    rankings change by one crop at most. A clear effect that doesn't override everything else.
+- **Next:** combine with prices (E3). Storable crops can catch the price rise after harvest season; perishable ones
+  carry the full harvest-time price swing.
+- **Also rerun after the barnyard fix (I-30):** district switch targets are now cowpea 10, foxtail 7, green gram 7,
+  little millet 6, pearl millet 4, kodo 2, finger millet 1.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
