@@ -4,7 +4,7 @@ Challenge: **Field Shift: Adapting Farms with NASA Data** (NASA Space Apps 2026)
 Live demo: https://sura2903.github.io/NASA_Space_Apps/ (English and Tamil, works on a phone)
 Team: Siddarth (data, models) and Nimalan (web app, story)
 
-> Draft for the Space Apps project page. Paste section by section. Every number below comes from
+> Draft for the Space Apps project page. Ready-to-paste blocks, one per form field: `docs/SPACE_APPS_FORM.md`. Every number below comes from
 > `docs/RESEARCH_LOG.md` (iteration numbers in brackets) and can be re-run from `pipeline/`.
 
 ---
@@ -101,7 +101,7 @@ detail*. Nothing was removed from the farmer's page; it was moved there.
 - **2041–2060 (NASA NEX-GDDP-CMIP6, 5 models):**
   - Daytime highs rise about 0.9 °C everywhere.
   - Up to 21 more very hot days a year in the north.
-  - The models disagree on whether the northeast monsoon gets wetter or drier at all 47 places, so we say so [I-33].
+  - The models disagree on whether the northeast monsoon gets wetter or drier at every place, so we say so [I-33].
 
 ## 7. NASA data used
 | NASA dataset | How we used it |
