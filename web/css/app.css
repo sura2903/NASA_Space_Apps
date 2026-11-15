@@ -359,3 +359,31 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
   .ps-notes .line { border-bottom: 1px solid #999; height: 18pt; }
   .print-sheet footer { margin-top: 10pt; font-size: 8.5pt; color: #444; }
 }
+
+/* ---------- B11 climate-change panel ---------- */
+.trend-findings h3, .trend-group h3 { font-size: 1rem; margin: 18px 0 6px; }
+.trend-findings .highlights { margin-top: 4px; }
+.trend-findings li.tone-worse::marker { color: var(--warn); }
+.trend-findings li.tone-better::marker { color: var(--accent); }
+.trend-caveats { margin: 14px 0 4px; padding: 10px 14px; border-radius: 10px; background: var(--warn-soft); color: var(--ink); font-size: 0.875rem; }
+.trend-caveats-title { margin: 0 0 4px; font-weight: 700; color: var(--warn); }
+.trend-caveats ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px; }
+.trend-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.trend-card { border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; background: var(--surface); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.trend-card.tone-worse { border-left: 4px solid var(--warn); }
+.trend-card.tone-better { border-left: 4px solid var(--accent); }
+.trend-card.uncertain { border-style: dashed; background: var(--surface-2); }
+.trend-card.uncertain > :not(.trend-head):not(.note) { opacity: 0.5; filter: grayscale(1); }
+.trend-card.uncertain h4 { color: var(--ink-3); }
+.trend-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.trend-head h4 { margin: 0; font-size: 0.9375rem; line-height: 1.3; }
+.trend-chip { flex: none; font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 99px; background: var(--surface-2); color: var(--ink-2); white-space: nowrap; }
+.trend-chip.tone-worse { background: var(--warn-soft); color: var(--warn); }
+.trend-chip.tone-better { background: var(--accent-soft); color: var(--accent); }
+.trend-card.uncertain .trend-chip { background: transparent; border: 1px dashed var(--ink-3); color: var(--ink-3); }
+.trend-nums { margin: 0; font-size: 0.875rem; }
+.trend-card .spark { position: relative; height: 72px; }
+.trend-card .note { margin: 0; font-size: 0.8125rem; }
+.trend-all { margin-top: 14px; }
+.trend-all > summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: 6px 0; }
+.trend-all[open] > summary { margin-bottom: 4px; }

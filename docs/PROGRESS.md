@@ -89,3 +89,11 @@ Newest first. Note contract changes here.
   - Heavy-rain waterlogging rule (≥2 heavy days per season for flood-intolerant crops)
     may be strict. Review it.
   - Crop values are approximate (TNAU check pending).
+
+## 2026-11-15 · Lane B · B11 "How has my climate changed?" panel
+- New panel on the main page under the site panel, fed only by `web/data/trends/<id>.json` (contract §2b); hidden if the file is missing.
+- "What has clearly changed" list (clear + likely trends only), the site's `caveats` in a "Read with care" box, and a fold-out with all 12 indicators: 1981–2000 vs 2001–2024 averages, a 44-year sparkline with both averages, direction chip and confidence.
+- `confidence: "uncertain"` indicators are greyed out with a dashed border, labelled "Datasets disagree", and show the IMERG vs POWER slopes; they never appear as findings.
+- Orange = harder for crops, green = easier (from `higher_is_worse`), grey = no clear change. Sen's slope, CI, Mann–Kendall p and change points sit behind Expert details.
+- English + Tamil labels; the caveat and method sentences come from the data in English.
+- TASKS.md: B1–B8, B10, B11 marked done.

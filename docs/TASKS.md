@@ -37,17 +37,17 @@ Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from
 
 | # | Task | Status |
 |---|---|---|
-| B1 | Layout + site picker (Leaflet map of the 3 sites + dropdown); farmer-first view with an "Expert details" toggle | ⬜ |
-| B2 | Inputs: current rotation editor (crop + sowing month per slot, Tamil names via `cropLabel`), water source, 7 priority sliders (`PRIORITIES`) | ⬜ |
-| B3 | Site panel: `siteHighlights()` bullets + monthly rain / ET bar chart + NE-monsoon year-by-year chart (Chart.js, from `monthly` and `by_year`) | ⬜ |
-| B4 | **Field Calendar:** 12-month ribbon per strategy (crop / green manure / bare) over rain and heat bands; hovering an evidence chip highlights its months | ⬜ |
-| B5 | **Strategy cards** ×3: tag, label, score, replay "came through X of 24 years", why / evidence / benefits / risks / gaps | ⬜ |
-| B6 | **Climate-shift sliders** (+°C, ±rain %) with a "continue the observed trend" button (`trendScenario`); re-run with ~250 ms debounce | ⬜ |
-| B7 | Glossary tooltips: evapotranspiration, water balance, NDVI, heavy-rain day, MSP, northeast monsoon, green manure | ⬜ |
-| B8 | Printable "take this to your agriculture officer" sheet (print CSS) | ⬜ |
+| B1 | Layout + site picker (Leaflet map of the 3 sites + dropdown); farmer-first view with an "Expert details" toggle | ✅ |
+| B2 | Inputs: current rotation editor (crop + sowing month per slot, Tamil names via `cropLabel`), water source, 7 priority sliders (`PRIORITIES`) | ✅ |
+| B3 | Site panel: `siteHighlights()` bullets + monthly rain / ET bar chart + NE-monsoon year-by-year chart (Chart.js, from `monthly` and `by_year`) | ✅ |
+| B4 | **Field Calendar:** 12-month ribbon per strategy (crop / green manure / bare) over rain and heat bands; hovering an evidence chip highlights its months | ✅ |
+| B5 | **Strategy cards** ×3: tag, label, score, replay "came through X of 24 years", why / evidence / benefits / risks / gaps | ✅ |
+| B6 | **Climate-shift sliders** (+°C, ±rain %) with a "continue the observed trend" button (`trendScenario`); re-run with ~250 ms debounce | ✅ |
+| B7 | Glossary tooltips: evapotranspiration, water balance, NDVI, heavy-rain day, MSP, northeast monsoon, green manure | ✅ |
+| B8 | Printable "take this to your agriculture officer" sheet (print CSS) | ✅ |
 | B9 | Deploy to GitHub Pages (serve `/web`) | ✅ |
-| B10 | Crop suitability heatmap + click-anywhere top-3 panel on the grid (IDEAS I3/I4) | ⬜ |
-| B11 | "How has my climate changed?" panel (trend charts + verdicts with confidence) | ⬜ |
+| B10 | Crop suitability heatmap + click-anywhere top-3 panel on the grid (IDEAS I3/I4) | ✅ |
+| B11 | "How has my climate changed?" panel (trend charts + verdicts with confidence) | ✅ |
 | B12 | "Today / 2040s / 2080s" + SSP switch; cards show today vs future with model ranges | ⬜ |
 
 ## Together
