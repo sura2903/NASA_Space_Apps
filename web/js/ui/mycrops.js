@@ -7,12 +7,15 @@
 // sowing rains usually start (site.sowing_rain_onset), and any month can be chosen.
 // Lane B. Calls only scoring.js exports; every number shown comes from web/data (site file or the engine replay).
 // Strings live here (English + Tamil), like risk.js, so i18n.js stays small.
-import { scoreRotation, WATER_SOURCES } from "../scoring.js";
+import { scoreRotation, WATER_SOURCES, DAM_OPTIONS } from "../scoring.js";
 import { h, clear } from "./dom.js";
 import { decorate } from "./glossary.js";
 import { getLang, cropName, monthName, monthShort, waterLabel } from "../i18n.js";
 
 const GOOD = 0.75, RISKY = 0.5;      // share of seasons the crop came through: >= 3 in 4 good, >= 2 in 4 risky
+// The climate has been changing, so the most recent seasons say more about next season: the last RECENT years of the
+// record count RECENT_WEIGHT times in the share that sets the verdict and the ranking. Both counts are shown.
+const RECENT = 10, RECENT_WEIGHT = 2;
 const QUICK_DAYS = 95;                // "quick crop": about 3 months in the field
 const MAX_PICK = 8;
 const STORE_KEY = "fs-mycrops";
@@ -33,10 +36,20 @@ const S = {
     cropsH: "Your crops and water",
     crops: "Tick the crops you usually grow",
     max: "You can tick up to {n} crops.",
-    water: "Water for the field",
+    water: "Water for the field (tick all you can use)",
+    waterNote: "In our check, lake / pond and canal water rise and fall with each year's monsoon, so a dry year means less water. Borewell water is treated as steady for now.",
+    multi: "With more than one water source, a season counts as fine if any one of them would have covered the crop. We don't add them together.",
+    damQ: "Has {dam} opened for canal water this year?",
+    dam_unknown: "Not known yet (use past years)",
+    dam_on_time: "Opened on time (about {d})",
+    dam_late: "Opened late (about {d})",
+    dam_very_late: "Opened very late (about {d})",
+    dam_not_opened: "Not opened",
+    damNone: "We only have dam opening dates for the Cauvery delta. Here, canal water follows each year's rain.",
     whenH: "When do you sow?",
     whenNote: "Tap a sowing time, or any single month. Bars show this place's average rain each month ({start}–{end}).",
     pattam: "Sow in {range}",
+    pattamNote: "These sowing times follow the common sowing seasons (pattams) in Tamil Nadu. Dates shift by place and year, so check them against your own village.",
     onset: "Reliable sowing rains usually start around {date} here.",
     onsetMark: "Sowing rains usually start",
     monthTitle: "{month}: about {mm} mm of rain on average",
@@ -45,7 +58,8 @@ const S = {
     whenR: "sowing in {range}",
     pick: "Tick at least one crop above to see how it did.",
     good: "Good choice", risky: "Risky", poor: "Not advised", off: "Not sown then",
-    line: "Came through {good} of {n} seasons when sown in {month}. Ready by about {ready}.",
+    line: "Came through {good} of {n} seasons when sown in {month}, and {rgood} of the last {rn}. Ready by about {ready}.",
+    recentNote: "The last {rn} seasons ({from}–{to}) count double in these verdicts, because the climate has been changing.",
     need: "Needs about {mm} mm of water in its season.",
     usual: "Usually sown in {months}.",
     allBad: "None of your crops is a good choice for this sowing time here.",
@@ -65,10 +79,20 @@ const S = {
     cropsH: "உங்கள் பயிர்களும் நீரும்",
     crops: "நீங்கள் வழக்கமாகப் பயிரிடும் பயிர்களைத் தேர்ந்தெடுங்கள்",
     max: "அதிகபட்சம் {n} பயிர்களைத் தேர்ந்தெடுக்கலாம்.",
-    water: "வயலுக்கான நீர்",
+    water: "வயலுக்கான நீர் (பயன்படுத்தக்கூடிய அனைத்தையும் தேர்ந்தெடுங்கள்)",
+    waterNote: "எங்கள் சரிபார்ப்பில், ஏரி / குளம், கால்வாய் நீர் ஒவ்வொரு ஆண்டின் பருவமழையுடன் ஏறி இறங்குகிறது; வறண்ட ஆண்டில் நீர் குறைவு. ஆழ்துளைக் கிணற்று நீர் இப்போதைக்கு நிலையானதாகக் கொள்ளப்படுகிறது.",
+    multi: "ஒன்றுக்கு மேற்பட்ட நீர் ஆதாரங்கள் இருந்தால், அவற்றில் ஏதாவது ஒன்று பயிருக்குப் போதுமானதாக இருந்த பருவம் நல்லதாகக் கணக்கிடப்படுகிறது. அவற்றைக் கூட்டுவதில்லை.",
+    damQ: "இந்த ஆண்டு {dam} கால்வாய் நீருக்குத் திறக்கப்பட்டதா?",
+    dam_unknown: "இன்னும் தெரியாது (கடந்த ஆண்டுகளைப் பயன்படுத்து)",
+    dam_on_time: "சரியான நேரத்தில் திறக்கப்பட்டது ({d} அளவில்)",
+    dam_late: "தாமதமாகத் திறக்கப்பட்டது ({d} அளவில்)",
+    dam_very_late: "மிகத் தாமதமாகத் திறக்கப்பட்டது ({d} அளவில்)",
+    dam_not_opened: "திறக்கப்படவில்லை",
+    damNone: "காவிரி டெல்டாவுக்கு மட்டுமே அணை திறப்புத் தேதிகள் எங்களிடம் உள்ளன. இங்கே கால்வாய் நீர் ஒவ்வொரு ஆண்டின் மழையைப் பின்பற்றுகிறது.",
     whenH: "எப்போது விதைக்கிறீர்கள்?",
     whenNote: "ஒரு பட்டத்தை அல்லது எந்த ஒரு மாதத்தையும் தொடுங்கள். கம்பிகள் இந்த இடத்தின் ஒவ்வொரு மாத சராசரி மழையைக் காட்டுகின்றன ({start}–{end}).",
     pattam: "{ta} ({range})",
+    pattamNote: "இவை தமிழ்நாட்டின் வழக்கமான விதைப்புப் பட்டங்கள். இடம், ஆண்டுக்கு ஏற்ப நாட்கள் மாறும், எனவே உங்கள் ஊரின் வழக்கத்துடன் ஒப்பிட்டுப் பாருங்கள்.",
     onset: "இங்கே நம்பகமான விதைப்பு மழை வழக்கமாக {date} அளவில் தொடங்குகிறது.",
     onsetMark: "விதைப்பு மழை வழக்கமாகத் தொடங்கும் மாதம்",
     monthTitle: "{month}: சராசரியாக சுமார் {mm} மி.மீ மழை",
@@ -77,7 +101,8 @@ const S = {
     whenR: "{range} விதைப்பு",
     pick: "எப்படி இருந்தது என்று பார்க்க மேலே குறைந்தது ஒரு பயிரைத் தேர்ந்தெடுங்கள்.",
     good: "நல்ல தேர்வு", risky: "ஆபத்தானது", poor: "பரிந்துரைக்கப்படவில்லை", off: "அப்போது விதைப்பதில்லை",
-    line: "{month} மாதம் விதைத்தபோது {n} பருவங்களில் {good} பருவங்களில் தாக்குப்பிடித்தது. சுமார் {ready} மாதத்துக்குள் அறுவடைக்குத் தயார்.",
+    line: "{month} மாதம் விதைத்தபோது {n} பருவங்களில் {good} பருவங்களில் தாக்குப்பிடித்தது; கடைசி {rn} பருவங்களில் {rgood}. சுமார் {ready} மாதத்துக்குள் அறுவடைக்குத் தயார்.",
+    recentNote: "காலநிலை மாறி வருவதால், கடைசி {rn} பருவங்கள் ({from}–{to}) இந்த முடிவுகளில் இரட்டிப்பு எடை பெறுகின்றன.",
     need: "அதன் பருவத்தில் சுமார் {mm} மி.மீ நீர் தேவை.",
     usual: "வழக்கமாக {months} மாதங்களில் விதைக்கப்படுகிறது.",
     allBad: "இந்த விதைப்புக் காலத்துக்கு இங்கே உங்கள் பயிர்கள் எதுவும் நல்ல தேர்வாக இல்லை.",
@@ -107,7 +132,7 @@ function defaultSel() {
 const selMonths = (sel) => (sel.pattam ? PATTAMS.find((p) => p.id === sel.pattam).months : [sel.month]);
 
 // module state: survives re-renders (language, priorities, water) but not page reloads, except the ticked crops
-const ui = { sel: defaultSel(), picked: null, ruledOut: new Set() };
+const ui = { sel: defaultSel(), picked: null, ruledOut: new Set(), water: null, waterSite: null, dam: "unknown" };
 const cache = new Map();
 
 function loadPicked() {
@@ -119,27 +144,38 @@ function savePicked() {
 }
 
 /** One crop at its best sowing month inside the window: { crop, off } or { crop, sow, good, n, share, total, need, verdict }. */
-function windowPick(site, crops, crop, months, prefs) {
+// With several water sources, each one is replayed on its own and a season counts as fine if ANY of them covered
+// the crop that year (sources are not added together). Canal water uses the farmer's "has the dam opened" answer
+// where the place has dam data (prefs.dam, scoring.js damContext).
+function windowPick(site, crops, crop, months, prefs, srcs, damOpen) {
   const sows = crop.sow_months.filter((m) => months.includes(m));
   if (!sows.length) return { crop, off: true };
   let best = null;
   for (const sow of sows) {
-    const st = scoreRotation(site, crops, [[{ crop: crop.id, sow }]], prefs, { skipText: true });
-    if (!best || st.replay.good_years > best.replay.good_years || (st.replay.good_years === best.replay.good_years && st.total > best.total)) best = st;
+    const runs = srcs.map((src) => scoreRotation(site, crops, [[{ crop: crop.id, sow }]],
+      { ...prefs, water_source: src, ...(src === "canal" && damOpen !== undefined ? { dam: { open: damOpen } } : {}) }, { skipText: true }));
+    const okBy = new Map();
+    for (const st of runs) for (const y of st.replay.years) okBy.set(y.year, okBy.get(y.year) || y.ok);
+    const good = [...okBy.values()].filter(Boolean).length, n = okBy.size;
+    const last = Math.max(...okBy.keys()), recent = [...okBy].filter(([y]) => y > last - RECENT);
+    const rgood = recent.filter(([, ok]) => ok).length, rn = recent.length;
+    const wshare = (good + (RECENT_WEIGHT - 1) * rgood) / (n + (RECENT_WEIGHT - 1) * rn || 1);
+    const total = Math.max(...runs.map((st) => st.total));
+    const cand = { sow, good, n, rgood, rn, wshare, from: last - rn + 1, to: last, total, need: runs[0].water_use.need_mm };
+    if (!best || cand.wshare > best.wshare || (cand.wshare === best.wshare && cand.total > best.total)) best = cand;
   }
-  const n = best.replay.total_years, good = best.replay.good_years, share = n ? good / n : 0;
-  const sow = best.rotation[0][0].sow;
+  const share = best.wshare;      // recency-weighted; sets the verdict and the order
   return {
-    crop, sow, ready: readyMonth(sow, crop), good, n, share, total: best.total, need: best.water_use.need_mm,
+    crop, ...best, share, ready: readyMonth(best.sow, crop),
     verdict: share >= GOOD ? "good" : share >= RISKY ? "risky" : "poor",
   };
 }
 
-function allPicks(site, crops, prefs, months) {
-  const key = JSON.stringify([site.id, months, prefs]);
+function allPicks(site, crops, prefs, months, srcs, damOpen) {
+  const key = JSON.stringify([site.id, months, prefs, srcs, damOpen === undefined ? "unknown" : damOpen === null ? "shut" : damOpen]);
   if (!cache.has(key)) {
     if (cache.size > 40) cache.clear();
-    cache.set(key, crops.filter((c) => c.type !== "green_manure").map((c) => windowPick(site, crops, c, months, prefs)));
+    cache.set(key, crops.filter((c) => c.type !== "green_manure").map((c) => windowPick(site, crops, c, months, prefs, srcs, damOpen)));
   }
   return cache.get(key);
 }
@@ -151,7 +187,7 @@ function row(p, extra = null) {
   const badge = h("span", { class: `mc-badge mc-${p.off ? "off" : p.verdict}` }, s(p.off ? "off" : p.verdict));
   const body = p.off
     ? [h("p", {}, s("usual", { months: p.crop.sow_months.slice().sort((a, b) => a - b).map(monthShort).join(", ") }))]
-    : [h("p", { html: decorate(s("line", { good: p.good, n: p.n, month: monthName(p.sow), ready: monthName(p.ready) })) }),
+    : [h("p", { html: decorate(s("line", { good: p.good, n: p.n, rgood: p.rgood, rn: p.rn, month: monthName(p.sow), ready: monthName(p.ready) })) }),
        h("p", { class: "note" }, s("need", { mm: fmt(p.need) }))];
   return h("li", { class: "mc-row" + (p.off ? " is-off" : "") },
     h("div", { class: "mc-row-head" }, h("strong", {}, cropName(p.crop)), badge), body, extra);
@@ -210,10 +246,31 @@ export function renderMyCrops(el, args) {
           onchange: (e) => { e.target.checked ? ui.picked.add(c.id) : ui.picked.delete(c.id); savePicked(); rerender(); } }),
         h("span", {}, cropName(c)));
     }));
-  const water = h("div", { class: "choices mc-water", role: "radiogroup", "aria-label": s("water") },
-    Object.entries(WATER_SOURCES).map(([id, ws]) => h("label", { class: "choice" + (id === prefs.water_source ? " on" : "") },
-      h("input", { type: "radio", name: "mc-water", value: id, checked: id === prefs.water_source, onchange: () => onWater?.(id) }),
+  // water: tick every source the farmer can use ("Rain only" is on its own). Starts from the place's usual source.
+  if (!ui.water || ui.waterSite !== site.id) { ui.water = new Set([prefs.water_source]); ui.waterSite = site.id; ui.dam = "unknown"; }
+  const toggleWater = (id, on) => {
+    if (id === "rainfed") ui.water = new Set(["rainfed"]);
+    else { ui.water.delete("rainfed"); on ? ui.water.add(id) : ui.water.delete(id); if (!ui.water.size) ui.water.add("rainfed"); }
+    const main = ["canal", "borewell", "tank", "rainfed"].find((k) => ui.water.has(k));
+    if (main !== prefs.water_source) onWater?.(main); else rerender();   // the full-year plans use the main source
+  };
+  const srcs = Object.keys(WATER_SOURCES).filter((k) => ui.water.has(k));
+  const water = h("div", { class: "choices mc-water", role: "group", "aria-label": s("water") },
+    Object.entries(WATER_SOURCES).map(([id, ws]) => h("label", { class: "choice" + (ui.water.has(id) ? " on" : "") },
+      h("input", { type: "checkbox", value: id, checked: ui.water.has(id), onchange: (e) => toggleWater(id, e.target.checked) }),
       h("span", {}, waterLabel(id, ws.label)))));
+  const fmtMD = (md) => { const [m, d] = md.split("-").map(Number); return `${d} ${monthShort(m)}`; };
+  let dam = null;
+  if (ui.water.has("canal")) {
+    dam = site.dam
+      ? h("fieldset", { class: "mc-field mc-dam" }, h("legend", {}, s("damQ", { dam: site.dam.name.split(",")[0] })),
+          h("div", { class: "mc-pattams" }, ["unknown", ...Object.keys(DAM_OPTIONS)].map((k) => h("button", {
+            type: "button", class: "mc-pattam" + (ui.dam === k ? " on" : ""), "aria-pressed": ui.dam === k ? "true" : "false",
+            onclick: () => { ui.dam = k; rerender(); },
+          }, s(`dam_${k}`, { d: DAM_OPTIONS[k] ? fmtMD(DAM_OPTIONS[k]) : "" })))))
+      : h("p", { class: "note" }, s("damNone"));
+  }
+  const damOpen = site.dam && ui.dam !== "unknown" ? DAM_OPTIONS[ui.dam] : undefined;
 
   // step 3: when
   const chips = h("div", { class: "mc-pattams" },
@@ -224,7 +281,7 @@ export function renderMyCrops(el, args) {
   const strip = monthStrip(site, months, (m) => { ui.sel = { month: m }; rerender(); });
 
   // the answer
-  const picks = allPicks(site, crops, prefs, months);
+  const picks = allPicks(site, crops, prefs, months, srcs, damOpen);
   const mine = picks.filter((p) => ui.picked.has(p.crop.id)).sort(order);
   const when = months.length > 1 ? s("whenR", { range: range(months) }) : s("when1", { month: monthName(months[0]) });
   const result = h("div", { class: "mc-result", "aria-live": "polite" }, h("h2", { id: "mc-answer-title" }, s("answerH", { when })));
@@ -255,6 +312,9 @@ export function renderMyCrops(el, args) {
       h("ul", {}, quick.map((p) => h("li", {}, s("quickRow", { crop: cropName(p.crop), ready: monthName(p.ready), good: p.good, n: p.n }))))));
   }
   if (mine.length) result.append(h("p", { class: "note mc-key" }, s("key")));
+  const anyIn = picks.find((p) => !p.off);
+  if (anyIn) result.append(h("p", { class: "note" }, s("recentNote", { rn: anyIn.rn, from: anyIn.from, to: anyIn.to })));
+  if (srcs.length > 1) result.append(h("p", { class: "note" }, s("multi")));
   result.append(askLocally(s("askH"), s("ask")));
 
   clear(el).append(
@@ -262,10 +322,11 @@ export function renderMyCrops(el, args) {
       h("div", { class: "mc-inputs" },
         h("h2", {}, h("span", { class: "n" }, "2"), " ", s("cropsH")),
         h("fieldset", { class: "mc-field" }, h("legend", {}, s("crops")), cropChips, h("p", { class: "note" }, s("max", { n: MAX_PICK }))),
-        h("fieldset", { class: "mc-field" }, h("legend", {}, s("water")), water),
+        h("fieldset", { class: "mc-field" }, h("legend", {}, s("water")), water, h("p", { class: "note" }, s("waterNote"))),
+        dam,
         h("h2", { class: "mc-when-h" }, h("span", { class: "n" }, "3"), " ", s("whenH")),
         h("p", { class: "note" }, s("whenNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })),
-        chips, strip, onsetLine(site)),
+        chips, h("p", { class: "note mc-pattam-note" }, s("pattamNote")), strip, onsetLine(site)),
       result));
 }
 
