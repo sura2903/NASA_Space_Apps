@@ -21,7 +21,7 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 | I12 | Crop-insurance (PMFBY) risk view: failure frequency per crop × district | Sid | 💡 |
 | I11 | Climate hotspots: Layer 1 trends + Layer 3 projections on the grid | Sid | 💡 (A14 grid / A16) |
 | I10 | Groundwater stress flag: CGWB over-exploited blocks + GRACE trend | Sid | 💡 |
-| I9 | **Backtest against real yields:** do our "bad years" match low-yield years? | Sid | 💡 **high priority** |
+| I9 | **Backtest against real yields:** do our "bad years" match low-yield years? | Sid | ✅ lift 1.36 overall, r=0.70 by year; no skill for irrigated rice (`web/data/backtest.json`, RESEARCH_LOG I-14) |
 | I8 | Programme targeting: Millet Mission, rice-fallow pulses, diversification schemes | Sid | 💡 |
 | I7 | Water-saving scenarios: "shift X% of rice in district Y to millets → MCM saved" | Sid | 💡 |
 | I6 | **Mismatch map:** what is grown today vs what the climate supports, per district | Sid | 💡 **high priority** |
