@@ -424,3 +424,11 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .wi-n { font-size: 2.6rem; font-weight: 700; line-height: 1; color: var(--rain); }
 .wi-l { font-size: 0.8125rem; color: var(--ink-2); line-height: 1.3; }
 .wi-controls label { align-content: end; }
+.trend-bucket { margin-top: 12px; }
+.trend-bucket h3 { margin: 0 0 2px; }
+.trend-bucket > .note { margin: 0 0 4px; }
+.trend-bucket.grey { opacity: 0.65; }
+.trend-bucket.grey li::marker { color: var(--ink-3); }
+.trend-findings .flag { color: var(--warn); cursor: help; }
+.trend-refs a { color: var(--accent); }
+.trend-l2 { color: var(--ink); }

@@ -113,9 +113,10 @@ Newest first. Note contract changes here.
   `suitability` (contract update in ac2a179).
 
 ### Data requests for Lane A (Sid): new fields, all optional, the UI already reads them when present
-1. **Dry spells per month** (I17): in every `sites/<id>.json` and `grid/<id>.json`,
-   `by_year[].months[].max_dry_spell_days` = longest run of days with < 2.5 mm rain inside that month (IMERG daily).
-   The UI then shows "chance of a 10+ day dry spell in the sowing month or the month after" for each sowing month.
+1. **Dry spells after sowing** (I17), using Sid's definition (≥ 10 days < 2.5 mm within 30 days after sowing on the 1st):
+   in every `sites/<id>.json` and `grid/<id>.json`,
+   `dry_spells: { threshold_mm: 2.5, window_days: 30, by_sow_month: { "10": { years: 24, ge10: 18, ge15: 9 }, ... } }`.
+   The UI then adds a "10+ dry days soon after sowing" column per sowing month (it already reads this shape).
 2. **NE-monsoon onset per year** (I16): `ne_onset: { method, years: [{ year, doy }] }` (e.g. IMD-style: first day after
    1 Oct with ≥ 20 mm over 3 days and no 10-day dry spell in the next 30 days).
 3. **Latest SMAP soil moisture** (I16): `smap_recent: { date, root_zone, surface, anomaly }` (SMAP L4, last available

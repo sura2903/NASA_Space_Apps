@@ -79,7 +79,9 @@ function sparkline(canvas, ind, colour) {
 function indicatorCard(id, ind) {
   const tn = tone(ind);
   const colour = cssVar(tn === "worse" ? "--warn" : tn === "better" ? "--accent" : "--ink-2");
-  const uncertain = ind.confidence === "uncertain";
+  const l2 = ind.layer2?.status;
+  const artefact = l2 === "artefact_risk";
+  const uncertain = ind.confidence === "uncertain" || artefact || l2 === "inconclusive";
   const d = dec(ind);
   const canvas = h("canvas", { role: "img", "aria-label": `${trendLabel(id, ind)}, ${ind.series[0].year}–${ind.series.at(-1).year}` });
   const ci = ind.sen_ci95 || [];
@@ -92,10 +94,12 @@ function indicatorCard(id, ind) {
     h("div", { class: "trend-head" },
       h("h4", {}, trendLabel(id, ind)),
       h("span", { class: `trend-chip tone-${tn}` },
-        uncertain ? t("tr.chip.uncertain") : t(`tr.dir.${dirKey(ind)}`))),
+        artefact ? t("tr.chip.artefact") : uncertain ? t("tr.chip.uncertain") : t(`tr.dir.${dirKey(ind)}`))),
     h("p", { class: "trend-nums" }, thenNow(ind)),
     h("div", { class: "spark" }, canvas),
     h("p", { class: "note trend-conf" }, t(`tr.conf.${ind.confidence}`)),
+    l2 ? h("p", { class: "note trend-l2" }, t(`tr.l2.${l2}`) + (ind.layer2.artefact_risk && l2 === "consistent" ? ` ${t("tr.l2.flag")}` : "")) : null,
+    ind.layer2?.why_expected ? h("p", { class: "note expert-only" }, ind.layer2.why_expected) : null,
     uncertain && im ? h("p", { class: "note" }, t("tr.imerg", {
       a: im.years[0], b: im.years[1], s: signedNum(im.imerg_sen_per_decade, d), p: signedNum(im.power_same_period_sen_per_decade, d), unit: unit(ind),
     })) : null,
@@ -129,21 +133,49 @@ export function renderTrends(panel, data) {
     return h("section", { class: "trend-group" }, h("h3", {}, t(`tr.group.${g}`)), h("div", { class: "trend-grid" }, ...cards));
   }).filter(Boolean);
 
-  clear(panel.querySelector("#trend-body")).append(
-    h("p", { class: "note" }, t("tr.intro", { a: data.period[0], b: data.period[1], n: data.period[1] - data.period[0] + 1 })),
-    h("div", { class: "trend-findings" },
+  const item = (id, i, extra = "") => h("li", { class: `tone-${tone(i)}` },
+    h("strong", {}, `${trendLabel(id, i)}: ${t(`tr.dir.${dirKey(i)}`).toLowerCase()}. `), thenNow(i),
+    i.confidence === "likely" ? ` (${t("tr.conf.likely.short")})` : "", extra);
+
+  // Layer 2 (contract §2b): group by how each trend compares with published climate-change expectations.
+  const hasL2 = inds.some(([, i]) => i.layer2?.status);
+  let summary;
+  if (hasL2) {
+    const st = (i) => i.layer2?.status;
+    const changed = (i) => isFinding(i) && i.direction !== "no clear change";
+    const buckets = [
+      { key: "consistent", list: inds.filter(([, i]) => st(i) === "consistent" && changed(i)) },
+      { key: "opposite", list: inds.filter(([, i]) => st(i) === "not_consistent" && changed(i)) },
+      { key: "local", list: inds.filter(([, i]) => st(i) === "no_expectation" && changed(i)) },
+      { key: "artefact", list: inds.filter(([, i]) => st(i) === "artefact_risk" || st(i) === "inconclusive"), grey: true },
+    ];
+    const notYet = inds.filter(([, i]) => st(i) === "not_detected" || ((st(i) === "no_expectation" || !st(i)) && !changed(i)));
+    const refs = Object.values(data.references || {});
+    summary = h("div", { class: "trend-findings" },
+      ...buckets.filter((b) => b.list.length).map((b) => h("div", { class: `trend-bucket b-${b.key}${b.grey ? " grey" : ""}` },
+        h("h3", {}, t(`tr.b.${b.key}`)),
+        h("p", { class: "note" }, t(`tr.b.${b.key}.note`)),
+        h("ul", { class: "highlights" }, ...b.list.map(([id, i]) =>
+          item(id, i, i.layer2?.artefact_risk && b.key === "consistent" ? h("span", { class: "flag", title: t("tr.l2.flag") }, " ⚠") : ""))))),
+      notYet.length ? h("p", { class: "note" }, h("strong", {}, t("tr.b.notyet") + " "), notYet.map(([id, i]) => trendLabel(id, i)).join(", ") + ".") : null,
+      refs.length ? h("p", { class: "note trend-refs" }, t("tr.refs") + " ",
+        ...refs.flatMap((r, k) => [k ? "; " : "", h("a", { href: r.url, target: "_blank", rel: "noopener" }, r.short)]), ".") : null,
+      h("p", { class: "note" }, t("tr.l2.disclaimer")));
+  } else {
+    summary = h("div", { class: "trend-findings" },
       h("h3", {}, t("tr.findings")),
-      findings.length
-        ? h("ul", { class: "highlights" }, ...findings.map(([id, i]) => h("li", { class: `tone-${tone(i)}` },
-            h("strong", {}, `${trendLabel(id, i)}: ${t(`tr.dir.${dirKey(i)}`).toLowerCase()}. `), thenNow(i),
-            i.confidence === "likely" ? ` (${t("tr.conf.likely.short")})` : "")))
-        : h("p", { class: "note" }, t("tr.nofindings"))),
+      findings.length ? h("ul", { class: "highlights" }, ...findings.map(([id, i]) => item(id, i))) : h("p", { class: "note" }, t("tr.nofindings")));
+  }
+
+  clear(panel.querySelector("#trend-body")).append(...[
+    h("p", { class: "note" }, t("tr.intro", { a: data.period[0], b: data.period[1], n: data.period[1] - data.period[0] + 1 })),
+    summary,
     caveats,
     h("details", { class: "trend-all" },
-      h("summary", {}, t("tr.all", { n: inds.length, u: inds.filter(([, i]) => i.confidence === "uncertain").length })),
+      h("summary", {}, t("tr.all", { n: inds.length, u: inds.filter(([, i]) => i.confidence === "uncertain" || ["artefact_risk", "inconclusive"].includes(i.layer2?.status)).length })),
       ...groups),
     h("p", { class: "note expert-only" }, `${t("tr.method")}: ${data.method}`),
-  );
+  ].filter(Boolean));
   draws.forEach((f) => f());
   return true;
 }

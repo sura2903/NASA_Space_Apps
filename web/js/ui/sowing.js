@@ -2,7 +2,8 @@
 // Every number comes from the site / trends JSON or from the engine's scoreRotation replay.
 //
 // Data used when present (requested from Lane A in docs/PROGRESS.md, not in the contract yet):
-//   site.by_year[].months[].max_dry_spell_days   longest run of dry days (<2.5 mm) inside that month
+//   site.dry_spells = { threshold_mm: 2.5, window_days: 30, by_sow_month: { "10": { years, ge10, ge15 } } }
+//     (or by_year[].months[].max_dry_spell_days, longest run of dry days inside that month)
 //   site.ne_onset = { years: [{ year, doy }], method }   northeast-monsoon onset day per year
 //   site.smap_recent = { date, root_zone, surface, anomaly }   latest SMAP reading for the place
 // Without them: replay per sowing month, the usual soil wetness for the month, and the NE-monsoon
@@ -22,6 +23,9 @@ function replayAt(site, crops, cropId, sow, prefs) {
 
 /** Share of years with a dry spell of `days`+ in the sowing month or the month after. null if no data. */
 function monthDryRisk(site, sow, days = DRY_DAYS) {
+  // preferred: Lane A's "10+ days < 2.5 mm within 30 days after sowing" counts per sowing month
+  const pre = site.dry_spells?.by_sow_month?.[sow];
+  if (pre?.years) return { hit: pre[`ge${days}`] ?? pre.ge10, n: pre.years };
   const yrs = (site.by_year || []).filter((y) => y.months?.[sow - 1]?.max_dry_spell_days != null);
   if (!yrs.length) return null;
   const nxt = sow % 12;   // index of the following month
