@@ -533,7 +533,7 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .map-fold > summary { font-weight: 600; color: var(--accent); }
 .map-fold .map { height: 320px; }
 .grid-marker { fill: var(--ink-3); }
-@media (max-width: 640px) { .place-bar { width: calc(100% - 32px); padding: 12px 14px; } .place-row .big-select { max-width: none; } }
+@media (max-width: 640px) { .place-bar { width: calc(100% - 32px); padding: 12px 14px; } .place-row .big-select { max-width: 100%; width: 100%; min-width: 0; } }
 
 /* folded sections: one tap to open, nothing removed */
 details.fold > summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
@@ -571,7 +571,6 @@ details.panel.fold[open] > summary { margin-bottom: 10px; }
 /* ---------- farmer view: "Your crops this season" (ui/mycrops.js), "Ask locally" notes, glossary info marks ---------- */
 .mycrops .mc-field { border: 0; padding: 0; margin: 14px 0 0; min-width: 0; }
 .mycrops .mc-field legend { font-weight: 600; margin-bottom: 6px; padding: 0; }
-.mc-seasons { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 6px; }
 .mc-crops { display: flex; flex-wrap: wrap; gap: 6px; }
 .mc-chip { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 6px 12px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--surface); cursor: pointer; font-size: 0.92rem; }
 .mc-chip.on { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
@@ -598,3 +597,35 @@ details.panel.fold[open] > summary { margin-bottom: 10px; }
 .ask-local p { margin: 4px 0 0; }
 .term::after { content: "i"; display: inline-grid; place-items: center; width: 1.15em; height: 1.15em; margin-left: 3px; border: 1px solid var(--accent); border-radius: 50%; font-size: 0.68em; font-weight: 700; font-style: italic; font-family: Georgia, serif; color: var(--accent); vertical-align: 0.25em; line-height: 1; }
 @media print { .mycrops .mc-field, .ask-local { display: none; } .term::after { display: none; } }
+
+/* ---------- Farm view layout (phone-first) and the "This place in detail" view (index.html?view=detail) ---------- */
+.farm-flow { box-sizing: border-box; width: calc(100% - 48px); max-width: 1632px; margin: 16px auto 40px; display: grid; gap: 16px; }
+.farm-flow > .panel { margin: 0; }
+.detail-only { display: none; }
+body.view-detail .detail-only { display: block; }
+body.view-detail nav.detail-only { display: flex; }
+body.view-detail .detail-sections { display: grid; gap: 16px; }
+#more-plans .layout { padding: 12px 0 0; max-width: none; }
+body.view-detail #more-plans > summary { display: none; }
+@media (max-width: 640px) { .farm-flow { width: calc(100% - 32px); margin-top: 12px; gap: 12px; } }
+.mc-grid { display: grid; gap: 20px; }
+@media (min-width: 980px) { .mc-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: start; } }
+.mycrops h2 { font-size: 1.2rem; margin: 0 0 6px; display: flex; align-items: center; gap: 8px; }
+.mycrops .mc-when-h { margin-top: 22px; }
+.mc-water { margin-top: 2px; }
+.mc-pattams { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.mc-pattam { min-height: 40px; padding: 6px 12px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: inherit; font-size: 0.92rem; cursor: pointer; }
+.mc-pattam.on { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.mc-strip { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; margin-top: 4px; }
+.mc-month { position: relative; display: flex; flex-direction: column; align-items: stretch; gap: 3px; padding: 4px 2px 6px; min-height: 84px; border: 1.5px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-2); font: inherit; cursor: pointer; }
+.mc-month.on { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+.mc-bar-wrap { flex: 1; display: flex; align-items: flex-end; justify-content: center; min-height: 48px; }
+.mc-bar { width: 60%; min-height: 2px; border-radius: 3px 3px 0 0; background: #5b8fd6; }
+.mc-mlabel { font-size: 0.72rem; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip; }
+.mc-month .mc-onset { position: absolute; top: 2px; right: 3px; font-size: 0.6rem; }
+.mc-onset { color: #c27c00; }
+.mc-onset-note { margin-top: 6px; }
+@media (max-width: 520px) { .mc-strip { grid-template-columns: repeat(6, minmax(0, 1fr)); } .mc-month { min-height: 72px; } }
+.mc-quick { margin-top: 14px; padding: 10px 12px; border-radius: 8px; background: var(--surface-2); }
+.mc-quick h3 { font-size: 1rem; margin: 0; }
+.mc-quick ul { margin: 6px 0 0; padding-left: 1.2rem; }

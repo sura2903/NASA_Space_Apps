@@ -20,6 +20,9 @@ const DEFAULT_WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, e
 // Places without a preset (the 47 grid points): long rice on a village tank, the common Tamil Nadu pattern.
 const FALLBACK_CURRENT = { rotation: [[{ crop: "rice_long", sow: 9 }]], water_source: "tank" };
 const SITE_KEY = "fs-site";
+// index.html?view=detail = "This place in detail" (a Policy sub-tab for agriculture officers and planners): the same page
+// with the full-year plans, charts and climate trends open. The plain Farm view keeps those folded or hidden.
+const DETAIL = new URLSearchParams(location.search).get("view") === "detail";
 
 const state = {
   sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null, sowChoice: null,
@@ -138,7 +141,9 @@ function renderInputs() {
     onChange: (sc, now) => { state.scenario = sc; now ? recompute() : recomputeSoon(); },
   });
 }
-const renderInputsWater = () => renderWaterSource($("#water"), { value: state.water_source, onChange: (v) => { state.water_source = v; renderInputsWater(); recompute(); } });
+const renderInputsWater = () => renderWaterSource($("#water"), { value: state.water_source, onChange: setWater });
+// one water setter for the Farm view (mycrops) and the full-year plans (aside)
+function setWater(v) { state.water_source = v; renderInputsWater(); recompute(); }
 
 function renderEditor() {
   renderRotationEditor($("#rot-editor"), {
@@ -193,7 +198,7 @@ function renderSowPanel() {
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
   renderSowPanel();
-  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop) });
+  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop), onWater: setWater });
   // highlights depend on the climate scenario
   $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 
@@ -246,7 +251,7 @@ function applyStatic() {
   btn.textContent = t("lang.switch");
   btn.setAttribute("aria-label", t("lang.switch.aria"));
   btn.lang = getLang() === "ta" ? "en" : "ta";
-  document.title = getLang() === "ta" ? `${t("brand")} · SowSmart` : t("brand");
+  document.title = DETAIL ? `${t("brand")} · ${t("tab.detail")}` : getLang() === "ta" ? `${t("brand")} · SowSmart` : t("brand");
   renderGlossaryList($("#glossary-list"));
 }
 
@@ -263,8 +268,22 @@ function rerenderAll() {
 }
 
 /* ---------------- boot ---------------- */
+function initView() {
+  document.body.classList.toggle("view-detail", DETAIL);
+  if (!DETAIL) return;
+  document.querySelectorAll(".tabs .tab").forEach((a) => {
+    const pol = a.getAttribute("href") === "policy.html";
+    a.classList.toggle("active", pol);
+    if (pol) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  ["#more-plans", ".site-panel", "#trend-panel"].forEach((sel) => { const d = $(sel); if (d) d.open = true; });
+  const tag = $(".top .tagline");
+  if (tag) tag.dataset.i18n = "d.tagline";
+}
+
 async function init() {
   initLang();
+  initView();
   initTooltips();
   initExpertToggle();
   applyStatic();

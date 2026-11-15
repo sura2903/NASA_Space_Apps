@@ -24,7 +24,9 @@ const MONTHS_INITIAL = {
 const STR = {
   en: {
     "lang.switch": "Tamil / தமிழ்", "lang.switch.aria": "Switch to Tamil", "lang.label": "Language",
-    "tab.farm": "Farm", "tab.policy": "Policy", "tab.exposure": "Exposure & crop switch", "tab.map": "Crop map",
+    "tab.farm": "Farm", "tab.policy": "Policy", "tab.exposure": "Exposure & crop switch", "tab.map": "Crop map", "tab.detail": "This place in detail",
+    "d.tagline": "This place in detail: NASA data, climate trends and full-year plans, for agriculture officers and planners",
+    "more.eyebrow": "For the whole year", "more.title": "More plans: full-year rotations, your priorities and climate what-ifs",
     "fold.optional": "optional", "fold.more": "More about your place (tap a heading to open)",
     "fold.about.eyebrow": "About this tool", "fold.about": "Words used here, honest limits, data sources and future work",
     "welcome.title": "Where is your farm?",
@@ -369,7 +371,10 @@ const STR = {
 
   ta: {
     "lang.switch": "English", "lang.switch.aria": "Switch to English", "lang.label": "மொழி",
-    "tab.farm": "பண்ணை", "tab.policy": "கொள்கை", "tab.exposure": "பாதிப்பு & பயிர் மாற்றம்", "tab.map": "பயிர் வரைபடம்",
+    "tab.farm": "பண்ணை", "tab.policy": "கொள்கை", "tab.detail": "இந்த இடம் விரிவாக",
+    "d.tagline": "இந்த இடம் விரிவாக: நாசா தரவு, காலநிலைப் போக்குகள், முழு ஆண்டுத் திட்டங்கள், வேளாண் அலுவலர்களுக்கும் திட்டமிடுபவர்களுக்கும்",
+    "more.eyebrow": "முழு ஆண்டுக்கு", "more.title": "மேலும் திட்டங்கள்: முழு ஆண்டுச் சுழற்சிகள், உங்கள் முன்னுரிமைகள், காலநிலை மாற்றக் கணிப்புகள்",
+    "tab.exposure": "பாதிப்பு & பயிர் மாற்றம்", "tab.map": "பயிர் வரைபடம்",
     "fold.optional": "விருப்பம்", "fold.more": "உங்கள் இடத்தைப் பற்றி மேலும் (தலைப்பைத் தட்டித் திறக்கவும்)",
     "fold.about.eyebrow": "இந்தக் கருவி பற்றி", "fold.about": "இங்கு பயன்படும் சொற்கள், வரம்புகள், தரவு ஆதாரங்கள், எதிர்காலப் பணிகள்",
     "welcome.title": "உங்கள் பண்ணை எங்கே உள்ளது?",
