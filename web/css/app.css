@@ -669,6 +669,8 @@ body.view-detail #more-plans > summary { display: none; }
   box-shadow: var(--shadow); padding: 6px 10px; font-size: 0.8125rem; line-height: 1.4;
 }
 .map-hover[hidden] { display: none; }
+/* Policy maps: the card sits in the top-right corner instead of following the cursor, so it never covers the cells */
+.map-hover.fixed { left: auto; right: 10px; top: 10px; transform: none; max-width: min(280px, calc(100% - 70px)); }
 #water .note { grid-column: 1 / -1; margin: 0; }
 
 /* Farmers answer: big crop tiles (ui/mycrops.js). Symbol + word on every tile, so colour is never the only cue. */
