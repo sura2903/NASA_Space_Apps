@@ -833,6 +833,34 @@ pattern risky?"*
   
   So they stay, but inside their district group rather than a separate "Detailed places" list (PR #25).
 
+### I-41 · District analysis re-run on the 0.25° grid (user request)
+- **Trigger:**
+  - The Policy tab's district cards (PR #28) explained "low confidence" mostly as "its NASA sample point is 34–54 km
+    from the district town".
+  - Those distances came from the 0.5° grid. The district analysis (`mismatch_prep.py` → `web/dev/mismatch.html`
+    → `mismatch_build.py`) had not been re-run after I-38.
+- **Done:**
+  - Re-ran all three steps on the 185-point grid.
+  - Each district's representative point is still the grid point nearest its HQ. Each grid point is assigned to its
+    nearest HQ.
+  - Re-ran `statewide_risk.py`, which carries the district mismatch index on the Policy map.
+- **Check:** the 11 districts whose representative point did not move came out **identical** (index and
+  reliability). So the engine is unchanged since the first run, and every difference is due to the finer grid.
+- **Results:**
+  - **Distance:** HQ-to-sample-point distance fell from a median of 22 km to 11 km, and the worst case from 54 km
+    to 27 km.
+  - **Low confidence:** 8 districts → 2. Coimbatore, Cuddalore, Theni, Thoothukkudi, Tirupathur and Viluppuram are
+    cleared. The Nilgiris and Kanniyakumari remain low, because only a small modelled crop area grows there.
+  - **Mismatch index:** old and new correlate at r = 0.97, with a median change of 0. The largest move is Ariyalur,
+    86 → 52: its old point was 22 km away, its new point 15 km. Chengalpattu went 85 → 96, Coimbatore 19 → 28.
+  - **Crop ideas** (districts where a crop suits the rain but is rarely grown):
+    - Before: sesame 22, cowpea 16, foxtail 12, pearl millet 9, green gram 8, little millet 6, kodo 5.
+    - After: sesame 22, cowpea 15, green gram 12, foxtail 11, little millet 8, pearl millet 6, kodo 4, cotton 2.
+  - **Sanity:** the best rain-fed crops are still spread across 6 different crops. Totals: mismatch index 13–99,
+    rain-fed reliability 0.01–0.68, irrigation demand 15.2 BCM.
+- **Lost / gained:** the district numbers now come from a point closer to where each district actually farms. Each
+  district is still represented by **one** point, not an average over its area. Averaging is possible future work.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

@@ -147,7 +147,7 @@
     "id": "kanniyakumari",
     "name": "Kanniyakumari",
     "mismatch_index": 98,
-    "rainfed_reliability": 0.016
+    "rainfed_reliability": 0.017
    },
    "climate": {
     "ne_monsoon_mm": 571,
@@ -512,7 +512,7 @@
     "id": "kanniyakumari",
     "name": "Kanniyakumari",
     "mismatch_index": 98,
-    "rainfed_reliability": 0.016
+    "rainfed_reliability": 0.017
    },
    "climate": {
     "ne_monsoon_mm": 591,
@@ -881,7 +881,7 @@
     "id": "kanniyakumari",
     "name": "Kanniyakumari",
     "mismatch_index": 98,
-    "rainfed_reliability": 0.016
+    "rainfed_reliability": 0.017
    },
    "climate": {
     "ne_monsoon_mm": 590,
@@ -1191,10 +1191,10 @@
    "lat": 8.5,
    "lon": 77.5,
    "district": {
-    "id": "kanniyakumari",
-    "name": "Kanniyakumari",
-    "mismatch_index": 98,
-    "rainfed_reliability": 0.016
+    "id": "tirunelveli",
+    "name": "Tirunelveli",
+    "mismatch_index": 68,
+    "rainfed_reliability": 0.25
    },
    "climate": {
     "ne_monsoon_mm": 537,
@@ -1834,7 +1834,7 @@
     "id": "thoothukkudi",
     "name": "Thoothukkudi",
     "mismatch_index": 14,
-    "rainfed_reliability": 0.639
+    "rainfed_reliability": 0.581
    },
    "climate": {
     "ne_monsoon_mm": 599,
@@ -2186,7 +2186,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 571,
@@ -2796,10 +2796,10 @@
    "lat": 8.75,
    "lon": 77.75,
    "district": {
-    "id": "thoothukkudi",
-    "name": "Thoothukkudi",
-    "mismatch_index": 14,
-    "rainfed_reliability": 0.639
+    "id": "tirunelveli",
+    "name": "Tirunelveli",
+    "mismatch_index": 68,
+    "rainfed_reliability": 0.25
    },
    "climate": {
     "ne_monsoon_mm": 515,
@@ -3106,7 +3106,7 @@
     "id": "thoothukkudi",
     "name": "Thoothukkudi",
     "mismatch_index": 14,
-    "rainfed_reliability": 0.639
+    "rainfed_reliability": 0.581
    },
    "climate": {
     "ne_monsoon_mm": 565,
@@ -3448,7 +3448,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 525,
@@ -3754,7 +3754,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 485,
@@ -4373,7 +4373,7 @@
     "id": "thoothukkudi",
     "name": "Thoothukkudi",
     "mismatch_index": 14,
-    "rainfed_reliability": 0.639
+    "rainfed_reliability": 0.581
    },
    "climate": {
     "ne_monsoon_mm": 502,
@@ -4674,7 +4674,7 @@
     "id": "thoothukkudi",
     "name": "Thoothukkudi",
     "mismatch_index": 14,
-    "rainfed_reliability": 0.639
+    "rainfed_reliability": 0.581
    },
    "climate": {
     "ne_monsoon_mm": 537,
@@ -4998,7 +4998,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 528,
@@ -5297,7 +5297,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 468,
@@ -5600,8 +5600,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 469,
@@ -5899,8 +5899,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 480,
@@ -6203,8 +6203,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 492,
@@ -7855,7 +7855,7 @@
     "id": "tenkasi",
     "name": "Tenkasi",
     "mismatch_index": 43,
-    "rainfed_reliability": 0.571
+    "rainfed_reliability": 0.539
    },
    "climate": {
     "ne_monsoon_mm": 497,
@@ -8155,8 +8155,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 456,
@@ -8465,8 +8465,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 450,
@@ -8772,8 +8772,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 460,
@@ -9073,8 +9073,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 477,
@@ -9367,10 +9367,10 @@
    "lat": 9.5,
    "lon": 78.5,
    "district": {
-    "id": "sivaganga",
-    "name": "Sivaganga",
-    "mismatch_index": 94,
-    "rainfed_reliability": 0.045
+    "id": "ramanathapuram",
+    "name": "Ramanathapuram",
+    "mismatch_index": 86,
+    "rainfed_reliability": 0.112
    },
    "climate": {
     "ne_monsoon_mm": 521,
@@ -10338,8 +10338,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 460,
@@ -10646,8 +10646,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 447,
@@ -10939,8 +10939,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 446,
@@ -11250,8 +11250,8 @@
    "district": {
     "id": "virudhunagar",
     "name": "Virudhunagar",
-    "mismatch_index": 26,
-    "rainfed_reliability": 0.547
+    "mismatch_index": 31,
+    "rainfed_reliability": 0.533
    },
    "climate": {
     "ne_monsoon_mm": 452,
@@ -11556,7 +11556,7 @@
     "id": "madurai",
     "name": "Madurai",
     "mismatch_index": 54,
-    "rainfed_reliability": 0.347
+    "rainfed_reliability": 0.357
    },
    "climate": {
     "ne_monsoon_mm": 464,
@@ -11858,7 +11858,7 @@
     "id": "sivaganga",
     "name": "Sivaganga",
     "mismatch_index": 94,
-    "rainfed_reliability": 0.045
+    "rainfed_reliability": 0.05
    },
    "climate": {
     "ne_monsoon_mm": 505,
@@ -12174,7 +12174,7 @@
     "id": "sivaganga",
     "name": "Sivaganga",
     "mismatch_index": 94,
-    "rainfed_reliability": 0.045
+    "rainfed_reliability": 0.05
    },
    "climate": {
     "ne_monsoon_mm": 565,
@@ -12802,8 +12802,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 459,
@@ -13109,8 +13109,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 412,
@@ -13420,8 +13420,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 425,
@@ -13725,7 +13725,7 @@
     "id": "madurai",
     "name": "Madurai",
     "mismatch_index": 54,
-    "rainfed_reliability": 0.347
+    "rainfed_reliability": 0.357
    },
    "climate": {
     "ne_monsoon_mm": 442,
@@ -14031,7 +14031,7 @@
     "id": "madurai",
     "name": "Madurai",
     "mismatch_index": 54,
-    "rainfed_reliability": 0.347
+    "rainfed_reliability": 0.357
    },
    "climate": {
     "ne_monsoon_mm": 449,
@@ -14337,7 +14337,7 @@
     "id": "sivaganga",
     "name": "Sivaganga",
     "mismatch_index": 94,
-    "rainfed_reliability": 0.045
+    "rainfed_reliability": 0.05
    },
    "climate": {
     "ne_monsoon_mm": 487,
@@ -14677,7 +14677,7 @@
     "id": "sivaganga",
     "name": "Sivaganga",
     "mismatch_index": 94,
-    "rainfed_reliability": 0.045
+    "rainfed_reliability": 0.05
    },
    "climate": {
     "ne_monsoon_mm": 533,
@@ -14995,7 +14995,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 649,
@@ -15349,8 +15349,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 454,
@@ -15661,8 +15661,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 420,
@@ -15981,7 +15981,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 411,
@@ -16290,7 +16290,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 431,
@@ -16596,7 +16596,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 439,
@@ -16905,7 +16905,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 470,
@@ -17248,7 +17248,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 518,
@@ -17567,7 +17567,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 597,
@@ -17885,7 +17885,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 683,
@@ -18222,8 +18222,8 @@
    "district": {
     "id": "coimbatore",
     "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "mismatch_index": 28,
+    "rainfed_reliability": 0.662
    },
    "climate": {
     "ne_monsoon_mm": 400,
@@ -18542,8 +18542,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 401,
@@ -18859,8 +18859,8 @@
    "district": {
     "id": "theni",
     "name": "Theni",
-    "mismatch_index": 42,
-    "rainfed_reliability": 0.58
+    "mismatch_index": 46,
+    "rainfed_reliability": 0.496
    },
    "climate": {
     "ne_monsoon_mm": 393,
@@ -19174,7 +19174,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 405,
@@ -19489,7 +19489,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 418,
@@ -19795,7 +19795,7 @@
     "id": "dindigul",
     "name": "Dindigul",
     "mismatch_index": 18,
-    "rainfed_reliability": 0.699
+    "rainfed_reliability": 0.674
    },
    "climate": {
     "ne_monsoon_mm": 434,
@@ -20102,7 +20102,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 439,
@@ -20417,7 +20417,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 485,
@@ -20740,7 +20740,7 @@
     "id": "pudukkottai",
     "name": "Pudukkottai",
     "mismatch_index": 83,
-    "rainfed_reliability": 0.121
+    "rainfed_reliability": 0.106
    },
    "climate": {
     "ne_monsoon_mm": 563,
@@ -22122,8 +22122,8 @@
    "district": {
     "id": "coimbatore",
     "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "mismatch_index": 28,
+    "rainfed_reliability": 0.662
    },
    "climate": {
     "ne_monsoon_mm": 382,
@@ -22437,7 +22437,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 383,
@@ -22747,7 +22747,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 378,
@@ -23062,7 +23062,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 385,
@@ -23370,7 +23370,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 392,
@@ -23685,7 +23685,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 404,
@@ -26095,8 +26095,8 @@
    "district": {
     "id": "coimbatore",
     "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "mismatch_index": 28,
+    "rainfed_reliability": 0.662
    },
    "climate": {
     "ne_monsoon_mm": 396,
@@ -26415,8 +26415,8 @@
    "district": {
     "id": "coimbatore",
     "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "mismatch_index": 28,
+    "rainfed_reliability": 0.662
    },
    "climate": {
     "ne_monsoon_mm": 379,
@@ -26721,7 +26721,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 371,
@@ -27033,7 +27033,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 363,
@@ -27342,7 +27342,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 364,
@@ -27656,7 +27656,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 381,
@@ -27967,7 +27967,7 @@
     "id": "karur",
     "name": "Karur",
     "mismatch_index": 38,
-    "rainfed_reliability": 0.548
+    "rainfed_reliability": 0.57
    },
    "climate": {
     "ne_monsoon_mm": 402,
@@ -28934,8 +28934,8 @@
    "district": {
     "id": "ariyalur",
     "name": "Ariyalur",
-    "mismatch_index": 86,
-    "rainfed_reliability": 0.309
+    "mismatch_index": 52,
+    "rainfed_reliability": 0.35
    },
    "climate": {
     "ne_monsoon_mm": 555,
@@ -29279,8 +29279,8 @@
    "district": {
     "id": "ariyalur",
     "name": "Ariyalur",
-    "mismatch_index": 86,
-    "rainfed_reliability": 0.309
+    "mismatch_index": 52,
+    "rainfed_reliability": 0.35
    },
    "climate": {
     "ne_monsoon_mm": 612,
@@ -29640,7 +29640,7 @@
     "id": "mayiladuthurai",
     "name": "Mayiladuthurai",
     "mismatch_index": 71,
-    "rainfed_reliability": 0.392
+    "rainfed_reliability": 0.398
    },
    "climate": {
     "ne_monsoon_mm": 730,
@@ -29995,7 +29995,7 @@
     "id": "mayiladuthurai",
     "name": "Mayiladuthurai",
     "mismatch_index": 71,
-    "rainfed_reliability": 0.392
+    "rainfed_reliability": 0.398
    },
    "climate": {
     "ne_monsoon_mm": 799,
@@ -30355,7 +30355,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 419,
@@ -30649,10 +30649,10 @@
    "lat": 11.25,
    "lon": 76.75,
    "district": {
-    "id": "coimbatore",
-    "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "id": "the_nilgiris",
+    "name": "The Nilgiris",
+    "mismatch_index": 99,
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 386,
@@ -30965,8 +30965,8 @@
    "district": {
     "id": "coimbatore",
     "name": "Coimbatore",
-    "mismatch_index": 19,
-    "rainfed_reliability": 0.719
+    "mismatch_index": 28,
+    "rainfed_reliability": 0.662
    },
    "climate": {
     "ne_monsoon_mm": 369,
@@ -31285,7 +31285,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 361,
@@ -31592,7 +31592,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 353,
@@ -33162,7 +33162,7 @@
     "id": "perambalur",
     "name": "Perambalur",
     "mismatch_index": 13,
-    "rainfed_reliability": 0.607
+    "rainfed_reliability": 0.462
    },
    "climate": {
     "ne_monsoon_mm": 475,
@@ -33488,7 +33488,7 @@
     "id": "perambalur",
     "name": "Perambalur",
     "mismatch_index": 13,
-    "rainfed_reliability": 0.607
+    "rainfed_reliability": 0.462
    },
    "climate": {
     "ne_monsoon_mm": 553,
@@ -33828,8 +33828,8 @@
    "district": {
     "id": "ariyalur",
     "name": "Ariyalur",
-    "mismatch_index": 86,
-    "rainfed_reliability": 0.309
+    "mismatch_index": 52,
+    "rainfed_reliability": 0.35
    },
    "climate": {
     "ne_monsoon_mm": 614,
@@ -34191,7 +34191,7 @@
     "id": "mayiladuthurai",
     "name": "Mayiladuthurai",
     "mismatch_index": 71,
-    "rainfed_reliability": 0.392
+    "rainfed_reliability": 0.398
    },
    "climate": {
     "ne_monsoon_mm": 734,
@@ -34551,7 +34551,7 @@
     "id": "mayiladuthurai",
     "name": "Mayiladuthurai",
     "mismatch_index": 71,
-    "rainfed_reliability": 0.392
+    "rainfed_reliability": 0.398
    },
    "climate": {
     "ne_monsoon_mm": 803,
@@ -34907,7 +34907,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 332,
@@ -35216,7 +35216,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 339,
@@ -35529,7 +35529,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 350,
@@ -35841,7 +35841,7 @@
     "id": "tiruppur",
     "name": "Tiruppur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.656
+    "rainfed_reliability": 0.631
    },
    "climate": {
     "ne_monsoon_mm": 347,
@@ -37691,7 +37691,7 @@
     "id": "perambalur",
     "name": "Perambalur",
     "mismatch_index": 13,
-    "rainfed_reliability": 0.607
+    "rainfed_reliability": 0.462
    },
    "climate": {
     "ne_monsoon_mm": 467,
@@ -38010,8 +38010,8 @@
    "district": {
     "id": "kallakurichi",
     "name": "Kallakurichi",
-    "mismatch_index": 47,
-    "rainfed_reliability": 0.456
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 553,
@@ -38343,8 +38343,8 @@
    "district": {
     "id": "kallakurichi",
     "name": "Kallakurichi",
-    "mismatch_index": 47,
-    "rainfed_reliability": 0.456
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 611,
@@ -38694,7 +38694,7 @@
     "id": "cuddalore",
     "name": "Cuddalore",
     "mismatch_index": 75,
-    "rainfed_reliability": 0.306
+    "rainfed_reliability": 0.352
    },
    "climate": {
     "ne_monsoon_mm": 720,
@@ -39049,7 +39049,7 @@
     "id": "cuddalore",
     "name": "Cuddalore",
     "mismatch_index": 75,
-    "rainfed_reliability": 0.306
+    "rainfed_reliability": 0.352
    },
    "climate": {
     "ne_monsoon_mm": 791,
@@ -39416,7 +39416,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 300,
@@ -39730,7 +39730,7 @@
     "id": "the_nilgiris",
     "name": "The Nilgiris",
     "mismatch_index": 99,
-    "rainfed_reliability": 0.075
+    "rainfed_reliability": 0.014
    },
    "climate": {
     "ne_monsoon_mm": 318,
@@ -41918,8 +41918,8 @@
    "district": {
     "id": "kallakurichi",
     "name": "Kallakurichi",
-    "mismatch_index": 47,
-    "rainfed_reliability": 0.456
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 465,
@@ -42246,8 +42246,8 @@
    "district": {
     "id": "kallakurichi",
     "name": "Kallakurichi",
-    "mismatch_index": 47,
-    "rainfed_reliability": 0.456
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 541,
@@ -42573,10 +42573,10 @@
    "lat": 11.75,
    "lon": 79.25,
    "district": {
-    "id": "cuddalore",
-    "name": "Cuddalore",
-    "mismatch_index": 75,
-    "rainfed_reliability": 0.306
+    "id": "kallakurichi",
+    "name": "Kallakurichi",
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 595,
@@ -42928,7 +42928,7 @@
     "id": "viluppuram",
     "name": "Viluppuram",
     "mismatch_index": 70,
-    "rainfed_reliability": 0.332
+    "rainfed_reliability": 0.369
    },
    "climate": {
     "ne_monsoon_mm": 691,
@@ -44844,8 +44844,8 @@
    "district": {
     "id": "kallakurichi",
     "name": "Kallakurichi",
-    "mismatch_index": 47,
-    "rainfed_reliability": 0.456
+    "mismatch_index": 53,
+    "rainfed_reliability": 0.427
    },
    "climate": {
     "ne_monsoon_mm": 435,
@@ -45150,8 +45150,8 @@
    "district": {
     "id": "tiruvannamalai",
     "name": "Tiruvannamalai",
-    "mismatch_index": 58,
-    "rainfed_reliability": 0.304
+    "mismatch_index": 57,
+    "rainfed_reliability": 0.342
    },
    "climate": {
     "ne_monsoon_mm": 508,
@@ -45502,7 +45502,7 @@
     "id": "viluppuram",
     "name": "Viluppuram",
     "mismatch_index": 70,
-    "rainfed_reliability": 0.332
+    "rainfed_reliability": 0.369
    },
    "climate": {
     "ne_monsoon_mm": 571,
@@ -45868,7 +45868,7 @@
     "id": "viluppuram",
     "name": "Viluppuram",
     "mismatch_index": 70,
-    "rainfed_reliability": 0.332
+    "rainfed_reliability": 0.369
    },
    "climate": {
     "ne_monsoon_mm": 658,
@@ -46228,7 +46228,7 @@
     "id": "cuddalore",
     "name": "Cuddalore",
     "mismatch_index": 75,
-    "rainfed_reliability": 0.306
+    "rainfed_reliability": 0.352
    },
    "climate": {
     "ne_monsoon_mm": 752,
@@ -47847,7 +47847,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 361,
@@ -48166,7 +48166,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 418,
@@ -48486,8 +48486,8 @@
    "district": {
     "id": "tiruvannamalai",
     "name": "Tiruvannamalai",
-    "mismatch_index": 58,
-    "rainfed_reliability": 0.304
+    "mismatch_index": 57,
+    "rainfed_reliability": 0.342
    },
    "climate": {
     "ne_monsoon_mm": 487,
@@ -48821,8 +48821,8 @@
    "district": {
     "id": "tiruvannamalai",
     "name": "Tiruvannamalai",
-    "mismatch_index": 58,
-    "rainfed_reliability": 0.304
+    "mismatch_index": 57,
+    "rainfed_reliability": 0.342
    },
    "climate": {
     "ne_monsoon_mm": 537,
@@ -49173,7 +49173,7 @@
     "id": "viluppuram",
     "name": "Viluppuram",
     "mismatch_index": 70,
-    "rainfed_reliability": 0.332
+    "rainfed_reliability": 0.369
    },
    "climate": {
     "ne_monsoon_mm": 626,
@@ -49524,7 +49524,7 @@
     "id": "viluppuram",
     "name": "Viluppuram",
     "mismatch_index": 70,
-    "rainfed_reliability": 0.332
+    "rainfed_reliability": 0.369
    },
    "climate": {
     "ne_monsoon_mm": 701,
@@ -49869,7 +49869,7 @@
     "id": "krishnagiri",
     "name": "Krishnagiri",
     "mismatch_index": 39,
-    "rainfed_reliability": 0.58
+    "rainfed_reliability": 0.563
    },
    "climate": {
     "ne_monsoon_mm": 271,
@@ -50177,7 +50177,7 @@
     "id": "krishnagiri",
     "name": "Krishnagiri",
     "mismatch_index": 39,
-    "rainfed_reliability": 0.58
+    "rainfed_reliability": 0.563
    },
    "climate": {
     "ne_monsoon_mm": 292,
@@ -50483,7 +50483,7 @@
     "id": "krishnagiri",
     "name": "Krishnagiri",
     "mismatch_index": 39,
-    "rainfed_reliability": 0.58
+    "rainfed_reliability": 0.563
    },
    "climate": {
     "ne_monsoon_mm": 308,
@@ -50802,7 +50802,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 355,
@@ -51132,7 +51132,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 395,
@@ -51438,8 +51438,8 @@
    "district": {
     "id": "tiruvannamalai",
     "name": "Tiruvannamalai",
-    "mismatch_index": 58,
-    "rainfed_reliability": 0.304
+    "mismatch_index": 57,
+    "rainfed_reliability": 0.342
    },
    "climate": {
     "ne_monsoon_mm": 456,
@@ -51764,8 +51764,8 @@
    "district": {
     "id": "tiruvannamalai",
     "name": "Tiruvannamalai",
-    "mismatch_index": 58,
-    "rainfed_reliability": 0.304
+    "mismatch_index": 57,
+    "rainfed_reliability": 0.342
    },
    "climate": {
     "ne_monsoon_mm": 492,
@@ -52449,8 +52449,8 @@
    "district": {
     "id": "chengalpattu",
     "name": "Chengalpattu",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.272
+    "mismatch_index": 96,
+    "rainfed_reliability": 0.291
    },
    "climate": {
     "ne_monsoon_mm": 654,
@@ -52802,8 +52802,8 @@
    "district": {
     "id": "chengalpattu",
     "name": "Chengalpattu",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.272
+    "mismatch_index": 96,
+    "rainfed_reliability": 0.291
    },
    "climate": {
     "ne_monsoon_mm": 780,
@@ -53157,7 +53157,7 @@
     "id": "krishnagiri",
     "name": "Krishnagiri",
     "mismatch_index": 39,
-    "rainfed_reliability": 0.58
+    "rainfed_reliability": 0.563
    },
    "climate": {
     "ne_monsoon_mm": 275,
@@ -53461,7 +53461,7 @@
     "id": "krishnagiri",
     "name": "Krishnagiri",
     "mismatch_index": 39,
-    "rainfed_reliability": 0.58
+    "rainfed_reliability": 0.563
    },
    "climate": {
     "ne_monsoon_mm": 290,
@@ -53777,7 +53777,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 323,
@@ -54097,7 +54097,7 @@
     "id": "tirupathur",
     "name": "Tirupathur",
     "mismatch_index": 27,
-    "rainfed_reliability": 0.522
+    "rainfed_reliability": 0.484
    },
    "climate": {
     "ne_monsoon_mm": 374,
@@ -54412,7 +54412,7 @@
     "id": "vellore",
     "name": "Vellore",
     "mismatch_index": 41,
-    "rainfed_reliability": 0.416
+    "rainfed_reliability": 0.386
    },
    "climate": {
     "ne_monsoon_mm": 441,
@@ -54724,7 +54724,7 @@
     "id": "ranipet",
     "name": "Ranipet",
     "mismatch_index": 74,
-    "rainfed_reliability": 0.21
+    "rainfed_reliability": 0.194
    },
    "climate": {
     "ne_monsoon_mm": 475,
@@ -55396,10 +55396,10 @@
    "lat": 12.75,
    "lon": 79.75,
    "district": {
-    "id": "chengalpattu",
-    "name": "Chengalpattu",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.272
+    "id": "kancheepuram",
+    "name": "Kancheepuram",
+    "mismatch_index": 87,
+    "rainfed_reliability": 0.264
    },
    "climate": {
     "ne_monsoon_mm": 630,
@@ -55739,8 +55739,8 @@
    "district": {
     "id": "chengalpattu",
     "name": "Chengalpattu",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.272
+    "mismatch_index": 96,
+    "rainfed_reliability": 0.291
    },
    "climate": {
     "ne_monsoon_mm": 742,
@@ -56088,7 +56088,7 @@
     "id": "vellore",
     "name": "Vellore",
     "mismatch_index": 41,
-    "rainfed_reliability": 0.416
+    "rainfed_reliability": 0.386
    },
    "climate": {
     "ne_monsoon_mm": 335,
@@ -56392,7 +56392,7 @@
     "id": "vellore",
     "name": "Vellore",
     "mismatch_index": 41,
-    "rainfed_reliability": 0.416
+    "rainfed_reliability": 0.386
    },
    "climate": {
     "ne_monsoon_mm": 403,
@@ -56723,7 +56723,7 @@
     "id": "ranipet",
     "name": "Ranipet",
     "mismatch_index": 74,
-    "rainfed_reliability": 0.21
+    "rainfed_reliability": 0.194
    },
    "climate": {
     "ne_monsoon_mm": 440,
@@ -57052,7 +57052,7 @@
     "id": "ranipet",
     "name": "Ranipet",
     "mismatch_index": 74,
-    "rainfed_reliability": 0.21
+    "rainfed_reliability": 0.194
    },
    "climate": {
     "ne_monsoon_mm": 524,
@@ -57721,8 +57721,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 711,
@@ -58064,8 +58064,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 773,
@@ -58394,7 +58394,7 @@
     "id": "ranipet",
     "name": "Ranipet",
     "mismatch_index": 74,
-    "rainfed_reliability": 0.21
+    "rainfed_reliability": 0.194
    },
    "climate": {
     "ne_monsoon_mm": 514,
@@ -58719,8 +58719,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 576,
@@ -59043,8 +59043,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 701,
@@ -59383,8 +59383,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 763,
@@ -59728,8 +59728,8 @@
    "district": {
     "id": "thiruvallur",
     "name": "Thiruvallur",
-    "mismatch_index": 85,
-    "rainfed_reliability": 0.19
+    "mismatch_index": 90,
+    "rainfed_reliability": 0.229
    },
    "climate": {
     "ne_monsoon_mm": 748,
