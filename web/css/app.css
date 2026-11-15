@@ -659,3 +659,12 @@ body.view-detail #more-plans > summary { display: none; }
 .ideas-area { color: var(--ink-3); font-size: 0.78rem; }
 .ideas-area.unrec { font-style: italic; }
 @media (max-width: 640px) { .ideas-sum-row { grid-template-columns: 7em 1fr 6.5em; gap: 8px; padding: 6px 4px; } .ideas-cards { max-height: none; } }
+
+/* one hover card per grid map (ui/hovercard.js), moved with transform so it keeps up with the cursor */
+.map-hover {
+  position: absolute; left: 0; top: 0; z-index: 650; pointer-events: none; max-width: 260px; will-change: transform;
+  background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 10px;
+  box-shadow: var(--shadow); padding: 6px 10px; font-size: 0.8125rem; line-height: 1.4;
+}
+.map-hover[hidden] { display: none; }
+#water .note { grid-column: 1 / -1; margin: 0; }

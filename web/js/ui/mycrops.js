@@ -9,6 +9,7 @@
 // Strings live here (English + Tamil), like risk.js, so i18n.js stays small.
 import { scoreRotation, WATER_SOURCES, DAM_OPTIONS } from "../scoring.js";
 import { h, clear } from "./dom.js";
+import { toggleWater } from "./inputs.js";
 import { decorate } from "./glossary.js";
 import { getLang, cropName, monthName, monthShort, waterLabel } from "../i18n.js";
 
@@ -225,10 +226,10 @@ function onsetLine(site) {
 /**
  * Render the panel. args: { site, crops, prefs, currentIds, onWater }
  * currentIds = crop ids in the current rotation, the starting ticks when the farmer has not ticked anything yet.
- * onWater(id) = the page's water-source setter (shared with the full-year plans).
+ * waters = the Set of ticked water sources, onWaters(set) = the page's setter (shared with the full-year plans).
  */
 export function renderMyCrops(el, args) {
-  const { site, crops, prefs, currentIds = [], onWater } = args;
+  const { site, crops, prefs, currentIds = [], waters, onWaters } = args;
   if (!site || !crops?.length) return;
   const field = crops.filter((c) => c.type !== "green_manure");
   if (!ui.picked) ui.picked = loadPicked() ?? new Set(currentIds.filter((id) => field.some((c) => c.id === id)));
@@ -247,17 +248,14 @@ export function renderMyCrops(el, args) {
         h("span", {}, cropName(c)));
     }));
   // water: tick every source the farmer can use ("Rain only" is on its own). Starts from the place's usual source.
-  if (!ui.water || ui.waterSite !== site.id) { ui.water = new Set([prefs.water_source]); ui.waterSite = site.id; ui.dam = "unknown"; }
-  const toggleWater = (id, on) => {
-    if (id === "rainfed") ui.water = new Set(["rainfed"]);
-    else { ui.water.delete("rainfed"); on ? ui.water.add(id) : ui.water.delete(id); if (!ui.water.size) ui.water.add("rainfed"); }
-    const main = ["canal", "borewell", "tank", "rainfed"].find((k) => ui.water.has(k));
-    if (main !== prefs.water_source) onWater?.(main); else rerender();   // the full-year plans use the main source
-  };
+  // The ticked set lives in the page (shared with the full-year plans' water boxes).
+  if (ui.waterSite !== site.id) { ui.waterSite = site.id; ui.dam = "unknown"; }
+  ui.water = waters ?? new Set([prefs.water_source]);
+  const setW = (id, on) => (onWaters ? onWaters(toggleWater(ui.water, id, on)) : (ui.water = toggleWater(ui.water, id, on), rerender()));
   const srcs = Object.keys(WATER_SOURCES).filter((k) => ui.water.has(k));
   const water = h("div", { class: "choices mc-water", role: "group", "aria-label": s("water") },
     Object.entries(WATER_SOURCES).map(([id, ws]) => h("label", { class: "choice" + (ui.water.has(id) ? " on" : "") },
-      h("input", { type: "checkbox", value: id, checked: ui.water.has(id), onchange: (e) => toggleWater(id, e.target.checked) }),
+      h("input", { type: "checkbox", value: id, checked: ui.water.has(id), onchange: (e) => setW(id, e.target.checked) }),
       h("span", {}, waterLabel(id, ws.label)))));
   const fmtMD = (md) => { const [m, d] = md.split("-").map(Number); return `${d} ${monthShort(m)}`; };
   let dam = null;
