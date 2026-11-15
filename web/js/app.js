@@ -72,7 +72,7 @@ async function selectSite(id) {
   setWaterSet(new Set([def.water_source]));
   state.scenario = { dT_c: 0, dPrecip_pct: 0 };
 
-  $("#site-select").value = site.id;
+  fillPlaceSelect($("#site-select"));   // keeps the district list and its short place list in step with the choice
   map?.select(site.id);
   if (!state.example) history.replaceState(null, "", `#site=${site.id}`);   // an example place is not a choice
   if (!state.example) { try { localStorage.setItem(SITE_KEY, site.id); } catch {} }
@@ -318,6 +318,7 @@ async function init() {
   const sel = $("#site-select");
   fillPlaceSelect(sel);
   sel.addEventListener("change", () => chooseByUser(sel.value));
+  $("#district-select")?.addEventListener("change", (e) => chooseDistrict(e.target.value));
 
   renderPriorities($("#prios"), { weights: state.weights, onChange: (k, v) => { state.weights[k] = v; recomputeSoon(); } });
   $("#print").addEventListener("click", () => window.print());
@@ -341,26 +342,40 @@ async function init() {
 }
 
 /* ---------------- where is your farm? ---------------- */
+// Two short lists instead of one long one: first the district (38), then only that district's places (about 5).
+// Districts come from ui/places.js (townOf = real district, or the nearest town when a place has none).
+let placeDistrictChoice = null;   // district picked in the first list, while its first place loads
 function fillPlaceSelect(sel) {
-  clear(sel);
-  const opt = (s) => h("option", { value: s.id }, siteName(s));
-  // one list, grouped by district; the three demo places sit first in their district's group
-  const { info = {}, townOf = {}, townTa = {} } = state.places ?? {};
-  const groups = new Map();
-  for (const s of state.sites) {
-    const town = townOf[s.id] ?? s.name;
-    if (!groups.has(town)) groups.set(town, []);
-    groups.get(town).push(s);
+  const { townOf = {}, townTa = {} } = state.places ?? {};
+  const ta = getLang() === "ta";
+  const keyOf = (s) => townOf[s.id] ?? s.name;
+  const label = (key) => t("places.group", { town: ta && townTa[key] ? townTa[key] : key });
+  const meta = (state.site && state.sites.find((x) => x.id === state.site.id)) || state.sites[0];
+  const cur = placeDistrictChoice ?? keyOf(meta);
+  const dsel = $("#district-select");
+  if (dsel) {
+    clear(dsel);
+    [...new Set(state.sites.map(keyOf))].sort((a, b) => label(a).localeCompare(label(b), ta ? "ta" : "en"))
+      .forEach((k) => dsel.append(h("option", { value: k }, label(k))));
+    dsel.value = cur;
   }
-  const label = (town) => t("places.group", { town: getLang() === "ta" && townTa[town] ? townTa[town] : town });
-  [...groups.keys()].sort((a, b) => a.localeCompare(b)).forEach((town) => {
-    // demo place first, then villages A–Z (in the current language)
-    const list = groups.get(town).sort((a, b) => (a.demo ? -1 : 0) - (b.demo ? -1 : 0) || siteName(a).localeCompare(siteName(b)));
-    sel.append(h("optgroup", { label: label(town) }, ...list.map(opt)));
-  });
-  if (state.site) sel.value = state.site.id;
+  clear(sel);
+  // demo place first, then villages A–Z (in the current language)
+  const list = state.sites.filter((s) => !dsel || keyOf(s) === cur)
+    .sort((a, b) => (a.demo ? -1 : 0) - (b.demo ? -1 : 0) || siteName(a).localeCompare(siteName(b), ta ? "ta" : "en"));
+  list.forEach((s) => sel.append(h("option", { value: s.id }, siteName(s))));
+  if (state.site && list.some((s) => s.id === state.site.id)) sel.value = state.site.id;
   const note = $("#place-note");
   if (note) note.textContent = state.cellKm ? t("places.note", { km: state.cellKm }) : "";
+}
+
+// picking a district shows its places and opens the first one (its demo place if it has one)
+function chooseDistrict(key) {
+  placeDistrictChoice = key;
+  fillPlaceSelect($("#site-select"));
+  placeDistrictChoice = null;
+  const first = $("#site-select").options[0]?.value;
+  if (first) chooseByUser(first);
 }
 
 function chooseByUser(id) {        // any deliberate choice ends "example" mode and is remembered
