@@ -428,6 +428,53 @@ pattern risky?"*
   - **Calendar years:** maxima use calendar years, so a late-December event and an early-January one count in
     different years.
 
+### I-25 · "Your last 10 years vs the full record" (FIELD_NOTES E6)
+- **Why:** the farmer said people judge risk by roughly the last 10 seasons. The 24-year replay is a longer memory
+  than anyone has, so we show what a 10-year memory gets right and wrong.
+- **Method:** `memoryCheck(site, crops, prefs, {recent: 10, as_of?, rotation?})`.
+  - Each crop's "came through" share in the remembered decade vs all 24 years, flagged when the gap is ≥ 15 points.
+  - The range across **every** 10-year window in the record.
+  - Which record years (worst NE monsoon, wettest day) fall outside the memory.
+  - The chance a 10-year memory holds no 1-in-T event: (1 − 1/T)^10, i.e. 90% for 1-in-100.
+- **Results:**
+  - **Today's memory (2015–2024) is a fair one** at the demo sites. It contains both 2016 and Dec 2023, so no crop
+    "looks safer" than the full record there.
+  - **The real lesson is how much the remembered decade matters.** On tank water, Madurai long rice comes through
+    20–60% depending on the decade; Thanjavur rice 60–90%.
+  - **Across the grid,** each point has 2–3 crops whose verdict swings ≥ 30 points by decade. "Recent looks safer"
+    appears for 0.4 (tank) to 0.8 (rain-fed) crops per point.
+  - **A memory made just before 2016** (`as_of: 2014`, remembering 2005–2014) over-trusts rice more than any other crop (11
+    point-crop cases on tank water: long rice 6, short rice 5; the next crop has 1). Thanjavur tank rice came through 9/10 in that memory vs 16/23 in the full record. The same memory
+    under-rates maize and cotton there (4/10 vs 14–15/23).
+- **UI idea:** "If you remember 2005–2014, long rice looked safe (9 of 10). Over 24 years it came through 16 of 23,
+  and 2016, the worst monsoon on record, came right after."
+
+### I-26 · Wind and cyclone exposure from NASA POWER (FIELD_NOTES E5)
+- **Data:** NASA POWER daily (MERRA-2, ~0.5°) for 50 points, 2001–2024 (`pipeline/fetch_wind.py`):
+  - WS10M (mean wind at 10 m), WS10M_MAX (strongest hourly wind of the day) and rain.
+  - A **strong-wind day** is WS10M_MAX ≥ 10 m/s. A **storm day** is a strong-wind day with ≥ 50 mm rain, the
+    cyclone / deep-depression signature.
+- **Validation against known cyclones:**
+  - **Caught:** Thane (2011), Nisha (2008), Nilam (2012), Nivar (2020), Mandous (2022), Michaung (2023) and
+    Ockhi (2017) appear among the 8 windiest days at 4–8 points each. Vardah (2016) ranks 16th at Chennai.
+  - **Missed:** **Gaja (Nov 2018), the most damaging delta cyclone, ranks only ~400th at Thanjavur.** It was compact
+    and fast, and a 50 km daily average smooths it away. POWER sees large, slow systems but misses compact ones.
+- **Geography looks right:**
+  - Storm days cluster on the north and delta coast (Chennai–Cuddalore 0.6–0.9 per year; storm months Nov–Dec).
+  - The interior has almost none (Madurai 0).
+  - Tirunelveli's strong-wind days are June–August, the southwest-monsoon wind through the Aralvaimozhi gap
+    (wind-farm country), which matters for banana.
+- **Crop link (`windRisk`), an exposure layer kept out of the replay's pass/fail:**
+  - New `wind_tolerance` per crop in crops.json (approximate): low for banana, sugarcane, maize and rice (lodging);
+    medium for millets, sorghum, cotton and sesame; high for pulses and groundnut.
+  - A season counts as exposed if a storm day (or, for low-tolerance crops, ≥ 3 strong-wind days) falls in the
+    second half of the crop's season (the whole season for banana and sugarcane).
+  - **Results:** coastal Cuddalore/Puducherry Samba rice exposed in 11/23 seasons, cotton 8–11/23. Banana and
+    sugarcane are exposed in most years at Tirunelveli and Thanjavur, while Madurai is nearly unexposed.
+  - **Grid:** 11 distinct "most exposed" lists; 10 of 47 points have none.
+- **Next (needs approval):** NOAA IBTrACS cyclone tracks (North Indian basin, 1980+) would count real cyclone
+  passes within ~100 km of each point and catch compact storms like Gaja. Small CSV download.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

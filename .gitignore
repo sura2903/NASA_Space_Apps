@@ -4,3 +4,4 @@ __pycache__/
 .venv/
 .env
 .DS_Store
+pipeline/data/power_wind_daily/

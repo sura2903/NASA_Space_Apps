@@ -30,6 +30,8 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A16 | **Layer 3:** NASA NEX-GDDP-CMIP6 change factors (5 models × SSP2-4.5 / SSP5-8.5, 2041–60) → future-like years → future replay | ✅ demo sites (`web/data/projections/`); grid ⬜; 2081–2100 ⬜ |
 | A17 | Engine: `futureRange()` returns today + min/median/max across models | ✅ |
 | A18 | **1-in-100-year events (FIELD_NOTES E4):** IMERG annual 1/3/5-day maxima → pooled GEV (L-moments) + NE-monsoon drought (gamma), bootstrap ranges, NEX shift; `extremeYearCheck()` | ✅ 50 points (`web/data/extremes/`) |
+| A19 | **Last 10 years vs full record (E6):** `memoryCheck()` incl. every-decade window range and `as_of` | ✅ |
+| A20 | **Wind / cyclone exposure (E5):** NASA POWER wind at 50 points, `wind_tolerance` in crops.json, `windRisk()`; IBTrACS tracks next | ✅ POWER; IBTrACS ⬜ |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from

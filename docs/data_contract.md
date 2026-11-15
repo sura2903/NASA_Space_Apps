@@ -222,6 +222,40 @@ UI idea: "A 1-in-100 day of rain here is about 140 mm (115–154). Over 30 years
 In 2016, a drought rarer than 1-in-100, black gram and millets came through; rice and groundnut didn't."
 Always show ranges, and say "rarer than 1-in-100" rather than printing extrapolated numbers like 1-in-795.
 
+## 2h. "Your last 10 years" (engine only, no new data file)
+`memoryCheck(site, crops, prefs, { recent = 10, as_of?, rotation? })` (~20–60 ms) →
+```jsonc
+{ "recent_years": [2015, 2024], "full_years": [2001, 2024],
+  "climate": { "ne_rain_mm": {full, recent}, "hot_days_per_year": {...}, "heavy_rain_days_per_year": {...},
+               "worst_ne_monsoon": { year: 2016, mm: 152, remembered: true }, "wettest_day": { year, mm, remembered } },
+  "crops": [{ crop, crop_name, tamil_name, sow_label,
+              full: {good, n, share}, recent: {good, n, share},
+              verdict: "recent_looks_safer" | "recent_looks_riskier" | "same_story",   // gap >= 15 points
+              window_range: [0.2, 0.6],          // share across every 10-year window in the record
+              best_window: {from, to, share}, worst_window: {...}, missed_failures: [2001, 2016, ...] }],
+  "looks_safer": [...], "looks_riskier": [...], "decade_dependent": [...],   // window range >= 0.3
+  "chance_memory_has_none": { "1_in_10": 0.35, "1_in_25": 0.66, "1_in_50": 0.82, "1_in_100": 0.9 },
+  "note": "A 10-year memory misses a 1-in-100 event 90% of the time.",
+  "rotation": { label, ...same fields as a crop }            // only when opts.rotation is given
+}
+```
+`as_of: 2014` remembers 2005–2014 (a memory made just before the 2016 drought), which is the strongest demo.
+
+## 2i. `web/data/wind/<id>.json` (wind / cyclone exposure; `pipeline/fetch_wind.py`)
+```jsonc
+{ "id", "name", "lat", "lon", "source": "NASA POWER daily (MERRA-2) ...", "years": [2001, 2024],
+  "thresholds": { "strong_wind_ms": 10, "storm_rain_mm": 50, "note": "relative exposure" },
+  "annual": { "strong_days_per_year": 3.9, "storm_days_per_year": 0.25, "years_with_storm_day": 5 },
+  "monthly": [{ month, mean_wind_ms, strong_days_per_year, storm_days_per_year }] x12,
+  "by_year": { "2008": { "strong_days": [12], "storm_days": [12], "max_wind_ms": [12] } },
+  "windiest_days": [{ date, max_wind_ms, rain_mm }] x8 }
+```
+Engine: `windRisk(site, crops, prefs, wind)` (~25 ms) →
+`{ annual, storm_months: ["Nov","Dec"], windiest_days, most_exposed: [crop ids, >= 25% of seasons],
+   crops: [{ crop, crop_name, wind_tolerance, sow_label, exposed_months, seasons_hit, seasons, share_hit, hit_years }], note }`.
+Not part of pass/fail. UI idea: "Cyclone months here: Nov–Dec. Samba rice was hit by strong wind near harvest in
+11 of 23 seasons; black gram and groundnut stand up to it." Note that compact cyclones (Gaja 2018) are under-read.
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",
@@ -279,6 +313,8 @@ scenarioMonthly(site, scenario)                                -> [{month, preci
                                                                     heat_days, heavy_rain_days, tmax_c}] x12
                                                                   // same adjusted climate the scores use (for calendar bands)
 extremeYearCheck(site, crops, prefs, extremes)                 -> see §2g          // 1-in-100 events + crops in the worst years
+memoryCheck(site, crops, prefs, opts)                          -> see §2h          // last 10 years vs full record
+windRisk(site, crops, prefs, wind)                             -> see §2i          // wind / cyclone exposure per crop
 DEFAULT_CURRENT[siteId]  -> { rotation, water_source }          // starting point per demo site
 WATER_SOURCES, PRIORITIES, MONTHS                               // labels for UI controls
 cropLabel(crop)          -> "Black gram · உளுந்து"

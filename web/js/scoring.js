@@ -753,4 +753,119 @@ export function extremeYearCheck(site, crops, prefs, extremes) {
   };
 }
 
+// ---------- "Your last 10 years vs the full record" (FIELD_NOTES E6; RESEARCH_LOG I-25) ----------
+// Farmers judge risk by roughly the last 10 seasons. memoryCheck shows what that memory gets right and wrong:
+//  - climate: last-N-year averages vs the full record, and which record years (worst drought, wettest burst)
+//    fall outside the remembered window;
+//  - crops: each crop's "came through" share in the last N years vs all years, plus the range across EVERY
+//    N-year window in the record ("depending on which decade you remember, rice looks 40-90% safe"). The window
+//    range is the robust part: it doesn't depend on whether the latest decade happened to be kind or harsh;
+//  - the chance a 10-year memory contains no 1-in-T event at all: (1 - 1/T)^N.
+// opts.rotation: also compare one rotation (e.g. the farmer's current one).
+export function memoryCheck(site, crops, prefs, opts = {}) {
+  const N = opts.recent ?? 10, GAP = opts.gap ?? 0.15;
+  const yrs = (site.by_year || []).map((y) => y.year).sort((a, b) => a - b);
+  const last = yrs[yrs.length - 1];
+  // opts.as_of: remember the N years up to this year instead (e.g. 2014 -> 2005-2014, a memory made just before 2016)
+  const recentTo = Math.min(opts.as_of ?? last, last), recentFrom = recentTo - N + 1;
+  const isRecent = (y) => y >= recentFrom && y <= recentTo;
+  const share = (rows) => (rows.length ? rows.filter((r) => r.ok).length / rows.length : null);
+  const windows = (rows) => {                       // every N-year window fully inside the record
+    const out = [];
+    for (let s = yrs[0]; s + N - 1 <= last; s++) {
+      const w = rows.filter((r) => r.year >= s && r.year < s + N);
+      if (w.length) out.push({ from: s, to: s + N - 1, share: r2(share(w)) });
+    }
+    return out;
+  };
+  const compare = (rows) => {
+    const full = share(rows), recent = share(rows.filter((r) => isRecent(r.year)));
+    const w = windows(rows), ws = w.map((x) => x.share);
+    const gap = recent != null && full != null ? recent - full : 0;
+    return {
+      full: { good: rows.filter((r) => r.ok).length, n: rows.length, share: r2(full) },
+      recent: { good: rows.filter((r) => isRecent(r.year) && r.ok).length, n: rows.filter((r) => isRecent(r.year)).length, share: r2(recent) },
+      verdict: gap >= GAP ? "recent_looks_safer" : gap <= -GAP ? "recent_looks_riskier" : "same_story",
+      window_range: ws.length ? [Math.min(...ws), Math.max(...ws)] : null,
+      best_window: w.reduce((a, b) => (b.share > (a?.share ?? -1) ? b : a), null),
+      worst_window: w.reduce((a, b) => (b.share < (a?.share ?? 2) ? b : a), null),
+      missed_failures: rows.filter((r) => !r.ok && !isRecent(r.year)).map((r) => r.year),   // failures outside the memory
+    };
+  };
+
+  // climate: what the remembered decade looked like vs the whole record
+  const ne = (site.by_year || []).map((y) => ({ year: y.year, mm: sum(y.months.slice(9, 12).map((m) => m.precip_mm)),
+    heat: sum(y.months.map((m) => m.heat_days)), heavy: sum(y.months.map((m) => m.heavy_rain_days)),
+    maxday: Math.max(...y.months.map((m) => m.max_daily_precip_mm ?? 0)) }));
+  const avg = (k, f = () => true) => r0(mean(ne.filter(f).map((x) => x[k])));
+  const worstNE = ne.reduce((a, b) => (b.mm < a.mm ? b : a)), wettestDay = ne.reduce((a, b) => (b.maxday > a.maxday ? b : a));
+  const climate = {
+    ne_rain_mm: { full: avg("mm"), recent: avg("mm", (x) => isRecent(x.year)) },
+    hot_days_per_year: { full: avg("heat"), recent: avg("heat", (x) => isRecent(x.year)) },
+    heavy_rain_days_per_year: { full: avg("heavy"), recent: avg("heavy", (x) => isRecent(x.year)) },
+    worst_ne_monsoon: { year: worstNE.year, mm: r0(worstNE.mm), remembered: isRecent(worstNE.year) },
+    wettest_day: { year: wettestDay.year, mm: r0(wettestDay.maxday), remembered: isRecent(wettestDay.year) },
+  };
+
+  const cropRows = crops.filter((c) => c.type !== "green_manure").map((c) => {
+    const pick = bestSlot(site, crops, c, prefs);
+    return { crop: c.id, crop_name: shortName(c), tamil_name: c.tamil_name ?? null, sow_label: MONTHS[pick.rotation[0][0].sow - 1],
+             ...compare(pick.replay.years) };
+  });
+  const T = [10, 25, 50, 100];
+  const out = {
+    recent_years: [recentFrom, recentTo], full_years: [yrs[0], last], climate, crops: cropRows,
+    looks_safer: cropRows.filter((r) => r.verdict === "recent_looks_safer").map((r) => r.crop),
+    looks_riskier: cropRows.filter((r) => r.verdict === "recent_looks_riskier").map((r) => r.crop),
+    // crops whose verdict depends a lot on which decade you remember (window range >= 0.3)
+    decade_dependent: cropRows.filter((r) => r.window_range && r.window_range[1] - r.window_range[0] >= 0.3).map((r) => r.crop),
+    chance_memory_has_none: Object.fromEntries(T.map((t) => [`1_in_${t}`, r2((1 - 1 / t) ** N)])),
+    note: `A ${N}-year memory misses a 1-in-100 event ${Math.round(100 * (0.99 ** N))}% of the time.`,
+  };
+  if (opts.rotation) {
+    const st = scoreRotation(site, crops, opts.rotation, prefs, { skipText: true });
+    out.rotation = { label: st.label, ...compare(st.replay.years) };
+  }
+  return out;
+}
+
+// ---------- Wind / cyclone exposure (FIELD_NOTES E5; RESEARCH_LOG I-26) ----------
+// wind = web/data/wind/<id>.json (pipeline/fetch_wind.py, NASA POWER daily). An exposure layer, NOT folded into
+// the replay's pass/fail (that stays calibrated against yields). For each crop at its usual sowing month here:
+// in how many seasons did a "storm day" (strong wind + >= 50 mm rain) or a run of >= 3 strong-wind days fall in
+// the SECOND half of the season (tall crops lodge near flowering / harvest; banana and sugarcane all season)?
+// wind_tolerance high crops (short pulses, groundnut) are listed but never counted as exposed.
+export function windRisk(site, crops, prefs, wind) {
+  if (!wind?.by_year) return null;
+  const years = Object.keys(wind.by_year).map(Number).sort((a, b) => a - b);
+  const monthsOf = (sow, days, wholeSeason) => {           // [{y: offset, m: 1..12}] for the exposed months
+    const n = Math.max(1, Math.ceil(days / 30)), from = wholeSeason ? 0 : Math.floor(n / 2);
+    return Array.from({ length: n - from }, (_, i) => { const k = sow - 1 + from + i; return { y: Math.floor(k / 12), m: (k % 12) + 1 }; });
+  };
+  const rows = crops.filter((c) => c.type !== "green_manure").map((c) => {
+    const tol = c.wind_tolerance ?? "medium";
+    const sow = bestSlot(site, crops, c, prefs).rotation[0][0].sow;
+    const months = monthsOf(sow, Math.min(c.duration_days, 365), tol === "low" && c.duration_days > 200);
+    let hit = 0, n = 0; const hitYears = [];
+    for (const y of years) {
+      if (months.some((x) => !wind.by_year[String(y + x.y)])) continue;
+      n++;
+      const storm = sum(months.map((x) => wind.by_year[String(y + x.y)].storm_days[x.m - 1]));
+      const strong = sum(months.map((x) => wind.by_year[String(y + x.y)].strong_days[x.m - 1]));
+      const exposed = tol === "high" ? false : tol === "low" ? storm > 0 || strong >= 3 : storm > 0;
+      if (exposed) { hit++; hitYears.push(y); }
+    }
+    return { crop: c.id, crop_name: shortName(c), wind_tolerance: tol, sow_label: MONTHS[sow - 1],
+             exposed_months: [...new Set(months.map((x) => MONTHS[x.m - 1]))], seasons_hit: hit, seasons: n,
+             share_hit: n ? r2(hit / n) : null, hit_years: hitYears };
+  });
+  const stormMonths = wind.monthly.filter((m) => m.storm_days_per_year >= 0.1).map((m) => MONTHS[m.month - 1]);
+  return {
+    annual: wind.annual, storm_months: stormMonths, windiest_days: wind.windiest_days.slice(0, 5),
+    crops: rows,
+    most_exposed: rows.filter((r) => r.share_hit >= 0.25).sort((a, b) => b.share_hit - a.share_hit).map((r) => r.crop),
+    note: "NASA POWER is a ~50 km average, so real cyclone gusts are much stronger; read this as how often wind hits each crop's vulnerable months, not as wind speed.",
+  };
+}
+
 export function cropLabel(crop) { return crop.tamil_name ? `${shortName(crop)} · ${crop.tamil_name}` : shortName(crop); }

@@ -68,6 +68,8 @@ Honest framing for the team:
 - E4 Extreme-event return periods (1-in-10 / 1-in-50 / 1-in-100 rain and drought) from the longer record. **✅ done (RESEARCH_LOG I-24):** pooled GEV
   on IMERG 2001–2024; 1-in-100 day of rain 107–362 mm across the state; 2016 was a rarer-than-1-in-100 NE-monsoon
   drought everywhere; `extremeYearCheck()` shows which crops came through it.
-- E5 Wind / cyclone exposure from NASA POWER wind.
-- E6 "Your last 10 years vs the full record" memory view.
+- E5 Wind / cyclone exposure from NASA POWER wind. **✅ done (RESEARCH_LOG I-26):** `windRisk()`; catches Thane,
+  Nivar, Michaung but misses compact Gaja (IBTrACS tracks proposed).
+- E6 "Your last 10 years vs the full record" memory view. **✅ done (RESEARCH_LOG I-25):** `memoryCheck()`; a
+  memory of 2005–2014 over-trusts rice more than any crop (11 cases on the grid) (e.g. Thanjavur tank rice 9/10 vs 16/23).
 - E7 Food-security lens in the Policy view (staple supply vs reserves).
