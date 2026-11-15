@@ -668,3 +668,39 @@ body.view-detail #more-plans > summary { display: none; }
 }
 .map-hover[hidden] { display: none; }
 #water .note { grid-column: 1 / -1; margin: 0; }
+
+/* Farmers answer: big crop tiles (ui/mycrops.js). Symbol + word on every tile, so colour is never the only cue. */
+.mc-tiles { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; align-items: start; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.mc-tile {
+  position: relative; display: flex; flex-direction: column; gap: 2px; padding: 12px 12px 10px; border-radius: 12px;
+  border: 2px solid currentColor; background: var(--surface); color: var(--ink-3);
+}
+.mc-t-good { color: var(--accent); background: var(--accent-soft); }
+.mc-t-risky { color: #9a6200; background: #fff4d6; }
+.mc-t-poor { color: #b3261e; background: #fde8e6; }
+.mc-t-off { color: var(--ink-3); background: var(--surface-2); border-style: dashed; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mc-t-risky { color: #f0c060; background: #3a2f12; } :root:not([data-theme="light"]) .mc-t-poor { color: #f2a59e; background: #3b1d1a; } }
+.mc-tile-top { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 0.85rem; padding-right: 28px; }
+.mc-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: currentColor; -webkit-text-fill-color: var(--surface); }
+.mc-tile-crop { color: var(--ink); font-size: 1.08rem; line-height: 1.25; margin-top: 4px; }
+.mc-tile-num { color: var(--ink); font-size: 1.9rem; font-weight: 700; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.mc-t-off .mc-tile-num { display: none; }
+.mc-tile-sub { color: var(--ink-2); font-size: 0.8rem; }
+.mc-more { position: static; }
+.mc-more > summary {
+  position: absolute; top: 8px; right: 8px; list-style: none; cursor: pointer; width: 26px; height: 26px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1rem; color: var(--ink-2); background: var(--surface);
+}
+.mc-more > summary::-webkit-details-marker { display: none; }
+.mc-more[open] > summary { color: var(--accent); }
+.mc-more-body { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--ink); font-size: 0.85rem; }
+.mc-more-body p { margin: 0 0 6px; }
+.mc-quick-chips { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.mc-quick-chips li { padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent); }
+.mc-quick-chips strong { color: var(--ink); }
+.mc-quick-n { color: var(--ink-2); font-size: 0.85rem; }
+.mc-how { margin-top: 12px; }
+.mc-how > summary, .mc-ask > summary { cursor: pointer; color: var(--ink-2); font-size: 0.9rem; font-weight: 600; }
+.mc-how p { margin: 6px 0 0; }
+.mc-ask > summary { color: var(--ink); }
+@media (max-width: 640px) { .mc-tiles { grid-template-columns: 1fr 1fr; } .mc-tile-num { font-size: 1.6rem; } }
