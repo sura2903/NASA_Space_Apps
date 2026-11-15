@@ -225,9 +225,32 @@ pattern risky?"*
 - **Caveat:** onset still clusters at the search start (40% in the first 3 days). It is an agro-meteorological
   rule, not IMD's official declaration (winds + coastal stations).
 
+### I-17 · Rice skill fixed: farmers respond by not planting, and the delta drinks Karnataka's rain
+- **Diagnosis:** rice yield doesn't respond to water shortage (rank correlation with local NE rain −0.02);
+  **planted area does (+0.49, 17/29 districts)**. In 2016 rice area fell 36%, production 66%, yield only 20%.
+  Farmers leave fields fallow rather than plant into a shortage.
+- **Backtest now scores yield, area and production.** Rice: yield 1.05× → **area 2.11×, production 2.22×** (p<0.001).
+  - Rice is now among the strongest crops.
+  - By system: tank-fed south production **13.5×**; Thamirabarani area **11×** (hero site); other districts ~1.8×.
+- **Cauvery delta was the exception** (1.2×). Its canal water comes from Mettur, filled by the Western Ghats
+  monsoon in Karnataka.
+  - Delta rice production vs local NE rain: −0.01. Vs upper-Cauvery catchment JJAS rain (IMERG): **+0.32**.
+  - With Mettur carry-over (0.6 this year + 0.4 last year): **+0.36**. Area follows last year's catchment rain (+0.26).
+- **Engine change:** sites/grid points in the Cauvery command carry `canal_index` (upstream catchment, with
+  carry-over), and `scoring.js` scales the canal budget by (index − 0.5)/0.5. One stated assumption: about half
+  of normal flow is used upstream before the delta.
+  - Thanjavur's Kuruvai + Thaladi rotation now fails for water in **2001, 2002, 2003, 2016**, the known Cauvery crisis years.
+- **What didn't work (kept for honesty):**
+  - Treating Thamirabarani rice as canal-fed made the model never fail (0/44), so it stays tank-fed.
+  - In the backtest's single long-rice replay, the delta still fails only in 2002. The upstream signal is right
+    but a single-season replay is too coarse. **Next:** model Kuruvai (short, Jun–Sep, fully Mettur-dependent)
+    separately in the backtest.
+- **New issue spotted:** Kuruvai "heat" failures in 8 delta years (POWER shows many Jun–Aug days >38 °C). The heat
+  rule is probably too strict for flooded irrigated rice; revisit with canopy/water-temperature reasoning.
+
 ## Open questions / likely next pivots
-- **Rice skill:** add reservoir storage (e.g. Mettur/Papanasam levels) or a canal-release index so the
-  irrigated-rice replay reflects water actually delivered, then re-run the backtest.
+- **Delta Kuruvai:** backtest short-duration rice separately in canal districts; check if Mettur-driven
+  failures match Kuruvai area collapses (2002–03, 2012, 2016–17).
 - **Long-term rain truth:** can we get IMD 0.25° gridded rainfall (1901–present) to settle the POWER-vs-IMERG
   rain-trend disagreements? It's station-based and long, so it's the natural referee.
 - **Satellite truth for the calendar:** does per-pixel MODIS NDVI from AppEEARS show real bare months? If yes,

@@ -7712,16 +7712,16 @@
   }
  },
  "Nagapattinam|rice_long": {
-  "sow": 9,
-  "share": 0.79,
+  "sow": 8,
+  "share": 1,
   "years": {
    "2001": {
     "ok": true,
     "reason": null
    },
    "2002": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~894 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2003": {
     "ok": true,
@@ -7764,8 +7764,8 @@
     "reason": null
    },
    "2013": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~799 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2014": {
     "ok": true,
@@ -7776,16 +7776,16 @@
     "reason": null
    },
    "2016": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~452 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2017": {
     "ok": true,
     "reason": null
    },
    "2018": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~850 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2019": {
     "ok": true,
@@ -7800,10 +7800,14 @@
     "reason": null
    },
    "2022": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~844 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2023": {
+    "ok": true,
+    "reason": null
+   },
+   "2024": {
     "ok": true,
     "reason": null
    }
@@ -12564,20 +12568,20 @@
   }
  },
  "Thanjavur|rice_long": {
-  "sow": 9,
-  "share": 0.71,
+  "sow": 8,
+  "share": 0.96,
   "years": {
    "2001": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~716 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2002": {
     "ok": false,
-    "reason": "Rice, long duration: water: ~774 mm available vs 1250 mm need"
+    "reason": "Rice, long duration: heat: 12 very hot days in season"
    },
    "2003": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~912 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2004": {
     "ok": true,
@@ -12616,8 +12620,8 @@
     "reason": null
    },
    "2013": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~672 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2014": {
     "ok": true,
@@ -12628,16 +12632,16 @@
     "reason": null
    },
    "2016": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~405 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2017": {
     "ok": true,
     "reason": null
    },
    "2018": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~767 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2019": {
     "ok": true,
@@ -12652,10 +12656,14 @@
     "reason": null
    },
    "2022": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~803 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2023": {
+    "ok": true,
+    "reason": null
+   },
+   "2024": {
     "ok": true,
     "reason": null
    }
@@ -14694,16 +14702,16 @@
   }
  },
  "Thiruvarur|rice_long": {
-  "sow": 9,
-  "share": 0.79,
+  "sow": 8,
+  "share": 1,
   "years": {
    "2001": {
     "ok": true,
     "reason": null
    },
    "2002": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~894 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2003": {
     "ok": true,
@@ -14746,8 +14754,8 @@
     "reason": null
    },
    "2013": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~799 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2014": {
     "ok": true,
@@ -14758,16 +14766,16 @@
     "reason": null
    },
    "2016": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~452 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2017": {
     "ok": true,
     "reason": null
    },
    "2018": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~850 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2019": {
     "ok": true,
@@ -14782,10 +14790,14 @@
     "reason": null
    },
    "2022": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~844 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2023": {
+    "ok": true,
+    "reason": null
+   },
+   "2024": {
     "ok": true,
     "reason": null
    }
@@ -16416,20 +16428,20 @@
   }
  },
  "Tiruchirappalli|rice_long": {
-  "sow": 9,
-  "share": 0.42,
+  "sow": 8,
+  "share": 0.96,
   "years": {
    "2001": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~719 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2002": {
     "ok": false,
-    "reason": "Rice, long duration: water: ~785 mm available vs 1250 mm need"
+    "reason": "Rice, long duration: heat: 14 very hot days in season"
    },
    "2003": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~937 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2004": {
     "ok": true,
@@ -16440,8 +16452,8 @@
     "reason": null
    },
    "2006": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~909 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2007": {
     "ok": true,
@@ -16452,8 +16464,8 @@
     "reason": null
    },
    "2009": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~936 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2010": {
     "ok": true,
@@ -16464,32 +16476,32 @@
     "reason": null
    },
    "2012": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~768 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2013": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~683 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2014": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~842 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2015": {
     "ok": true,
     "reason": null
    },
    "2016": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~338 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2017": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~748 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2018": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~624 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2019": {
     "ok": true,
@@ -16504,12 +16516,16 @@
     "reason": null
    },
    "2022": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~823 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
    },
    "2023": {
-    "ok": false,
-    "reason": "Rice, long duration: water: ~802 mm available vs 1250 mm need"
+    "ok": true,
+    "reason": null
+   },
+   "2024": {
+    "ok": true,
+    "reason": null
    }
   }
  },

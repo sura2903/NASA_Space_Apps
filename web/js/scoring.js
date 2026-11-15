@@ -113,15 +113,23 @@ function buildClimate(site, sc) {
   const junDec = (ms) => sum(ms.slice(5, 12).map((m) => m.precip_mm));               // Jun-Dec
   const neNormal = byYear.length ? mean(byYear.map((y) => ne(y.months))) : ne(monthly);
   const jdNormal = byYear.length ? mean(byYear.map((y) => junDec(y.months))) : junDec(monthly);
-  return { monthly, byYear, ne, junDec, neNormal, jdNormal };
+  // Upstream canal index (e.g. Cauvery: Mettur fills from Western Ghats monsoon rain, not local rain).
+  const canalIndex = site.canal_index?.years || null;
+  return { monthly, byYear, ne, junDec, neNormal, jdNormal, canalIndex };
 }
 
 // Index (0.3..1.3) for how full tanks/canals are in a given water-year.
+// Canal: use the site's upstream catchment index when provided (RESEARCH_LOG I-17), else local Jun-Dec rain.
 function sourceIndex(cl, src, yearIdx) {
   if (!WATER_SOURCES[src].monsoon_linked || yearIdx == null) return 1;
   const y = cl.byYear[yearIdx];
   if (!y) return 1;
-  const v = src === "tank" ? cl.ne(y.months) / cl.neNormal : cl.junDec(y.months) / cl.jdNormal;
+  let v;
+  if (src === "canal" && cl.canalIndex && cl.canalIndex[String(y.year)] != null) {
+    // Upstream users take their share first, so downstream supply falls faster than catchment rain.
+    // Assumption (one parameter): about half of normal flow is used upstream -> supply = (index - 0.5) / 0.5.
+    v = (cl.canalIndex[String(y.year)] - 0.5) / 0.5;
+  } else v = src === "tank" ? cl.ne(y.months) / cl.neNormal : cl.junDec(y.months) / cl.jdNormal;
   return clamp(v, 0.3, 1.3);
 }
 

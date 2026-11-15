@@ -54,6 +54,7 @@ def evaluate(pairs):
 def main() -> None:
     by_crop, all_pairs, per_series, per_year = defaultdict(list), [], {}, defaultdict(lambda: [0, 0, 0, 0])
     never_fail = 0
+    tgt_pairs = {"area": defaultdict(list), "production": defaultdict(list)}
     for key, a in ANOM.items():
         rp = REPLAY.get(key)
         if not rp:
@@ -67,6 +68,9 @@ def main() -> None:
                 continue
             fail = not v["ok"]
             pairs.append((fail, ya["bad"], ya["anomaly"]))
+            for tgt in ("area", "production"):
+                if f"{tgt}_bad" in ya:
+                    tgt_pairs[tgt][a["crop"]].append((fail, ya[f"{tgt}_bad"], ya[f"{tgt}_anomaly"]))
             pc = per_year[cy]; pc[0] += fail; pc[1] += ya["bad"]; pc[2] += fail and ya["bad"]; pc[3] += 1
         if not any(f for f, _, _ in pairs):
             never_fail += 1
@@ -84,8 +88,14 @@ def main() -> None:
     year_level = {"pearson_r": round(float(r_year), 3), "pearson_p": round(float(p_year), 4),
                   "spearman_rho": round(float(rho_year), 3), "spearman_p": round(float(prho_year), 4),
                   "note": "Across years: share of series the model fails vs share with a bad yield."}
+    # Same model failures scored against planted area and production (rice responds by not planting)
+    by_target = {"yield": {"overall": overall, "by_crop": crops}}
+    for tgt, bc in tgt_pairs.items():
+        by_target[tgt] = {"overall": evaluate([p for v in bc.values() for p in v]),
+                          "by_crop": {c: evaluate(p) for c, p in sorted(bc.items())}}
     out = {
         "year_level": year_level,
+        "by_target": by_target,
         "description": ("Backtest of the Field Shift replay against Tamil Nadu district yields (DES Crop Statistics, "
                         "2001-02 to 2022-23). Bad year = bottom 25% of Theil-Sen-detrended yield anomaly per district "
                         "x crop. Model fail = the engine's replay says the crop failed that season (water, heat or flood) "
@@ -100,6 +110,11 @@ def main() -> None:
                 f"P(bad|pass)={e['p_bad_given_pass']} lift={e['lift']} fisher_p={e['fisher_p']} | "
                 f"median anom fail={e['median_anomaly_fail']} pass={e['median_anomaly_pass']} mw_p={e['mannwhitney_p']}")
     print(f"series={len(per_series)} (model never fails in {never_fail}); year-level {year_level}")
+    print("\nlift by target (yield / area / production):")
+    for c in sorted(by_target["yield"]["by_crop"]):
+        l = [by_target[t]["by_crop"].get(c, {}) for t in ("yield", "area", "production")]
+        print(f"  {c:14s} " + "  ".join(f"{t[:4]} {x.get('lift')} (p={x.get('fisher_p')})" for t, x in zip(("yield", "area", "production"), l)))
+    print("  " + "  ".join(f"{t} overall lift {by_target[t]['overall']['lift']}" for t in by_target))
     print(line("OVERALL", overall))
     for c, e in crops.items():
         print(line(c, e))

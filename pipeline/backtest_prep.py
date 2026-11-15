@@ -39,6 +39,10 @@ EXTRA_HQ = {
 ALIASES = {"Kancheepuram": "Kanchipuram", "Kanniyakumari": "Nagercoil (Kanyakumari)",
            "The Nilgiris": "Udhagamandalam (Nilgiris)", "Thiruvallur": "Tiruvallur", "Thiruvarur": "Tiruvarur",
            "Thoothukkudi": "Thoothukudi", "Viluppuram": "Villupuram"}
+# Cauvery delta only: its canal water depends on upstream (Karnataka) catchment rain via Mettur.
+# Thamirabarani rice stays "tank": its small dams fill from local Ghats rain, and the tank model already
+# had strong skill there (an earlier canal run made it never fail; RESEARCH_LOG I-17).
+CANAL_RICE_DISTRICTS = {"Thanjavur", "Thiruvarur", "Nagapattinam", "Mayiladuthurai", "Tiruchirappalli"}
 YEARS = range(2001, 2023)   # crop years 2001-02 .. 2022-23 (start year)
 MIN_YEARS = 15
 
@@ -76,18 +80,33 @@ def main() -> None:
         loc = hq(d)
         if loc is None:
             continue
-        x, y = s.y0.to_numpy(float), s["yield"].to_numpy(float)
-        slope, icpt, _, _ = stats.theilslopes(y, x)
-        trend = icpt + slope * x
-        anom = (y - trend) / trend
-        bad_cut = np.quantile(anom, 0.25)
+        x = s.y0.to_numpy(float)
+
+        def anomalies_of(col):
+            y = s[col].to_numpy(float)
+            slope, icpt, _, _ = stats.theilslopes(y, x)
+            trend = icpt + slope * x
+            a = (y - trend) / trend
+            return a, np.quantile(a, 0.25)
+        # yield (default keys) plus planted area and production: when water is short, rice farmers
+        # often don't plant, so the signal shows in area/production rather than yield (RESEARCH_LOG I-17)
+        an_y, cut_y = anomalies_of("yield")
+        an_a, cut_a = anomalies_of("area")
+        an_p, cut_p = anomalies_of("production")
         crop_id, water = CROP_MAP[c]
+        # rice in canal-command districts is replayed as canal-irrigated (Cauvery delta uses the upstream
+        # catchment index; Thamirabarani uses local rain); other rice stays tank-fed
+        if crop_id == "rice_long" and d in CANAL_RICE_DISTRICTS:
+            water = "canal"
         p = nearest(*loc)
         key = f"{d}|{crop_id}"
         anomalies[key] = {
             "district": d, "apy_crop": c, "crop": crop_id, "water_source": water, "grid_id": p["id"],
             "median_area_ha": float(s.area.median()),
-            "years": {int(yr): {"anomaly": round(float(a), 4), "bad": bool(a <= bad_cut)} for yr, a in zip(s.y0, anom)},
+            "years": {int(yr): {"anomaly": round(float(ay), 4), "bad": bool(ay <= cut_y),
+                                "area_anomaly": round(float(aa), 4), "area_bad": bool(aa <= cut_a),
+                                "production_anomaly": round(float(ap), 4), "production_bad": bool(ap <= cut_p)}
+                      for yr, ay, aa, ap in zip(s.y0, an_y, an_a, an_p)},
         }
         targets.append({"key": key, "grid_id": p["id"], "crop": crop_id, "water_source": water})
     (HERE / "data" / "yield_anomalies.json").write_text(json.dumps(anomalies, indent=1))

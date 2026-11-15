@@ -92,7 +92,12 @@ Grey out `confidence: "low"` districts. 1 MCM = 1 million m³.
   "ne_onset": { "method": "...", "search_from": "10-10", "median_doy": 289, "median_date": "16 Oct",
                 "years_without_onset": 3,                 // e.g. 2016: no qualifying onset at 30/50 places
                 "years": [{ "year": 2001, "doy": 291 }, { "year": 2016, "doy": null }, ...] },     // doy null = none
-  "sowing_rain_onset": { ...same shape..., "search_from": "09-15" }   // first reliable sowing rains (Purattasi pattam)
+  "sowing_rain_onset": { ...same shape..., "search_from": "09-15" },  // first reliable sowing rains (Purattasi pattam)
+
+  // Cauvery-command places only (thanjavur + 8 grid points; pipeline/add_canal_index.py):
+  "canal_index": { "method": "0.6 x this year's + 0.4 x last year's upper-Cauvery JJAS rain / mean",
+                   "raw_index": { "2002": 0.60, ... }, "years": { "2002": 0.67, ... } }
+  // The engine scales the canal budget by (index - 0.5)/0.5 for these places (upstream use first).
 }
 ```
 
@@ -139,7 +144,9 @@ Backtest of the replay against real Tamil Nadu district yields (DES Crop Statist
   "per_series": { "Tirunelveli|black_gram": { ...same fields..., "district", "crop", "water_source" } } }
 ```
 Use for a "Does it work?" panel: a year chart of `by_year` (model vs real), plus the lift per crop.
-Be honest: rice (tank-irrigated) and green gram show **no skill** (lift ≈ 1).
+`by_target` has the same model failures scored against **yield, planted area and production**:
+`by_target.area.by_crop.rice_long.lift` = 2.11, `by_target.production.by_crop.rice_long.lift` = 2.22. Rice
+responds by farmers not planting, so show rice on area/production. Green gram still shows no skill.
 
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
