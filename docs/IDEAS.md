@@ -7,8 +7,8 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
-| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | 🔄 working on the 3 sites (`web/explore.html`); waiting on grid data |
-| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | 🔄 working on the 3 sites (`web/explore.html`); waiting on grid data |
+| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `rankCrops` |
+| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `cropSuitability` |
 | I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
 
@@ -22,8 +22,11 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 - Each crop is scored by `scoreRotation(site, crops, [[{crop, sow}]], prefs)` at each of its
   sowing months; the best month is kept. ~20 ms per place, so ~60 grid points is ~1–2 s in the
   browser. No precomputed suitability file is needed.
-- Today it uses the 3 demo sites. **It switches to a grid automatically** when
-  `web/data/grid/index.json` exists.
+- It now runs on Lane A's 47-point 0.5° grid (`web/data/grid/`), falling back to the 3 demo sites if
+  the grid is missing. Scoring goes through the engine's `cropSuitability` and `rankCrops`.
+- "Try a comparison" buttons: Rice on rain only (best place 7/24 seasons) vs Rice with canal water
+  (24/24 near Tenkasi / Tirunelveli).
+- Known: two coastal cells are partly sea (Sid's note).
 
 **Proposed grid format for Lane A (Sid), no change to the site format:**
 ```

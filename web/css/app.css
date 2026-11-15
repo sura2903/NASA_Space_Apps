@@ -97,6 +97,7 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .xtable tbody tr:hover { background: var(--surface-2); }
 .xtable td { white-space: nowrap; }
 .choices.one-col { grid-template-columns: 1fr; }
+.btn-ghost.on { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
 .top3 { display: grid; gap: 12px; margin-top: 10px; }
 .top3-head { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; }
 .top3-head h3 { font-size: 1.15rem; }
