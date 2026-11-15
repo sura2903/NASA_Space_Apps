@@ -10,7 +10,7 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 | I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
 | I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Siddarth | 💡 **medium** (priority flag is quick) |
 | I25 | Hill-region fruits (strawberry, avocado; kiwi, raspberry) for Nilgiris / Kodaikanal | Siddarth | ⏸ later: needs elevation-corrected temperature + a perennial-crop model |
-| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | 💡 **high** (quick, fits TN Millet Mission) |
+| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | ✅ added (21 crops); kodo leads rain-fed picks at 19/47, partly from approximate water/root values |
 | I23 | Policy: "what if X% of farms switch" → water saved per place (overlaps I7) | Nimalan | 🔄 Lane B, Policy view page |
 | I22 | Policy: early drought warning from SMAP soil moisture / NDVI anomalies, ahead of insurance and relief decisions | Nimalan | 💡 needs near-real-time SMAP + NDVI |
 | I21 | Policy: crop-to-water mismatch (rice grown on rain only) → case for millet / pulse switching subsidies (overlaps I6) | Nimalan | 💡 needs district crop areas |

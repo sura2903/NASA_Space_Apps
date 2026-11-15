@@ -316,6 +316,19 @@ pattern risky?"*
   - Thanjavur rotations decline from heat, but the millet + Samba "small step" stays most robust (14–19 vs current 12–16).
 - **Next:** grid-wide projections (future-suitability heatmap), a "Today / 2050s" switch in the UI (Lane B, B12).
 
+### I-21 · Five small millets added (IDEAS I24)
+- Foxtail (thinai), little (samai), kodo (varagu), proso (panivaragu) and barnyard (kuthiraivali).
+  - Seasons (Masi / Adi / Purattasi) and durations come from the TN Crop Production Guide small-millets chapter.
+  - Water needs are approximate (250–350 mm; not in the guide).
+- **Diagnostics (47-point grid):**
+  - Distinct #1 crops rain-fed / tank / canal: 6/9/5 → 8/12/6. Distinct top-3 sets: 13/19/19 → 17/21/21.
+  - Best rain-fed alternatives across districts: 6 → 8 crops.
+- **Caveat:**
+  - Kodo millet became #1 rain-fed at 19/47 points (cowpea dropped from 20 to 8).
+  - Its lead partly rests on our approximate water need and a deep-root assumption the guide doesn't state.
+  - **Next:** source small-millet water use and rooting depth, and consider a market/price signal
+    (FN-1 E3) before presenting kodo as a headline recommendation.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.
