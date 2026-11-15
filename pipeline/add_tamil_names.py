@@ -22,6 +22,8 @@ TA = {
     "Tiruchirappalli": "திருச்சிராப்பள்ளி", "Tirunelveli": "திருநெல்வேலி", "Tiruppur": "திருப்பூர்",
     "Tiruvallur": "திருவள்ளூர்", "Tiruvannamalai": "திருவண்ணாமலை", "Udhagamandalam (Nilgiris)": "உதகமண்டலம் (நீலகிரி)",
     "Vellore": "வேலூர்", "Villupuram": "விழுப்புரம்", "Virudhunagar": "விருதுநகர்",
+    # towns that only appear as nearest town on the 0.25 deg grid
+    "Cuddalore": "கடலூர்", "Coimbatore": "கோயம்புத்தூர்", "Thoothukudi": "தூத்துக்குடி", "Tiruvarur": "திருவாரூர்",
 }
 
 

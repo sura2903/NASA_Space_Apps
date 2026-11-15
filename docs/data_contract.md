@@ -28,6 +28,12 @@ Each `<id>.json` has exactly the site format in section 2: rain from GPM IMERG, 
 POWER, plus SoilGrids soil; `ndvi` is null. Total ~4.6 MB, so load lazily (only when the map view
 opens), e.g. `Promise.all(index.map(p => fetch(...)))`. Snap clicks to the nearest point; cells are 0.5°.
 
+### 1b-0.25. Grid refinement (RESEARCH_LOG I-38)
+`grid/index.json` now has `cell_deg: 0.25` and 185 points (ids unchanged for the 47 old ones). New:
+`grid/summary.json` = `{ cell_deg, points: [{ id, name, name_ta, lat, lon, period, trends: {precip_mm_per_decade,
+power_precip_mm_per_decade, heat_days_per_decade, root_soil_wetness_per_decade}, groundwater: {lwe_trend_cm_per_year},
+has_soil }] }` (72 KB) for drawing the maps without loading every full file.
+
 ## 1c. `web/data/districts.json` (mismatch map + district what-ifs, by `pipeline/mismatch_build.py`)
 Lane B's requested format (PROGRESS.md, request 5), extended with mismatch metrics. 37 districts (no Chennai).
 ```jsonc

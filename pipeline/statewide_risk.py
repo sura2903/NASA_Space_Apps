@@ -32,10 +32,13 @@ def load(p):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else None
 
 
-def district_of(gid):
+def district_of(gid, lat=None, lon=None):
     for d in DIST:
         if gid in d.get("points", []):
             return d
+    # 0.25 deg points (RESEARCH_LOG I-38) aren't in the districts' point lists: use the nearest district HQ
+    if lat is not None and DIST:
+        return min((d for d in DIST if d.get("hq")), key=lambda d: (d["hq"][0] - lat) ** 2 + (d["hq"][1] - lon) ** 2, default=None)
     return None
 
 
@@ -45,7 +48,7 @@ def main():
     for p in GRID:
         gid = p["id"]
         g, ex, wi, pr = (load(W / sub / f"{gid}.json") for sub in ("grid", "extremes", "wind", "projections"))
-        d = district_of(gid)
+        d = district_of(gid, p["lat"], p["lon"])
         ne = [sum(m["precip_mm"] for m in y["months"][9:12]) for y in g["by_year"]]
         row = {
             "id": gid, "name": p["name"], "name_ta": p.get("name_ta"), "lat": p["lat"], "lon": p["lon"],

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -27,6 +28,9 @@ from nex_deltas import OUT, build_projection, print_summary
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw" / "nex_grid"
+# whole Tamil Nadu boxes (all 0.25 deg cells), kept so any grid can be cut from them without re-downloading;
+# ~0.5 GB, so by default OUTSIDE the synced project (set NEX_BOX_DIR)
+BOX = Path(os.environ.get("NEX_BOX_DIR", str(ROOT / "data" / "raw" / "nex_box")))
 GRID = json.loads((ROOT / "web" / "data" / "grid" / "index.json").read_text(encoding="utf-8"))["points"]
 BBOX = {"north": 13.6, "south": 8.0, "west": 76.1, "east": 80.4}
 
@@ -35,8 +39,32 @@ def npz_path(model, scen, var, year):
     return RAW / f"{model}_{scen}_{var}_{year}.npz"
 
 
+def box_path(model, scen, var, year):
+    return BOX / f"{model}_{scen}_{var}_{year}.npz"
+
+
+def points_from_box(f):
+    b = np.load(f)
+    data, lat, lon = b["values"], b["lat"], b["lon"]
+    cols = []
+    for p in GRID:
+        li = np.argsort(np.abs(lat - p["lat"]))[:2]
+        lj = np.argsort(np.abs(lon - p["lon"]))[:2]
+        cols.append(np.nanmean(data[:, li][:, :, lj].reshape(data.shape[0], -1), axis=1))
+    return np.stack(cols)
+
+
+def derive():
+    """Cut per-point series (mean of the 4 cells around each grid point) for the CURRENT grid from the boxes."""
+    RAW.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for f in sorted(BOX.glob("*.npz")):
+        np.savez_compressed(RAW / f.name, values=points_from_box(f)); n += 1
+    print(f"derived {n} files for {len(GRID)} grid points", flush=True)
+
+
 def fetch_one(model, scen, var, year, fname):
-    out = npz_path(model, scen, var, year)
+    out = box_path(model, scen, var, year)
     if out.exists():
         return "cached"
     url = f"{BASE}/ncss/grid/AMES/NEX/GDDP-CMIP6/{model}/{scen}/{MODELS[model]}/{var}/{fname}"
@@ -53,16 +81,10 @@ def fetch_one(model, scen, var, year, fname):
             lat, lon = n.variables["lat"][:].copy(), n.variables["lon"][:].copy()
             data = n.variables[var].data.astype("float32")           # (time, lat, lon)
             data[np.abs(data) > 1e10] = np.nan
-            cols = []
-            for p in GRID:
-                li = np.argsort(np.abs(lat - p["lat"]))[:2]
-                lj = np.argsort(np.abs(lon - p["lon"]))[:2]
-                cols.append(np.nanmean(data[:, li][:, :, lj].reshape(data.shape[0], -1), axis=1))
-            arr = np.stack(cols)                                       # (points, days)
-            if arr.shape[1] < 300:
-                raise ValueError(f"only {arr.shape[1]} days")
-            RAW.mkdir(parents=True, exist_ok=True)
-            np.savez_compressed(out, values=arr)
+            if data.shape[0] < 300:
+                raise ValueError(f"only {data.shape[0]} days")
+            BOX.mkdir(parents=True, exist_ok=True)
+            np.savez_compressed(out, values=data, lat=lat, lon=lon)   # (time, lat, lon), all cells
             return "ok"
         except Exception as e:  # noqa: BLE001
             err = e
@@ -107,7 +129,7 @@ def fetch_all():
             for var in VARS:
                 files = catalog_files(model, scen, var)
                 jobs += [(model, scen, var, y, files[y]) for y in years if y in files]
-    todo = [j for j in jobs if not npz_path(*j[:4]).exists()]
+    todo = [j for j in jobs if not box_path(*j[:4]).exists()]
     print(f"{len(jobs)} files, {len(todo)} to fetch", flush=True)
     done = fail = 0
     with ThreadPoolExecutor(max_workers=8) as ex:
@@ -135,6 +157,8 @@ def build():
 
 
 if __name__ == "__main__":
-    if "--build" not in sys.argv:
+    if "--build" not in sys.argv and "--derive" not in sys.argv:
         fetch_all()
+    if "--build" not in sys.argv:
+        derive()
     build()

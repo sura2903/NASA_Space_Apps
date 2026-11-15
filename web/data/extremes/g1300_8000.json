@@ -1,0 +1,319 @@
+{
+ "id": "g1300_8000",
+ "lat": 13,
+ "lon": 80,
+ "neighbours": 14,
+ "years": [
+  2001,
+  2024
+ ],
+ "rain": {
+  "rx1": {
+   "median_annual_max_mm": 102,
+   "levels": {
+    "10": {
+     "mm": 189,
+     "range": [
+      153,
+      223
+     ]
+    },
+    "25": {
+     "mm": 245,
+     "range": [
+      188,
+      286
+     ]
+    },
+    "50": {
+     "mm": 294,
+     "range": [
+      216,
+      340
+     ]
+    },
+    "100": {
+     "mm": 349,
+     "range": [
+      247,
+      399
+     ]
+    }
+   },
+   "gev": [
+    -0.1878,
+    0.8808,
+    0.3486
+   ],
+   "record": {
+    "year": 2005,
+    "mm": 320,
+    "return_period_yr": 70.4,
+    "beyond_record": false,
+    "label": "about 1-in-70",
+    "date": "2005-12-02"
+   }
+  },
+  "rx3": {
+   "median_annual_max_mm": 186,
+   "levels": {
+    "10": {
+     "mm": 330,
+     "range": [
+      277,
+      378
+     ]
+    },
+    "25": {
+     "mm": 409,
+     "range": [
+      330,
+      483
+     ]
+    },
+    "50": {
+     "mm": 474,
+     "range": [
+      368,
+      569
+     ]
+    },
+    "100": {
+     "mm": 543,
+     "range": [
+      400,
+      680
+     ]
+    }
+   },
+   "gev": [
+    -0.1108,
+    0.924,
+    0.3337
+   ],
+   "record": {
+    "year": 2005,
+    "mm": 501,
+    "return_period_yr": 66.0,
+    "beyond_record": false,
+    "label": "about 1-in-66",
+    "date": null
+   }
+  },
+  "rx5": {
+   "median_annual_max_mm": 208,
+   "levels": {
+    "10": {
+     "mm": 346,
+     "range": [
+      294,
+      397
+     ]
+    },
+    "25": {
+     "mm": 419,
+     "range": [
+      346,
+      485
+     ]
+    },
+    "50": {
+     "mm": 478,
+     "range": [
+      384,
+      563
+     ]
+    },
+    "100": {
+     "mm": 538,
+     "range": [
+      416,
+      648
+     ]
+    }
+   },
+   "gev": [
+    -0.0746,
+    0.9153,
+    0.3057
+   ],
+   "record": {
+    "year": 2005,
+    "mm": 546,
+    "return_period_yr": 108.2,
+    "beyond_record": true,
+    "label": "rarer than 1-in-100 (beyond what 24 years can pin down)",
+    "date": null
+   }
+  }
+ },
+ "drought": {
+  "normal_ne_mm": 711,
+  "levels": {
+   "10": {
+    "mm": 356,
+    "pct_of_normal": 50,
+    "range": [
+     282,
+     456
+    ]
+   },
+   "25": {
+    "mm": 274,
+    "pct_of_normal": 39,
+    "range": [
+     207,
+     376
+    ]
+   },
+   "50": {
+    "mm": 229,
+    "pct_of_normal": 32,
+    "range": [
+     164,
+     333
+    ]
+   },
+   "100": {
+    "mm": 193,
+    "pct_of_normal": 27,
+    "range": [
+     130,
+     297
+    ]
+   }
+  },
+  "gamma": [
+   5.3476,
+   0,
+   0.187
+  ],
+  "record": {
+   "year": 2016,
+   "mm": 235,
+   "pct_of_normal": 33,
+   "return_period_yr": 13.9,
+   "beyond_record": false,
+   "label": "about 1-in-14 (9th driest Oct-Dec since 1901, IMD)",
+   "label_24yr": "about 1-in-50",
+   "return_period_24yr": 44.9,
+   "rank_since_1901": 9
+  },
+  "levels_124yr": {
+   "10": {
+    "mm": 223,
+    "pct_of_normal": 46
+   },
+   "25": {
+    "mm": 165,
+    "pct_of_normal": 34
+   },
+   "50": {
+    "mm": 135,
+    "pct_of_normal": 28
+   },
+   "100": {
+    "mm": 111,
+    "pct_of_normal": 23
+   }
+  }
+ },
+ "lifetime_chance": {
+  "1_in_10": 0.96,
+  "1_in_25": 0.71,
+  "1_in_50": 0.45,
+  "1_in_100": 0.26
+ },
+ "lifetime_years": 30,
+ "long_record": {
+  "source": "IMD Pune 1.0 x 1.0 deg daily gridded rainfall (Rajeevan et al. 2008), https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_1_NetCDF.html",
+  "cell": "12.5_79.5",
+  "years": [
+   1901,
+   2024
+  ],
+  "drought": {
+   "normal_ne_mm": 484,
+   "levels": {
+    "10": {
+     "mm": 223,
+     "pct_of_normal": 46
+    },
+    "25": {
+     "mm": 165,
+     "pct_of_normal": 34
+    },
+    "50": {
+     "mm": 135,
+     "pct_of_normal": 28
+    },
+    "100": {
+     "mm": 111,
+     "pct_of_normal": 23
+    }
+   },
+   "driest": [
+    {
+     "year": 1909,
+     "pct_of_normal": 14
+    },
+    {
+     "year": 2003,
+     "pct_of_normal": 16
+    },
+    {
+     "year": 2002,
+     "pct_of_normal": 16
+    },
+    {
+     "year": 1938,
+     "pct_of_normal": 17
+    },
+    {
+     "year": 2014,
+     "pct_of_normal": 33
+    }
+   ],
+   "rank_2016": 9,
+   "return_period_2016_yr": 13.9,
+   "imerg_24yr_100yr_pct": 27
+  },
+  "rain_1day_cell": {
+   "note": "1-deg cell average: lower than point rain; compare shapes, not levels",
+   "levels_mm": {
+    "10": 154,
+    "25": 199,
+    "50": 237,
+    "100": 279
+   },
+   "wettest": [
+    {
+     "year": 1965,
+     "mm": 430
+    },
+    {
+     "year": 1985,
+     "mm": 276
+    },
+    {
+     "year": 1912,
+     "mm": 242
+    },
+    {
+     "year": 1905,
+     "mm": 217
+    },
+    {
+     "year": 1930,
+     "mm": 213
+    }
+   ],
+   "gev_shape": -0.173,
+   "imerg_pooled_shape": -0.1878
+  },
+  "change": {
+   "deficient_share_1901_1962": 0.34,
+   "deficient_share_1963_2024": 0.34
+  }
+ }
+}

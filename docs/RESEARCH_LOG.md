@@ -742,6 +742,42 @@ pattern risky?"*
   regional storage change, not well levels; it can't replace CGWB well data.
 - **New statewide layer:** "Groundwater trend 2003–2024" (−0.19 to +0.37 cm/yr).
 
+### I-38 · The statewide grid goes from 0.5° (47 places) to 0.25° (185 places) (user request)
+- **Design:**
+  - Cells are centred on multiples of 0.25°, so every old 0.5° point (x.25 / x.75) is part of the new grid. Old ids,
+    district links, backtest targets and results keep working, and the 47 old files are byte-identical (checked).
+  - Only the 138 new points were built (`build_grid.py --step 0.25` skips existing files).
+- **New points got every layer the old ones had:**
+  - **NASA POWER weather and soil.** SoilGrids was timing out, so soil is filled one request at a time by
+    `fill_soil.py`; until filled, a place uses the engine's default soil buffer.
+  - **IMERG daily rain** (monthly rain, dry spells, monsoon onsets, annual maxima), computed in one browser pass.
+    It gave identical numbers to the stored values for an existing point, so the definitions match.
+  - **Canal index and Mettur dam season:** 24 delta places now, up from 9.
+  - **Tamil names:** added Cuddalore, Coimbatore, Thoothukudi and Tiruvarur.
+  - **GRACE groundwater:** 221 unique 0.25° cells, averaged around each point.
+  - **POWER wind, cyclone passes, 1-in-100 extremes and the IMD 124-year check.**
+  - **NEX-GDDP projections, 5 models.** `fetch_nex_grid.py` now keeps whole Tamil Nadu boxes (all cells, ~0.5 GB,
+    outside the repo), so any future grid can be cut without re-downloading. The old point beside Thanjavur gives
+    the same projection as before.
+- **Problems along the way:**
+  - A network/DNS outage on this machine dropped 23 grid builds and 92 projection files; both were resumed.
+  - The new IMERG entries stored coordinates as text, which broke `merge_imerg`; fixed and the chain re-run in
+    order.
+- **Results are consistent with the 0.5° grid:**
+  - 1-in-100 day of rain 124–426 mm (median 179).
+  - 2016 a median 4th driest since 1901.
+  - Groundwater falling most in the delta (Thanjavur and Tiruvarur, −0.2 cm/yr).
+  - Rain-fed top pick spread: cowpea 34%, foxtail 17%, little millet 14%, green gram 14%, pearl millet 10% (cowpea
+    held 30% on the old grid).
+- **What gains detail and what doesn't:**
+  - **Gains detail:** the layers built on IMERG rain (0.1°), NEX-GDDP (0.25°), GLDAS (0.25°) and soil (250 m).
+  - **Stays coarse:** NASA POWER temperature, ET0 and wind stay at ~0.5°. The 124-year IMD drought layer stays at
+    1° (it looks blocky on the map, which is honest).
+- **Page weight:** the map pages now load ~20 MB of grid files. `web/data/grid/summary.json` (72 KB) holds just
+  the fields the Policy map colours by, so Lane B can draw from it and fetch a full file only on click.
+- **Districts:** new points take their district from the nearest district HQ (`statewide_risk.py`). District
+  crop-area aggregates still use the original representative points.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

@@ -71,18 +71,20 @@ def nearest_town(lat: float, lon: float) -> tuple[str, float]:
     return best[0], km
 
 
-def grid_points() -> list[dict]:
+def grid_points(step: float = STEP) -> list[dict]:
+    """Cell centres on multiples of `step` inside the outline. 0.25 deg contains every 0.5 deg point (x.25 / x.75),
+    so ids stay stable when the grid is refined (RESEARCH_LOG I-38)."""
     pts = []
-    lat = 8.25
-    while lat <= 13.25 + 1e-9:
-        lon = 76.75
-        while lon <= 80.25 + 1e-9:
+    lat = 8.25 if step == 0.5 else 8.0
+    while lat <= 13.5 + 1e-9:
+        lon = 76.75 if step == 0.5 else 76.25
+        while lon <= 80.5 + 1e-9:
             if inside(lon, lat):
                 town, km = nearest_town(lat, lon)
                 pid = f"g{round(lat * 100):04d}_{round(lon * 100):04d}"
                 pts.append({"id": pid, "name": f"near {town} ({km:.0f} km)", "lat": round(lat, 2), "lon": round(lon, 2)})
-            lon += STEP
-        lat += STEP
+            lon += step
+        lat += step
     return pts
 
 
@@ -98,8 +100,9 @@ def main() -> None:
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--start", type=int, default=2001)
     ap.add_argument("--end", type=int, default=2024)
+    ap.add_argument("--step", type=float, default=STEP, help="cell size in degrees (0.5 or 0.25)")
     a = ap.parse_args()
-    pts = grid_points()
+    pts = grid_points(a.step)
     print(f"{len(pts)} grid points inside Tamil Nadu")
     if a.list:
         for p in pts:
@@ -112,9 +115,12 @@ def main() -> None:
         w.writerow(["id", "lat", "lon", "name"])
         for p in pts:
             w.writerow([p["id"], p["lat"], p["lon"], p["name"]])
-    done = []
+    # never rebuild a point that already has a file: those carry IMERG, dry spells, canal/dam, groundwater, ...
+    done = [p for p in pts if (GRID_DIR / f"{p['id']}.json").exists()]
+    todo = [p for p in pts if not (GRID_DIR / f"{p['id']}.json").exists()]
+    print(f"{len(done)} already built, {len(todo)} to build", flush=True)
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
-        futs = {ex.submit(build_one, p, a.start, a.end): p for p in pts}
+        futs = {ex.submit(build_one, p, a.start, a.end): p for p in todo}
         for fut in as_completed(futs):
             p = futs[fut]
             try:
@@ -124,7 +130,7 @@ def main() -> None:
                 print("FAIL", p["id"], repr(e)[:200], flush=True)
     done.sort(key=lambda p: (p["lat"], p["lon"]))
     # object form (Lane B's proposal in IDEAS.md): cell_deg lets the map draw square cells
-    (GRID_DIR / "index.json").write_text(json.dumps({"cell_deg": STEP, "points": done}, indent=1))
+    (GRID_DIR / "index.json").write_text(json.dumps({"cell_deg": a.step, "points": done}, indent=1))
     print(f"Wrote {len(done)}/{len(pts)} points to {GRID_DIR}")
 
 

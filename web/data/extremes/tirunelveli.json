@@ -2,7 +2,7 @@
  "id": "tirunelveli",
  "lat": 8.7,
  "lon": 77.75,
- "neighbours": 5,
+ "neighbours": 17,
  "years": [
   2001,
   2024
@@ -12,45 +12,45 @@
    "median_annual_max_mm": 61,
    "levels": {
     "10": {
-     "mm": 93,
+     "mm": 91,
      "range": [
-      84,
-      102
+      83,
+      97
      ]
     },
     "25": {
-     "mm": 110,
+     "mm": 104,
      "range": [
-      97,
-      120
+      96,
+      111
      ]
     },
     "50": {
-     "mm": 124,
+     "mm": 114,
      "range": [
-      107,
-      136
+      104,
+      121
      ]
     },
     "100": {
-     "mm": 138,
+     "mm": 124,
      "range": [
-      115,
-      154
+      111,
+      131
      ]
     }
    },
    "gev": [
-    -0.0666,
-    0.9082,
-    0.2509
+    0.0351,
+    0.9122,
+    0.2607
    ],
    "record": {
     "year": 2023,
     "mm": 124,
-    "return_period_yr": 49.7,
-    "beyond_record": false,
-    "label": "about 1-in-50",
+    "return_period_yr": 102.1,
+    "beyond_record": true,
+    "label": "rarer than 1-in-100 (beyond what 24 years can pin down)",
     "date": "2023-12-17",
     "rank_since_1901": 1,
     "note": "wettest day in the 1901-2024 IMD record for this area; satellite rain under-reads it"
@@ -60,45 +60,45 @@
    "median_annual_max_mm": 114,
    "levels": {
     "10": {
-     "mm": 157,
+     "mm": 155,
      "range": [
       142,
-      168
+      163
      ]
     },
     "25": {
-     "mm": 175,
+     "mm": 171,
      "range": [
-      157,
-      187
+      158,
+      180
      ]
     },
     "50": {
-     "mm": 187,
+     "mm": 182,
      "range": [
       167,
-      201
+      191
      ]
     },
     "100": {
-     "mm": 198,
+     "mm": 191,
      "range": [
-      174,
-      214
+      175,
+      202
      ]
     }
    },
    "gev": [
-    0.138,
-    0.9102,
-    0.2436
+    0.1774,
+    0.9107,
+    0.245
    ],
    "record": {
     "year": 2017,
     "mm": 186,
-    "return_period_yr": 48.8,
+    "return_period_yr": 70.5,
     "beyond_record": false,
-    "label": "about 1-in-50",
+    "label": "about 1-in-71",
     "date": null
    }
   },
@@ -106,43 +106,43 @@
    "median_annual_max_mm": 133,
    "levels": {
     "10": {
-     "mm": 189,
+     "mm": 188,
      "range": [
-      170,
-      203
+      169,
+      204
      ]
     },
     "25": {
      "mm": 213,
      "range": [
-      189,
-      226
+      188,
+      228
      ]
     },
     "50": {
      "mm": 230,
      "range": [
-      203,
-      242
+      201,
+      248
      ]
     },
     "100": {
-     "mm": 245,
+     "mm": 246,
      "range": [
-      216,
-      261
+      213,
+      268
      ]
     }
    },
    "gev": [
-    0.0873,
-    0.9228,
-    0.2429
+    0.0765,
+    0.9226,
+    0.2375
    ],
    "record": {
     "year": 2008,
     "mm": 209,
-    "return_period_yr": 21.3,
+    "return_period_yr": 21.8,
     "beyond_record": false,
     "label": "about 1-in-25",
     "date": null
@@ -153,42 +153,42 @@
   "normal_ne_mm": 515,
   "levels": {
    "10": {
-    "mm": 338,
+    "mm": 340,
     "pct_of_normal": 66,
     "range": [
-     283,
-     398
+     287,
+     400
     ]
    },
    "25": {
-    "mm": 288,
-    "pct_of_normal": 56,
+    "mm": 291,
+    "pct_of_normal": 57,
     "range": [
-     231,
-     354
+     237,
+     356
     ]
    },
    "50": {
-    "mm": 259,
-    "pct_of_normal": 50,
+    "mm": 263,
+    "pct_of_normal": 51,
     "range": [
-     203,
-     329
+     208,
+     331
     ]
    },
    "100": {
-    "mm": 235,
+    "mm": 239,
     "pct_of_normal": 46,
     "range": [
-     178,
-     308
+     183,
+     309
     ]
    }
   },
   "gamma": [
-   12.2176,
+   12.6097,
    0,
-   0.0818
+   0.0793
   ],
   "record": {
    "year": 2016,
@@ -198,7 +198,7 @@
    "beyond_record": false,
    "label": "about 1-in-31 (4th driest Oct-Dec since 1901, IMD)",
    "label_24yr": "rarer than 1-in-100 (beyond what 24 years can pin down)",
-   "return_period_24yr": 166.0,
+   "return_period_24yr": 187.7,
    "rank_since_1901": 4
   },
   "levels_124yr": {
@@ -234,14 +234,14 @@
     2060
    ],
    "todays_100yr_rain_becomes_1_in": [
-    53,
-    68,
-    75
+    45,
+    61,
+    71
    ],
    "todays_100yr_drought_becomes_1_in": [
-    72,
-    110,
-    1028
+    70,
+    108,
+    1060
    ],
    "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
   },
@@ -251,14 +251,14 @@
     2060
    ],
    "todays_100yr_rain_becomes_1_in": [
-    49,
-    60,
-    75
+    41,
+    52,
+    70
    ],
    "todays_100yr_drought_becomes_1_in": [
-    90,
-    583,
-    822
+    88,
+    594,
+    844
    ],
    "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
   }
@@ -347,7 +347,7 @@
     }
    ],
    "gev_shape": -0.223,
-   "imerg_pooled_shape": -0.0666
+   "imerg_pooled_shape": 0.0351
   },
   "change": {
    "deficient_share_1901_1962": 0.37,

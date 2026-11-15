@@ -2,7 +2,7 @@
  "id": "g1175_7875",
  "lat": 11.75,
  "lon": 78.75,
- "neighbours": 5,
+ "neighbours": 21,
  "years": [
   2001,
   2024
@@ -15,42 +15,42 @@
      "mm": 118,
      "range": [
       104,
-      131
+      129
      ]
     },
     "25": {
      "mm": 140,
      "range": [
-      120,
-      157
+      123,
+      153
      ]
     },
     "50": {
      "mm": 156,
      "range": [
-      129,
-      177
+      136,
+      171
      ]
     },
     "100": {
-     "mm": 172,
+     "mm": 171,
      "range": [
-      137,
-      200
+      147,
+      190
      ]
     }
    },
    "gev": [
-    0.021,
-    0.8615,
-    0.3339
+    0.0263,
+    0.8657,
+    0.3346
    ],
    "record": {
     "year": 2005,
     "mm": 146,
-    "return_period_yr": 32.2,
+    "return_period_yr": 32.5,
     "beyond_record": false,
-    "label": "about 1-in-32",
+    "label": "about 1-in-33",
     "date": "2005-11-23"
    }
   },
@@ -58,45 +58,45 @@
    "median_annual_max_mm": 111,
    "levels": {
     "10": {
-     "mm": 185,
+     "mm": 184,
      "range": [
-      155,
-      214
+      157,
+      211
      ]
     },
     "25": {
-     "mm": 231,
+     "mm": 226,
      "range": [
-      185,
-      268
+      183,
+      259
      ]
     },
     "50": {
-     "mm": 270,
+     "mm": 262,
      "range": [
       205,
-      318
+      303
      ]
     },
     "100": {
-     "mm": 313,
+     "mm": 300,
      "range": [
-      228,
-      373
+      226,
+      350
      ]
     }
    },
    "gev": [
-    -0.1579,
-    0.9024,
-    0.2815
+    -0.1321,
+    0.9088,
+    0.282
    ],
    "record": {
     "year": 2005,
     "mm": 248,
-    "return_period_yr": 33.9,
+    "return_period_yr": 38.2,
     "beyond_record": false,
-    "label": "about 1-in-34",
+    "label": "about 1-in-50",
     "date": null
    }
   },
@@ -104,45 +104,45 @@
    "median_annual_max_mm": 132,
    "levels": {
     "10": {
-     "mm": 211,
+     "mm": 210,
      "range": [
-      174,
-      255
+      176,
+      250
      ]
     },
     "25": {
-     "mm": 264,
+     "mm": 258,
      "range": [
-      198,
-      327
+      199,
+      311
      ]
     },
     "50": {
-     "mm": 310,
+     "mm": 299,
      "range": [
-      214,
-      389
+      216,
+      368
      ]
     },
     "100": {
-     "mm": 363,
+     "mm": 344,
      "range": [
-      229,
-      475
+      232,
+      439
      ]
     }
    },
    "gev": [
-    -0.1974,
-    0.8923,
-    0.2484
+    -0.1526,
+    0.9018,
+    0.2556
    ],
    "record": {
     "year": 2008,
     "mm": 335,
-    "return_period_yr": 69.8,
+    "return_period_yr": 87.6,
     "beyond_record": false,
-    "label": "about 1-in-70",
+    "label": "about 1-in-100",
     "date": null
    }
   }
@@ -151,42 +151,42 @@
   "normal_ne_mm": 465,
   "levels": {
    "10": {
-    "mm": 241,
-    "pct_of_normal": 52,
+    "mm": 239,
+    "pct_of_normal": 51,
     "range": [
-     182,
-     310
+     180,
+     309
     ]
    },
    "25": {
-    "mm": 188,
+    "mm": 186,
     "pct_of_normal": 40,
     "range": [
-     132,
-     262
+     130,
+     258
     ]
    },
    "50": {
-    "mm": 158,
+    "mm": 156,
     "pct_of_normal": 34,
     "range": [
-     106,
-     232
+     104,
+     231
     ]
    },
    "100": {
-    "mm": 135,
+    "mm": 133,
     "pct_of_normal": 29,
     "range": [
-     85,
-     209
+     83,
+     205
     ]
    }
   },
   "gamma": [
-   5.8187,
+   5.6995,
    0,
-   0.1719
+   0.1755
   ],
   "record": {
    "year": 2016,
@@ -196,7 +196,7 @@
    "beyond_record": false,
    "label": "about 1-in-125 (1st driest Oct-Dec since 1901, IMD)",
    "label_24yr": "rarer than 1-in-100 (beyond what 24 years can pin down)",
-   "return_period_24yr": 177.2,
+   "return_period_24yr": 163.1,
    "rank_since_1901": 1
   },
   "levels_124yr": {
@@ -225,6 +225,42 @@
   "1_in_100": 0.26
  },
  "lifetime_years": 30,
+ "future": {
+  "ssp245": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    44,
+    63,
+    79
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    47,
+    98,
+    223
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  },
+  "ssp585": {
+   "period": [
+    2041,
+    2060
+   ],
+   "todays_100yr_rain_becomes_1_in": [
+    41,
+    55,
+    84
+   ],
+   "todays_100yr_drought_becomes_1_in": [
+    82,
+    213,
+    460
+   ],
+   "note": "[min, median, max] across 5 CMIP6 models; rain extremes scaled 7%/degC, NE totals by projected NE-rain change"
+  }
+ },
  "long_record": {
   "source": "IMD Pune 1.0 x 1.0 deg daily gridded rainfall (Rajeevan et al. 2008), https://www.imdpune.gov.in/cmpg/Griddata/Rainfall_1_NetCDF.html",
   "cell": "11.5_78.5",
@@ -309,7 +345,7 @@
     }
    ],
    "gev_shape": 0.006,
-   "imerg_pooled_shape": 0.021
+   "imerg_pooled_shape": 0.0263
   },
   "change": {
    "deficient_share_1901_1962": 0.31,

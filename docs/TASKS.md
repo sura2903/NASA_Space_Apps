@@ -36,6 +36,7 @@ Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 | A22 | **Seasonal canal/tank water from dam state** (user request): canal water per season depends on whether and when the dam opens and its storage at sowing: Mettur (delta: normal opening 12 Jun, closing 28 Jan), Papanasam/Manimuthar (Thamirabarani), Vaigai/Periyar (Madurai). Plan: (1) per-season canal budget in the engine (Kuruvai needs Mettur open by ~mid-June; Samba/Thaladi depend on Aug–Oct storage), (2) historical dam data per year (have Mettur opening dates/releases in `pipeline/data/mettur_releases.json`; add others from TN WRD / India-WRIS / CWC reservoir bulletins), (3) a "dam opened on time / late / not yet" input for this season, since I-18 found the opening date isn't predictable from June information | ✅ delta (Mettur, `damCheck()`, RESEARCH_LOG I-29); Papanasam / Vaigai data ⬜ |
 | A23 | **Storage / perishability factor** (user request, IDEAS I28): `storage` field per crop + "Can store and sell later" priority; combine with prices (E3) later | ✅ engine + data (RESEARCH_LOG I-32); UI slider ⬜ (Lane B); prices ⬜ |
 | A24 | **Pest and disease resistance (IDEAS I29, user request):** weather-driven pest/disease risk per crop from NASA POWER humidity and temperature, plus resistant varieties from the TN crop guides | ⬜ planned |
+| A25 | **0.25° statewide grid** (185 places, user request): every layer rebuilt, `summary.json` for light map pages | ✅ (soil fill finishing) |
 
 ## Lane B: Nimalan (web app + story)
 Owns: `web/` except `web/data/` and `web/js/scoring.js`. Start from
