@@ -1,5 +1,5 @@
 // B2 + B6 inputs: current rotation editor, water source, priority sliders, climate shift.
-import { WATER_SOURCES, PRIORITIES } from "../scoring.js";
+import { WATER_SOURCES, PRIORITIES, EXTRA_PRIORITIES } from "../scoring.js";
 import { h, clear, signed } from "./dom.js";
 import { term } from "./glossary.js";
 import { t, cropName, monthName, prioLabel, waterLabel } from "../i18n.js";
@@ -93,12 +93,13 @@ const PRIORITY_TERMS = { nitrogen: "nitrogen_fix" };
 export function renderPriorities(el, { weights, onChange }) {
   clear(el);
   const words = t("levels");
-  for (const [k, enLabel] of Object.entries(PRIORITIES)) {
+  // EXTRA_PRIORITIES (e.g. "Can store and sell later", a market preference) start at 0 = not counted
+  for (const [k, enLabel] of Object.entries({ ...PRIORITIES, ...EXTRA_PRIORITIES })) {
     const label = prioLabel(k, enLabel);
-    const out = h("output", { class: "lvl" }, words[weights[k]] ?? weights[k]);
+    const out = h("output", { class: "lvl" }, words[weights[k] ?? 0] ?? weights[k]);
     const input = h("input", {
       type: "range", min: 0, max: 5, step: 1, value: weights[k] ?? 0, id: `w-${k}`,
-      "aria-valuetext": words[weights[k]],
+      "aria-valuetext": words[weights[k] ?? 0],
       oninput: (e) => {
         const v = Number(e.target.value);
         out.textContent = words[v];

@@ -65,6 +65,7 @@
         <div id="rot-issues"></div>
         <h3 data-i18n="step.water">Water for the field</h3>
         <div id="water" class="choices" role="radiogroup" aria-label="Water source"></div>
+        <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.water"></p></aside>
       </section>
 
       <!-- optional fine-tuning: folded so first-time users see only the 2 essential steps -->
@@ -81,6 +82,9 @@
     </aside>
 
     <div class="results">
+      <!-- the farmer's own crops, ranked for the season they sow in (ui/mycrops.js) -->
+      <section class="panel mycrops" id="mycrops" aria-labelledby="mc-title"></section>
+
       <!-- the main answer first -->
       <section class="panel" aria-labelledby="opts-title">
         <div class="panel-head">
@@ -103,6 +107,7 @@
           <button type="button" id="print" class="btn" data-i18n="print">🖨 Print for my agriculture officer</button>
         </div>
         <p class="note support" data-i18n="opts.support"></p>
+        <aside class="ask-local"><strong><span aria-hidden="true">👤 </span><span data-i18n="ask.h">Ask locally</span></strong><p data-i18n="ask.opts"></p></aside>
       </section>
 
       <!-- more detail, one tap away -->
@@ -155,7 +160,7 @@
       <details class="panel fold about">
         <summary>
           <span class="fold-title"><span class="eyebrow" data-i18n="fold.about.eyebrow">About this tool</span>
-          <span class="fold-h" id="gloss-title" data-i18n="fold.about">Words used here, honest limits and data sources</span></span>
+          <span class="fold-h" id="gloss-title" data-i18n="fold.about">Words used here, honest limits, data sources and future work</span></span>
         </summary>
         <h2 data-i18n="gloss.title">Words used here</h2>
         <dl id="glossary-list" class="glossary"></dl>
@@ -167,6 +172,12 @@
           <li data-i18n="limits.4"></li>
         </ul>
         <p class="note" id="data-sources"></p>
+        <h2 data-i18n="future.title">Future work</h2>
+        <ul class="limits future">
+          <li data-i18n="future.1"></li>
+          <li data-i18n="future.2"></li>
+          <li data-i18n="future.3"></li>
+        </ul>
       </details>
     </div>
   </main>

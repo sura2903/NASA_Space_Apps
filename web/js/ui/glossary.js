@@ -15,7 +15,7 @@ export const GLOSSARY = {
   },
   ne_monsoon: {
     term: "Northeast monsoon",
-    def: "The October to December rains. It is the main rainy season for most of Tamil Nadu and fills the village tanks, but it changes a lot from year to year.",
+    def: "The October to December rains. It is the main rainy season for most of Tamil Nadu and fills village lakes and ponds, but it changes a lot from year to year.",
     match: /north-?east monsoon/i,
   },
   heavy_rain: {
@@ -125,10 +125,11 @@ export function term(id, label) {
 export function initTooltips() {
   const tip = h("div", { id: "tip", role: "tooltip", class: "tip", hidden: true });
   document.body.append(tip);
-  let current = null;
+  let current = null, shownAt = 0, touchAt = 0;
   const show = (el) => {
     const g = GLOSSARY[el.dataset.term] && entry(el.dataset.term);
     if (!g) return;
+    if (current !== el || tip.hidden) shownAt = Date.now();
     current = el;
     tip.innerHTML = `<strong>${esc(g.term)}</strong><span>${esc(g.def)}</span>`;
     tip.hidden = false;
@@ -142,13 +143,17 @@ export function initTooltips() {
   };
   const hide = () => { tip.hidden = true; current = null; };
   const termOf = (e) => e.target.closest?.(".term");
-  document.addEventListener("mouseover", (e) => { const t = termOf(e); if (t) show(t); });
-  document.addEventListener("mouseout", (e) => { if (termOf(e)) hide(); });
+  // A tap on a phone also fires mouseover/focus just before the click; without these guards the click then
+  // toggled the tip straight back off, so tapping a word never showed its meaning.
+  const viaTouch = () => Date.now() - touchAt < 800;
+  document.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") touchAt = Date.now(); }, true);
+  document.addEventListener("mouseover", (e) => { const t = termOf(e); if (t && !viaTouch()) show(t); });
+  document.addEventListener("mouseout", (e) => { if (termOf(e) && !viaTouch()) hide(); });
   document.addEventListener("focusin", (e) => { const t = termOf(e); if (t) show(t); });
   document.addEventListener("focusout", (e) => { if (termOf(e)) hide(); });
   document.addEventListener("click", (e) => {
     const t = termOf(e);
-    if (t) { e.preventDefault(); current === t && !tip.hidden ? hide() : show(t); }
+    if (t) { e.preventDefault(); current === t && !tip.hidden && Date.now() - shownAt > 400 ? hide() : show(t); }
     else if (!e.target.closest(".tip")) hide();
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") hide(); });
