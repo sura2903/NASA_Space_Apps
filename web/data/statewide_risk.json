@@ -74,16 +74,22 @@
    "label": "Extra very hot days by 2041-60 (SSP2-4.5)",
    "unit": "per year",
    "worse": "high",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    0.0,
+    21.0
+   ]
   },
   {
    "key": "future.ssp245.ne_rain_change_pct",
    "label": "NE-monsoon change by 2041-60 (SSP2-4.5)",
    "unit": "%",
    "worse": "low",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    -10.4,
+    10.2
+   ]
   },
   {
    "key": "engine.tank.rice_long.share",
@@ -101,8 +107,11 @@
    "label": "Rain-fed long rice by 2041-60 (seasons of 24)",
    "unit": "of 24",
    "worse": "low",
-   "available": 0,
-   "range": null
+   "available": 47,
+   "range": [
+    0,
+    9
+   ]
   }
  ],
  "points": [
@@ -141,7 +150,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.93,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -10.9,
+      25.4
+     ],
+     "rain_change_pct": 9.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.23,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 20.5,
+     "ne_rain_change_range": [
+      -8.6,
+      32.0
+     ],
+     "rain_change_pct": 11.6
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -253,7 +287,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 17,
+        "median": 18,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 18,
+        "median": 18,
+        "max": 18
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -368,7 +436,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 11,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       }
+      }
+     }
     }
    }
   },
@@ -407,7 +509,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 1.9,
+     "ne_rain_change_range": [
+      -0.4,
+      35.9
+     ],
+     "rain_change_pct": 11.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.27,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 26.1,
+     "ne_rain_change_range": [
+      0.8,
+      35.8
+     ],
+     "rain_change_pct": 14.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -490,7 +617,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 8
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -573,7 +734,41 @@
        "rice_short"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -612,7 +807,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.94,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 0.5,
+     "ne_rain_change_range": [
+      -4.2,
+      37.0
+     ],
+     "rain_change_pct": 5.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.23,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 26.9,
+     "ne_rain_change_range": [
+      -1.7,
+      33.9
+     ],
+     "rain_change_pct": 13.6
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -696,7 +916,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 3
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -778,7 +1032,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 13,
+        "median": 14,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -817,7 +1105,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.99,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": -1.6,
+     "ne_rain_change_range": [
+      -6.2,
+      25.7
+     ],
+     "rain_change_pct": 9.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.3,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": 25.5,
+     "ne_rain_change_range": [
+      0.1,
+      30.6
+     ],
+     "rain_change_pct": 11.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -894,7 +1207,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -976,7 +1323,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 17,
+        "median": 22,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "sugarcane",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 14,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 17,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     }
    }
   },
@@ -1015,7 +1396,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 0.7,
+     "ne_rain_change_pct": -0.6,
+     "ne_rain_change_range": [
+      -5.4,
+      32.8
+     ],
+     "rain_change_pct": 5.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 1.2,
+     "ne_rain_change_pct": 26.3,
+     "ne_rain_change_range": [
+      -3.3,
+      37.2
+     ],
+     "rain_change_pct": 12.5
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1090,7 +1496,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1173,7 +1613,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 11,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 15,
+        "median": 18,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -1212,7 +1686,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 0.4,
+     "ne_rain_change_pct": 0.0,
+     "ne_rain_change_range": [
+      -8.8,
+      34.8
+     ],
+     "rain_change_pct": -0.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.16,
+     "hot_days_change": 1.2,
+     "ne_rain_change_pct": 23.6,
+     "ne_rain_change_range": [
+      -3.9,
+      40.9
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1294,7 +1793,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1376,7 +1909,41 @@
        "sesame"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 13,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -1415,7 +1982,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": -3.6,
+     "ne_rain_change_range": [
+      -11.2,
+      31.5
+     ],
+     "rain_change_pct": -3.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 1.3,
+     "ne_rain_change_pct": 19.5,
+     "ne_rain_change_range": [
+      -3.6,
+      35.7
+     ],
+     "rain_change_pct": 14.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1505,7 +2097,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1606,7 +2232,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 14,
+        "median": 16,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -1647,7 +2307,32 @@
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.8,
+     "hot_days_change": 0.8,
+     "ne_rain_change_pct": -10.4,
+     "ne_rain_change_range": [
+      -12.5,
+      28.5
+     ],
+     "rain_change_pct": -2.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.08,
+     "hot_days_change": 3.0,
+     "ne_rain_change_pct": 15.5,
+     "ne_rain_change_range": [
+      -6.5,
+      33.2
+     ],
+     "rain_change_pct": 16.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1753,7 +2438,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 3,
+        "median": 4,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 4,
+        "median": 12,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "proso_millet",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 19
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -1862,7 +2581,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 24
+       }
+      },
+      "top_crop": {
+       "crop": "rice_long",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -1901,7 +2654,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.98,
+     "hot_days_change": 0.0,
+     "ne_rain_change_pct": -3.3,
+     "ne_rain_change_range": [
+      -19.7,
+      20.3
+     ],
+     "rain_change_pct": 7.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.31,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 24.0,
+     "ne_rain_change_range": [
+      -17.3,
+      27.2
+     ],
+     "rain_change_pct": 10.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -1981,7 +2759,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 2,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2068,7 +2880,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 13,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "groundnut",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -2107,7 +2953,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.96,
+     "hot_days_change": 1.1,
+     "ne_rain_change_pct": -6.2,
+     "ne_rain_change_range": [
+      -16.0,
+      27.4
+     ],
+     "rain_change_pct": 5.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 3.2,
+     "ne_rain_change_pct": 24.0,
+     "ne_rain_change_range": [
+      -9.6,
+      35.7
+     ],
+     "rain_change_pct": 16.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2191,7 +3062,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2277,7 +3182,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 9,
+        "n": 24,
+        "min": 4,
+        "median": 10,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 9,
+        "n": 24,
+        "min": 8,
+        "median": 19,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -2316,7 +3255,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 3.8,
+     "ne_rain_change_pct": 0.3,
+     "ne_rain_change_range": [
+      -10.1,
+      32.4
+     ],
+     "rain_change_pct": 1.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.16,
+     "hot_days_change": 8.7,
+     "ne_rain_change_pct": 21.5,
+     "ne_rain_change_range": [
+      -4.7,
+      42.2
+     ],
+     "rain_change_pct": 19.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2395,7 +3359,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2478,7 +3476,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 11,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 11,
+        "median": 16,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -2517,7 +3549,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 4.9,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -13.2,
+      31.1
+     ],
+     "rain_change_pct": 5.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 9.2,
+     "ne_rain_change_pct": 22.1,
+     "ne_rain_change_range": [
+      -4.7,
+      40.7
+     ],
+     "rain_change_pct": 22.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2603,7 +3660,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 3,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2694,7 +3785,41 @@
        "sorghum"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -2733,7 +3858,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.93,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": -4.0,
+     "ne_rain_change_range": [
+      -12.6,
+      23.3
+     ],
+     "rain_change_pct": 7.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.29,
+     "hot_days_change": 0.1,
+     "ne_rain_change_pct": 23.8,
+     "ne_rain_change_range": [
+      -12.0,
+      31.7
+     ],
+     "rain_change_pct": 12.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -2817,7 +3967,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 4,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -2903,7 +4087,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 15,
+        "n": 24,
+        "min": 9,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 15,
+        "n": 24,
+        "min": 7,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -2942,7 +4160,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.95,
+     "hot_days_change": 0.7,
+     "ne_rain_change_pct": -8.1,
+     "ne_rain_change_range": [
+      -12.9,
+      25.0
+     ],
+     "rain_change_pct": 5.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.22,
+     "hot_days_change": 2.6,
+     "ne_rain_change_pct": 23.2,
+     "ne_rain_change_range": [
+      -6.6,
+      33.5
+     ],
+     "rain_change_pct": 16.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3026,7 +4269,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3111,7 +4388,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 9,
+        "n": 24,
+        "min": 4,
+        "median": 8,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 9,
+        "n": 24,
+        "min": 5,
+        "median": 15,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -3150,7 +4461,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 4.0,
+     "ne_rain_change_pct": 4.6,
+     "ne_rain_change_range": [
+      -11.6,
+      26.0
+     ],
+     "rain_change_pct": 4.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 9.1,
+     "ne_rain_change_pct": 20.4,
+     "ne_rain_change_range": [
+      -4.8,
+      36.6
+     ],
+     "rain_change_pct": 18.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3232,7 +4568,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 3
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3318,7 +4688,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 9,
+        "median": 10,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 13,
+        "median": 17,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -3357,7 +4761,32 @@
     "years_with_storm_day": 3,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 11.3,
+     "ne_rain_change_pct": 5.6,
+     "ne_rain_change_range": [
+      -14.9,
+      24.8
+     ],
+     "rain_change_pct": 6.6
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 15.4,
+     "ne_rain_change_pct": 25.9,
+     "ne_rain_change_range": [
+      -5.5,
+      38.3
+     ],
+     "rain_change_pct": 19.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3443,7 +4872,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3535,7 +4998,41 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 10,
+        "median": 18,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 13,
+        "median": 19,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -3574,7 +5071,32 @@
     "years_with_storm_day": 4,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 13.4,
+     "ne_rain_change_pct": -1.6,
+     "ne_rain_change_range": [
+      -15.5,
+      24.1
+     ],
+     "rain_change_pct": 3.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.14,
+     "hot_days_change": 20.6,
+     "ne_rain_change_pct": 14.7,
+     "ne_rain_change_range": [
+      -4.9,
+      30.7
+     ],
+     "rain_change_pct": 17.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3670,7 +5192,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 9,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3770,7 +5326,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 15,
+        "median": 17,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 17,
+        "median": 22,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -3809,7 +5399,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 15.2,
+     "ne_rain_change_pct": 2.4,
+     "ne_rain_change_range": [
+      -8.5,
+      32.0
+     ],
+     "rain_change_pct": 6.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.28,
+     "hot_days_change": 19.8,
+     "ne_rain_change_pct": 22.9,
+     "ne_rain_change_range": [
+      0.9,
+      36.5
+     ],
+     "rain_change_pct": 13.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -3894,7 +5509,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -3977,7 +5626,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 6,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 6,
+        "n": 24,
+        "min": 5,
+        "median": 14,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -4016,7 +5699,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 15.1,
+     "ne_rain_change_pct": -2.1,
+     "ne_rain_change_range": [
+      -10.3,
+      27.9
+     ],
+     "rain_change_pct": 6.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.21,
+     "hot_days_change": 19.9,
+     "ne_rain_change_pct": 21.8,
+     "ne_rain_change_range": [
+      -2.4,
+      36.3
+     ],
+     "rain_change_pct": 17.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4100,7 +5808,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 18,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4183,7 +5925,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 5,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 14,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -4222,7 +5998,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 16.6,
+     "ne_rain_change_pct": 10.2,
+     "ne_rain_change_range": [
+      -12.7,
+      22.2
+     ],
+     "rain_change_pct": 6.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.2,
+     "hot_days_change": 20.4,
+     "ne_rain_change_pct": 19.4,
+     "ne_rain_change_range": [
+      -4.6,
+      35.9
+     ],
+     "rain_change_pct": 15.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4309,7 +6110,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4395,7 +6230,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 8,
+        "n": 24,
+        "min": 6,
+        "median": 8,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 8,
+        "n": 24,
+        "min": 8,
+        "median": 15,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -4434,7 +6303,32 @@
     "years_with_storm_day": 2,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.9,
+     "ne_rain_change_pct": 7.8,
+     "ne_rain_change_range": [
+      -15.2,
+      20.0
+     ],
+     "rain_change_pct": 7.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 23.2,
+     "ne_rain_change_pct": 24.7,
+     "ne_rain_change_range": [
+      -5.7,
+      35.4
+     ],
+     "rain_change_pct": 19.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4516,7 +6410,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 3
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 6
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4602,7 +6530,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 10,
+        "n": 24,
+        "min": 8,
+        "median": 14,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 10,
+        "n": 24,
+        "min": 13,
+        "median": 18,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 19,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -4641,7 +6603,32 @@
     "years_with_storm_day": 5,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 18.2,
+     "ne_rain_change_pct": -2.6,
+     "ne_rain_change_range": [
+      -16.0,
+      25.7
+     ],
+     "rain_change_pct": 2.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 28.1,
+     "ne_rain_change_pct": 17.6,
+     "ne_rain_change_range": [
+      -5.2,
+      35.1
+     ],
+     "rain_change_pct": 16.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -4731,7 +6718,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 7,
+        "max": 10
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -4828,7 +6849,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 21,
+        "n": 24,
+        "min": 20,
+        "median": 21,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 21,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 21
+       }
+      }
+     }
     }
    }
   },
@@ -4869,7 +6924,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.92,
+     "hot_days_change": 17.5,
+     "ne_rain_change_pct": -9.3,
+     "ne_rain_change_range": [
+      -15.9,
+      24.8
+     ],
+     "rain_change_pct": -2.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 28.3,
+     "ne_rain_change_pct": 8.7,
+     "ne_rain_change_range": [
+      -3.4,
+      28.5
+     ],
+     "rain_change_pct": 13.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5000,7 +7080,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 7,
+        "median": 11,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 21,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5137,7 +7251,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "rice_long",
+       "ssp245": {
+        "today": 19,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 19,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -5176,7 +7324,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": 0.7,
+     "ne_rain_change_range": [
+      -11.4,
+      20.2
+     ],
+     "rain_change_pct": 10.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.34,
+     "hot_days_change": 0.2,
+     "ne_rain_change_pct": 20.1,
+     "ne_rain_change_range": [
+      5.3,
+      38.3
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5263,7 +7436,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 4,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5349,7 +7556,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 10,
+        "n": 24,
+        "min": 8,
+        "median": 13,
+        "max": 16
+       },
+       "ssp585": {
+        "today": 10,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -5388,7 +7629,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 19.1,
+     "ne_rain_change_pct": 3.6,
+     "ne_rain_change_range": [
+      -13.3,
+      28.0
+     ],
+     "rain_change_pct": 4.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.26,
+     "hot_days_change": 24.8,
+     "ne_rain_change_pct": 20.6,
+     "ne_rain_change_range": [
+      1.2,
+      36.9
+     ],
+     "rain_change_pct": 13.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5473,7 +7739,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5553,7 +7853,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 14,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -5592,7 +7926,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 19.7,
+     "ne_rain_change_pct": 7.5,
+     "ne_rain_change_range": [
+      -13.8,
+      24.1
+     ],
+     "rain_change_pct": 3.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 28.2,
+     "ne_rain_change_pct": 19.0,
+     "ne_rain_change_range": [
+      -2.1,
+      34.0
+     ],
+     "rain_change_pct": 15.3
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5673,7 +8032,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "kodo_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5753,7 +8146,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -5792,7 +8219,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 18.7,
+     "ne_rain_change_pct": 7.4,
+     "ne_rain_change_range": [
+      -14.9,
+      19.4
+     ],
+     "rain_change_pct": 4.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 22.2,
+     "ne_rain_change_pct": 24.4,
+     "ne_rain_change_range": [
+      -4.1,
+      32.7
+     ],
+     "rain_change_pct": 18.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -5876,7 +8328,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -5959,7 +8445,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 8,
+        "n": 24,
+        "min": 4,
+        "median": 9,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 8,
+        "n": 24,
+        "min": 9,
+        "median": 13,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "little_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -5998,7 +8518,32 @@
     "years_with_storm_day": 4,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.2,
+     "ne_rain_change_pct": 3.7,
+     "ne_rain_change_range": [
+      -15.6,
+      21.0
+     ],
+     "rain_change_pct": 3.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 22.2,
+     "ne_rain_change_pct": 21.5,
+     "ne_rain_change_range": [
+      -5.0,
+      37.9
+     ],
+     "rain_change_pct": 17.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6083,7 +8628,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 5
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 5,
+        "max": 8
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 15,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6170,7 +8749,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 7,
+        "median": 13,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 14,
+        "median": 19,
+        "max": 22
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 15,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -6211,7 +8824,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 17.8,
+     "ne_rain_change_pct": -4.0,
+     "ne_rain_change_range": [
+      -15.7,
+      23.5
+     ],
+     "rain_change_pct": 0.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.15,
+     "hot_days_change": 29.5,
+     "ne_rain_change_pct": 16.3,
+     "ne_rain_change_range": [
+      -3.9,
+      35.7
+     ],
+     "rain_change_pct": 17.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6309,7 +8947,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 0,
+        "median": 3,
+        "max": 11
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6413,7 +9085,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 10,
+        "median": 16,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 17,
+        "median": 19,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -6454,7 +9160,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.92,
+     "hot_days_change": 20.1,
+     "ne_rain_change_pct": -9.2,
+     "ne_rain_change_range": [
+      -15.2,
+      22.8
+     ],
+     "rain_change_pct": -1.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.12,
+     "hot_days_change": 29.8,
+     "ne_rain_change_pct": 12.8,
+     "ne_rain_change_range": [
+      -1.6,
+      29.5
+     ],
+     "rain_change_pct": 13.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6559,7 +9290,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 4,
+        "median": 6,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 8,
+        "median": 15,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6665,7 +9430,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 20,
+        "n": 24,
+        "min": 17,
+        "median": 17,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 20,
+        "n": 24,
+        "min": 20,
+        "median": 23,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "black_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -6704,7 +9503,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 1.7,
+     "ne_rain_change_pct": 5.8,
+     "ne_rain_change_range": [
+      -13.7,
+      25.9
+     ],
+     "rain_change_pct": 11.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.32,
+     "hot_days_change": 2.1,
+     "ne_rain_change_pct": 18.4,
+     "ne_rain_change_range": [
+      6.7,
+      37.9
+     ],
+     "rain_change_pct": 16.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6790,7 +9614,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -6877,7 +9735,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 7
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -6916,7 +9808,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 3.1,
+     "ne_rain_change_pct": 7.1,
+     "ne_rain_change_range": [
+      -16.9,
+      22.4
+     ],
+     "rain_change_pct": 5.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.24,
+     "hot_days_change": 8.0,
+     "ne_rain_change_pct": 20.1,
+     "ne_rain_change_range": [
+      2.1,
+      40.9
+     ],
+     "rain_change_pct": 16.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -6998,7 +9915,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 0
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7082,7 +10033,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 6,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 7,
+        "median": 9,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -7121,7 +10106,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.84,
+     "hot_days_change": 19.9,
+     "ne_rain_change_pct": 8.7,
+     "ne_rain_change_range": [
+      -17.0,
+      20.8
+     ],
+     "rain_change_pct": 6.7
+    },
+    "ssp585": {
+     "tmax_change_c": 1.18,
+     "hot_days_change": 25.5,
+     "ne_rain_change_pct": 22.4,
+     "ne_rain_change_range": [
+      -1.4,
+      34.0
+     ],
+     "rain_change_pct": 14.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7206,7 +10216,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7287,7 +10331,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 6
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 4,
+        "max": 5
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 21,
+        "median": 22,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -7326,7 +10404,32 @@
     "years_with_storm_day": 1,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.86,
+     "hot_days_change": 17.4,
+     "ne_rain_change_pct": 4.3,
+     "ne_rain_change_range": [
+      -16.9,
+      18.9
+     ],
+     "rain_change_pct": 9.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 20.3,
+     "ne_rain_change_pct": 21.3,
+     "ne_rain_change_range": [
+      -3.4,
+      32.0
+     ],
+     "rain_change_pct": 17.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7404,7 +10507,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 2
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7485,7 +10622,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 7,
+        "max": 14
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 9,
+        "median": 15,
+        "max": 16
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -7524,7 +10695,32 @@
     "years_with_storm_day": 2,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 14.5,
+     "ne_rain_change_pct": -0.3,
+     "ne_rain_change_range": [
+      -16.2,
+      19.9
+     ],
+     "rain_change_pct": 4.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 15.8,
+     "ne_rain_change_pct": 18.7,
+     "ne_rain_change_range": [
+      -4.2,
+      40.0
+     ],
+     "rain_change_pct": 18.0
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7610,7 +10806,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 6
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 2,
+        "median": 5,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 20,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7701,7 +10931,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 14,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 15,
+        "median": 17,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 20,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -7742,7 +11006,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 19.3,
+     "ne_rain_change_pct": -5.6,
+     "ne_rain_change_range": [
+      -15.4,
+      22.0
+     ],
+     "rain_change_pct": -0.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.13,
+     "hot_days_change": 30.1,
+     "ne_rain_change_pct": 15.0,
+     "ne_rain_change_range": [
+      -2.5,
+      37.5
+     ],
+     "rain_change_pct": 17.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -7841,7 +11130,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 3,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 3,
+        "median": 8,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -7941,7 +11264,41 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 16,
+        "n": 24,
+        "min": 10,
+        "median": 16,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 16,
+        "n": 24,
+        "min": 16,
+        "median": 18,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 16,
+        "median": 21,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 13,
+        "median": 16,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -7980,7 +11337,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 15.0,
+     "ne_rain_change_pct": 6.5,
+     "ne_rain_change_range": [
+      -15.7,
+      23.9
+     ],
+     "rain_change_pct": 10.5
+    },
+    "ssp585": {
+     "tmax_change_c": 1.2,
+     "hot_days_change": 19.3,
+     "ne_rain_change_pct": 21.9,
+     "ne_rain_change_range": [
+      -0.5,
+      39.2
+     ],
+     "rain_change_pct": 17.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8069,7 +11451,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 14,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8148,7 +11564,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 3,
+        "n": 24,
+        "min": 2,
+        "median": 4,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 3,
+        "n": 24,
+        "min": 7,
+        "median": 8,
+        "max": 11
+       }
+      },
+      "top_crop": {
+       "crop": "finger_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 18,
+        "median": 21,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -8187,7 +11637,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 17.4,
+     "ne_rain_change_pct": 1.3,
+     "ne_rain_change_range": [
+      -16.7,
+      16.8
+     ],
+     "rain_change_pct": 9.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 20.5,
+     "ne_rain_change_pct": 20.3,
+     "ne_rain_change_range": [
+      -2.5,
+      38.0
+     ],
+     "rain_change_pct": 19.1
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8276,7 +11751,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8361,7 +11870,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 2,
+        "median": 4,
+        "max": 8
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 15
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 22,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -8402,7 +11945,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 14.4,
+     "ne_rain_change_pct": -1.9,
+     "ne_rain_change_range": [
+      -14.9,
+      19.8
+     ],
+     "rain_change_pct": 5.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.17,
+     "hot_days_change": 15.4,
+     "ne_rain_change_pct": 20.5,
+     "ne_rain_change_range": [
+      -3.0,
+      44.0
+     ],
+     "rain_change_pct": 19.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8488,7 +12056,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 4
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 3,
+        "max": 7
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8576,7 +12178,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 11,
+        "n": 24,
+        "min": 6,
+        "median": 11,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 11,
+        "n": 24,
+        "min": 14,
+        "median": 16,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 13,
+        "median": 21,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 20,
+        "max": 22
+       }
+      }
+     }
     }
    }
   },
@@ -8617,7 +12253,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 18.3,
+     "ne_rain_change_pct": -5.6,
+     "ne_rain_change_range": [
+      -13.9,
+      25.5
+     ],
+     "rain_change_pct": 1.2
+    },
+    "ssp585": {
+     "tmax_change_c": 1.13,
+     "hot_days_change": 24.1,
+     "ne_rain_change_pct": 17.8,
+     "ne_rain_change_range": [
+      -0.3,
+      45.6
+     ],
+     "rain_change_pct": 18.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8715,7 +12376,41 @@
        "cotton"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 8,
+        "max": 14
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 20
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -8821,7 +12516,41 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 13,
+        "n": 24,
+        "min": 10,
+        "median": 14,
+        "max": 19
+       },
+       "ssp585": {
+        "today": 13,
+        "n": 24,
+        "min": 14,
+        "median": 19,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "green_gram",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 15,
+        "median": 16,
+        "max": 20
+       }
+      }
+     }
     }
    }
   },
@@ -8863,7 +12592,32 @@
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.9,
+     "hot_days_change": 20.6,
+     "ne_rain_change_pct": -6.5,
+     "ne_rain_change_range": [
+      -13.2,
+      25.8
+     ],
+     "rain_change_pct": 0.1
+    },
+    "ssp585": {
+     "tmax_change_c": 1.09,
+     "hot_days_change": 28.6,
+     "ne_rain_change_pct": 13.7,
+     "ne_rain_change_range": [
+      3.6,
+      41.0
+     ],
+     "rain_change_pct": 14.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -8962,7 +12716,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 5,
+        "median": 7,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 8,
+        "median": 11,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9062,7 +12850,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 13,
+        "median": 18,
+        "max": 21
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 19,
+        "median": 21,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -9101,7 +12923,32 @@
     "years_with_storm_day": 0,
     "storm_months": []
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.91,
+     "hot_days_change": 15.3,
+     "ne_rain_change_pct": -0.3,
+     "ne_rain_change_range": [
+      -14.7,
+      17.1
+     ],
+     "rain_change_pct": 8.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.21,
+     "hot_days_change": 17.8,
+     "ne_rain_change_pct": 21.4,
+     "ne_rain_change_range": [
+      -1.2,
+      40.2
+     ],
+     "rain_change_pct": 20.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9187,7 +13034,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       },
+       "ssp585": {
+        "today": 0,
+        "n": 24,
+        "min": 0,
+        "median": 0,
+        "max": 1
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9273,7 +13154,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 4,
+        "n": 24,
+        "min": 3,
+        "median": 5,
+        "max": 10
+       },
+       "ssp585": {
+        "today": 4,
+        "n": 24,
+        "min": 6,
+        "median": 7,
+        "max": 13
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 19,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -9314,7 +13229,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.89,
+     "hot_days_change": 14.2,
+     "ne_rain_change_pct": -2.9,
+     "ne_rain_change_range": [
+      -12.8,
+      20.7
+     ],
+     "rain_change_pct": 2.4
+    },
+    "ssp585": {
+     "tmax_change_c": 1.19,
+     "hot_days_change": 15.6,
+     "ne_rain_change_pct": 21.6,
+     "ne_rain_change_range": [
+      -1.4,
+      46.2
+     ],
+     "rain_change_pct": 20.2
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9398,7 +13338,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 2
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 1,
+        "median": 1,
+        "max": 4
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9484,7 +13458,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 6,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 15
+       },
+       "ssp585": {
+        "today": 6,
+        "n": 24,
+        "min": 10,
+        "median": 14,
+        "max": 20
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 15,
+        "median": 23,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 18,
+        "median": 23,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -9525,7 +13533,32 @@
      11
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 19.7,
+     "ne_rain_change_pct": -3.8,
+     "ne_rain_change_range": [
+      -12.0,
+      26.0
+     ],
+     "rain_change_pct": 2.8
+    },
+    "ssp585": {
+     "tmax_change_c": 1.14,
+     "hot_days_change": 25.1,
+     "ne_rain_change_pct": 20.3,
+     "ne_rain_change_range": [
+      2.2,
+      50.4
+     ],
+     "rain_change_pct": 19.8
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9615,7 +13648,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 1,
+        "n": 24,
+        "min": 0,
+        "median": 1,
+        "max": 7
+       },
+       "ssp585": {
+        "today": 1,
+        "n": 24,
+        "min": 4,
+        "median": 7,
+        "max": 11
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9712,7 +13779,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 7,
+        "median": 9,
+        "max": 17
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 12,
+        "median": 15,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 20,
+        "median": 20,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 19,
+        "median": 20,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -9754,7 +13855,32 @@
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.87,
+     "hot_days_change": 21.0,
+     "ne_rain_change_pct": -2.1,
+     "ne_rain_change_range": [
+      -11.8,
+      30.1
+     ],
+     "rain_change_pct": 1.9
+    },
+    "ssp585": {
+     "tmax_change_c": 1.09,
+     "hot_days_change": 29.2,
+     "ne_rain_change_pct": 15.6,
+     "ne_rain_change_range": [
+      7.3,
+      51.5
+     ],
+     "rain_change_pct": 14.7
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -9850,7 +13976,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 5,
+        "n": 24,
+        "min": 4,
+        "median": 5,
+        "max": 12
+       },
+       "ssp585": {
+        "today": 5,
+        "n": 24,
+        "min": 6,
+        "median": 8,
+        "max": 18
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -9949,7 +14109,41 @@
        "banana"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 10,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 18,
+        "median": 20,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 23,
+        "median": 23,
+        "max": 23
+       }
+      }
+     }
     }
    }
   },
@@ -9991,7 +14185,32 @@
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.88,
+     "hot_days_change": 20.9,
+     "ne_rain_change_pct": 2.2,
+     "ne_rain_change_range": [
+      -9.9,
+      35.4
+     ],
+     "rain_change_pct": 4.0
+    },
+    "ssp585": {
+     "tmax_change_c": 1.1,
+     "hot_days_change": 30.6,
+     "ne_rain_change_pct": 14.5,
+     "ne_rain_change_range": [
+      10.3,
+      60.2
+     ],
+     "rain_change_pct": 13.9
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -10079,7 +14298,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 2,
+        "n": 24,
+        "min": 2,
+        "median": 3,
+        "max": 13
+       },
+       "ssp585": {
+        "today": 2,
+        "n": 24,
+        "min": 5,
+        "median": 6,
+        "max": 17
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -10169,7 +14422,41 @@
        "cowpea"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 17,
+        "n": 24,
+        "min": 14,
+        "median": 17,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 17,
+        "n": 24,
+        "min": 18,
+        "median": 19,
+        "max": 21
+       }
+      },
+      "top_crop": {
+       "crop": "cowpea",
+       "ssp245": {
+        "today": 23,
+        "n": 24,
+        "min": 23,
+        "median": 24,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 23,
+        "n": 24,
+        "min": 24,
+        "median": 24,
+        "max": 24
+       }
+      }
+     }
     }
    }
   },
@@ -10211,7 +14498,32 @@
      12
     ]
    },
-   "future": null,
+   "future": {
+    "period": [
+     2041,
+     2060
+    ],
+    "ssp245": {
+     "tmax_change_c": 0.85,
+     "hot_days_change": 19.5,
+     "ne_rain_change_pct": 2.0,
+     "ne_rain_change_range": [
+      -10.0,
+      37.4
+     ],
+     "rain_change_pct": 2.3
+    },
+    "ssp585": {
+     "tmax_change_c": 1.07,
+     "hot_days_change": 30.8,
+     "ne_rain_change_pct": 11.1,
+     "ne_rain_change_range": [
+      10.7,
+      58.9
+     ],
+     "rain_change_pct": 11.4
+    }
+   },
    "engine": {
     "rainfed": {
      "top": [
@@ -10311,7 +14623,41 @@
        "maize"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 7,
+        "n": 24,
+        "min": 6,
+        "median": 9,
+        "max": 18
+       },
+       "ssp585": {
+        "today": 7,
+        "n": 24,
+        "min": 11,
+        "median": 12,
+        "max": 19
+       }
+      },
+      "top_crop": {
+       "crop": "foxtail_millet",
+       "ssp245": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       },
+       "ssp585": {
+        "today": 22,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 22
+       }
+      }
+     }
     },
     "tank": {
      "top": [
@@ -10410,7 +14756,41 @@
        "sugarcane"
       ]
      },
-     "future": null
+     "future": {
+      "rice_long": {
+       "ssp245": {
+        "today": 18,
+        "n": 24,
+        "min": 15,
+        "median": 19,
+        "max": 20
+       },
+       "ssp585": {
+        "today": 18,
+        "n": 24,
+        "min": 19,
+        "median": 19,
+        "max": 23
+       }
+      },
+      "top_crop": {
+       "crop": "pearl_millet",
+       "ssp245": {
+        "today": 24,
+        "n": 24,
+        "min": 22,
+        "median": 22,
+        "max": 24
+       },
+       "ssp585": {
+        "today": 24,
+        "n": 24,
+        "min": 20,
+        "median": 22,
+        "max": 24
+       }
+      }
+     }
     }
    }
   }

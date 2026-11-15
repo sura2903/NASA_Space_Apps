@@ -10,5 +10,193 @@
  {
   "id": "thanjavur",
   "name": "Thanjavur (Cauvery delta)"
+ },
+ {
+  "id": "g0825_7775",
+  "name": "near Nagercoil (Kanyakumari) (38 km)"
+ },
+ {
+  "id": "g0875_7725",
+  "name": "near Tenkasi (24 km)"
+ },
+ {
+  "id": "g0875_7775",
+  "name": "near Tirunelveli (5 km)"
+ },
+ {
+  "id": "g0925_7725",
+  "name": "near Tenkasi (33 km)"
+ },
+ {
+  "id": "g0925_7775",
+  "name": "near Virudhunagar (43 km)"
+ },
+ {
+  "id": "g0925_7825",
+  "name": "near Virudhunagar (48 km)"
+ },
+ {
+  "id": "g0925_7875",
+  "name": "near Ramanathapuram (16 km)"
+ },
+ {
+  "id": "g0925_7925",
+  "name": "near Ramanathapuram (48 km)"
+ },
+ {
+  "id": "g0975_7725",
+  "name": "near Theni (38 km)"
+ },
+ {
+  "id": "g0975_7775",
+  "name": "near Virudhunagar (30 km)"
+ },
+ {
+  "id": "g0975_7825",
+  "name": "near Madurai (25 km)"
+ },
+ {
+  "id": "g0975_7875",
+  "name": "near Sivaganga (32 km)"
+ },
+ {
+  "id": "g1025_7725",
+  "name": "near Theni (37 km)"
+ },
+ {
+  "id": "g1025_7775",
+  "name": "near Dindigul (28 km)"
+ },
+ {
+  "id": "g1025_7825",
+  "name": "near Dindigul (32 km)"
+ },
+ {
+  "id": "g1025_7875",
+  "name": "near Pudukkottai (16 km)"
+ },
+ {
+  "id": "g1025_7925",
+  "name": "near Pudukkottai (49 km)"
+ },
+ {
+  "id": "g1075_7725",
+  "name": "near Tiruppur (41 km)"
+ },
+ {
+  "id": "g1075_7775",
+  "name": "near Karur (43 km)"
+ },
+ {
+  "id": "g1075_7825",
+  "name": "near Karur (30 km)"
+ },
+ {
+  "id": "g1075_7875",
+  "name": "near Tiruchirappalli (9 km)"
+ },
+ {
+  "id": "g1075_7925",
+  "name": "near Thanjavur (13 km)"
+ },
+ {
+  "id": "g1075_7975",
+  "name": "near Nagapattinam (10 km)"
+ },
+ {
+  "id": "g1125_7675",
+  "name": "near Udhagamandalam (Nilgiris) (19 km)"
+ },
+ {
+  "id": "g1125_7725",
+  "name": "near Tiruppur (18 km)"
+ },
+ {
+  "id": "g1125_7775",
+  "name": "near Erode (11 km)"
+ },
+ {
+  "id": "g1125_7825",
+  "name": "near Namakkal (9 km)"
+ },
+ {
+  "id": "g1125_7875",
+  "name": "near Perambalur (14 km)"
+ },
+ {
+  "id": "g1125_7925",
+  "name": "near Perambalur (40 km)"
+ },
+ {
+  "id": "g1125_7975",
+  "name": "near Nagapattinam (54 km)"
+ },
+ {
+  "id": "g1175_7675",
+  "name": "near Udhagamandalam (Nilgiris) (38 km)"
+ },
+ {
+  "id": "g1175_7725",
+  "name": "near Erode (68 km)"
+ },
+ {
+  "id": "g1175_7775",
+  "name": "near Salem (45 km)"
+ },
+ {
+  "id": "g1175_7825",
+  "name": "near Salem (15 km)"
+ },
+ {
+  "id": "g1175_7875",
+  "name": "near Perambalur (59 km)"
+ },
+ {
+  "id": "g1175_7925",
+  "name": "near Villupuram (34 km)"
+ },
+ {
+  "id": "g1225_7775",
+  "name": "near Dharmapuri (46 km)"
+ },
+ {
+  "id": "g1225_7825",
+  "name": "near Dharmapuri (17 km)"
+ },
+ {
+  "id": "g1225_7875",
+  "name": "near Tiruvannamalai (35 km)"
+ },
+ {
+  "id": "g1225_7925",
+  "name": "near Tiruvannamalai (20 km)"
+ },
+ {
+  "id": "g1225_7975",
+  "name": "near Villupuram (44 km)"
+ },
+ {
+  "id": "g1275_7825",
+  "name": "near Krishnagiri (26 km)"
+ },
+ {
+  "id": "g1275_7875",
+  "name": "near Vellore (45 km)"
+ },
+ {
+  "id": "g1275_7925",
+  "name": "near Vellore (23 km)"
+ },
+ {
+  "id": "g1275_7975",
+  "name": "near Kanchipuram (10 km)"
+ },
+ {
+  "id": "g1325_7975",
+  "name": "near Tiruvallur (21 km)"
+ },
+ {
+  "id": "g1325_8025",
+  "name": "near Chennai (19 km)"
  }
 ]
