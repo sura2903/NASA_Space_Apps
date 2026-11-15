@@ -26,14 +26,19 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 The site has two tabs: **Farmers** and **Policy makers**.
 
 **For a farmer (Farmers tab)**
-1. **Where is your farm?** Pick any of 185 places on a 28 km grid covering Tamil Nadu, or tap "use my location". The
-   tab opens on an example place, so it works straight away.
+1. **Where is your farm?** Choose your district (38), then one of its places, about five per district. There are 185
+   places on a 28 km grid covering Tamil Nadu. Each is named after the village or town at its centre and its taluk
+   (from OpenStreetMap), for example "Malayarnatham, Papanasam taluk (13 km east of Thanjavur)". Or tap "use my
+   location", or pick on a map. The tab opens on an example place, so it works straight away.
 2. **Your crops and water.** Tick what you grow and every water source you have: rain only, lake / pond, river canal /
    dam, borewell. A delta farmer on canal water is also asked "Has Mettur reservoir opened this year?" The answers are
    not known yet, on time, late, very late or not opened, and the advice changes with the answer.
-3. **When do you sow?** Pick a traditional sowing season (pattam) or a month. Each crop then shows how many real
-   seasons it came through when sown then, and how many of the last 10. It is marked a good choice or not advised,
-   with quick crops for any gap.
+3. **When do you sow?** Pick a traditional sowing season (pattam) or a month. Each crop gets a large tile with its
+   chance of coming through when sown then, for example 92%, marked *good choice*, *risky* or *not advised*.
+   - **How the chance is worked out:** from the real seasons, with the last 10 counted twice, and smoothed so even a
+     perfect record shows a little under 100%.
+   - **Behind ⓘ:** the raw counts ("came through 22 of 24").
+   - Quick crops are suggested for any gap.
 4. **Three options for your field:** your current rotation, a small step and a bigger shift side by side. Each card
    has 24 squares, one per real year, plus the water the plan needs and why.
 5. **Printable** for the farmer's agriculture officer.
@@ -167,14 +172,15 @@ Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs reco
 
 1. **Hook (Farmers tab, example place).** "In Tamil Nadu, the monsoon decides the harvest, and farmers judge risk by the
    last ten seasons. SowSmart gives them twenty-four, from NASA satellites."
-2. **Choose a place.** Pick *Thanjavur (Cauvery delta)*. "Any of 185 places on a 28-kilometre grid, or use your
-   location."
+2. **Choose a place.** Pick *Thanjavur district*. It opens *Thanjavur (Cauvery delta)*. Briefly open the place list:
+   "Choose your district, then your village area: 185 places on a 28-kilometre grid, or use your location."
 3. **Three options.** Scroll to *Three options for your field*. "Their current rice-rice rotation on canal water came
    through 9 of 24 real seasons. The bigger shift came through 16." Point at the squares. "Each square is a real year.
    Hover to see why a year failed."
 4. **Has the dam opened?** In step 2, keep *River canal / dam* ticked. Press *Jun* under *When do you sow?*, then
-   switch the Mettur answer from *Opened on time* to *Opened late*. "Short rice sown in June came through 22 of 24
-   seasons when Mettur opened on time, and none when it opened late. That matches the real drop in Kuruvai area."
+   switch the Mettur answer from *Opened on time* to *Opened late*. The short-rice tile drops from **92%** to **3%**;
+   open its ⓘ to show "22 of 24" vs "0 of 24". "Short rice sown in June came through 22 of 24 seasons when Mettur
+   opened on time, and none when it opened late. That matches the real drop in Kuruvai area."
 5. **The memory trap** (say it over the `memory_vs_record.png` graphic from docs/video; the app itself does not show
    this comparison). "On lake water, a farmer remembering 2005–2014 saw long rice come through 9 of 10 seasons. Over
    24 years it's 16 of 23, and 2016 came right after."
@@ -191,4 +197,5 @@ Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs reco
 
 *Before recording:* clear the site's saved place (or use a private window) so it opens on the example; set the screen
 to about 1280 px wide; and check that the Thanjavur numbers in beats 3 and 4 still match what the app shows (checked
-on the live site on 15 Nov 2026: 9 and 16 of 24; June short rice 22 of 24 with the dam on time, 0 of 24 when late).
+on the live site on 15 Nov 2026: 9 and 16 of 24; June short-rice tile 92% (22 of 24) with the dam on time, 3% (0 of 24)
+when late).
