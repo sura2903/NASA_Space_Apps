@@ -75,3 +75,10 @@ Known gaps / next:
   wind, NEX-GDDP future (null until grid projections finish) and precomputed engine results (top 3, avoid lists,
   2016 drought replay) for rainfed and tank. Additive; the current UI runs clean on it (t3/t5/t7/t8/t9/t14).
   Candidate "colour the map by" layers for the Policy view exposure map.
+
+### Contract changes seen 2026-11-15 06:30Z (main 9114792)
+- §2a-dam `dam` (Mettur season) in Cauvery-delta files + `damCheck()`; §2a-appeears `ndvi`, `smap`, `elevation_m`
+  in the demo-site files; §3a `storage` per crop (perishability sub-score). All additive; the UI runs clean
+  (t3/t5/t7/t8/t9/t14).
+- Follow-up for Lane B: the sowing panel reads `site.smap_recent`; the data now has `site.smap.latest`
+  ({month, value, anomaly}, surface 0–5 cm). Switch to it so the "pending SMAP" note goes away.
