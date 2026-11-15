@@ -729,7 +729,8 @@ export const cropShort = (c) => (lang === "ta" && c?.tamil_name ? c.tamil_name.r
 
 export const prioLabel = (k, fallback) => LABELS[lang]?.prio?.[k] ?? fallback;
 export const waterLabel = (k, fallback) => LABELS[lang]?.water?.[k] ?? fallback;
-export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? s.name;
+// Tamil view: hand-written labels for the demo sites, then the data's name_ta (grid places, add_tamil_names.py)
+export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? (lang === "ta" ? s.name_ta : null) ?? s.name;
 export const tagLabel = (tag) => t(`tag.${tag}`);
 
 /** Translate the short engine sentences we know the shape of; others stay as written. */
