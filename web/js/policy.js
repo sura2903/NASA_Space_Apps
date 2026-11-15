@@ -219,6 +219,13 @@ function ideasFor(d) {
     return { ...x, ha, pct };
   }).filter((x) => x.ha == null || x.pct < RARE_PCT);
 }
+// Why a district is "low confidence", in the reader's language. The reasons come from the pipeline as English text
+// (mismatch_build.py); the numbers come from the same record (rep_point_km, modelled_area_ha).
+function lowWhy(m) {
+  const out = (m.confidence_reasons ?? []).map((r) => (/grid point/.test(r) ? t("ideas.low.far", { km: m.rep_point_km })
+    : /modelled crops/.test(r) ? t("ideas.low.small", { kha: Math.round(m.modelled_area_ha / 1000) }) : r));
+  return out.join("; ");
+}
 let ideasCrop = null;   // crop the officer tapped in the summary chart (filters the district cards)
 function drawIdeas() {
   const el = $("#ideas");
@@ -251,22 +258,25 @@ function drawIdeas() {
   // 2. district cards: each idea crop with a bar for how often it came through on rain alone (0-100%),
   //    and today's area as text (a different measure, so not drawn on the same axis)
   const shown = ideasCrop ? rows.filter((r) => r.ideas.some((x) => x.crop === ideasCrop)) : rows;
-  const head = h("div", { class: "ideas-cards-head" }, h("h3", { class: "ideas-h" }, t("ideas.cards.h")));
+  const head = h("div", { class: "ideas-cards-head" }, h("h3", { class: "ideas-h" }, t("ideas.cards.h")),
+    h("div", { class: "ideas-what" },
+      h("p", {}, t("ideas.cards.what", { a: per.start ?? "", b: per.end ?? "" })),
+      shown.some(({ d }) => d.mismatch?.confidence === "low") ? h("p", {}, t("ideas.low.what")) : null));
   if (ideasCrop) head.append(h("p", { class: "note" }, t("ideas.filter", { n: shown.length, crop: name(ideasCrop) }), " ",
     h("button", { type: "button", class: "btn-ghost ideas-all", onclick: () => { ideasCrop = null; drawIdeas(); } }, t("ideas.all"))));
   const pick = (d) => { const p = state.points.find((q) => q.id === d.rep_point); if (!p) return; selectPoint(p); state.wi.district = d.id; state.wi.areaAuto = true; fillArea(); drawWhatIf(); drawIdeas(); $("#whatif-panel")?.scrollIntoView({ behavior: "smooth", block: "start" }); };
   const areaTxt = (x) => (x.ha == null ? t("ideas.unrec") : t("ideas.area", { ha: fmt(x.ha), pct: x.pct < 0.1 ? "<0.1" : fmt(Math.floor(10 * x.pct) / 10, 1) }));
   el.append(head, h("div", { class: "ideas-cards" }, ...shown.map(({ d, ideas }) => h("button", {
     type: "button", class: "ideas-card" + (state.wi.district === d.id ? " sel" : ""), onclick: () => pick(d),
-  }, h("span", { class: "ideas-card-h" }, d.name, d.mismatch?.confidence === "low" ? h("small", { class: "muted" }, ` (${t("ideas.low")})`) : null),
+  }, h("span", { class: "ideas-card-h" }, d.name),
+    d.mismatch?.confidence === "low" ? h("small", { class: "ideas-low" }, `${t("ideas.low")}: ${lowWhy(d.mismatch)}`) : null,
     ...ideas.map((x) => {
       const pct = Math.round(100 * x.share);
       return h("span", { class: "ideas-crop" + (ideasCrop === x.crop ? " on" : ""), title: t("ideas.bar.tip", { crop: name(x.crop), d: d.name, pct }) },
-        h("span", { class: "ideas-crop-row" }, h("span", { class: "ideas-crop-name" }, name(x.crop)), h("span", { class: "ideas-crop-v" }, `${pct}%`)),
+        h("span", { class: "ideas-crop-row" }, h("span", { class: "ideas-crop-name" }, name(x.crop)), h("span", { class: "ideas-crop-v" }, t("ideas.pct", { pct }))),
         h("span", { class: "ideas-track", "aria-hidden": "true" }, h("span", { class: "ideas-fill", style: { width: `${pct}%` } })),
         h("small", { class: x.ha == null ? "ideas-area unrec" : "ideas-area" }, areaTxt(x)));
-    })))),
-    h("p", { class: "note" }, t("ideas.legend", { a: per.start ?? "", b: per.end ?? "" })));
+    })))));
   if (none.length) el.append(h("p", { class: "note" }, `${none.map((d) => d.name).join(", ")}: ${t("ideas.none")}`));
 }
 
