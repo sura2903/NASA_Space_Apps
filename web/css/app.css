@@ -84,6 +84,24 @@ body:not(.expert) .expert-only { display: none !important; }
 }
 .lang-btn:hover { background: var(--accent-soft); }
 .lang-btn[lang="ta"] { font-family: var(--font-ta); }
+.lang-wrap { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.lang-label { font-size: 0.72rem; font-weight: 600; color: var(--ink-3); line-height: 1.2; white-space: nowrap; }
+.lang-label [lang="ta"] { font-family: var(--font-ta); }
+/* intro card under the header (main page) */
+.intro {
+  box-sizing: border-box; width: calc(100% - 48px); max-width: 1632px; margin: 16px auto 0; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line);
+  border-left: 4px solid var(--accent); border-radius: var(--radius); box-shadow: var(--shadow);
+  display: grid; gap: 10px 28px; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+}
+.intro h2 { font-size: 1.1rem; margin: 0 0 4px; }
+.intro h3 { font-size: 0.95rem; margin: 0 0 2px; }
+.intro p { margin: 0; color: var(--ink-2); font-size: 0.92rem; line-height: 1.5; }
+.intro-who { display: grid; gap: 10px 20px; grid-template-columns: 1fr 1fr; }
+.intro-who a { font-weight: 600; color: var(--accent); white-space: nowrap; margin-right: 10px; }
+.intro .intro-note { grid-column: 1 / -1; font-size: 0.82rem; color: var(--ink-3); }
+@media (max-width: 900px) { .intro { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .intro { width: calc(100% - 32px); margin-top: 12px; padding: 14px 16px; } .intro-who { grid-template-columns: 1fr; } }
+@media print { .intro { display: none; } }
 html[lang="ta"] body { font-family: var(--font-ta), var(--font); }
 html[lang="ta"] .cal-mon { font-size: 0.62rem; }
 html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { letter-spacing: 0; text-transform: none; }

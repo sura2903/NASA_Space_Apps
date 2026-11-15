@@ -24,7 +24,10 @@
     <nav class="top-actions">
       <a class="btn-ghost nav-link" href="index.html" data-i18n="p.nav.farm">← Farm view</a>
       <a class="btn-ghost nav-link" href="explore.html" data-i18n="nav.map">🗺 Crop map</a>
-      <button type="button" id="lang" class="lang-btn" lang="ta">தமிழ்</button>
+      <div class="lang-wrap">
+        <span class="lang-label" id="lang-label">Language · <span lang="ta">மொழி</span></span>
+        <button type="button" id="lang" class="lang-btn" lang="ta" aria-describedby="lang-label">தமிழ்</button>
+      </div>
     </nav>
   </header>
 
