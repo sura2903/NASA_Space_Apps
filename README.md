@@ -96,4 +96,10 @@ Every number in the app comes from `web/data/*.json`, built by the scripts in `p
 
 Crop values (seasons, durations, water needs, storage) are approximate; each crop's own sources are in `web/data/crops.json`.
 
+## Future work
+
+1. **Crop economics.** Add cultivation costs, local market prices and minimum support prices, so each option shows the likely profit and the chance of losing money, not only whether the crop came through.
+2. **Planning for severe seasons.** When forecasts or climate projections point to a severe drought or flood season ahead, warn early which food crops Tamil Nadu is likely to fall short of, and suggest buying them in from other states or countries in time, so prices and food supply stay steady.
+3. **Equipment and labour needs for each crop,** so a farmer's own limits can be scored directly instead of ruled out by hand ("Not for me" in the app today).
+
 The tool supports farmer judgment and local agricultural expertise. It does not replace them.
