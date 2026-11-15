@@ -74,19 +74,20 @@ export function renderSowing(el, { site, trends, crops, cropById, prefs, rotatio
   const best = rows.reduce((a, b) => (b.good > a.good ? b : a), rows[0]);
   const plannedRow = rows.find((r) => r.sow === planned) ?? null;
 
-  let verdict, tone;
+  // tone sets the colour; head is the short lead-in, worded as advice to a farmer rather than an order
+  let verdict, tone, head;
   if (!plannedRow) {
     const next = rows.slice().sort((a, b) => ahead(planned, a.sow) - ahead(planned, b.sow))[0];
-    tone = "warn";
+    tone = "warn"; head = "notusual";
     verdict = t(next.sow === best.sow ? "sow.v.notusual.best" : "sow.v.notusual", { crop: cropName(crop), m: monthName(planned), next: monthName(next.sow), a: next.good, n: next.total, best: monthName(best.sow), b: best.good });
   } else if (plannedRow.good >= best.good - Math.max(1, Math.round(0.1 * best.total)) || plannedRow.share >= 0.9) {
-    tone = plannedRow.share >= 0.6 ? "go" : "warn";
+    tone = plannedRow.share >= 0.6 ? "go" : "warn"; head = tone === "go" ? "go" : "low";
     verdict = t(tone === "go" ? "sow.v.now" : "sow.v.now.low", { m: monthName(planned), a: plannedRow.good, n: plannedRow.total });
   } else if (ahead(planned, best.sow) >= 1 && ahead(planned, best.sow) <= 3) {
-    tone = "wait";
+    tone = "wait"; head = "wait";
     verdict = t("sow.v.wait", { best: monthName(best.sow), b: best.good, m: monthName(planned), a: plannedRow.good, n: plannedRow.total });
   } else {
-    tone = "warn";
+    tone = "warn"; head = "warn";
     verdict = t("sow.v.late", { m: monthName(planned), a: plannedRow.good, n: plannedRow.total, best: monthName(best.sow), b: best.good });
   }
 
@@ -125,7 +126,7 @@ export function renderSowing(el, { site, trends, crops, cropById, prefs, rotatio
     h("div", { class: "sow-controls" },
       h("label", {}, h("span", {}, t("sow.crop")), cropSel),
       h("label", {}, h("span", {}, t("sow.month")), monthSel)),
-    h("p", { class: `sow-verdict ${tone}` }, h("strong", {}, t(`sow.tone.${tone}`)), " ", verdict),
+    h("p", { class: `sow-verdict ${tone}` }, h("strong", {}, t(`sow.tone.${head}`)), " ", verdict),
     nudge ? h("p", { class: "sow-nudge" }, nudge) : null,
     h("div", { class: "table-wrap" }, h("table", { class: "compare sow-table" },
       h("thead", {}, h("tr", {},

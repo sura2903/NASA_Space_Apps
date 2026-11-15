@@ -1,14 +1,25 @@
-// One hover card for a Leaflet grid map (Policy makers heatmap, Crop map).
+// One hover card for a Leaflet map (Policy makers heatmap, Crop map, the Farmers place picker).
 // Leaflet's per-shape sticky tooltips close and reopen a new tooltip at every cell edge, so with ~185 cells the card
 // trailed the cursor and flickered when the mouse moved fast. This keeps a single card in the map container, finds the
-// cell under the cursor by arithmetic, only rebuilds the text when the cell changes, and moves it once per frame.
-export function mapHoverCard(map, { cellDeg, points, tip }) {
+// cell (or the nearest dot) under the cursor by arithmetic, only rebuilds the text when it changes, and moves it once
+// per frame. fixed: true pins the card to the map's top-right corner instead, so it never covers the cells being read;
+// onHover(p | null) lets the map mark the cell or dot the card is describing.
+export function mapHoverCard(map, { cellDeg, points, tip, fixed = false, onHover = null }) {
   const el = document.createElement("div");
-  el.className = "map-hover";
+  el.className = "map-hover" + (fixed ? " fixed" : "");
   el.hidden = true;
   el.setAttribute("aria-hidden", "true");   // the same facts are in the table and the side panel
   map.getContainer().append(el);
   let cur = null, pt = null, raf = 0;
+  // with the card pinned in a corner, an outline marks the cell it describes (drawn above the cells, not clickable)
+  let ring = null;
+  const mark = (p) => {
+    ring?.remove(); ring = null;
+    const d = cellDeg() / 2, L = window.L;
+    if (!fixed || !p || !d || !L) return;
+    ring = L.rectangle([[p.lat - d, p.lon - d], [p.lat + d, p.lon + d]],
+      { interactive: false, fill: false, weight: 2.5, color: getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#1c201b" }).addTo(map);
+  };
 
   const find = (ll) => {
     const d = cellDeg() / 2;
@@ -21,7 +32,7 @@ export function mapHoverCard(map, { cellDeg, points, tip }) {
   };
   const place = () => {
     raf = 0;
-    if (!pt || el.hidden) return;
+    if (!pt || el.hidden || fixed) return;
     const size = map.getSize(), w = el.offsetWidth, h = el.offsetHeight;
     let x = pt.x + 16, y = pt.y + 16;
     if (x + w > size.x - 4) x = pt.x - w - 16;
@@ -33,19 +44,23 @@ export function mapHoverCard(map, { cellDeg, points, tip }) {
     if (!p) return hide();
     const html = tip(p);
     if (!html) return hide();
-    if (p !== cur) { cur = p; el.innerHTML = html; }
+    if (p !== cur) { cur = p; el.innerHTML = html; mark(p); onHover?.(p); }
     el.hidden = false;
     pt = e.containerPoint;
     if (!raf) raf = requestAnimationFrame(place);
   };
-  const hide = () => { el.hidden = true; cur = null; pt = null; };
+  const hide = () => { if (cur) { mark(null); onHover?.(null); } el.hidden = true; cur = null; pt = null; };
 
   map.on("mousemove", show);
   map.on("click", show);          // a tap on a phone shows the card too
   map.on("mouseout movestart zoomstart", hide);
   return {
     // after a redraw (new colouring, language): rebuild the text of the card that is showing
-    refresh() { if (cur && !el.hidden) { const html = tip(cur); if (html) el.innerHTML = html; else hide(); } },
+    refresh() { if (cur && !el.hidden) { const html = tip(cur); if (html) { el.innerHTML = html; ring?.bringToFront(); } else hide(); } },
     hide,
+    at: find,       // the cell or dot at a map position (the place picker picks the nearest dot on a click)
+    // room on the right for the pinned card on a wide map (fitBounds paddingBottomRight; Leaflet has no top-right
+    // option, and only the x part matters), so the state's north-east tip is not hidden under it
+    fitPad: () => window.L.point(fixed && map.getSize().x >= 700 ? 270 : 0, 0),
   };
 }

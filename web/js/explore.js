@@ -88,11 +88,11 @@ function initMap() {
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 12, minZoom: 5, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
-  map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8));
   layer = L.layerGroup().addTo(map);
   map.on("click", (e) => selectNearest({ lat: e.latlng.lat, lon: e.latlng.lng }, true));
   // grid cells share one hover card (round site markers keep their permanent labels)
-  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" ? state.points : []), tip: (p) => tips.get(p.id) });
+  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" ? state.points : []), tip: (p) => tips.get(p.id), fixed: true });
+  map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingBottomRight: card.fitPad() });
 }
 
 function drawMap() {
