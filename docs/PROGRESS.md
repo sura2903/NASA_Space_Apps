@@ -124,5 +124,5 @@ Newest first. Note contract changes here.
    `grid/<id>.json` (GRACE / GRACE-FO mascons). It joins the exposure score automatically.
 5. **District crop areas** (I23, also I6 / I21): `web/data/districts.json` =
    `[{ id, name, area_ha: { rice_long, rice_short, ... }, irrigation_share: { canal, tank, borewell, rainfed }, points: [grid ids] }]`
-   (DES Season and Crop Report). Then the what-if fills the area in and the map can show districts.
+   (DES Season and Crop Report; `pipeline/data/apy_tamil_nadu.csv` from the backtest already has district areas). Then the what-if fills the area in and the map can show districts.
 6. Optional: district boundaries (`web/data/districts.geojson`) to draw districts instead of 0.5° squares.
