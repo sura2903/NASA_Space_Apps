@@ -78,12 +78,28 @@ export function renderRotationEditor(el, { rotation, crops, onChange, onReset })
 }
 
 /* ---------------- water source ---------------- */
+// Farmers can tick every source they use ("Rain only" stands alone). The engine scores a full-year plan with one
+// source, so the plans use the first ticked source in this order.
+export const WATER_ORDER = ["canal", "borewell", "tank", "rainfed"];
+export const mainWater = (set) => WATER_ORDER.find((k) => set.has(k)) ?? "rainfed";
+export function toggleWater(set, id, on) {
+  if (id === "rainfed") return new Set(["rainfed"]);
+  const next = new Set(set);
+  next.delete("rainfed");
+  on ? next.add(id) : next.delete(id);
+  if (!next.size) next.add("rainfed");
+  return next;
+}
 export function renderWaterSource(el, { value, onChange }) {
   clear(el);
   for (const [id, ws] of Object.entries(WATER_SOURCES)) {
-    el.append(h("label", { class: "choice" + (id === value ? " on" : "") },
-      h("input", { type: "radio", name: "water", value: id, checked: id === value, onchange: () => onChange(id) }),
+    el.append(h("label", { class: "choice" + (value.has(id) ? " on" : "") },
+      h("input", { type: "checkbox", name: "water", value: id, checked: value.has(id), onchange: (e) => onChange(toggleWater(value, id, e.target.checked)) }),
       h("span", {}, waterLabel(id, ws.label))));
+  }
+  if (value.size > 1) {
+    const m = mainWater(value);
+    el.append(h("p", { class: "note" }, t("water.main", { src: waterLabel(m, WATER_SOURCES[m].label).toLowerCase() })));
   }
 }
 

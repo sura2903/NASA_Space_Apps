@@ -8,6 +8,7 @@
 import { cropSuitability, rankCrops, statewideContext, WATER_SOURCES } from "./scoring.js";
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
+import { mapHoverCard } from "./ui/hovercard.js";
 import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet } from "./ui/risk.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
@@ -32,7 +33,8 @@ const state = {
   ctx: {},
   risk: null, layer: null,   // statewide_risk.json + chosen "colour the map by" layer key (null = exposure score)
 };
-let map = null, layer = null;
+let map = null, layer = null, card = null;
+const tips = new Map();   // hover-card text per point, rebuilt on each drawMap
 
 async function getJSON(url) {
   const r = await fetch(url);
@@ -106,12 +108,14 @@ function initMap() {
   }).addTo(map);
   map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8));
   layer = L.layerGroup().addTo(map);
+  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => state.points, tip: (p) => tips.get(p.id) });
 }
 
 function drawMap() {
   if (!map) return;
   const L = window.L;
   layer.clearLayers();
+  tips.clear();
   let selShape = null;
   for (const p of state.points) {
     const sc = state.scores[p.id];
@@ -130,12 +134,13 @@ function drawMap() {
     } else {
       shape = L.circleMarker([p.lat, p.lon], { ...opts, radius: 16 });
     }
-    shape.bindTooltip(tip, { sticky: true });
+    tips.set(p.id, tip);
     shape.on("click", () => selectPoint(p));
     shape.addTo(layer);
     if (sel) selShape = shape;
   }
   selShape?.bringToFront();
+  card?.refresh();
 }
 
 const currentLayer = () => (state.layer && state.risk?.layers.find((x) => x.key === state.layer)) || null;

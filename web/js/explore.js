@@ -7,6 +7,7 @@
 import { cropSuitability, rankCrops, statewideContext, PRIORITIES, WATER_SOURCES } from "./scoring.js";
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
+import { mapHoverCard } from "./ui/hovercard.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
 
 // Same starting priorities as the rotation tool (preferences, not data).
@@ -78,7 +79,8 @@ const measureOf = (r) => (state.measure === "came" ? r.share : r.suit / 100);
 const measureText = (r) => (state.measure === "came" ? t("x.came.short", { good: r.good, total: r.years }) : `${r.suit}/100`);
 
 /* ---------- map ---------- */
-let map = null, layer = null, clickMarker = null;
+let map = null, layer = null, clickMarker = null, card = null;
+const tips = new Map();   // hover-card text per grid cell, rebuilt on each drawMap
 function initMap() {
   const L = window.L;
   if (!L) { $("#xmap").hidden = true; return; }
@@ -89,12 +91,15 @@ function initMap() {
   map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8));
   layer = L.layerGroup().addTo(map);
   map.on("click", (e) => selectNearest({ lat: e.latlng.lat, lon: e.latlng.lng }, true));
+  // grid cells share one hover card (round site markers keep their permanent labels)
+  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" ? state.points : []), tip: (p) => tips.get(p.id) });
 }
 
 function drawMap() {
   if (!map) return;
   const L = window.L;
   layer.clearLayers();
+  tips.clear();
   let selShape = null;
   for (const p of state.points) {
     const r = suitFor(p.id);
@@ -110,12 +115,14 @@ function drawMap() {
     } else {
       shape = L.circleMarker([p.lat, p.lon], { radius: sel ? 20 : 16, weight: sel ? 3 : 2, color: sel ? cssVar("--ink") : "#ffffff", fillColor: fill, fillOpacity: 0.95 });
     }
-    shape.bindTooltip(tip, state.kind === "grid" ? { sticky: true } : { permanent: true, direction: "auto", offset: [18, 0], className: "site-label" });
+    if (state.kind === "grid") tips.set(p.id, tip);
+    else shape.bindTooltip(tip, { permanent: true, direction: "auto", offset: [18, 0], className: "site-label" });
     shape.on("click", (e) => { L.DomEvent.stopPropagation(e); selectPoint(p); });
     shape.addTo(layer);
     if (sel) selShape = shape;
   }
   selShape?.bringToFront();   // so its outline is not hidden under the neighbouring cells
+  card?.refresh();
 }
 
 function drawLegend() {

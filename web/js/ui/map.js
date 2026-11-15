@@ -11,12 +11,12 @@ export function createSiteMap(el, sites, onPick) {
   }).addTo(map);
 
   const markers = {};
+  // every place is the same small dot with a hover label; only the chosen place is enlarged. (The three original demo
+  // places used to be drawn larger with permanent labels, from before the whole state was covered.)
   for (const s of sites) {
-    // detailed places get a permanent label; the statewide grid points are small dots with a hover label
-    const detailed = s.demo !== false;
-    const m = L.circleMarker([s.lat, s.lon], { radius: detailed ? 9 : 5, weight: detailed ? 2 : 1, className: detailed ? "site-marker" : "site-marker grid-marker" })
+    const m = L.circleMarker([s.lat, s.lon], { radius: 5, weight: 1, className: "site-marker grid-marker" })
       .addTo(map)
-      .bindTooltip(siteName(s).replace(/\s*\(.*\)/, ""), detailed ? { permanent: true, direction: "right", offset: [10, 0], className: "site-label" } : { direction: "top" })
+      .bindTooltip(siteName(s).replace(/\s*\(.*\)/, ""), { direction: "top" })
       .on("click", () => onPick(s.id));
     m.getElement?.()?.setAttribute("aria-label", s.name);
     markers[s.id] = m;
@@ -28,8 +28,7 @@ export function createSiteMap(el, sites, onPick) {
     select(id) {
       for (const [k, m] of Object.entries(markers)) {
         const on = k === id;
-        const detailed = sites.find((s) => s.id === k)?.demo !== false;
-        m.setStyle({ radius: on ? 12 : detailed ? 8 : 5, fillOpacity: on ? 0.95 : 0.55 });
+        m.setStyle({ radius: on ? 10 : 5, weight: on ? 2 : 1, fillOpacity: on ? 0.95 : 0.55 });
         m.getElement?.()?.classList.toggle("selected", on);
         if (on) m.bringToFront();
       }

@@ -7,7 +7,7 @@ import { $, h, clear, debounce, fmt, signed } from "./ui/dom.js";
 import { decorate, rich, initTooltips, renderGlossaryList } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, siteName, tagLabel } from "./i18n.js";
 import { createSiteMap } from "./ui/map.js";
-import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate } from "./ui/inputs.js";
+import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate, mainWater } from "./ui/inputs.js";
 import { drawMonthlyChart, drawMonsoonChart, drawNdviChart, monsoonSeries, resizeCharts } from "./ui/charts.js";
 import { renderTrends, resizeTrendCharts } from "./ui/trends.js";
 import { renderSowing } from "./ui/sowing.js";
@@ -26,7 +26,7 @@ const DETAIL = new URLSearchParams(location.search).get("view") === "detail";
 
 const state = {
   sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null, sowChoice: null,
-  site: null, rotation: null, water_source: "rainfed",
+  site: null, rotation: null, water_source: "rainfed", waters: new Set(["rainfed"]),
   weights: { ...DEFAULT_WEIGHTS }, scenario: { dT_c: 0, dPrecip_pct: 0 },
   strategies: [],
 };
@@ -68,7 +68,7 @@ async function selectSite(id) {
   state.sowChoice = null;
   const def = DEFAULT_CURRENT[site.id] ?? FALLBACK_CURRENT;
   state.rotation = clone(def.rotation);
-  state.water_source = def.water_source;
+  setWaterSet(new Set([def.water_source]));
   state.scenario = { dT_c: 0, dPrecip_pct: 0 };
 
   $("#site-select").value = site.id;
@@ -135,15 +135,17 @@ function renderRainComparison(s) {
 
 function renderInputs() {
   renderEditor();
-  renderWaterSource($("#water"), { value: state.water_source, onChange: (v) => { state.water_source = v; renderInputsWater(); recompute(); } });
+  renderInputsWater();
   renderClimate($("#climate"), {
     scenario: state.scenario, trend: trendScenario(state.site), period: state.site.period, rainSource: rainName(state.site),
     onChange: (sc, now) => { state.scenario = sc; now ? recompute() : recomputeSoon(); },
   });
 }
-const renderInputsWater = () => renderWaterSource($("#water"), { value: state.water_source, onChange: setWater });
-// one water setter for the Farm view (mycrops) and the full-year plans (aside)
-function setWater(v) { state.water_source = v; renderInputsWater(); recompute(); }
+const renderInputsWater = () => renderWaterSource($("#water"), { value: state.waters, onChange: setWaters });
+// one set of ticked water sources for the Farmers panel (mycrops) and the full-year plans (aside);
+// the engine scores a plan with one source, so water_source is the first ticked one (inputs.js WATER_ORDER)
+function setWaterSet(set) { state.waters = set; state.water_source = mainWater(set); }
+function setWaters(set) { setWaterSet(set); renderInputsWater(); recompute(); }
 
 function renderEditor() {
   renderRotationEditor($("#rot-editor"), {
@@ -151,7 +153,7 @@ function renderEditor() {
     onChange: (rot) => { state.rotation = rot; renderEditor(); recompute(); },
     onReset: () => {
       const def = DEFAULT_CURRENT[state.site.id] ?? FALLBACK_CURRENT;
-      state.rotation = clone(def.rotation); state.water_source = def.water_source;
+      state.rotation = clone(def.rotation); setWaterSet(new Set([def.water_source]));
       renderEditor(); renderInputsWater(); recompute();
     },
   });
@@ -198,7 +200,7 @@ function renderSowPanel() {
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
   renderSowPanel();
-  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop), onWater: setWater });
+  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop), waters: state.waters, onWaters: setWaters });
   // highlights depend on the climate scenario
   $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 
