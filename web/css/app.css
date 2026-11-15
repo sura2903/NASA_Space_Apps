@@ -474,3 +474,9 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .leaflet-container .leaflet-tooltip-right::before { border-right-color: var(--line); }
 .leaflet-container .leaflet-tooltip-top::before { border-top-color: var(--line); }
 .leaflet-container .leaflet-tooltip-bottom::before { border-bottom-color: var(--line); }
+
+/* Policy view: "colour the map by" picker + "risk at this place" box (web/js/ui/risk.js, Lane A draft) */
+.risk-picker { display: flex; flex-direction: column; gap: 4px; margin-bottom: 10px; font-weight: 600; }
+.risk-picker select { min-height: 40px; max-width: 100%; }
+.risk-box { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+.risk-box ul { margin: 6px 0; }
