@@ -147,8 +147,9 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 ---
 
 ## 30-second video
-Requested from Nimalan in issue #20 (script, shot list and format there): problem, Thanjavur plans (9 vs 16 of
-24 seasons), Policy map layers, Tamil view, then an end card with the link and the NASA datasets.
+Requested from Nimalan in issue #20. Storyboard "Ten seasons vs twenty-four" (six shots, ~66 words, posted in #20):
+a year is a square, so 10 remembered squares → 24 real ones → the 185-square state map → the 24-square plan cards.
+Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs record, plans, Gaja's track, map frames).
 
 ## Demo script (2–3 minutes)
 *Screen: the live site. Speak slowly; each beat is about 20 seconds.*
