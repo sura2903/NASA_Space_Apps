@@ -190,7 +190,11 @@ function evalSlots(L, getMonth, yearOf, src, soilBuffer) {
     const heavy = sum(ms.map((m) => m.heavy_rain_days));
     const fails = [];
     if (ratio < WATER_OK) fails.push({ kind: "water", sev: 1 - ratio, text: `water: ~${r0(eff + buffer + irr)} mm available vs ${need} mm need` });
-    if (heat > HEAT_LIMIT[s.crop.heat_tolerance]) fails.push({ kind: "heat", sev: heat / 30, text: `heat: ${r0(heat)} very hot days in season` });
+    // Flooded, fully watered rice canopies run 1-3 °C cooler than air (evaporative cooling), so the air-temperature
+    // heat-day limit is doubled for flood-tolerant crops whose water need is fully met. Without this, delta Kuruvai
+    // "failed" from heat in 8/24 years although it is grown successfully every year (RESEARCH_LOG I-18).
+    const heatLimit = HEAT_LIMIT[s.crop.heat_tolerance] * (s.crop.flood_tolerance === "high" && ratio >= 1 ? 2 : 1);
+    if (heat > heatLimit) fails.push({ kind: "heat", sev: heat / 30, text: `heat: ${r0(heat)} very hot days in season` });
     // heavy-rain days are event counts: round before comparing, so a small scenario scaling
     // (2 -> 1.94) can't erase a real downpour year
     if (Math.round(heavy) >= FLOOD_LIMIT[s.crop.flood_tolerance]) fails.push({ kind: "flood", sev: heavy / 5, text: `waterlogging: ${r0(heavy)} heavy-rain days in season` });

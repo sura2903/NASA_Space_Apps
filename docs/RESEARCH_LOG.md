@@ -248,9 +248,33 @@ pattern risky?"*
 - **New issue spotted:** Kuruvai "heat" failures in 8 delta years (POWER shows many Jun–Aug days >38 °C). The heat
   rule is probably too strict for flooded irrigated rice; revisit with canopy/water-temperature reasoning.
 
+### I-18 · Kuruvai: the upstream index is validated, but Kuruvai runs on groundwater
+- **No seasonal backtest possible:** DES splits delta rice by season (Autumn = Kuruvai) only from 2017–18 (6 years).
+- **Instead, validated against official Mettur records** (TN Agri Dept tables VII.8 / VII.10, 2001–2020,
+  `pipeline/data/mettur_releases.json`, `pipeline/kuruvai_check.py`). This year's upper-Cauvery IMERG rain
+  predicts:
+  - storage at opening: **+0.64** (p=0.002);
+  - season release: **+0.51** (p=0.02);
+  - opening delay: −0.43 (p=0.06).
+  - So the canal_index from I-17 is backed by independent official data. Policy use: by end-September the
+    catchment rain already signals the Samba-season water supply.
+- **Negative result (kept):**
+  - Mettur opened after mid-July in **15/20 years**, and what's known in June (last year's index) can't
+    predict it: leave-one-out 60% vs 75% for always guessing "late".
+  - So no opening-date rule was added. It would make the model worse.
+  - Conclusion: delta Kuruvai depends mostly on **groundwater (pumpsets)**, not Mettur. Its real risks are
+    groundwater depletion (GRACE, I-10/I20) and heat.
+- **Heat fix:**
+  - Before: irrigated Kuruvai "failed" from heat in 8/24 years, although it's grown every year.
+  - Flooded, fully watered rice canopies are cooler than air, so the heat-day limit is doubled for flood-tolerant
+    crops whose water need is met.
+  - Now Kuruvai fails only in 2002/2009. Thanjavur's Kuruvai+Thaladi comes through 19/24 (was 12), with failures in
+    2001–03 and 2016 (water) and 2009 (heat).
+  - Backtest unchanged (rice area 2.11×, production 2.22×; overall 1.36×; year r=0.71), so no skill was lost.
+
 ## Open questions / likely next pivots
-- **Delta Kuruvai:** backtest short-duration rice separately in canal districts; check if Mettur-driven
-  failures match Kuruvai area collapses (2002–03, 2012, 2016–17).
+- **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
+  (GRACE / CGWB block categories) as its real constraint.
 - **Long-term rain truth:** can we get IMD 0.25° gridded rainfall (1901–present) to settle the POWER-vs-IMERG
   rain-trend disagreements? It's station-based and long, so it's the natural referee.
 - **Satellite truth for the calendar:** does per-pixel MODIS NDVI from AppEEARS show real bare months? If yes,
