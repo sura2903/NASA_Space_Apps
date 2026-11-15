@@ -114,14 +114,35 @@ NEX-GDDP-CMIP6 projections**, so the replay also covers *future-like* years (I-1
 
 ---
 
-### I-10 · From 3 demo sites toward a Tamil Nadu crop map
+### I-10b · (Lane B view of I-10) From 3 demo sites toward a Tamil Nadu crop map
 - **Trigger:** Nimalan's ideas: "pick a crop, see where to plant it" (heatmap) and "click a region, get the top 3 crops".
 - **Options considered:** A) wait for a statewide grid; B) precompute suitability in the pipeline; C) build the page now on the 3 sites, scoring in the browser with `scoreRotation`, and swap in a grid file later.
 - **Decision:** C. Scoring one crop at one place takes ~20 ms, so a ~60-point grid needs no precompute, and the page is useful today.
 - **Consequences:** new `web/explore.html` (Lane B). Lane A is asked for `web/data/grid/index.json` + per-point files in the existing site format (see `docs/IDEAS.md`). The UI also gained an English / Tamil switch.
 - **Lost / gained:** with 3 points the "heatmap" is 3 coloured dots, which is honest but thin until the grid lands. Gained: the "click anywhere" stretch goal and a second demo story ("where should black gram go?").
+- *Update:* the 47-point grid landed (eb912cd/6b4210f) and PR #4 is merged, so the heatmap is live with real cells.
+
+### I-12 · Climate-change Layer 1 results: heat is real, rain is murky
+- **Done** without AppEEARS: NASA POWER 1981–2024, 12 indicators per demo site; Mann–Kendall + Sen's slope,
+  then-vs-now (1981–2000 vs 2001–2024), Pettitt change points; rain cross-checked with GPM IMERG 2001–2024.
+- **Robust signal: nights are warming.**
+  - Tirunelveli: warm nights 35 → 56 per year (+12/decade, p<0.01) and daytime highs +0.3 °C/decade.
+  - Madurai: warm nights +5/decade (p≈0.05).
+  - This is consistent with the warming expected for South India (Layer 2 will check it properly).
+- **Rain trends are not trustworthy yet.**
+  - Tirunelveli POWER shows SW-monsoon rain down 44% and heavy-rain days halving, but satellite IMERG disagrees on
+    direction since 2001 (now flagged "uncertain").
+  - 10 of 12 indicators there shift around 2007–2009 at once, a classic sign of a reanalysis input change, not climate.
+  - Thanjavur shows a similar cluster around 2004.
+- **Surprises to explain, not hide:** Thanjavur has *fewer* very hot days and a wetter root zone. Plausibly
+  irrigation/land-use effects in the delta, or the same data artefact. Needs a check before any claim.
+- **Lesson:** a 44-year record from one reanalysis isn't enough on its own for rain. Every rain claim needs a
+  second dataset.
+- **Next:** Layer 2 (compare with IPCC AR6 / IMD), Layer 1 for the grid, then Layer 3 projections.
 
 ## Open questions / likely next pivots
+- **Long-term rain truth:** can we get IMD 0.25° gridded rainfall (1901–present) to settle the POWER-vs-IMERG
+  rain-trend disagreements? It's station-based and long, so it's the natural referee.
 - **Satellite truth for the calendar:** does per-pixel MODIS NDVI from AppEEARS show real bare months? If yes,
   "observed vs modelled bare months" becomes a headline feature.
 - **SMAP soil moisture:** use it to validate the water-balance model in dry spells (2016, 2023)?
