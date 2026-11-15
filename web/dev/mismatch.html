@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Mismatch engine run</title>
+<style>body{font:13px/1.4 system-ui;margin:16px}</style></head>
+<body>
+<h1>Mismatch map: engine run per district</h1>
+<p>For each district's representative grid point and each crop grown there: rain-fed reliability and
+suitability, and the irrigation the crop needs (borewell run). Also the top rain-fed crops (with statewide
+context). <code>?post=1</code> sends results to 127.0.0.1:8766 (see pipeline/mismatch_build.py).</p>
+<pre id="out">running…</pre>
+<script type="module">
+const E = await import(`../js/scoring.js?v=${Date.now()}`);
+const out = document.getElementById("out");
+const crops = await (await fetch("../data/crops.json", { cache: "reload" })).json();
+const targets = await (await fetch("mismatch_targets.json", { cache: "reload" })).json();
+const idx = await (await fetch("../data/grid/index.json")).json();
+const pts = idx.points ?? idx;
+const sites = Object.fromEntries(await Promise.all(pts.map(async (p) => [p.id, await (await fetch(`../data/grid/${p.id}.json`)).json()])));
+const W = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
+const rainfed = { weights: W, water_source: "rainfed", scenario: {} };
+const bore = { weights: W, water_source: "borewell", scenario: {} };
+const ctx = E.statewideContext(Object.values(sites), crops, rainfed);
+const allIds = crops.filter((c) => c.type !== "green_manure").map((c) => c.id);
+const result = {};
+for (const t of targets) {
+  const s = sites[t.grid_id];
+  const per = {};
+  for (const id of new Set([...t.crops, ...allIds])) {
+    const r = E.cropSuitability(s, crops, id, rainfed, ctx);
+    const b = E.cropSuitability(s, crops, id, bore, ctx);
+    per[id] = { rainfed_share: r.share, rainfed_suitability: r.suitability, sow: r.sow,
+                irrigation_mm: b.irrigation_mm, water_need_mm: r.water_need_mm };
+  }
+  const top = E.rankCrops(s, crops, rainfed, 3, ctx).map((x) => ({ crop: x.crop, share: x.share, suitability: x.suitability, sow: x.sow }));
+  result[t.district] = { grid_id: t.grid_id, crops: per, top_rainfed: top };
+}
+out.textContent = `done: ${Object.keys(result).length} districts`;
+window.MISMATCH = result;
+if (new URLSearchParams(location.search).get("post")) {
+  const r = await fetch("http://127.0.0.1:8766/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(result) });
+  out.textContent += ` | posted: ${r.status}`;
+}
+</script>
+</body>
+</html>

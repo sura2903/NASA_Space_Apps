@@ -1,0 +1,4553 @@
+{
+ "Ariyalur": {
+  "grid_id": "g1125_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 901,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 60,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 61,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 40,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 62,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.29,
+    "rainfed_suitability": 38,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 36,
+    "sow": 9,
+    "irrigation_mm": 9,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 54,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 27,
+    "sow": 8,
+    "irrigation_mm": 563,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 12,
+    "irrigation_mm": 991,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 629,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 7
+   },
+   {
+    "crop": "green_gram",
+    "share": 0.75,
+    "suitability": 62,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.5,
+    "suitability": 45,
+    "sow": 9
+   }
+  ]
+ },
+ "Chengalpattu": {
+  "grid_id": "g1275_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 796,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 43,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 56,
+    "sow": 7,
+    "irrigation_mm": 101,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 66,
+    "sow": 5,
+    "irrigation_mm": 14,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.21,
+    "rainfed_suitability": 33,
+    "sow": 8,
+    "irrigation_mm": 495,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 89,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 1,
+    "irrigation_mm": 900,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 20,
+    "sow": 7,
+    "irrigation_mm": 523,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 74,
+    "sow": 8
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 7
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.83,
+    "suitability": 66,
+    "sow": 5
+   }
+  ]
+ },
+ "Coimbatore": {
+  "grid_id": "g1125_7675",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0.08,
+    "rainfed_suitability": 28,
+    "sow": 2,
+    "irrigation_mm": 633,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 77,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 68,
+    "sow": 6,
+    "irrigation_mm": 12,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 74,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 661,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 24,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 32,
+    "sow": 5,
+    "irrigation_mm": 778,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.17,
+    "rainfed_suitability": 29,
+    "sow": 6,
+    "irrigation_mm": 458,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.96,
+    "suitability": 77,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 10
+   },
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 7
+   }
+  ]
+ },
+ "Cuddalore": {
+  "grid_id": "g1175_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 3,
+    "irrigation_mm": 806,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 60,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 44,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 7,
+    "irrigation_mm": 30,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 48,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.25,
+    "rainfed_suitability": 35,
+    "sow": 10,
+    "irrigation_mm": 15,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 36,
+    "sow": 9,
+    "irrigation_mm": 27,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 63,
+    "sow": 5,
+    "irrigation_mm": 19,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 27,
+    "sow": 8,
+    "irrigation_mm": 553,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 48,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 12,
+    "irrigation_mm": 954,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 584,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "sesame",
+    "share": 1,
+    "suitability": 74,
+    "sow": 6
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.83,
+    "suitability": 68,
+    "sow": 7
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.79,
+    "suitability": 63,
+    "sow": 5
+   }
+  ]
+ },
+ "Dharmapuri": {
+  "grid_id": "g1225_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 971,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 27,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 48,
+    "sow": 7,
+    "irrigation_mm": 150,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 7,
+    "irrigation_mm": 42,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 757,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1111,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 624,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 75,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 1,
+    "suitability": 74,
+    "sow": 7
+   },
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   }
+  ]
+ },
+ "Dindigul": {
+  "grid_id": "g1025_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 941,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 78,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.29,
+    "rainfed_suitability": 36,
+    "sow": 10,
+    "irrigation_mm": 153,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 7,
+    "irrigation_mm": 52,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 716,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1064,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 634,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "finger_millet",
+    "share": 1,
+    "suitability": 78,
+    "sow": 5
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 75,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 9
+   }
+  ]
+ },
+ "Erode": {
+  "grid_id": "g1125_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1060,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 9,
+    "irrigation_mm": 11,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 54,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 11,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 25,
+    "sow": 10,
+    "irrigation_mm": 190,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 49,
+    "sow": 7,
+    "irrigation_mm": 115,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 784,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1195,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 697,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 9
+   }
+  ]
+ },
+ "Kallakurichi": {
+  "grid_id": "g1175_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 853,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 55,
+    "sow": 8,
+    "irrigation_mm": 21,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 59,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 50,
+    "sow": 7,
+    "irrigation_mm": 127,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 75,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 641,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 72,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 992,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 7,
+    "irrigation_mm": 574,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 75,
+    "sow": 5
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.88,
+    "suitability": 72,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 72,
+    "sow": 7
+   }
+  ]
+ },
+ "Kancheepuram": {
+  "grid_id": "g1275_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 796,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 43,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 56,
+    "sow": 7,
+    "irrigation_mm": 101,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 66,
+    "sow": 5,
+    "irrigation_mm": 14,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.21,
+    "rainfed_suitability": 33,
+    "sow": 8,
+    "irrigation_mm": 495,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 89,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 1,
+    "irrigation_mm": 900,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 20,
+    "sow": 7,
+    "irrigation_mm": 523,
+    "water_need_mm": 1100
+   },
+   "cotton": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 74,
+    "sow": 8
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 7
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.83,
+    "suitability": 66,
+    "sow": 5
+   }
+  ]
+ },
+ "Kanniyakumari": {
+  "grid_id": "g0825_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 954,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cowpea": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 64,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "green_gram": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 10,
+    "irrigation_mm": 10,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 47,
+    "sow": 10,
+    "irrigation_mm": 18,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 680,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 58,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1078,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 16,
+    "sow": 7,
+    "irrigation_mm": 778,
+    "water_need_mm": 1100
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 62,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "finger_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 57,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "sorghum": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 62,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "cotton": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.75,
+    "suitability": 64,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.75,
+    "suitability": 62,
+    "sow": 9
+   },
+   {
+    "crop": "cotton",
+    "share": 0.67,
+    "suitability": 58,
+    "sow": 8
+   }
+  ]
+ },
+ "Karur": {
+  "grid_id": "g1075_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1009,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 1,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 8,
+    "irrigation_mm": 4,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 1,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.25,
+    "rainfed_suitability": 34,
+    "sow": 10,
+    "irrigation_mm": 158,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 49,
+    "sow": 9,
+    "irrigation_mm": 94,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 734,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1153,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 674,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.88,
+    "suitability": 67,
+    "sow": 9
+   }
+  ]
+ },
+ "Krishnagiri": {
+  "grid_id": "g1275_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1065,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 7,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 57,
+    "sow": 8,
+    "irrigation_mm": 65,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 7,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.38,
+    "rainfed_suitability": 43,
+    "sow": 7,
+    "irrigation_mm": 146,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 7,
+    "irrigation_mm": 48,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 72,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 785,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 16,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1126,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 7,
+    "irrigation_mm": 626,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 74,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.92,
+    "suitability": 72,
+    "sow": 5
+   },
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 5
+   }
+  ]
+ },
+ "Madurai": {
+  "grid_id": "g0975_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1029,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 16,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 54,
+    "sow": 10,
+    "irrigation_mm": 113,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 127,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 730,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1157,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 716,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "cotton",
+    "share": 0.83,
+    "suitability": 69,
+    "sow": 8
+   }
+  ]
+ },
+ "Mayiladuthurai": {
+  "grid_id": "g1125_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 722,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 55,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.25,
+    "rainfed_suitability": 30,
+    "sow": 8,
+    "irrigation_mm": 282,
+    "water_need_mm": 600
+   },
+   "finger_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 55,
+    "sow": 5,
+    "irrigation_mm": 18,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 57,
+    "sow": 9,
+    "irrigation_mm": 50,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.25,
+    "rainfed_suitability": 36,
+    "sow": 10,
+    "irrigation_mm": 200,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 49,
+    "sow": 7,
+    "irrigation_mm": 21,
+    "water_need_mm": 550
+   },
+   "rice_long": {
+    "rainfed_share": 0.29,
+    "rainfed_suitability": 39,
+    "sow": 8,
+    "irrigation_mm": 421,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 68,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 34,
+    "sow": 9,
+    "irrigation_mm": 144,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 1,
+    "irrigation_mm": 851,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 20,
+    "sow": 7,
+    "irrigation_mm": 603,
+    "water_need_mm": 1100
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 34,
+    "sow": 9,
+    "irrigation_mm": 69,
+    "water_need_mm": 350
+   },
+   "cowpea": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 42,
+    "water_need_mm": 300
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 68,
+    "sow": 7
+   },
+   {
+    "crop": "green_gram",
+    "share": 0.67,
+    "suitability": 57,
+    "sow": 9
+   },
+   {
+    "crop": "finger_millet",
+    "share": 0.67,
+    "suitability": 55,
+    "sow": 5
+   }
+  ]
+ },
+ "Nagapattinam": {
+  "grid_id": "g1075_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 770,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 60,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "finger_millet": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 40,
+    "sow": 9,
+    "irrigation_mm": 48,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 59,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 47,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 9,
+    "irrigation_mm": 72,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.17,
+    "rainfed_suitability": 31,
+    "sow": 8,
+    "irrigation_mm": 461,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 53,
+    "sow": 11,
+    "irrigation_mm": 11,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 46,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 896,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 654,
+    "water_need_mm": 1100
+   },
+   "cowpea": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 11,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "black_gram",
+    "share": 0.71,
+    "suitability": 60,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.67,
+    "suitability": 53,
+    "sow": 11
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.5,
+    "suitability": 46,
+    "sow": 9
+   }
+  ]
+ },
+ "Namakkal": {
+  "grid_id": "g1125_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 957,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 61,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.21,
+    "rainfed_suitability": 31,
+    "sow": 10,
+    "irrigation_mm": 167,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 7,
+    "irrigation_mm": 95,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 720,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1102,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 635,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 75,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 6
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   }
+  ]
+ },
+ "Perambalur": {
+  "grid_id": "g1125_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 884,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.29,
+    "rainfed_suitability": 37,
+    "sow": 10,
+    "irrigation_mm": 160,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 9,
+    "irrigation_mm": 27,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 646,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1023,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 610,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 75,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 6
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   }
+  ]
+ },
+ "Pudukkottai": {
+  "grid_id": "g1025_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 943,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 60,
+    "sow": 10,
+    "irrigation_mm": 73,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 9,
+    "irrigation_mm": 83,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 733,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1080,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 672,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.88,
+    "suitability": 72,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "cotton",
+    "share": 0.83,
+    "suitability": 69,
+    "sow": 8
+   }
+  ]
+ },
+ "Ramanathapuram": {
+  "grid_id": "g0925_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1054,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 67,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 66,
+    "sow": 10,
+    "irrigation_mm": 3,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 65,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 679,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 66,
+    "sow": 11,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1157,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 16,
+    "sow": 7,
+    "irrigation_mm": 795,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "pearl_millet",
+    "share": 0.83,
+    "suitability": 68,
+    "sow": 10
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.79,
+    "suitability": 67,
+    "sow": 10
+   },
+   {
+    "crop": "cotton",
+    "share": 0.79,
+    "suitability": 66,
+    "sow": 8
+   }
+  ]
+ },
+ "Ranipet": {
+  "grid_id": "g1275_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 3,
+    "irrigation_mm": 816,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 52,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 54,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 62,
+    "sow": 7,
+    "irrigation_mm": 86,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 1,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 604,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 966,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 7,
+    "irrigation_mm": 535,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.88,
+    "suitability": 72,
+    "sow": 8
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 6
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.67,
+    "suitability": 56,
+    "sow": 9
+   }
+  ]
+ },
+ "Salem": {
+  "grid_id": "g1175_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 948,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 8,
+    "irrigation_mm": 4,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 45,
+    "sow": 7,
+    "irrigation_mm": 157,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 7,
+    "irrigation_mm": 41,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 77,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 734,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1086,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 623,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "pearl_millet",
+    "share": 1,
+    "suitability": 77,
+    "sow": 5
+   },
+   {
+    "crop": "sesame",
+    "share": 1,
+    "suitability": 74,
+    "sow": 6
+   },
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   }
+  ]
+ },
+ "Sivaganga": {
+  "grid_id": "g0975_7825",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1029,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 16,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 54,
+    "sow": 10,
+    "irrigation_mm": 113,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 127,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 730,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1157,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 716,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "cotton",
+    "share": 0.83,
+    "suitability": 69,
+    "sow": 8
+   }
+  ]
+ },
+ "Tenkasi": {
+  "grid_id": "g0875_7725",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 657,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 79,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 80,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 79,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 33,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 78,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 587,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 32,
+    "sow": 5,
+    "irrigation_mm": 767,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 20,
+    "sow": 7,
+    "irrigation_mm": 557,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 1,
+    "suitability": 80,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 1,
+    "suitability": 78,
+    "sow": 9
+   },
+   {
+    "crop": "cotton",
+    "share": 0.92,
+    "suitability": 75,
+    "sow": 8
+   }
+  ]
+ },
+ "Thanjavur": {
+  "grid_id": "g1075_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 925,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 61,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "finger_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 57,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 52,
+    "sow": 10,
+    "irrigation_mm": 9,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 50,
+    "sow": 9,
+    "irrigation_mm": 15,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 585,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 63,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1025,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 665,
+    "water_need_mm": 1100
+   },
+   "cowpea": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 67,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.83,
+    "suitability": 68,
+    "sow": 10
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.83,
+    "suitability": 67,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.83,
+    "suitability": 63,
+    "sow": 9
+   }
+  ]
+ },
+ "The Nilgiris": {
+  "grid_id": "g1125_7675",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0.08,
+    "rainfed_suitability": 28,
+    "sow": 2,
+    "irrigation_mm": 633,
+    "water_need_mm": 1800
+   },
+   "finger_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "maize": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 74,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 661,
+    "water_need_mm": 1250
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 24,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 32,
+    "sow": 5,
+    "irrigation_mm": 778,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.17,
+    "rainfed_suitability": 29,
+    "sow": 6,
+    "irrigation_mm": 458,
+    "water_need_mm": 1100
+   },
+   "black_gram": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "groundnut": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 68,
+    "sow": 6,
+    "irrigation_mm": 12,
+    "water_need_mm": 525
+   },
+   "sesame": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 69,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 77,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.96,
+    "suitability": 77,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 74,
+    "sow": 10
+   },
+   {
+    "crop": "sesame",
+    "share": 0.92,
+    "suitability": 69,
+    "sow": 7
+   }
+  ]
+ },
+ "Theni": {
+  "grid_id": "g1025_7725",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0.08,
+    "rainfed_suitability": 28,
+    "sow": 2,
+    "irrigation_mm": 658,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 79,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 80,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 78,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 79,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 73,
+    "sow": 6,
+    "irrigation_mm": 41,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 78,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 77,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 621,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 78,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 32,
+    "sow": 4,
+    "irrigation_mm": 772,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 7,
+    "irrigation_mm": 478,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 1,
+    "suitability": 80,
+    "sow": 7
+   },
+   {
+    "crop": "sorghum",
+    "share": 1,
+    "suitability": 78,
+    "sow": 5
+   },
+   {
+    "crop": "cotton",
+    "share": 0.92,
+    "suitability": 74,
+    "sow": 8
+   }
+  ]
+ },
+ "Thiruvallur": {
+  "grid_id": "g1325_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 832,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 7,
+    "irrigation_mm": 3,
+    "water_need_mm": 300
+   },
+   "cowpea": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 77,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 43,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 56,
+    "sow": 7,
+    "irrigation_mm": 106,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 69,
+    "sow": 5,
+    "irrigation_mm": 12,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.08,
+    "rainfed_suitability": 24,
+    "sow": 8,
+    "irrigation_mm": 540,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 87,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 941,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 20,
+    "sow": 7,
+    "irrigation_mm": 534,
+    "water_need_mm": 1100
+   },
+   "cotton": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 36,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.96,
+    "suitability": 77,
+    "sow": 8
+   },
+   {
+    "crop": "sesame",
+    "share": 1,
+    "suitability": 74,
+    "sow": 7
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 69,
+    "sow": 5
+   }
+  ]
+ },
+ "Thiruvarur": {
+  "grid_id": "g1075_7975",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 770,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 60,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "finger_millet": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 40,
+    "sow": 9,
+    "irrigation_mm": 48,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 59,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 47,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 9,
+    "irrigation_mm": 72,
+    "water_need_mm": 550
+   },
+   "rice_long": {
+    "rainfed_share": 0.17,
+    "rainfed_suitability": 31,
+    "sow": 8,
+    "irrigation_mm": 461,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 53,
+    "sow": 11,
+    "irrigation_mm": 11,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 46,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 896,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 654,
+    "water_need_mm": 1100
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 45,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "cowpea": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 56,
+    "sow": 11,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "black_gram",
+    "share": 0.71,
+    "suitability": 60,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.67,
+    "suitability": 53,
+    "sow": 11
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.5,
+    "suitability": 46,
+    "sow": 9
+   }
+  ]
+ },
+ "Thoothukkudi": {
+  "grid_id": "g0875_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1054,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 8,
+    "irrigation_mm": 10,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 49,
+    "sow": 10,
+    "irrigation_mm": 74,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 50,
+    "sow": 9,
+    "irrigation_mm": 47,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 740,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 63,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1177,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 16,
+    "sow": 7,
+    "irrigation_mm": 798,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.88,
+    "suitability": 71,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.83,
+    "suitability": 63,
+    "sow": 9
+   }
+  ]
+ },
+ "Tiruchirappalli": {
+  "grid_id": "g1075_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 957,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 48,
+    "sow": 10,
+    "irrigation_mm": 98,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 61,
+    "sow": 9,
+    "irrigation_mm": 34,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 667,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1098,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 660,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.88,
+    "suitability": 72,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.88,
+    "suitability": 67,
+    "sow": 9
+   }
+  ]
+ },
+ "Tirunelveli": {
+  "grid_id": "g0875_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 1054,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 8,
+    "irrigation_mm": 10,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 49,
+    "sow": 10,
+    "irrigation_mm": 74,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 50,
+    "sow": 9,
+    "irrigation_mm": 47,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 740,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 63,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1177,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 16,
+    "sow": 7,
+    "irrigation_mm": 798,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.88,
+    "suitability": 71,
+    "sow": 10
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 9
+   },
+   {
+    "crop": "sesame",
+    "share": 0.83,
+    "suitability": 63,
+    "sow": 9
+   }
+  ]
+ },
+ "Tirupathur": {
+  "grid_id": "g1275_7875",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 977,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 9,
+    "irrigation_mm": 6,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 52,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 69,
+    "sow": 8,
+    "irrigation_mm": 6,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 59,
+    "sow": 5,
+    "irrigation_mm": 1,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 59,
+    "sow": 7,
+    "irrigation_mm": 108,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 77,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 699,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 69,
+    "sow": 5,
+    "irrigation_mm": 32,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1041,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 7,
+    "irrigation_mm": 576,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "pearl_millet",
+    "share": 1,
+    "suitability": 77,
+    "sow": 5
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 5
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.83,
+    "suitability": 69,
+    "sow": 8
+   }
+  ]
+ },
+ "Tiruppur": {
+  "grid_id": "g1125_7725",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 2,
+    "irrigation_mm": 949,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 66,
+    "sow": 8,
+    "irrigation_mm": 33,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 75,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.29,
+    "rainfed_suitability": 36,
+    "sow": 7,
+    "irrigation_mm": 187,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 7,
+    "irrigation_mm": 47,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 75,
+    "sow": 5,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 763,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1083,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 629,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.92,
+    "suitability": 75,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.96,
+    "suitability": 75,
+    "sow": 5
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 7
+   }
+  ]
+ },
+ "Tiruvannamalai": {
+  "grid_id": "g1225_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 2,
+    "irrigation_mm": 786,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 44,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 74,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 48,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 76,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 97,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.42,
+    "rainfed_suitability": 42,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 564,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 930,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 7,
+    "irrigation_mm": 534,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.96,
+    "suitability": 76,
+    "sow": 7
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 6
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.67,
+    "suitability": 56,
+    "sow": 9
+   }
+  ]
+ },
+ "Vellore": {
+  "grid_id": "g1275_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 3,
+    "irrigation_mm": 816,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 65,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 52,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.63,
+    "rainfed_suitability": 54,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 62,
+    "sow": 7,
+    "irrigation_mm": 86,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.58,
+    "rainfed_suitability": 53,
+    "sow": 7,
+    "irrigation_mm": 1,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 8,
+    "irrigation_mm": 604,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.96,
+    "rainfed_suitability": 71,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 56,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 966,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 21,
+    "sow": 7,
+    "irrigation_mm": 535,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "cowpea",
+    "share": 0.88,
+    "suitability": 72,
+    "sow": 8
+   },
+   {
+    "crop": "sesame",
+    "share": 0.96,
+    "suitability": 71,
+    "sow": 6
+   },
+   {
+    "crop": "sorghum",
+    "share": 0.67,
+    "suitability": 56,
+    "sow": 9
+   }
+  ]
+ },
+ "Viluppuram": {
+  "grid_id": "g1175_7925",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 3,
+    "irrigation_mm": 806,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.71,
+    "rainfed_suitability": 60,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.46,
+    "rainfed_suitability": 44,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 68,
+    "sow": 7,
+    "irrigation_mm": 30,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 48,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 64,
+    "sow": 7,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.25,
+    "rainfed_suitability": 35,
+    "sow": 10,
+    "irrigation_mm": 15,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.33,
+    "rainfed_suitability": 36,
+    "sow": 9,
+    "irrigation_mm": 27,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.79,
+    "rainfed_suitability": 63,
+    "sow": 5,
+    "irrigation_mm": 19,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0.13,
+    "rainfed_suitability": 27,
+    "sow": 8,
+    "irrigation_mm": 553,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 1,
+    "rainfed_suitability": 74,
+    "sow": 6,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.54,
+    "rainfed_suitability": 48,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0.04,
+    "rainfed_suitability": 26,
+    "sow": 12,
+    "irrigation_mm": 954,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 584,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "sesame",
+    "share": 1,
+    "suitability": 74,
+    "sow": 6
+   },
+   {
+    "crop": "cowpea",
+    "share": 0.83,
+    "suitability": 68,
+    "sow": 7
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.79,
+    "suitability": 63,
+    "sow": 5
+   }
+  ]
+ },
+ "Virudhunagar": {
+  "grid_id": "g0975_7775",
+  "crops": {
+   "banana": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 22,
+    "sow": 3,
+    "irrigation_mm": 934,
+    "water_need_mm": 1800
+   },
+   "black_gram": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 71,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "cotton": {
+    "rainfed_share": 0.75,
+    "rainfed_suitability": 63,
+    "sow": 8,
+    "irrigation_mm": 0,
+    "water_need_mm": 600
+   },
+   "cowpea": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 72,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "finger_millet": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 67,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "green_gram": {
+    "rainfed_share": 0.92,
+    "rainfed_suitability": 73,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 280
+   },
+   "groundnut": {
+    "rainfed_share": 0.5,
+    "rainfed_suitability": 51,
+    "sow": 10,
+    "irrigation_mm": 126,
+    "water_need_mm": 525
+   },
+   "maize": {
+    "rainfed_share": 0.67,
+    "rainfed_suitability": 58,
+    "sow": 9,
+    "irrigation_mm": 87,
+    "water_need_mm": 550
+   },
+   "pearl_millet": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 350
+   },
+   "rice_long": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 18,
+    "sow": 8,
+    "irrigation_mm": 714,
+    "water_need_mm": 1250
+   },
+   "sesame": {
+    "rainfed_share": 0.83,
+    "rainfed_suitability": 63,
+    "sow": 9,
+    "irrigation_mm": 0,
+    "water_need_mm": 300
+   },
+   "sorghum": {
+    "rainfed_share": 0.88,
+    "rainfed_suitability": 70,
+    "sow": 10,
+    "irrigation_mm": 0,
+    "water_need_mm": 425
+   },
+   "sugarcane": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 23,
+    "sow": 12,
+    "irrigation_mm": 1080,
+    "water_need_mm": 2000
+   },
+   "rice_short": {
+    "rainfed_share": 0,
+    "rainfed_suitability": 17,
+    "sow": 7,
+    "irrigation_mm": 669,
+    "water_need_mm": 1100
+   }
+  },
+  "top_rainfed": [
+   {
+    "crop": "green_gram",
+    "share": 0.92,
+    "suitability": 73,
+    "sow": 9
+   },
+   {
+    "crop": "pearl_millet",
+    "share": 0.88,
+    "suitability": 70,
+    "sow": 10
+   },
+   {
+    "crop": "cotton",
+    "share": 0.75,
+    "suitability": 63,
+    "sow": 8
+   }
+  ]
+ }
+}
