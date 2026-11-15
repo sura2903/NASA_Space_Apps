@@ -97,6 +97,20 @@ For the "How has my climate changed?" panel (B11). One file per demo site, plus 
 `confidence: "uncertain"` means POWER shows a significant trend but satellite rain (IMERG)
 disagrees on direction since 2001. Show it greyed out, never as a finding.
 
+## 2c. `web/data/backtest.json` (does the model work? produced by `pipeline/backtest_eval.py`)
+Backtest of the replay against real Tamil Nadu district yields (DES Crop Statistics, 2001-02 → 2022-23).
+```jsonc
+{ "description": "...", "n_series": 212,
+  "overall":  { "p_bad_given_fail": 0.33, "p_bad_given_pass": 0.242, "lift": 1.36, "fisher_p": 0.0,
+                "median_anomaly_fail": -0.036, "median_anomaly_pass": 0.005, "table": {...}, "n_years": 4522 },
+  "year_level": { "pearson_r": 0.705, "pearson_p": 0.0003, ... },
+  "by_crop":  { "black_gram": { ...same fields... }, ... },
+  "by_year":  { "2016": { "model_fail_share": 0.85, "bad_yield_share": 0.70, "series": 210 }, ... },
+  "per_series": { "Tirunelveli|black_gram": { ...same fields..., "district", "crop", "water_source" } } }
+```
+Use for a "Does it work?" panel: a year chart of `by_year` (model vs real), plus the lift per crop.
+Be honest: rice (tank-irrigated) and green gram show **no skill** (lift ≈ 1).
+
 ## 3. `web/data/crops.json` (Tamil Nadu crops)
 ```jsonc
 { "id": "black_gram", "name": "Black gram (urad)", "tamil_name": "உளுந்து",

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Backtest replay</title>
+<style>body{font:13px/1.4 system-ui;margin:16px}pre{white-space:pre-wrap}</style></head>
+<body>
+<h1>Backtest: engine replay per district × crop</h1>
+<p>Runs the engine's per-year replay at each district's nearest grid point (best sowing month,
+default priorities) for the targets in <code>backtest_targets.json</code>. With <code>?post=1</code>
+it POSTs the result to a local receiver on 127.0.0.1:8766 (see pipeline/backtest_eval.py).</p>
+<pre id="out">running…</pre>
+<script type="module">
+const E = await import(`../js/scoring.js?v=${Date.now()}`);
+const out = document.getElementById("out");
+const crops = await (await fetch("../data/crops.json", { cache: "reload" })).json();
+const targets = await (await fetch("backtest_targets.json", { cache: "reload" })).json();
+const W = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
+const siteCache = {};
+const result = {};
+for (const t of targets) {
+  const site = siteCache[t.grid_id] ??= await (await fetch(`../data/grid/${t.grid_id}.json`)).json();
+  const prefs = { weights: W, water_source: t.water_source, scenario: {} };
+  const pick = E.cropSuitability(site, crops, t.crop, prefs);
+  const st = E.scoreRotation(site, crops, [[{ crop: t.crop, sow: pick.sow }]], prefs);
+  result[t.key] = { sow: pick.sow, share: pick.share,
+    years: Object.fromEntries(st.replay.years.map((y) => [y.year, { ok: y.ok, reason: y.reason }])) };
+}
+window.BACKTEST = result;
+out.textContent = `done: ${Object.keys(result).length} series`;
+if (new URLSearchParams(location.search).get("post")) {
+  const r = await fetch("http://127.0.0.1:8766/", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(result) });
+  out.textContent += ` | posted: ${r.status}`;
+}
+</script>
+</body>
+</html>

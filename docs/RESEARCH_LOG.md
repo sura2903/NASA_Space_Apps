@@ -165,7 +165,33 @@ pattern risky?"*
 - **Known remaining weakness:** one water source for the whole state ("canal" makes rice uniform). Needs
   district irrigation-source shares.
 
+### I-14 · Backtest against real yields: the replay has skill (except irrigated rice)
+- **Data:** Govt of India DES Crop Statistics (district APY), via the India Data Portal open CKAN API:
+  Tamil Nadu, 38 districts, 1997–2022.
+- **Method:**
+  - 212 district × crop series (28 districts, 10 crops, ≥15 years, ≥500 ha).
+  - Yields Theil–Sen detrended; bad year = bottom 25%.
+  - The engine replays each crop at the district HQ's nearest grid point: best sowing month, rice tank-irrigated,
+    others rain-fed.
+- **Result:**
+  - Overall, when the model predicts failure, a bad-yield year follows **33%** of the time vs **24%**
+    otherwise (**lift 1.36, p<0.001**).
+  - Across years, the predicted and actual bad shares correlate at **r = 0.70** (p = 0.0003).
+  - **2016**: the model fails 85% of series; 70% really had bad yields.
+- **By crop:**
+  - Skill: black gram 1.95×, sorghum 1.92×, maize 1.61×, cotton 1.57×, groundnut 1.42× (all significant).
+  - **No skill: tank-irrigated rice (1.05×) and green gram (0.91×).**
+- **Why rice fails:** irrigated rice yield depends on reservoir/canal releases (and fertiliser/management),
+  which our monsoon-scaled tank budget doesn't capture. Next: reservoir storage or canal-release data, and
+  irrigation-source shares per district.
+- **Misses to study:** 2003–04 bad yields under-predicted (lagged effect of the failed 2002 monsoon on storage?);
+  2018 over-predicted.
+- **Why it matters:** it turns "trust us" into "it would have warned about 2016". This is our strongest
+  credibility point for judges and policy makers.
+
 ## Open questions / likely next pivots
+- **Rice skill:** add reservoir storage (e.g. Mettur/Papanasam levels) or a canal-release index so the
+  irrigated-rice replay reflects water actually delivered, then re-run the backtest.
 - **Long-term rain truth:** can we get IMD 0.25° gridded rainfall (1901–present) to settle the POWER-vs-IMERG
   rain-trend disagreements? It's station-based and long, so it's the natural referee.
 - **Satellite truth for the calendar:** does per-pixel MODIS NDVI from AppEEARS show real bare months? If yes,
