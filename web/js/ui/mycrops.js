@@ -73,6 +73,12 @@ const S = {
     quickNote: "Short crops (about 3 months) that came through most years when sown then. Useful between your main crops.",
     quickRow: "{crop}: ready by about {ready}, came through {good} of {n}",
     key: "Good choice: came through at least 3 seasons in 4. Risky: at least 2 in 4. Not advised: fewer than half.",
+    tileCap: "seasons came through",
+    tileReady: "Ready by about {ready}",
+    tileUsual: "Usually sown {months}",
+    more: "More about {crop}",
+    how: "How to read this",
+    quickTile: "{good} of {n}",
     askH: "Ask locally before you decide",
     ask: "Seed and fertiliser supply, this year's prices at your market, pests seen nearby, and how much water your lake, canal or well really has this year. Only you and local experts know these.",
   },
@@ -116,6 +122,12 @@ const S = {
     quickNote: "அப்போது விதைத்தபோது பெரும்பாலான ஆண்டுகளில் தாக்குப்பிடித்த குறுகிய காலப் பயிர்கள் (சுமார் 3 மாதம்). உங்கள் முக்கியப் பயிர்களுக்கு இடையே பயன்படும்.",
     quickRow: "{crop}: சுமார் {ready} மாதத்துக்குள் தயார், {n}-இல் {good} பருவங்களில் தாக்குப்பிடித்தது",
     key: "நல்ல தேர்வு: 4 பருவங்களில் குறைந்தது 3-இல் தாக்குப்பிடித்தது. ஆபத்தானது: 4-இல் குறைந்தது 2. பரிந்துரைக்கப்படவில்லை: பாதிக்கும் குறைவு.",
+    tileCap: "பருவங்களில் தாக்குப்பிடித்தது",
+    tileReady: "சுமார் {ready} மாதத்துக்குள் தயார்",
+    tileUsual: "வழக்கமாக {months} விதைப்பு",
+    more: "{crop} பற்றி மேலும்",
+    how: "இதை எப்படிப் படிப்பது",
+    quickTile: "{n}-இல் {good}",
     askH: "முடிவெடுக்கும் முன் உள்ளூரில் கேளுங்கள்",
     ask: "விதை, உரம் கிடைப்பது, உங்கள் சந்தையில் இந்த ஆண்டு விலை, அருகில் காணப்பட்ட பூச்சிகள், உங்கள் ஏரி, கால்வாய் அல்லது கிணற்றில் இந்த ஆண்டு உண்மையில் எவ்வளவு நீர் உள்ளது. இவை உங்களுக்கும் உள்ளூர் நிபுணர்களுக்கும் மட்டுமே தெரியும்.",
   },
@@ -184,14 +196,28 @@ function allPicks(site, crops, prefs, months, srcs, damOpen) {
 const order = (a, b) => (a.off - b.off) || (b.share ?? 0) - (a.share ?? 0) || (b.total ?? 0) - (a.total ?? 0);
 const diverse = (list, n) => { const fams = new Set(); return list.filter((p) => !fams.has(p.crop.pest_family) && fams.add(p.crop.pest_family)).slice(0, n); };
 
-function row(p, extra = null) {
-  const badge = h("span", { class: `mc-badge mc-${p.off ? "off" : p.verdict}` }, s(p.off ? "off" : p.verdict));
-  const body = p.off
-    ? [h("p", {}, s("usual", { months: p.crop.sow_months.slice().sort((a, b) => a - b).map(monthShort).join(", ") }))]
+// One big tile per crop: a symbol + word (never colour alone), the crop, and how many seasons it came through.
+// The full sentence, water need and recent-years count sit behind the ⓘ.
+const ICON = { good: "✓", risky: "!", poor: "✕", off: "–" };
+function tile(p, extra = null) {
+  const v = p.off ? "off" : p.verdict;
+  const usual = p.crop.sow_months.slice().sort((a, b) => a - b).map(monthShort).join(", ");
+  const detail = p.off
+    ? [h("p", {}, s("usual", { months: usual }))]
     : [h("p", { html: decorate(s("line", { good: p.good, n: p.n, rgood: p.rgood, rn: p.rn, month: monthName(p.sow), ready: monthName(p.ready) })) }),
-       h("p", { class: "note" }, s("need", { mm: fmt(p.need) }))];
-  return h("li", { class: "mc-row" + (p.off ? " is-off" : "") },
-    h("div", { class: "mc-row-head" }, h("strong", {}, cropName(p.crop)), badge), body, extra);
+       h("p", {}, s("need", { mm: fmt(p.need) }))];
+  return h("li", { class: `mc-tile mc-t-${v}` },
+    h("div", { class: "mc-tile-top" },
+      h("span", { class: "mc-icon", "aria-hidden": "true" }, ICON[v]),
+      h("span", { class: "mc-verdict" }, s(v))),
+    h("strong", { class: "mc-tile-crop" }, cropName(p.crop)),
+    p.off
+      ? h("span", { class: "mc-tile-sub" }, s("tileUsual", { months: usual }))
+      : [h("span", { class: "mc-tile-num" }, `${p.good}/${p.n}`), h("span", { class: "mc-tile-sub" }, s("tileCap"))],
+    p.off ? null : h("span", { class: "mc-tile-sub" }, s("tileReady", { ready: monthShort(p.ready) })),
+    h("details", { class: "mc-more" },
+      h("summary", { "aria-label": s("more", { crop: cropName(p.crop) }), title: s("more", { crop: cropName(p.crop) }) }, "ⓘ"),
+      h("div", { class: "mc-more-body" }, detail, extra)));
 }
 
 /** Month strip: this place's own average rain per month, the usual start of sowing rains, any month tappable. */
@@ -287,16 +313,16 @@ export function renderMyCrops(el, args) {
   if (!mine.length) {
     result.append(h("p", { class: "note" }, s("pick")));
   } else {
-    result.append(h("ol", { class: "mc-list" }, mine.map((p) => row(p))));
+    result.append(h("ol", { class: "mc-tiles" }, mine.map((p) => tile(p))));
     if (!mine.some((p) => p.verdict === "good")) {
       const sug = diverse(picks.filter((p) => !p.off && p.verdict === "good" && !shown.has(p.crop.id) && !ui.ruledOut.has(p.crop.id)).sort(order), 3);
       sug.forEach((p) => shown.add(p.crop.id));
       result.append(h("div", { class: "mc-alert" },
         h("p", { class: "mc-alert-h" }, s("allBad")),
         sug.length
-          ? [h("h3", {}, s("sugHead")), h("p", { class: "note" }, s("sugNote")),
-             h("ol", { class: "mc-list mc-sug" }, sug.map((p) => row(p,
-               h("button", { type: "button", class: "btn-ghost small mc-no", onclick: () => { ui.ruledOut.add(p.crop.id); rerender(); } }, s("notForMe")))))]
+          ? [h("h3", {}, s("sugHead")),
+             h("ol", { class: "mc-tiles mc-sug" }, sug.map((p) => tile(p, [h("p", { class: "note" }, s("sugNote")),
+               h("button", { type: "button", class: "btn-ghost small mc-no", onclick: () => { ui.ruledOut.add(p.crop.id); rerender(); } }, s("notForMe"))])))]
           : h("p", {}, s("none")),
         ui.ruledOut.size
           ? h("button", { type: "button", class: "btn-ghost small", onclick: () => { ui.ruledOut.clear(); rerender(); } }, s("restore", { n: ui.ruledOut.size }))
@@ -306,14 +332,16 @@ export function renderMyCrops(el, args) {
   const quick = diverse(picks.filter((p) => !p.off && p.verdict === "good" && p.crop.duration_days <= QUICK_DAYS
     && !shown.has(p.crop.id) && !ui.ruledOut.has(p.crop.id)).sort(order), 3);
   if (quick.length) {
-    result.append(h("div", { class: "mc-quick" }, h("h3", {}, s("quickH")), h("p", { class: "note" }, s("quickNote")),
-      h("ul", {}, quick.map((p) => h("li", {}, s("quickRow", { crop: cropName(p.crop), ready: monthName(p.ready), good: p.good, n: p.n }))))));
+    result.append(h("div", { class: "mc-quick" }, h("h3", {}, s("quickH")),
+      h("ul", { class: "mc-quick-chips" }, quick.map((p) => h("li", { title: s("quickRow", { crop: cropName(p.crop), ready: monthName(p.ready), good: p.good, n: p.n }) },
+        h("span", { "aria-hidden": "true" }, "✓ "), h("strong", {}, cropName(p.crop)), " ", h("span", { class: "mc-quick-n" }, s("quickTile", { good: p.good, n: p.n })))))));
   }
-  if (mine.length) result.append(h("p", { class: "note mc-key" }, s("key")));
+  // the reading key, recent-years weighting and multi-source rule: one fold instead of three paragraphs
   const anyIn = picks.find((p) => !p.off);
-  if (anyIn) result.append(h("p", { class: "note" }, s("recentNote", { rn: anyIn.rn, from: anyIn.from, to: anyIn.to })));
-  if (srcs.length > 1) result.append(h("p", { class: "note" }, s("multi")));
-  result.append(askLocally(s("askH"), s("ask")));
+  const how = [mine.length ? s("key") : null, anyIn ? s("recentNote", { rn: anyIn.rn, from: anyIn.from, to: anyIn.to }) : null,
+    srcs.length > 1 ? s("multi") : null, quick.length ? s("quickNote") : null].filter(Boolean);
+  if (how.length) result.append(h("details", { class: "mc-how" }, h("summary", {}, h("span", { "aria-hidden": "true" }, "ⓘ "), s("how")), how.map((x) => h("p", { class: "note" }, x))));
+  result.append(h("details", { class: "ask-local mc-ask" }, h("summary", {}, h("span", { "aria-hidden": "true" }, "👤 "), s("askH")), h("p", {}, s("ask"))));
 
   clear(el).append(
     h("div", { class: "mc-grid" },

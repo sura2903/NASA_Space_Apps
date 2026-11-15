@@ -30,13 +30,16 @@ const STR = {
     "fold.optional": "optional", "fold.more": "More about your place (tap a heading to open)",
     "fold.about.eyebrow": "About this tool", "fold.about": "Words used here, honest limits, data sources and future work",
     "welcome.title": "Where is your farm?",
-    "welcome.note": "Choose the nearest place. Three places have extra-detailed data; the rest of Tamil Nadu is covered at about 50 km detail.",
+    "welcome.note": "Choose the nearest place.",
     "welcome.locate": "📍 Use my location", "welcome.locating": "Finding the nearest place…",
     "welcome.located": "Nearest place: {place} ({km} km away)",
     "welcome.denied": "Location is not available. Please choose from the list.",
     "welcome.privacy": "Your location stays on this device; it is only used to find the nearest place.",
     "welcome.or": "or pick a detailed place:", "welcome.go": "Show my options",
-    "places.demo": "Detailed places", "places.grid": "Anywhere in Tamil Nadu (nearest point)",
+    "places.group": "{town} area",
+    "places.note": "Each place is a square of NASA data about {km} km wide, named after the nearest district town and how far the square's centre is from it. Pick the one closest to your village, or use the map or your location.",
+    "place.dir": "{town}, {km} km {dir}", "place.away": "{town}, {km} km away", "place.near": "{town}, next to the town",
+    "dir.n": "north", "dir.ne": "north-east", "dir.e": "east", "dir.se": "south-east", "dir.s": "south", "dir.sw": "south-west", "dir.w": "west", "dir.nw": "north-west",
     "change.place": "Change place",
     "welcome.example": "You are looking at an example place: {place}. Choose your own place above to see results for your farm.",
     "welcome.map": "🗺 Pick on a map",
@@ -402,13 +405,16 @@ const STR = {
     "fold.optional": "விருப்பம்", "fold.more": "உங்கள் இடத்தைப் பற்றி மேலும் (தலைப்பைத் தட்டித் திறக்கவும்)",
     "fold.about.eyebrow": "இந்தக் கருவி பற்றி", "fold.about": "இங்கு பயன்படும் சொற்கள், வரம்புகள், தரவு ஆதாரங்கள், எதிர்காலப் பணிகள்",
     "welcome.title": "உங்கள் பண்ணை எங்கே உள்ளது?",
-    "welcome.note": "அருகிலுள்ள இடத்தைத் தேர்ந்தெடுக்கவும். மூன்று இடங்களுக்கு கூடுதல் விரிவான தரவு உள்ளது; மற்ற தமிழ்நாடு சுமார் 50 கி.மீ. அளவில் உள்ளது.",
+    "welcome.note": "அருகிலுள்ள இடத்தைத் தேர்ந்தெடுக்கவும்.",
     "welcome.locate": "📍 என் இருப்பிடத்தைப் பயன்படுத்து", "welcome.locating": "அருகிலுள்ள இடத்தைத் தேடுகிறது…",
     "welcome.located": "அருகிலுள்ள இடம்: {place} ({km} கி.மீ. தொலைவு)",
     "welcome.denied": "இருப்பிடம் கிடைக்கவில்லை. பட்டியலிலிருந்து தேர்ந்தெடுக்கவும்.",
     "welcome.privacy": "உங்கள் இருப்பிடம் இந்தச் சாதனத்திலேயே இருக்கும்; அருகிலுள்ள இடத்தைக் கண்டறிய மட்டுமே பயன்படும்.",
     "welcome.or": "அல்லது விரிவான இடத்தைத் தேர்ந்தெடுக்கவும்:", "welcome.go": "என் தேர்வுகளைக் காட்டு",
-    "places.demo": "விரிவான இடங்கள்", "places.grid": "தமிழ்நாட்டில் எங்கும் (அருகிலுள்ள புள்ளி)",
+    "places.group": "{town} பகுதி",
+    "places.note": "ஒவ்வொரு இடமும் சுமார் {km} கி.மீ. அகலமுள்ள நாசா தரவுச் சதுரம். அருகிலுள்ள மாவட்ட நகரத்தின் பெயரும், சதுரத்தின் மையம் அதிலிருந்து எவ்வளவு தொலைவு என்பதும் அதன் பெயர். உங்கள் ஊருக்கு மிக அருகில் உள்ளதைத் தேர்ந்தெடுங்கள், அல்லது வரைபடத்தையோ உங்கள் இருப்பிடத்தையோ பயன்படுத்துங்கள்.",
+    "place.dir": "{town}, {dir} {km} கி.மீ.", "place.away": "{town}, {km} கி.மீ. தொலைவில்", "place.near": "{town}, நகரை ஒட்டி",
+    "dir.n": "வடக்கே", "dir.ne": "வடகிழக்கே", "dir.e": "கிழக்கே", "dir.se": "தென்கிழக்கே", "dir.s": "தெற்கே", "dir.sw": "தென்மேற்கே", "dir.w": "மேற்கே", "dir.nw": "வடமேற்கே",
     "change.place": "இடத்தை மாற்று",
     "welcome.example": "இது ஒரு எடுத்துக்காட்டு இடம்: {place}. உங்கள் பண்ணைக்கான முடிவுகளைக் காண மேலே உங்கள் இடத்தைத் தேர்ந்தெடுக்கவும்.",
     "welcome.map": "🗺 வரைபடத்தில் தேர்ந்தெடுக்கவும்",
@@ -806,8 +812,21 @@ export const cropShort = (c) => (lang === "ta" && c?.tamil_name ? c.tamil_name.r
 
 export const prioLabel = (k, fallback) => LABELS[lang]?.prio?.[k] ?? fallback;
 export const waterLabel = (k, fallback) => LABELS[lang]?.water?.[k] ?? fallback;
-// Tamil view: hand-written labels for the demo sites, then the data's name_ta (grid places, add_tamil_names.py)
-export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? (lang === "ta" ? s.name_ta : null) ?? s.name;
+// Grid places, described by ui/places.js: id -> { town, town_ta, km, dir } (dir = compass point from the town, or null)
+const PLACES = {};
+export const setPlaceInfo = (info) => Object.assign(PLACES, info);
+/** "Chennai, 19 km north-west" from the place's nearest district town; null when the place is not described. */
+function placeLabel(id) {
+  const p = PLACES[id];
+  if (!p) return null;
+  const town = lang === "ta" && p.town_ta ? p.town_ta : p.town;
+  if (p.km < 5) return t("place.near", { town, km: p.km });
+  return p.dir ? t("place.dir", { town, km: p.km, dir: t(`dir.${p.dir}`) }) : t("place.away", { town, km: p.km });
+}
+/** Town a place is grouped under in the place list, in the current language. */
+export const placeTown = (id) => { const p = PLACES[id]; return p ? (lang === "ta" && p.town_ta ? p.town_ta : p.town) : null; };
+// The three demo sites keep their hand-written names; grid places use placeLabel, then the data's own name
+export const siteName = (s) => LABELS[lang]?.site?.[s.id] ?? placeLabel(s.id) ?? (lang === "ta" ? s.name_ta : null) ?? s.name;
 export const tagLabel = (tag) => t(`tag.${tag}`);
 
 /** Translate the short engine sentences we know the shape of; others stay as written. */
