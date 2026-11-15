@@ -931,16 +931,35 @@ export function windRisk(site, crops, prefs, wind) {
       const exposed = tol === "high" ? false : tol === "low" ? storm > 0 || peak >= DAMAGING_WIND_MS : storm > 0;
       if (exposed) { hit++; hitYears.push(y); }
     }
+    // cyclone best tracks (NOAA IBTrACS, 1981-2024): passes within 100 km that fell in this crop's vulnerable months
+    // (catches compact storms like Gaja 2018 that the ~50 km POWER wind smooths away). High-tolerance crops: not counted.
+    let cyc = null;
+    if (wind.cyclones?.passes) {
+      const [c0, c1] = wind.cyclones.years;
+      // low tolerance: any cyclonic storm (>= 34 kt); medium: only severe storms (>= 48 kt), else the coast flagged
+      // nearly every crop (12 at Nagapattinam) and the list stopped meaning anything
+      const hits = tol === "high" ? [] : wind.cyclones.passes.filter((p) => {
+        if (tol === "medium" && p.wind_kt < 48) return false;
+        const Y = +p.date.slice(0, 4), M = +p.date.slice(5, 7);
+        return months.some((x) => x.m === M && Y - x.y >= c0 && Y - x.y <= c1);
+      });
+      cyc = { seasons_hit: hits.length, seasons: c1 - c0 + 1, share: r2(hits.length / (c1 - c0 + 1)),
+              storms: hits.map((p) => `${p.name} ${p.date.slice(0, 7)}`) };
+    }
     return { crop: c.id, crop_name: shortName(c), wind_tolerance: tol, sow_label: MONTHS[sow - 1],
              exposed_months: [...new Set(months.map((x) => MONTHS[x.m - 1]))], seasons_hit: hit, seasons: n,
-             share_hit: n ? r2(hit / n) : null, hit_years: hitYears };
+             share_hit: n ? r2(hit / n) : null, hit_years: hitYears, cyclones: cyc };
   });
   const stormMonths = wind.monthly.filter((m) => m.storm_days_per_year >= 0.1).map((m) => MONTHS[m.month - 1]);
   return {
     annual: wind.annual, storm_months: stormMonths, windiest_days: wind.windiest_days.slice(0, 5),
     crops: rows,
-    most_exposed: rows.filter((r) => r.share_hit >= 0.25).sort((a, b) => b.share_hit - a.share_hit).map((r) => r.crop),
-    note: "NASA POWER is a ~50 km average, so real cyclone gusts are much stronger; read this as how often wind hits each crop's vulnerable months, not as wind speed.",
+    // exposed = damaging POWER wind in >= 25% of seasons, or a real cyclone pass in >= 10% of seasons (IBTrACS)
+    most_exposed: rows.filter((r) => r.share_hit >= 0.25 || (r.cyclones?.share ?? 0) >= 0.1)
+      .sort((a, b) => Math.max(b.share_hit, b.cyclones?.share ?? 0) - Math.max(a.share_hit, a.cyclones?.share ?? 0)).map((r) => r.crop),
+    cyclones: wind.cyclones ? { count: wind.cyclones.count, per_decade: wind.cyclones.per_decade, severe_count: wind.cyclones.severe_count,
+                                years: wind.cyclones.years, recent: wind.cyclones.passes.slice(-5) } : null,
+    note: "Wind days from NASA POWER (~50 km average, so real gusts are stronger); cyclone passes from NOAA IBTrACS best tracks (within 100 km, 1981-2024). Read as how often wind hits each crop's vulnerable months, not as wind speed.",
   };
 }
 
