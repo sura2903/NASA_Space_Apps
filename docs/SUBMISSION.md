@@ -32,11 +32,14 @@ visitor through the features step by step, in English or Tamil.
    places on a 28 km grid covering Tamil Nadu. Each is named after the village or town at its centre and its taluk
    (from OpenStreetMap), for example "Malayarnatham, Papanasam taluk (13 km east of Thanjavur)". Or tap "use my
    location", or pick on a map. The tab opens on an example place, so it works straight away.
-2. **Your crops and water.** Tick what you grow and every water source you have: rain only, lake / pond, river canal /
-   dam, borewell. A delta farmer on canal water is also asked "Has Mettur reservoir opened this year?" The answers are
-   not known yet, on time, late, very late or not opened, and the advice changes with the answer.
-3. **When do you sow?** Pick a traditional sowing season (pattam) or a month. Each crop gets a large tile with its
-   chance of coming through when sown then, for example 92%, marked *good choice*, *risky* or *not advised*.
+2. **When do you sow?** Pick a traditional sowing season (pattam) or a month first, because which crops are best
+   depends on it.
+3. **Your water and crops.** Tick every water source you have: rain only, lake / pond, river canal / dam, borewell. A
+   delta farmer on canal water is also asked "Has Mettur reservoir opened this year?" The answers are not known yet,
+   on time, late, very late or not opened, and the advice changes with the answer. Then tick your crops: *Best here*
+   lists the crops that did best at this place and time, and *All crops* lists every crop.
+   - **The answer:** once a sowing time and a crop are chosen, each crop gets a large tile with its chance of coming
+     through, for example 92%, marked *good choice*, *risky* or *not advised*.
    - **How the chance is worked out:** from the real seasons, with the last 10 counted twice, and smoothed so even a
      perfect record shows a little under 100%.
    - **Behind ⓘ:** the raw counts ("came through 22 of 24").
@@ -197,8 +200,9 @@ Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs reco
 3. **Three options.** Scroll to *Three options for your field*. "Their current rice-rice rotation on canal water came
    through 9 of 24 real seasons. The bigger shift came through 16." Point at the squares. "Each square is a real year.
    Hover to see why a year failed."
-4. **Has the dam opened?** In step 2, keep *River canal / dam* ticked. Press *Jun* under *When do you sow?*, then
-   switch the Mettur answer from *Opened on time* to *Opened late*. The short-rice tile drops from **92%** to **3%**;
+4. **Has the dam opened?** Press *Jun* under *When do you sow?*. In *Your water and crops*, keep *River canal / dam*
+   ticked, open *All crops* and tick *Rice, short duration*, then switch the Mettur answer from *Opened on time* to
+   *Opened late*. The short-rice tile drops from **92%** to **3%**;
    open its ⓘ to show "22 of 24" vs "0 of 24". "Short rice sown in June came through 22 of 24 seasons when Mettur
    opened on time, and none when it opened late. That matches the real drop in Kuruvai area."
 5. **The memory trap** (say it over the `memory_vs_record.png` graphic from docs/video; the app itself does not show
