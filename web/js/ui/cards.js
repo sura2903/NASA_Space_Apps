@@ -45,7 +45,19 @@ function replaySquares(rp) {
     years ? h("div", { class: "replay-axis", "aria-hidden": "true" }, h("span", {}, years[0].year), h("span", {}, years[years.length - 1].year)) : null);
 }
 
-export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenarioOn }) {
+// "By 2041-2060" lines for a plan card: the range of good years across the 5 climate models, per emissions path.
+function futureLines(fr, rp) {
+  const head = h("h4", {}, t("card.fut.h"));
+  if (!fr) return [head, h("p", { class: "note" }, t("card.fut.none"))];
+  const line = (r, key) => {
+    if (!r?.good_years) return null;
+    const { min, max } = r.good_years;
+    return h("p", {}, t(key, { range: min === max ? String(min) : `${min}–${max}`, total: r.today.total_years, now: rp.good_years }));
+  };
+  return [head, line(fr.ssp245, "card.fut.245"), line(fr.ssp585, "card.fut.585"), h("p", { class: "note" }, t("card.fut.note"))];
+}
+
+export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenarioOn, future = null }) {
   const cal = fieldCalendar(st, site, cropById, { monthly, scenarioOn });
   const rp = st.replay;
   const src = waterLabel(st.water_source, WATER_SOURCES[st.water_source]?.label ?? st.water_source);
@@ -112,8 +124,19 @@ export function strategyCard(st, { site, cropById, isBest, rank, monthly, scenar
     section(t("card.why"), st.why, "why"),
 
     // everything else is one tap away, so three cards side by side (or stacked on a phone) stay readable
-    h("details", { class: "card-more" },
+    h("details", {
+      class: "card-more",
+      // 2041-2060 range (issue #30), worked out the first time this fold opens; future() returns
+      // { ssp245, ssp585 } from scoring.futureRange, or null when the place has no projection
+      ontoggle: (e) => {
+        const d = e.currentTarget;
+        if (!d.open || d.dataset.future || !future) return;
+        d.dataset.future = "1";
+        d.querySelector(".card-future")?.replaceChildren(...futureLines(future(), rp));
+      },
+    },
       h("summary", {}, t("card.more")),
+      future ? h("section", { class: "card-sec card-future" }) : null,
     cal.el,
     h("section", { class: "card-sec evidence" },
       h("h4", {}, t("card.evidence"), h("span", { class: "hint" }, t("card.hint"))),

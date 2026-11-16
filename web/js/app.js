@@ -1,7 +1,7 @@
 // SowSmart UI (Lane B). Reads web/data/*.json, calls only the scoring.js exports
 // (docs/data_contract.md section 4), and renders. No scoring logic lives here.
 import {
-  generateStrategies, siteHighlights, trendScenario, scenarioMonthly, DEFAULT_CURRENT, PRIORITIES, WATER_SOURCES,
+  generateStrategies, siteHighlights, trendScenario, scenarioMonthly, futureRange, DEFAULT_CURRENT, PRIORITIES, WATER_SOURCES,
 } from "./scoring.js";
 import { $, h, clear, debounce, fmt, signed } from "./ui/dom.js";
 import { decorate, rich, initTooltips, renderGlossaryList } from "./ui/glossary.js";
@@ -26,7 +26,7 @@ const SITE_KEY = "fs-site";
 const DETAIL = new URLSearchParams(location.search).get("view") === "detail";
 
 const state = {
-  sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, trends: null, sowChoice: null,
+  sites: [], crops: [], cropById: {}, siteCache: {}, trendCache: {}, projCache: {}, projection: null, trends: null, sowChoice: null,
   site: null, rotation: null, water_source: "rainfed", waters: new Set(["rainfed"]),
   weights: { ...DEFAULT_WEIGHTS }, scenario: { dT_c: 0, dPrecip_pct: 0 },
   strategies: [],
@@ -66,6 +66,9 @@ async function selectSite(id) {
   // B11: climate-trend file is optional (contract §2b); the panel hides when it is missing.
   if (!(meta.id in state.trendCache)) state.trendCache[meta.id] = meta.demo ? await getJSON(`data/trends/${meta.id}.json`).catch(() => null) : null;
   state.trends = state.trendCache[meta.id];
+  // NASA NEX-GDDP-CMIP6 projection for the 2041-2060 ranges (issue #30); optional, ~15 KB
+  if (!(meta.id in state.projCache)) state.projCache[meta.id] = await getJSON(`data/projections/${meta.id}.json`).catch(() => null);
+  state.projection = state.projCache[meta.id];
   state.sowChoice = null;
   const def = DEFAULT_CURRENT[site.id] ?? FALLBACK_CURRENT;
   state.rotation = clone(def.rotation);
@@ -201,7 +204,7 @@ function renderSowPanel() {
 function renderResults() {
   const s = state.site, P = prefs(), sts = state.strategies;
   renderSowPanel();
-  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop), waters: state.waters, onWaters: setWaters });
+  renderMyCrops($("#mycrops"), { site: s, crops: state.crops, prefs: P, currentIds: state.rotation.flat().map((x) => x.crop), waters: state.waters, onWaters: setWaters, projection: state.projection });
   // highlights depend on the climate scenario
   $("#highlights").innerHTML = siteHighlights(s, P).map((x) => `<li>${decorate(x)}</li>`).join("");
 
@@ -234,8 +237,14 @@ function renderResults() {
   try { monthly = scenarioMonthly(s, sc); } catch { monthly = null; }
   const cards = $("#cards");
   clear(cards);
+  const proj = state.projection, P2 = prefs();
+  // 2041-2060 range per plan, both emissions paths; only run when a card's "see more" fold is opened
+  const future = (st) => (proj ? () => ({
+    ssp245: futureRange(s, state.crops, st.rotation, P2, proj, "ssp245"),
+    ssp585: futureRange(s, state.crops, st.rotation, P2, proj, "ssp585"),
+  }) : () => null);
   ordered.forEach((st, i) => cards.append(strategyCard(st, {
-    site: s, cropById: state.cropById, isBest: st === best && sts.length > 1, rank: i, monthly, scenarioOn,
+    site: s, cropById: state.cropById, isBest: st === best && sts.length > 1, rank: i, monthly, scenarioOn, future: future(st),
   })));
 
   const issues = $("#rot-issues");

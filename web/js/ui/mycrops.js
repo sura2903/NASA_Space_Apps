@@ -76,6 +76,11 @@ const S = {
     quickRow: "{crop}: ready by about {ready}, came through {good} of {n}",
     key: "Good choice: a chance of 75% or more (about 3 seasons in 4). Some risk: 50% or more. High risk: below 50%.",
     tileCap: "chance it comes through",
+    futH: "By 2041–2060",
+    futLine: "{lo}–{hi}% chance with the climate of 2041–2060 in 5 NASA climate models (today {now}%).",
+    futSame: "About {lo}% chance with the climate of 2041–2060 in all 5 NASA climate models (today {now}%).",
+    futNote: "These are the same real seasons with each model's expected monthly changes in heat and rain applied (NASA NEX-GDDP-CMIP6, middle emissions path SSP2-4.5). A range, not a forecast.",
+    futNone: "No climate projection is available for this place.",
     pctNote: "How the % is worked out: the last {rn} seasons count twice, and one good and one failed season are added, so even a perfect record shows a little under 100%.",
     tileReady: "Ready by about {ready}",
     tileUsual: "Usually sown {months}",
@@ -126,6 +131,11 @@ const S = {
     quickRow: "{crop}: சுமார் {ready} மாதத்துக்குள் தயார், {n}-இல் {good} பருவங்களில் தாக்குப்பிடித்தது",
     key: "நல்ல தேர்வு: 75% அல்லது அதற்கு மேல் வாய்ப்பு (சுமார் 4 பருவங்களில் 3). சிறிது ஆபத்து: 50% அல்லது அதற்கு மேல். அதிக ஆபத்து: 50%-க்குக் கீழ்.",
     tileCap: "தாக்குப்பிடிக்கும் வாய்ப்பு",
+    futH: "2041–2060-இல்",
+    futLine: "5 நாசா காலநிலை மாதிரிகளின் 2041–2060 காலநிலையில் {lo}–{hi}% வாய்ப்பு (இன்று {now}%).",
+    futSame: "5 நாசா காலநிலை மாதிரிகளின் 2041–2060 காலநிலையிலும் சுமார் {lo}% வாய்ப்பு (இன்று {now}%).",
+    futNote: "இவை அதே உண்மையான பருவங்கள்; ஒவ்வொரு மாதிரியும் எதிர்பார்க்கும் மாதாந்திர வெப்ப, மழை மாற்றங்கள் சேர்க்கப்பட்டுள்ளன (நாசா NEX-GDDP-CMIP6, நடுத்தர உமிழ்வுப் பாதை SSP2-4.5). இது ஒரு வரம்பு, முன்னறிவிப்பு அல்ல.",
+    futNone: "இந்த இடத்துக்குக் காலநிலைக் கணிப்பு இல்லை.",
     pctNote: "இந்த % எப்படிக் கணக்கிடப்படுகிறது: கடைசி {rn} பருவங்கள் இரு முறை எண்ணப்படுகின்றன; ஒரு நல்ல, ஒரு தோல்வியடைந்த பருவம் சேர்க்கப்படுகிறது. அதனால் முழு வெற்றிப் பதிவும் 100%-க்குச் சற்றுக் குறைவாகவே காட்டும்.",
     tileReady: "சுமார் {ready} மாதத்துக்குள் தயார்",
     tileUsual: "வழக்கமாக {months} விதைப்பு",
@@ -204,6 +214,19 @@ const diverse = (list, n) => { const fams = new Set(); return list.filter((p) =>
 // One big tile per crop: a symbol + word (never colour alone), the crop, and its chance of success as a %.
 // The season counts ("came through 20 of 23"), how the % is worked out and the water need sit behind the ⓘ.
 const ICON = { good: "✓", risky: "!", poor: "✕", off: "–" };
+// 2041-2060 (issue #30): the same crop, sowing month and water, replayed through each NASA NEX-GDDP-CMIP6 model's
+// future-like seasons (SSP2-4.5). Worked out only when the farmer opens the ⓘ, so the tiles themselves (the big %,
+// the verdict, the order) never change. futureCtx is set by renderMyCrops for the tiles it draws.
+let futureCtx = null;
+function futureBlock(p) {
+  const c = futureCtx, models = Object.entries(c?.projection?.deltas?.ssp245 || {});
+  if (!models.length) return h("p", { class: "note" }, s("futNone"));
+  const pcts = models.map(([model, deltas]) => windowPick(c.site, c.crops, p.crop, [p.sow],
+    { ...c.prefs, scenario: { deltas, projection_key: `ssp245|${model}` } }, c.srcs, c.damOpen).pct).sort((a, b) => a - b);
+  const lo = pcts[0], hi = pcts[pcts.length - 1];
+  return h("div", { class: "mc-future" }, h("strong", {}, s("futH")),
+    h("p", {}, s(lo === hi ? "futSame" : "futLine", { lo, hi, now: p.pct })), h("p", { class: "note" }, s("futNote")));
+}
 function tile(p, extra = null) {
   const v = p.off ? "off" : p.verdict;
   const usual = p.crop.sow_months.slice().sort((a, b) => a - b).map(monthShort).join(", ");
@@ -221,7 +244,15 @@ function tile(p, extra = null) {
       ? h("span", { class: "mc-tile-sub" }, s("tileUsual", { months: usual }))
       : [h("span", { class: "mc-tile-num" }, `${p.pct}%`), h("span", { class: "mc-tile-sub" }, s("tileCap"))],
     p.off ? null : h("span", { class: "mc-tile-sub" }, s("tileReady", { ready: monthShort(p.ready) })),
-    h("details", { class: "mc-more" },
+    h("details", {
+      class: "mc-more",
+      ontoggle: (e) => {          // add the 2041-2060 range the first time the ⓘ opens
+        const d = e.currentTarget;
+        if (!d.open || p.off || d.dataset.future) return;
+        d.dataset.future = "1";
+        d.querySelector(".mc-more-body")?.append(futureBlock(p));
+      },
+    },
       h("summary", { "aria-label": s("more", { crop: cropName(p.crop) }), title: s("more", { crop: cropName(p.crop) }) }, "ⓘ"),
       h("div", { class: "mc-more-body" }, detail, extra)));
 }
@@ -261,7 +292,7 @@ function onsetLine(site) {
  * waters = the Set of ticked water sources, onWaters(set) = the page's setter (shared with the full-year plans).
  */
 export function renderMyCrops(el, args) {
-  const { site, crops, prefs, currentIds = [], waters, onWaters } = args;
+  const { site, crops, prefs, currentIds = [], waters, onWaters, projection = null } = args;
   if (!site || !crops?.length) return;
   const field = crops.filter((c) => c.type !== "green_manure");
   if (!ui.picked) ui.picked = loadPicked() ?? new Set(currentIds.filter((id) => field.some((c) => c.id === id)));
@@ -312,6 +343,7 @@ export function renderMyCrops(el, args) {
 
   // the answer
   const picks = allPicks(site, crops, prefs, months, srcs, damOpen);
+  futureCtx = { site, crops, prefs, srcs, damOpen, projection };
   const mine = picks.filter((p) => ui.picked.has(p.crop.id)).sort(order);
   const when = months.length > 1 ? s("whenR", { range: range(months) }) : s("when1", { month: monthName(months[0]) });
   const result = h("div", { class: "mc-result", "aria-live": "polite" }, h("h2", { id: "mc-answer-title" }, s("answerH", { when })));
