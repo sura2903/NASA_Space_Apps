@@ -44,10 +44,13 @@
     </nav>
   </header>
 
-  <section class="intro intro-short" aria-labelledby="intro-title">
-    <h2 id="intro-title" class="sr" data-i18n="intro.title">What is SowSmart?</h2>
-    <p data-i18n="why.farm">This tab is for farmers. Tick the crops you grow, your water and when you sow, and see which crops came through most past seasons at your place.</p>
+  <section class="intro intro-short pg-hero" aria-labelledby="intro-title">
+    <div class="hm-inner">
+    <p class="hm-kicker" id="hero-k" data-i18n="hero.farm.k">For farmers</p>
+    <h2 id="intro-title" class="pg-h" data-i18n="hero.farm.h">Which crops will come through your next season?</h2>
+    <p data-i18n="why.farm">This tab is for farmers. Choose when you sow, your water and your crops, and see which crops came through most past seasons at your place.</p>
     <p class="note intro-note" id="intro-note" data-i18n="intro.note">It supports your own judgement and your agriculture officer's advice. It does not replace them.</p>
+    </div>
   </section>
 
   <p id="error" class="error" role="alert" hidden></p>
@@ -220,6 +223,7 @@
   <div id="print-sheet" class="print-sheet"></div>
 
   <script type="module" src="js/app.js"></script>
+  <script type="module">import { revealOnScroll } from "./js/ui/reveal.js"; revealOnScroll(".pg-hero, #place-bar, .farm-flow > .panel, .detail-sections > .panel");</script>
   <script type="module">import { mountRefsFooter } from "./js/ui/references.js"; mountRefsFooter();</script>
   <script type="module">import { mountTour } from "./js/ui/tour.js"; mountTour("farm");</script>
 </body>

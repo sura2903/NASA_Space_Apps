@@ -848,3 +848,68 @@ body.view-detail #more-plans > summary { display: none; }
   .hm-row { grid-template-columns: 1fr; gap: 6px; }
   .hm-sq { width: 20px; height: 20px; }
 }
+
+/* ---------- Farmers and Policy makers pages in the home page's style ---------- */
+/* a dark opening band like the home hero, bolder headings, rounder cards, and the same scroll-in (ui/reveal.js) */
+.intro.pg-hero {
+  --hm-dark: #13241a; --hm-ink-d: #eef2ea; --hm-ink-d2: #b9cbbe;
+  display: block; width: auto; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none;
+  background: var(--hm-dark); color: var(--hm-ink-d); padding: clamp(36px, 6vw, 72px) 24px clamp(32px, 5vw, 60px);
+}
+.pg-hero .hm-inner { max-width: 1080px; margin: 0 auto; }
+.pg-hero .hm-kicker { color: #8fcb8f; }
+.pg-hero .pg-h { font-size: clamp(1.9rem, 4.6vw, 3.3rem); line-height: 1.07; letter-spacing: -0.02em; font-weight: 800; margin: 0 0 16px; max-width: 22ch; color: var(--hm-ink-d); }
+.intro.pg-hero p { color: var(--hm-ink-d2); font-size: clamp(1rem, 1.6vw, 1.18rem); line-height: 1.55; max-width: 64ch; }
+.intro.pg-hero .intro-note { font-size: 0.9rem; margin-top: 12px; color: var(--hm-ink-d2); opacity: 0.85; }
+body:not(.home-page) .panel, body:not(.home-page) .step { border-radius: 20px; }
+body:not(.home-page) .panel { padding: clamp(18px, 2.4vw, 28px); }
+body:not(.home-page) .panel h2, body:not(.home-page) .fold-h { font-weight: 800; letter-spacing: -0.015em; }
+body:not(.home-page) .panel h2 { font-size: clamp(1.3rem, 2.2vw, 1.75rem); line-height: 1.18; }
+body:not(.home-page) .fold-h { font-size: clamp(1.15rem, 1.9vw, 1.45rem); }
+body:not(.home-page) .eyebrow { letter-spacing: 0.08em; font-size: 0.78rem; margin-bottom: 6px; }
+body:not(.home-page) .step .n, body:not(.home-page) .place-row .n, .mycrops h2 .n { width: 32px; height: 32px; font-size: 0.95rem; font-weight: 800; }
+.mycrops h2 .n { display: inline-grid; place-items: center; border-radius: 50%; background: var(--accent); color: var(--accent-ink); flex: none; }
+.farm-flow { margin-top: 24px; gap: 20px; }
+
+/* Farmers: crop sections (All / Best here / Other), the "waiting" answer box, tiles popping in */
+.mycrops .mc-crops-h { margin-top: 26px; }
+.mc-seg { display: inline-flex; flex-wrap: wrap; border: 1.5px solid var(--line); border-radius: 999px; overflow: hidden; margin: 2px 0 8px; background: var(--surface); }
+.mc-seg-btn { min-height: 40px; padding: 6px 14px; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: 0.92rem; font-weight: 600; cursor: pointer; }
+.mc-seg-btn + .mc-seg-btn { border-left: 1.5px solid var(--line); }
+.mc-seg-btn.on { background: var(--accent); color: var(--accent-ink); }
+.mc-seg-n { font-weight: 500; opacity: 0.8; }
+.mc-sec-note { margin: 0 0 8px; }
+.mc-chip-ok { color: var(--accent); font-weight: 800; }
+.mc-ticked { margin: 10px 0 0; font-size: 0.9rem; font-weight: 600; color: var(--ink-2); }
+.mc-wait { border: 1.5px dashed var(--line); border-radius: 18px; padding: 20px; background: var(--surface-2); }
+.mc-wait h2 { color: var(--ink-2); }
+.mc-todo { list-style: none; margin: 10px 0 14px; padding: 0; display: grid; gap: 8px; font-size: 1rem; color: var(--ink-2); }
+.mc-todo li.done { color: var(--accent); font-weight: 600; }
+.mc-todo-i { display: inline-block; width: 1.2em; font-weight: 800; }
+.mc-show { margin: 0 0 6px; }
+@media (prefers-reduced-motion: no-preference) {
+  .mc-fresh .mc-tile { animation: pg-pop 0.5s cubic-bezier(.3, 1.4, .5, 1) both; animation-delay: calc(var(--i, 0) * 90ms); }
+  @keyframes pg-pop { from { opacity: 0; transform: translateY(14px) scale(0.96); } to { opacity: 1; transform: none; } }
+
+  /* scroll reveal (ui/reveal.js): a part rises in, then its cards, tiles and rows one after another */
+  .rv > * { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+  .rv.in > * { opacity: 1; transform: none; }
+  .rv.in > :nth-child(2) { transition-delay: 0.07s; }
+  .rv.in > :nth-child(3) { transition-delay: 0.14s; }
+  .rv.in > :nth-child(n+4) { transition-delay: 0.2s; }
+  .rv :is(.mc-tile, .card, .ideas-card, .ideas-sum > *, .xtable tbody tr, .top3 > *, .mc-quick-chips li) {
+    opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; transition-delay: calc(var(--i, 0) * 60ms + 0.2s);
+  }
+  .rv.in :is(.mc-tile, .card, .ideas-card, .ideas-sum > *, .xtable tbody tr, .top3 > *, .mc-quick-chips li) { opacity: 1; transform: none; }
+}
+@media (max-width: 640px) {
+  .intro.pg-hero { padding: 32px 16px 28px; }
+  .mc-seg { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-radius: 14px; }
+  .mc-seg-btn { padding: 6px 4px; font-size: 0.85rem; line-height: 1.2; }
+}
+/* wide screens: the answer stays in view beside the inputs while the farmer ticks crops lower down */
+@media (min-width: 980px) and (min-height: 640px) { .mc-grid > .mc-result { position: sticky; top: 132px; } }
+/* printing ("Print for my agriculture officer") shows every part, whatever was on screen */
+@media print {
+  .rv > *, .rv :is(.mc-tile, .card, .ideas-card, .ideas-sum > *, .xtable tbody tr, .top3 > *, .mc-quick-chips li) { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}

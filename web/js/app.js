@@ -296,6 +296,9 @@ function initView() {
   if (why) why.dataset.i18n = "why.policy";
   const note = $("#intro-note");
   if (note) note.dataset.i18n = "why.policy.note";
+  const k = $("#hero-k"), hh = $("#intro-title");
+  if (k) k.dataset.i18n = "hero.policy.k";
+  if (hh) hh.dataset.i18n = "tab.detail";
 }
 
 async function init() {
