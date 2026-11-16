@@ -155,7 +155,8 @@ function drawCropTable() {
 }
 
 /* ---------- top 3 at a place ---------- */
-const placeName = (p) => siteName(p);
+// the local village / taluk name (grid/index.json, OpenStreetMap) where there is one, as on the Policy map
+const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);
 
 function selectNearest(ll, fromClick) {
   let best = null, d = Infinity;
