@@ -14,7 +14,7 @@ const UI = {
     used: "Used for", cite: "Cite as", link: "Link",
     foot: "📚 NASA datasets and references", back: "← Back to the tool",
     note: "Crop values (seasons, durations, water needs, storage) are approximate; each crop's own sources are listed in data/crops.json.",
-    aiFoot: "🤖 Built with AI assistance (Claude): how we used it",
+    aiFoot: "🤖 Built with AI assistance (Claude): how we used it", contact: "✉ Contact us: feedback welcome",
     aiH: "Use of AI (Super Intelligence) in this project",
     aiText: [
       "We used Anthropic's Claude (Claude Code), a large language model, as a coding and analysis assistant. Under the team's direction it wrote most of the data-processing code (Python) and the website code (JavaScript, HTML, CSS), ran statistical checks, and drafted text on this site and in the project documents.",
@@ -30,7 +30,7 @@ const UI = {
     used: "பயன்பாடு", cite: "மேற்கோள்", link: "இணைப்பு",
     foot: "📚 நாசா தரவுத் தொகுப்புகள் மற்றும் மேற்கோள்கள்", back: "← கருவிக்குத் திரும்பு",
     note: "பயிர் மதிப்புகள் (பருவம், காலம், நீர்த் தேவை, சேமிப்பு) தோராயமானவை; ஒவ்வொரு பயிரின் ஆதாரங்களும் data/crops.json-இல் உள்ளன.",
-    aiFoot: "🤖 செயற்கை நுண்ணறிவு (Claude) உதவியுடன் உருவாக்கப்பட்டது: எப்படிப் பயன்படுத்தினோம்",
+    aiFoot: "🤖 செயற்கை நுண்ணறிவு (Claude) உதவியுடன் உருவாக்கப்பட்டது: எப்படிப் பயன்படுத்தினோம்", contact: "✉ தொடர்பு கொள்ளுங்கள்: உங்கள் கருத்தை வரவேற்கிறோம்",
     aiH: "இந்தத் திட்டத்தில் செயற்கை நுண்ணறிவின் பயன்பாடு",
     aiText: [
       "Anthropic நிறுவனத்தின் Claude (Claude Code) என்ற பெரிய மொழி மாதிரியை நிரலாக்க மற்றும் பகுப்பாய்வு உதவியாளராகப் பயன்படுத்தினோம். குழுவின் வழிகாட்டுதலின் கீழ், தரவுச் செயலாக்க நிரல்களில் (Python) பெரும்பகுதியையும் இணையதள நிரல்களையும் (JavaScript, HTML, CSS) அது எழுதியது; புள்ளியியல் சோதனைகளை இயக்கியது; இந்தத் தளத்திலும் திட்ட ஆவணங்களிலும் உள்ள உரையின் வரைவுகளைத் தயாரித்தது.",
@@ -219,8 +219,9 @@ export function mountRefsFooter() {
   const a = h("a", { href: "references.html" }, ui("foot"));
   // AI-use label on every page (Space Apps rule: say clearly where and how AI tools were used)
   const ai = h("a", { href: "references.html#ai", class: "ai-foot" }, ui("aiFoot"));
-  document.body.append(h("footer", { id: "refs-foot", class: "refs-foot" }, a, h("br"), ai));
-  onLangChange(() => { a.textContent = ui("foot"); ai.textContent = ui("aiFoot"); });
+  const contact = h("a", { href: "home.html#contact", class: "contact-foot" }, ui("contact"));
+  document.body.append(h("footer", { id: "refs-foot", class: "refs-foot" }, a, h("br"), contact, h("br"), ai));
+  onLangChange(() => { a.textContent = ui("foot"); ai.textContent = ui("aiFoot"); contact.textContent = ui("contact"); });
 }
 
 export const refsUI = ui;

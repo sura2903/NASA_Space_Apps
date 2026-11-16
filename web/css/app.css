@@ -938,3 +938,6 @@ body:not(.home-page) .step .n, body:not(.home-page) .place-row .n, .mycrops h2 .
   .rv, .rv > *, .rv .st, .rv .mc-bar, .rv .ideas-fill { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
 }
 .hm-email { display: inline-block; margin-top: 10px; font-weight: 600; color: #8fcb8f; overflow-wrap: anywhere; }
+.refs-foot .contact-foot { display: inline-block; margin-top: 6px; font-weight: 600; }
+.hm-contact .hm-note a { color: inherit; font-weight: 600; }
+#contact { scroll-margin-top: 110px; }   /* clear of the sticky header when reached from the footer link */
