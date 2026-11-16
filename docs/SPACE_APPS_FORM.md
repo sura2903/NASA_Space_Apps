@@ -15,8 +15,8 @@ each box into the matching field. Every number here matches `docs/SUBMISSION.md`
   - Video demo: 30 seconds or less. If any speech isn't in English, it needs English subtitles. The guide suggests
     opening with your names and team name.
   - Anything AI-generated must be labelled: images and videos need a visible watermark, and code needs a note.
-    Field 6 covers the code. Our charts in `docs/video/` are drawn by our own code from real data; they are not
-    AI-generated images.
+    This is done for our part: a footer label on every page (PR #31), `AI_USE.md`, and a visible label on every
+    `docs/video` chart. Nimalan has the rules for the video (issue #20).
 
 ---
 
@@ -134,6 +134,13 @@ How we used it: under our direction it wrote most of the data pipeline code (Pyt
 What we did ourselves: we chose the problem, region and audience; interviewed a farmer; decided every modelling choice; reviewed every result against sanity checks; and kept a log of every change of direction (docs/RESEARCH_LOG.md).
 
 No AI-generated data, images, audio or video are presented as data. Every number on the site comes from the NASA and other data sources listed. The charts are drawn by our code from that data.
+
+How it is labelled:
+- every page of the site has a footer line, "Built with AI assistance (Claude)", linking to a "Use of AI" section, plus an "ai-assistance" metadata tag;
+- the chart images made for the video carry a visible label, "Chart drawn by AI-assisted code (Claude) from real data", with the same text in their file metadata;
+- AI-assisted commits are marked "Co-Authored-By: Claude";
+- the full statement is in AI_USE.md in the repository;
+- no NASA logos or insignia are used anywhere.
 ```
 
 ---
