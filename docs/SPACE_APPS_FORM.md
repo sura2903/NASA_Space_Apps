@@ -136,12 +136,15 @@ Yes. We used Anthropic's Claude (Claude Code) as a coding and analysis assistant
 
 How we used it: under our direction it wrote most of the data pipeline code (Python) and the website code (JavaScript, HTML, CSS), ran the statistical checks (backtest, extreme-value fits, before/after comparisons), helped review each other's code, and drafted documentation, including this text. Commits made with its help are marked "Co-Authored-By: Claude" in the repository history.
 
-What we did ourselves: we chose the problem, region and audience; interviewed a farmer; decided every modelling choice; reviewed every result against sanity checks; and kept a log of every change of direction (docs/RESEARCH_LOG.md).
+The 30-second demo video and its music were also made with Claude: code that draws each animated scene from our real data and screenshots of the live site, the captions, and code that synthesises the music (no samples or third-party audio). No AI image or video generation model was used.
 
-No AI-generated data, images, audio or video are presented as data. Every number on the site comes from the NASA and other data sources listed. The charts are drawn by our code from that data.
+What we did ourselves: we chose the problem, region and audience; talked with farmers and people who work with them; decided every modelling choice; reviewed every result against sanity checks; chose the story of the video and reviewed every version; and kept a log of every change of direction (docs/RESEARCH_LOG.md).
+
+No AI-generated data is presented as data. Every number on the site comes from the NASA and other data sources listed. The charts are drawn by our code from that data.
 
 How it is labelled:
 - every page of the site has a footer line, "Built with AI assistance (Claude)", linking to a "Use of AI" section, plus an "ai-assistance" metadata tag;
+- the demo video carries a visible "SI-generated" watermark on every frame, naming the graphics, captions and music, and says the same in its file metadata and description;
 - the chart images made for the video carry a visible label, "Chart drawn by AI-assisted code (Claude) from real data", with the same text in their file metadata;
 - AI-assisted commits are marked "Co-Authored-By: Claude";
 - the full statement is in AI_USE.md in the repository;
