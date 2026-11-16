@@ -7,8 +7,9 @@ each box into the matching field. Every number here matches `docs/SUBMISSION.md`
 **Before you submit:**
 - **Demo link:** paste Nimalan's video link in field 3. It must be public: no login, permission or registration.
   Test it in a private window.
-- **Final project link:** use the live site. The GitHub repo is currently **private**. Judges can't open it, so
-  don't link it unless you make it public.
+- **Final project link:** use the live site. The GitHub repo is now **public**
+  (https://github.com/sura2903/NASA_Space_Apps), so it can also be linked, for example in the project details or
+  references; every page's footer already links to it.
 - **Save often:** use "Save Progress", and turn on the edit Lock so Nimalan doesn't overwrite your changes. Submit
   before 11:59 PM local time. You can keep resubmitting until then; only the last save counts.
 - **Rules check:**
