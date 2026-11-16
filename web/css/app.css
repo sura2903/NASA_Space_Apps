@@ -909,3 +909,7 @@ body:not(.home-page) .step .n, body:not(.home-page) .place-row .n, .mycrops h2 .
 }
 /* wide screens: the answer stays in view beside the inputs while the farmer ticks crops lower down */
 @media (min-width: 980px) and (min-height: 640px) { .mc-grid > .mc-result { position: sticky; top: 132px; } }
+/* printing ("Print for my agriculture officer") shows every part, whatever was on screen */
+@media print {
+  .rv > *, .rv :is(.mc-tile, .card, .ideas-card, .ideas-sum > *, .xtable tbody tr, .top3 > *, .mc-quick-chips li) { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+}
