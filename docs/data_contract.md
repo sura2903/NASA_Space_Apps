@@ -48,6 +48,12 @@ Each `grid/index.json` point also has these fields (`name` is unchanged):
 
 `sites/index.json` entries have `district` and `district_ta`.
 
+### 1b-boundaries. `web/data/boundaries.json` (RESEARCH_LOG I-42, `pipeline/fetch_boundaries.py`)
+`{ source, licence, state: <GeoJSON geometry>, districts: [{ name, name_ta, osm_name, geometry }] }`
+- **Contents:** 38 districts. `name` matches `grid/index.json` `district`.
+- **Format:** GeoJSON coordinates `[lon, lat]`, simplified to ~500 m.
+- **Source and licence:** OpenStreetMap, ODbL.
+
 ## 1c. `web/data/districts.json` (mismatch map + district what-ifs, by `pipeline/mismatch_build.py`)
 Lane B's requested format (PROGRESS.md, request 5), extended with mismatch metrics. 37 districts (no Chennai).
 ```jsonc

@@ -861,6 +861,27 @@ pattern risky?"*
 - **Lost / gained:** the district numbers now come from a point closer to where each district actually farms. Each
   district is still represented by **one** point, not an average over its area. Averaging is possible future work.
 
+### I-42 · District outlines on the maps, not a smooth raster (user request)
+- **Trigger:** the user asked whether a rasterised map shaped by district would be better than the grid squares.
+- **Options considered:**
+  - (a) A smooth interpolated raster.
+  - (b) Districts coloured by average only.
+  - (c) Keep the squares, trim them to the state outline, draw the district lines, and add a district-average view.
+- **Decision:** (c).
+  - **Against (a):** a smooth raster suggests detail the data doesn't have. Each square is one point, about 28 km
+    wide; NASA POWER is ~50 km and the IMD drought layer ~110 km.
+  - **Against (b) alone:** it hides real differences inside a district, for example delta vs dry upland.
+- **Data:** `web/data/boundaries.json` holds Tamil Nadu and all 38 districts from OpenStreetMap (Nominatim; ODbL),
+  simplified to ~500 m, 113 KB. It's built by `pipeline/fetch_boundaries.py`, and the district names match
+  `grid/index.json`. 169 of 173 inland grid points fall inside their own district's outline: 3 are centred offshore
+  and 1 sits on a boundary.
+- **UI** (PR #34):
+  - **All three maps:** a soft mask outside Tamil Nadu and the district lines.
+  - **Policy map:** a "By district" switch, colouring each district by the mean of its places' 0–100 values.
+  - **Farmers map:** the chosen place's district is outlined.
+- **Limit:** the district view averages within-state ranks, not raw values, so it shows how a district compares,
+  not an amount.
+
 ## Open questions / likely next pivots
 - **Delta Kuruvai water:** model it as groundwater-fed (borewell), and add a groundwater-stress signal
   (GRACE / CGWB block categories) as its real constraint.

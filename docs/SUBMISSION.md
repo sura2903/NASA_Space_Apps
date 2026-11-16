@@ -50,7 +50,8 @@ Everything else (climate change at this place, extremes, NASA data in detail) is
 detail*. Nothing was removed from the farmer's page; it was moved there.
 
 **For a policy maker (Policy makers tab)**
-- **Colour the state map (185 squares) by any of 12 layers:**
+- **Colour the state map by any of 12 layers**, as 185 squares (about 28 km) trimmed to the state outline with district
+  boundaries drawn on top, or **by district** (each district coloured by the average of its places):
   - an overall exposure score;
   - crop mix vs rain (mismatch);
   - 1-in-100-year rain and 1-in-100-year drought (124-year IMD record);

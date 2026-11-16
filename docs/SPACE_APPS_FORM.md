@@ -74,7 +74,7 @@ For farmers (Farmers tab):
 A detail view adds how the climate has changed at the place, extreme events, the latest NASA SMAP soil-moisture reading ("Sow now or wait?") and the NASA data behind every number.
 
 For policy makers (Policy makers tab):
-- Colour the state map (185 places, about 28 km apart) by 12 layers: an exposure score; crop mix vs rain; 1-in-100-year rain and drought (checked against 124 years of rain gauges); cyclones passing within 100 km (NOAA tracks); storm days; very hot days today and by 2041–2060; groundwater trend (NASA GRACE-assimilated GLDAS); northeast-monsoon change by 2041–2060; lake-fed long rice reliability today; and rain-fed long rice by 2041–2060.
+- Colour the state map by 12 layers, either as 185 squares about 28 km wide (trimmed to the state outline, with the 38 district boundaries drawn on top) or by district (each district coloured by the average of its places). The layers are: an exposure score; crop mix vs rain; 1-in-100-year rain and drought (checked against 124 years of rain gauges); cyclones passing within 100 km (NOAA tracks); storm days; very hot days today and by 2041–2060; groundwater trend (NASA GRACE-assimilated GLDAS); northeast-monsoon change by 2041–2060; lake-fed long rice reliability today; and rain-fed long rice by 2041–2060.
 - Click a place to see its worst drought on record, what to avoid and what is safer in a drought year, what came through 2016, and how much irrigation water a crop switch would save in its district.
 - District by district: crops that suit each district's rain but are rarely grown there today, for example sesame in 22 districts and cowpea in 15.
 - A crop map shows where each crop does well across the state.
