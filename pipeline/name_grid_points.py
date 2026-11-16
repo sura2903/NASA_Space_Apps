@@ -42,6 +42,9 @@ def names(cache: dict, pid: str) -> dict:
     key = next((k for k in ("town", "village", "suburb", "hamlet", "municipality", "city") if en.get(k)), None)
     place = en.get(key) if key else None
     place_ta = ta.get(key) if key else None
+    # city ward labels ("Ward 67") mean nothing to a farmer: use the taluk instead
+    if place and re.match(r"^(ward|zone|division)\s*\d+", place, re.I):
+        place = place_ta = None
     taluk = clean_taluk(en.get("county"))
     district = clean_district(en.get("state_district") or en.get("district"))
     district_ta = clean_district(ta.get("state_district") or ta.get("district")) or district
