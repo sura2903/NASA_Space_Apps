@@ -5,8 +5,8 @@ import { h } from "./dom.js";
 import { getLang, onLangChange } from "../i18n.js";
 
 const UI = {
-  en: { btn: "🧭 Take a tour", next: "Next", back: "Back", done: "Done", close: "Close tour", step: "{i} of {n}" },
-  ta: { btn: "🧭 சுற்றிப் பார்க்க", next: "அடுத்து", back: "முந்தைய", done: "முடிந்தது", close: "சுற்றுலாவை மூடு", step: "{n}-இல் {i}" },
+  en: { btn: "🧭 Take a tour", next: "Next", back: "Back", done: "Done", close: "Close tour", step: "{i} of {n}", show: "↕ Show me" },
+  ta: { btn: "🧭 சுற்றிப் பார்க்க", next: "அடுத்து", back: "முந்தைய", done: "முடிந்தது", close: "சுற்றுலாவை மூடு", step: "{n}-இல் {i}", show: "↕ காட்டு" },
 };
 
 // Each step: a CSS selector (first visible match), a title and text in both languages, and an optional prepare()
@@ -52,7 +52,11 @@ const POLICY = [
 const ui = (k) => UI[getLang()]?.[k] ?? UI.en[k];
 const fill = (s, v) => s.replace(/\{(\w+)\}/g, (_, k) => v[k] ?? "");
 const visible = (el) => { if (!el) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
-const find = (sel) => [...document.querySelectorAll(sel)].find(visible) ?? null;
+// "a, b": try a first, then b (querySelectorAll would return whichever comes first on the page, often the outer box)
+const find = (sel) => {
+  for (const one of sel.split(",")) { const el = [...document.querySelectorAll(one.trim())].find(visible); if (el) return el; }
+  return null;
+};
 
 /** Mount the tour button. page: "farm" or "policy". */
 export function mountTour(page) {
@@ -68,8 +72,8 @@ function start(all) {
   stop();
   const spot = h("div", { class: "tour-spot", "aria-hidden": "true" });
   const card = h("div", { class: "tour-card", role: "dialog", "aria-modal": "false", "aria-live": "polite", tabindex: "-1" });
-  const shade = h("div", { class: "tour-shade", onclick: () => stop() });
-  document.body.append(shade, spot, card);
+  // no click-blocking layer: the page stays usable during the tour (close with ×, Done or Escape)
+  document.body.append(spot, card);
   const onKey = (e) => {
     if (e.key === "Escape") stop();
     else if (e.key === "ArrowRight") go(1);
@@ -78,16 +82,24 @@ function start(all) {
   const onMove = () => place();
   document.addEventListener("keydown", onKey);
   window.addEventListener("resize", onMove);
-  window.addEventListener("scroll", onMove, { passive: true });
-  cur = { steps: all, i: -1, spot, card, shade, cleanup: () => {
-    document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onMove); window.removeEventListener("scroll", onMove);
+  // capture: also hears scrolling inside other scroll boxes, not only the page
+  document.addEventListener("scroll", onMove, { passive: true, capture: true });
+  // and follow the part on every frame, so folds opening, results redrawing or images loading never leave the
+  // highlight behind (place() only touches the DOM when something actually moved)
+  let raf = 0;
+  const loop = () => { place(); raf = requestAnimationFrame(loop); };
+  raf = requestAnimationFrame(loop);
+  cur = { steps: all, i: -1, spot, card, last: "", cleanup: () => {
+    cancelAnimationFrame(raf);
+    document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onMove);
+    document.removeEventListener("scroll", onMove, { capture: true });
   } };
   go(1);
 }
 
 function stop() {
   if (!cur) return;
-  cur.cleanup(); cur.spot.remove(); cur.card.remove(); cur.shade.remove(); cur = null;
+  cur.cleanup(); cur.spot.remove(); cur.card.remove(); cur = null;
   document.getElementById("tour-btn")?.focus();
 }
 
@@ -105,8 +117,17 @@ function go(dir) {
   cur.i = i;
   const el = find(cur.steps[i].sel);
   // a part taller than most of the screen is shown from its top; otherwise centred
-  el.scrollIntoView({ block: el.getBoundingClientRect().height > window.innerHeight * 0.6 ? "start" : "center" });
+  show(el);
   render();
+}
+
+// bring the step's part into view: a part taller than most of the screen from its top, otherwise centred
+function show(el) {
+  const tall = el.getBoundingClientRect().height > window.innerHeight * 0.6;
+  el.scrollIntoView({ block: tall ? "start" : "center" });
+  // the sticky header (desktop) would cover the top of a tall part: scroll back by its height
+  const head = document.querySelector(".top");
+  if (tall && head && getComputedStyle(head).position === "sticky") window.scrollBy(0, -(head.offsetHeight + 8));
 }
 
 function render() {
@@ -119,29 +140,46 @@ function render() {
       h("button", { type: "button", class: "tour-x", "aria-label": ui("close"), title: ui("close"), onclick: () => stop() }, "×")),
     h("h3", { class: "tour-h" }, title),
     h("p", { class: "tour-p" }, text),
+    // shown only while the part is scrolled off the screen (place() toggles it)
+    h("button", { type: "button", class: "btn-ghost tour-show", hidden: true, onclick: () => { const el = find(cur.steps[cur.i].sel); if (el) show(el); } }, ui("show")),
     h("div", { class: "tour-nav" },
       idx > 1 ? h("button", { type: "button", class: "btn-ghost", onclick: () => go(-1) }, ui("back")) : h("span"),
       h("button", { type: "button", class: "tour-next", onclick: () => go(1) }, last ? ui("done") : ui("next"))));
+  cur.last = "";          // force place() to redraw for the new card
   place();
   cur.card.querySelector(".tour-next")?.focus({ preventScroll: true });
 }
 
-// position the highlight over the part and the card next to it (below if there is room, else above; on a phone,
-// pinned to the bottom of the screen)
+// Position the highlight over the on-screen part of the element and the card beside it (below if there is room,
+// else above, always kept on screen; on a phone, pinned to the bottom). If the part has been scrolled right off the
+// screen, the ring is hidden and the card offers "Show me" to scroll back.
 function place() {
   if (!cur) return;
   const el = find(cur.steps[cur.i].sel);
   if (!el) return;
   const r = el.getBoundingClientRect(), pad = 6, vw = window.innerWidth, vh = window.innerHeight;
+  const c = cur.card, ch = c.offsetHeight || 180;
+  const key = [r.top, r.left, r.width, r.height, vw, vh, ch].map(Math.round).join(",");
+  if (key === cur.last) return;      // nothing moved since the last frame
+  cur.last = key;
+  const off = r.bottom < 8 || r.top > vh - 8 || r.width === 0;
+  cur.spot.hidden = off;
+  const showBtn = c.querySelector(".tour-show");
+  if (showBtn) showBtn.hidden = !off;
   // ring only the on-screen part of the element, so a tall section does not push the ring off the screen
   const top = Math.max(r.top - pad, 4), bottom = Math.min(r.bottom + pad, vh - 4);
-  Object.assign(cur.spot.style, { top: `${top}px`, left: `${Math.max(r.left - pad, 4)}px`,
+  if (!off) Object.assign(cur.spot.style, { top: `${top}px`, left: `${Math.max(r.left - pad, 4)}px`,
     width: `${Math.min(r.width + 2 * pad, vw - 8)}px`, height: `${Math.max(bottom - top, 0)}px` });
-  const c = cur.card;
-  if (vw < 640) { Object.assign(c.style, { left: "12px", right: "12px", top: "auto", bottom: "12px", width: "auto" }); return; }
-  const cw = Math.min(380, vw - 24), ch = c.offsetHeight || 180;
+  if (vw < 640 || off) {
+    const w = Math.min(380, vw - 24);
+    Object.assign(c.style, vw < 640 ? { left: "12px", right: "12px", top: "auto", bottom: "12px", width: "auto" }
+      : { left: `${Math.round((vw - w) / 2)}px`, right: "auto", top: "auto", bottom: "16px", width: `${w}px` });
+    return;
+  }
+  const cw = Math.min(380, vw - 24);
   const below = bottom + 12, above = top - 12 - ch;
-  const ctop = below + ch < vh ? below : above > 8 ? above : Math.max(8, vh - ch - 12);
+  let ctop = below + ch < vh - 8 ? below : above > 8 ? above : vh - ch - 12;
+  ctop = Math.min(Math.max(8, ctop), Math.max(8, vh - ch - 8));      // always fully on screen
   const left = Math.min(Math.max(12, r.left), vw - cw - 12);
   Object.assign(c.style, { left: `${left}px`, top: `${ctop}px`, right: "auto", bottom: "auto", width: `${cw}px` });
 }
