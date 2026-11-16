@@ -69,7 +69,7 @@ function expect(cond, msg) { if (!cond) throw new Error(msg); }
 
   console.log("Pages");
   for (const url of ["home.html", "index.html?lang=en#site=tirunelveli", "index.html?view=detail#site=thanjavur", "policy.html", "explore.html", "references.html"]) {
-    await check(`${url} loads with no script errors and no Tamil script in the English view`, async () => {
+    await check(`${url} loads with no script errors and no Tamil script in the English view, no \"taluk\"`, async () => {
       const p = await open(url);
       await p.waitForLoadState("networkidle").catch(() => {});
       await p.waitForTimeout(1500);
@@ -82,6 +82,9 @@ function expect(cond, msg) { if (!cond) throw new Error(msg); }
         return out;
       });
       expect(!tamil.length, `Tamil text in English view: ${tamil.slice(0, 3).join(" / ")}`);
+      // place names say "sub-district", never "taluk" (lists, map cards, notes)
+      const taluk = await p.evaluate(() => (document.body.textContent.match(/.{0,30}\btaluks?\b.{0,10}/gi) ?? []).slice(0, 3));
+      expect(!taluk.length, `"taluk" shown: ${taluk.join(" / ")}`);
       await p.context().close();
     });
   }

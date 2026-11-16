@@ -6,7 +6,7 @@ import {
 import { $, h, clear, debounce, fmt, signed } from "./ui/dom.js";
 import { decorate, rich, initTooltips, renderGlossaryList } from "./ui/glossary.js";
 import { t, initLang, setLang, onLangChange, getLang, siteName, tagLabel, setPlaceInfo } from "./i18n.js";
-import { describePlaces } from "./ui/places.js";
+import { describePlaces, subDistrictNames } from "./ui/places.js?v=43";
 import { createSiteMap } from "./ui/map.js";
 import { renderRotationEditor, renderWaterSource, renderPriorities, renderClimate, mainWater } from "./ui/inputs.js";
 import { drawMonthlyChart, drawMonsoonChart, drawNdviChart, monsoonSeries, resizeCharts } from "./ui/charts.js";
@@ -305,7 +305,7 @@ async function init() {
     const [sites, crops, grid, dists] = await Promise.all([getJSON("data/sites/index.json"), getJSON("data/crops.json"),
       getJSON("data/grid/index.json").catch(() => null), getJSON("data/districts.json").catch(() => null)]);
     // 3 detailed demo places + the statewide 0.5° grid (same file format, fewer extras), so any farmer can pick a place
-    const gridPts = (grid?.points ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
+    const gridPts = subDistrictNames(grid?.points ?? []).slice().sort((a, b) => a.name.localeCompare(b.name));
     state.sites = [...sites.map((s) => ({ ...s, base: "data/sites/", demo: true })), ...gridPts.map((p) => ({ ...p, base: "data/grid/", demo: false }))];
     // one list grouped by nearest district town, each place named "Chennai, 19 km north-west" (ui/places.js)
     state.places = describePlaces(state.sites, dists?.districts);

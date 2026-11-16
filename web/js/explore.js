@@ -9,6 +9,7 @@ import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
 import { loadBoundaries, addOutlines, districtLayer } from "./ui/boundaries.js";
+import { subDistrictNames } from "./ui/places.js?v=43";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
 
 // Same starting priorities as the rotation tool (preferences, not data).
@@ -35,7 +36,7 @@ async function getJSON(url) {
 async function loadPoints() {
   try {
     const g = await getJSON("data/grid/index.json");
-    const pts = Array.isArray(g) ? g : g.points;
+    const pts = subDistrictNames(Array.isArray(g) ? g : g.points);
     if (pts?.length) return { kind: "grid", points: pts, base: "data/grid/", cellDeg: g.cell_deg ?? null };
   } catch { /* no grid yet: fall back to the demo sites */ }
   return { kind: "sites", points: await getJSON("data/sites/index.json"), base: "data/sites/", cellDeg: null };
@@ -200,7 +201,7 @@ function drawCropTable() {
 }
 
 /* ---------- top 3 at a place ---------- */
-// the local village / taluk name (grid/index.json, OpenStreetMap) where there is one, as on the Policy map
+// the local village / sub-district name (grid/index.json, OpenStreetMap) where there is one, as on the Policy map
 const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);
 
 function selectNearest(ll, fromClick) {
