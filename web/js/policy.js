@@ -9,6 +9,7 @@ import { cropSuitability, rankCrops, statewideContext, WATER_SOURCES } from "./s
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
+import { loadBoundaries, addOutlines, districtLayer } from "./ui/boundaries.js";
 import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet } from "./ui/risk.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
@@ -33,7 +34,8 @@ const state = {
   ctx: {},
   risk: null, layer: null,   // statewide_risk.json + chosen "colour the map by" layer key (null = exposure score)
 };
-let map = null, layer = null, card = null;
+let map = null, layer = null, card = null, outlines = null, dLayer = null;
+let byDistrict = false, bounds = null;   // "By district" view (district outlines from data/boundaries.json)
 const tips = new Map();   // hover-card text per point, rebuilt on each drawMap
 
 async function getJSON(url) {
@@ -86,8 +88,9 @@ function computeScores() {
 
 const LIGHT = [253, 240, 225], DARK = [138, 59, 0];
 const colour = (v) => `rgb(${LIGHT.map((l, i) => Math.round(l + (DARK[i] - l) * Math.max(0, Math.min(1, v)))).join(",")})`;
-const placeName = (p) => siteName(p);
-const short = (p) => placeName(p).replace(/\s*\(\d+\s*km\)\s*$/, "");
+const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);   // local village / taluk name first
+// the local village / taluk name (grid/index.json, OpenStreetMap) where there is one, else the older "near <town>" name
+const short = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? placeName(p).replace(/\s*\(\d+\s*km\)\s*$/, "");
 
 function compText(c, s) {
   const v = c.get(s);
@@ -107,7 +110,23 @@ function initMap() {
     maxZoom: 12, minZoom: 5, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
   layer = L.layerGroup().addTo(map);
-  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => state.points, tip: (p) => tips.get(p.id), fixed: true });
+  // in the district view each district has its own tooltip, so the square-by-square hover card stands down
+  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (byDistrict ? [] : state.points), tip: (p) => tips.get(p.id), fixed: true });
+  // district outlines + a soft mask outside Tamil Nadu, then the "28 km squares / By district" switch
+  loadBoundaries().then((b) => {
+    if (!b) return;
+    bounds = b;
+    outlines = addOutlines(map, b);
+    const box = h("div", { class: "view-toggle", role: "group", "aria-label": t("p.view.aria") });
+    const draw = () => box.replaceChildren(...[["cells", false], ["dist", true]].map(([k, v]) => h("button", {
+      type: "button", class: "view-btn" + (byDistrict === v ? " on" : ""), "aria-pressed": byDistrict === v ? "true" : "false",
+      onclick: () => { byDistrict = v; draw(); drawMap(); },
+    }, t(`p.view.${k}`))));
+    draw();
+    onLangChange(draw);
+    $("#pmap").before(box);
+    drawMap();
+  });
   map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingBottomRight: card.fitPad() });
 }
 
@@ -116,6 +135,8 @@ function drawMap() {
   const L = window.L;
   layer.clearLayers();
   tips.clear();
+  if (dLayer) { map.removeLayer(dLayer); dLayer = null; }
+  if (byDistrict && bounds) { drawDistricts(); card?.refresh(); return; }
   let selShape = null;
   for (const p of state.points) {
     const sc = state.scores[p.id];
@@ -141,6 +162,36 @@ function drawMap() {
   }
   selShape?.bringToFront();
   card?.refresh();
+}
+
+// "By district": each district coloured by the average of its places' values (scores or layer ranks, 0-100).
+// Places carry their district from grid/index.json (OpenStreetMap), the same source as the outlines.
+function drawDistricts() {
+  const agg = {};
+  for (const p of state.points) {
+    const v = state.scores[p.id];
+    if (v == null || !p.district || p.border_state) continue;
+    (agg[p.district] ??= []).push({ p, v });
+  }
+  const lay = currentLayer();
+  const what = lay ? legendWords(lay).title : t("p.legend");
+  dLayer = districtLayer(bounds, {
+    colour, selected: state.selected?.district ?? null,
+    valueOf: (name) => {
+      const a = agg[name];
+      if (!a?.length) return null;
+      const v = Math.round(a.reduce((s, x) => s + x.v, 0) / a.length);
+      return { v: v / 100, tip: `<strong>${t("p.dist.name", { d: name })}</strong><br>${t("p.dist.tip", { v, n: a.length, what })}` };
+    },
+    // a click opens the district's place nearest the middle of its places
+    onClick: (name) => {
+      const a = agg[name];
+      if (!a?.length) return;
+      const mlat = a.reduce((s, x) => s + x.p.lat, 0) / a.length, mlon = a.reduce((s, x) => s + x.p.lon, 0) / a.length;
+      const best = a.map((x) => x.p).sort((u, w) => ((u.lat - mlat) ** 2 + (u.lon - mlon) ** 2) - ((w.lat - mlat) ** 2 + (w.lon - mlon) ** 2))[0];
+      selectPoint(best);
+    },
+  }).addTo(map);
 }
 
 const currentLayer = () => (state.layer && state.risk?.layers.find((x) => x.key === state.layer)) || null;

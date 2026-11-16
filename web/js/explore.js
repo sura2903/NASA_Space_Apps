@@ -8,6 +8,7 @@ import { cropSuitability, rankCrops, statewideContext, PRIORITIES, WATER_SOURCES
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
+import { loadBoundaries, addOutlines } from "./ui/boundaries.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
 
 // Same starting priorities as the rotation tool (preferences, not data).
@@ -93,6 +94,7 @@ function initMap() {
   // grid cells share one hover card (round site markers keep their permanent labels)
   card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" ? state.points : []), tip: (p) => tips.get(p.id), fixed: true });
   map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingBottomRight: card.fitPad() });
+  loadBoundaries().then((b) => b && addOutlines(map, b));   // district lines + soft mask outside Tamil Nadu
 }
 
 function drawMap() {
