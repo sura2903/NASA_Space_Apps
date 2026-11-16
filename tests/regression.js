@@ -264,6 +264,16 @@ function expect(cond, msg) { if (!cond) throw new Error(msg); }
     }
   });
 
+  for (const w of [1600, 1920]) {
+    await check(`policy.html at ${w}px wide: the crop-ideas box uses the full width, not one narrow column`, async () => {
+      const p = await open("policy.html", { width: w });
+      await p.waitForSelector("#ideas-panel"); await p.waitForTimeout(800);
+      const [res, ideas] = await p.evaluate(() => [document.querySelector(".results").getBoundingClientRect().width, document.querySelector("#ideas-panel").getBoundingClientRect().width]);
+      expect(ideas > res - 4, `ideas box ${Math.round(ideas)}px in a ${Math.round(res)}px results area`);
+      await p.context().close();
+    });
+  }
+
   console.log("Guided tour");
   await check("Farmers tour finds the sowing-time step and the water-and-crops step", async () => {
     const p = await farm();
