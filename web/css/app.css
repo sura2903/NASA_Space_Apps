@@ -718,10 +718,9 @@ body.view-detail #more-plans > summary { display: none; }
 
 /* guided tour (ui/tour.js): dim the page, ring the part being explained, a small card beside it */
 .tour-btn { min-height: 40px; padding: 6px 12px; white-space: nowrap; font-weight: 600; }
-.tour-shade { position: fixed; inset: 0; z-index: 1990; background: transparent; }
 .tour-spot {
   position: fixed; z-index: 1995; border-radius: 12px; pointer-events: none;
-  box-shadow: 0 0 0 3px var(--accent), 0 0 0 9999px rgba(10, 20, 14, 0.55); transition: all 0.2s ease;
+  box-shadow: 0 0 0 3px var(--accent), 0 0 0 9999px rgba(10, 20, 14, 0.55);
 }
 .tour-card {
   position: fixed; z-index: 2000; box-sizing: border-box; background: var(--surface); color: var(--ink);
@@ -734,8 +733,9 @@ body.view-detail #more-plans > summary { display: none; }
 .tour-p { margin: 0; font-size: 0.92rem; line-height: 1.5; }
 .tour-nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 12px; }
 .tour-next { background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 10px; padding: 8px 16px; font-weight: 700; cursor: pointer; }
-@media (prefers-reduced-motion: reduce) { .tour-spot { transition: none; } }
-@media print { .tour-btn, .tour-spot, .tour-card, .tour-shade { display: none; } }
+.tour-spot[hidden] { display: none; }
+.tour-show { margin-top: 8px; }
+@media print { .tour-btn, .tour-spot, .tour-card { display: none; } }
 /* Policy map: "28 km squares / By district" switch (policy.js, ui/boundaries.js) */
 .view-toggle { display: inline-flex; gap: 0; margin: 0 0 8px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
 .view-btn { background: var(--surface); color: var(--ink); border: 0; padding: 6px 14px; font-weight: 600; cursor: pointer; min-height: 36px; }

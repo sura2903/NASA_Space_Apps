@@ -157,7 +157,8 @@ export function initTooltips() {
     else if (!e.target.closest(".tip")) hide();
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") hide(); });
-  window.addEventListener("scroll", hide, { passive: true });
+  // capture: also hide when a scroll box inside the page scrolls (e.g. the district cards list), not only the page
+  document.addEventListener("scroll", hide, { passive: true, capture: true });
 }
 
 /** Full glossary list for the bottom of the page. */

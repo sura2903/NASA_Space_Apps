@@ -54,6 +54,9 @@ export function mapHoverCard(map, { cellDeg, points, tip, fixed = false, onHover
   map.on("mousemove", show);
   map.on("click", show);          // a tap on a phone shows the card too
   map.on("mouseout movestart zoomstart", hide);
+  // scrolling the page moves the map under a still mouse, so the card would describe the wrong square: hide it
+  // until the next mouse move
+  document.addEventListener("scroll", () => { if (!el.hidden) hide(); }, { passive: true, capture: true });
   return {
     // after a redraw (new colouring, language): rebuild the text of the card that is showing
     refresh() { if (cur && !el.hidden) { const html = tip(cur); if (html) { el.innerHTML = html; ring?.bringToFront(); } else hide(); } },
