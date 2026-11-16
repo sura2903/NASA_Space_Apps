@@ -1,0 +1,8 @@
+# Vercel serves the static site in web/ (vercel.json). Leave the Python data pipeline, raw data and docs out of the
+# upload, so Vercel never mistakes the repo for a Python app. Patterns start with "/" so they only match top-level
+# folders: web/data/ (the site's data) must stay.
+/pipeline/
+/data/
+/docs/
+/tests/
+/*.py
