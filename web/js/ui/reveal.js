@@ -16,8 +16,12 @@ function show(x, now = false) {
   if (now) x.classList.add("settled"); else x._rvT = setTimeout(() => x.classList.add("settled"), 1600);
 }
 const shown = new Set();     // keys (data-rv) of parts on screen, so a part redrawn in place stays shown
+// only the first dozen of a list stagger (.st); the rest simply come with their box, which keeps long lists light
 function setOrder(el) {
-  el.querySelectorAll(STAGGER).forEach((x) => x.style.setProperty("--i", Math.min([...x.parentNode.children].indexOf(x), 12)));
+  el.querySelectorAll(STAGGER).forEach((x) => {
+    const i = [...x.parentNode.children].indexOf(x);
+    if (i < 12) { x.style.setProperty("--i", i); x.classList.add("st"); }
+  });
 }
 function onEntries(entries) {
   for (const e of entries) {
@@ -33,7 +37,7 @@ function watch(els) {
     x.classList.add("rv");
     if (REDUCED || !("IntersectionObserver" in window)) { x.classList.add("in"); continue; }
     if (x.dataset.rv && shown.has(x.dataset.rv)) show(x, true);   // redrawn while on screen: no replay
-    io ??= new IntersectionObserver(onEntries, { threshold: [0, 0.05, 0.1, 0.15, 0.2, 0.3] });
+    io ??= new IntersectionObserver(onEntries, { threshold: [0, 0.1, 0.2] });
     io.observe(x);
   }
 }
