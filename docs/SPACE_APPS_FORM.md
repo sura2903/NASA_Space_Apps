@@ -28,16 +28,16 @@ SowSmart (ஸ்மார்ட் விதைப்பு): crop choices for a
 
 ---
 
-## 2. High-Level Project Summary
+## 2. Summary (50–200 words; this one is 200)
 
 ```text
-SowSmart is a free website, in English and Tamil and built for a phone, that helps Tamil Nadu farmers and planners adapt crop choices to an increasingly unreliable monsoon. Farmers in Tamil Nadu tend to judge risk by the last ten seasons they remember. SowSmart replays a farmer's crop plan through every real season in 24 years of NASA satellite and weather data (2001–2024): rain, heat, soil water, wind, and the real dam releases. It shows how often each plan and each crop came through, and what to avoid in a drought year.
+SowSmart is a free website, in English and Tamil and built for a phone, that helps Tamil Nadu farmers and planners adapt crop choices to an increasingly unreliable monsoon. Farmers tend to judge risk by the last ten seasons they remember. SowSmart replays each crop plan through every real season from 2001 to 2024 using NASA data: GPM IMERG rainfall, NASA POWER heat, soil wetness and wind, SMAP soil moisture, MODIS vegetation, GRACE-based groundwater, and NEX-GDDP-CMIP6 climate projections to 2060.
 
-A farmer picks their district and village area, ticks the crops they grow, their water sources and when they sow. They see a chance of success for each crop, plus three plans side by side: their current rotation, a small step and a bigger shift. For example, at Thanjavur in the Cauvery delta, the current rice-rice rotation on canal water came through 9 of 24 real seasons; the bigger shift came through 16.
+A farmer picks their village area, when they sow, their water and their crops, and sees each crop's chance of success plus three plans side by side. At Thanjavur, today's rice–rice rotation on canal water came through 9 of 24 seasons; a bigger shift came through 16.
 
-Policy makers get the same engine for the whole state, on a 28 km grid of 185 places, with 12 map layers. These include 1-in-100-year drought and rain, cyclone tracks, extra hot days by 2041–2060, groundwater trends from GRACE, and crops that suit a district's rain but are rarely grown there.
+Policy makers get the same engine for the whole state: 185 places on a 28 km grid or district by district, with maps of 1-in-100-year drought, cyclones, heat by 2060 and falling groundwater, and crops that suit a district but are rarely grown there.
 
-It matters because the wrong crop in the wrong year costs a farming family a season. We backtested the engine against 22 years of government crop statistics: when it warns of failure, a bad-yield year follows a third of the time, versus a quarter otherwise (lift 1.37, p < 0.001).
+SowSmart turns NASA Earth observations into a choice a farmer can make before sowing, and gives officers the evidence to plan support before a severe season, not after it.
 ```
 
 ---
