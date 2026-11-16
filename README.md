@@ -1,5 +1,7 @@
 # SowSmart (ஸ்மார்ட் விதைப்பு)
 
+**Live site:** https://sura2903.github.io/NASA_Space_Apps/ (GitHub Pages) · mirror on Vercel: https://sowsmart-nasa.vercel.app/ (redeploys on every merge to `main`; Vercel project root directory `web`, preset Other, no build).
+
 Formerly Field Shift.
 
 NASA Space Apps 2026: a crop-rotation decision-support tool built on NASA Earth observations.

@@ -56,6 +56,7 @@ SowSmart turns NASA Earth observations into a choice a farmer can make before so
 https://sura2903.github.io/NASA_Space_Apps/
 ```
 *(Opens the scrolling overview page; its buttons lead to the Farmers and Policy makers views.)*
+*Mirror with the same content, if the form or judges prefer a second address: https://sowsmart-nasa.vercel.app/*
 
 ---
 
