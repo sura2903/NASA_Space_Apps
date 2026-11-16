@@ -31,11 +31,11 @@ SowSmart (ஸ்மார்ட் விதைப்பு): crop choices for a
 ## 2. Summary (50–200 words; this one is 200)
 
 ```text
-SowSmart is a free website, in English and Tamil and built for a phone, that helps Tamil Nadu farmers and planners adapt crop choices to an increasingly unreliable monsoon. Farmers tend to judge risk by the last ten seasons they remember. SowSmart replays each crop plan through every real season from 2001 to 2024 using NASA data: GPM IMERG rainfall, NASA POWER heat, soil wetness and wind, SMAP soil moisture, MODIS vegetation, GRACE-based groundwater, and NEX-GDDP-CMIP6 climate projections to 2060.
+SowSmart is a free website, in English and Tamil, built for phones, that helps Tamil Nadu farmers choose crop rotations that protect their fields, save water and cope with a less reliable monsoon. Farmers tend to judge risk by the last ten seasons they remember. SowSmart replays each rotation through every season from 2001 to 2024 using NASA data (GPM IMERG rainfall, NASA POWER heat, soil wetness and wind, SMAP soil moisture, MODIS vegetation, GRACE-based groundwater and NEX-GDDP-CMIP6 projections to 2060), with local soil, crop traits and farmer priorities.
 
-A farmer picks their village area, when they sow, their water and their crops, and sees each crop's chance of success plus three plans side by side. At Thanjavur, today's rice–rice rotation on canal water came through 9 of 24 seasons; a bigger shift came through 16.
+A farmer picks their village area, sowing time, water and crops. SowSmart compares their current rotation with a small step and a bigger shift, and for each explains why it was suggested, the NASA evidence, its benefits for water, soil and income, where data is missing, and risks to check locally.
 
-Policy makers get the same engine for the whole state: 185 places on a 28 km grid or district by district, with maps of 1-in-100-year drought, cyclones, heat by 2060 and falling groundwater, and crops that suit a district but are rarely grown there.
+Policy makers get the same engine statewide, district by district: maps of drought, cyclones, heat by 2060 and falling groundwater, and crops that suit a district but are rarely grown there.
 
 SowSmart turns NASA Earth observations into a choice a farmer can make before sowing, and gives officers the evidence to plan support before a severe season, not after it.
 ```
