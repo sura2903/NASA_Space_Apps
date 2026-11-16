@@ -280,7 +280,7 @@ pattern risky?"*
     year; black gram or sesame instead) as about what to plant.
   - They think in **El Niño**, wind, and rare **1-in-100-year** events, but **remember only ~10 years**.
   - **Crop economics and prices** drive daily life, from household to state food reserves.
-- **Team question (Siddarth):** can floods and droughts be **predicted in advance reliably**?
+- **Team question (Subramanian):** can floods and droughts be **predicted in advance reliably**?
   Working answer: days ahead yes (weather forecasts); a season ahead only as **odds** (ENSO/IOD + soil
   moisture); exact dates of rare extremes no.
 - **Candidate work (E1–E7 in FIELD_NOTES, not started):**

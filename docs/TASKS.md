@@ -7,7 +7,7 @@ Thanjavur as contrasts. See `docs/APPROACH.md` for the why and
 
 Status keys: ✅ done · 🔄 in progress · ⬜ to do · ⭐ stretch
 
-## Lane A: Siddarth (data + scoring engine)
+## Lane A: Subramanian (data + scoring engine)
 Owns: `pipeline/`, `web/data/`, `web/js/scoring.js`
 
 | # | Task | Status |

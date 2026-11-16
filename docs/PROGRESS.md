@@ -10,7 +10,7 @@ Newest first. Note contract changes here.
   `web/data/grid/` (format proposed in `docs/IDEAS.md`); the page picks it up with no code change.
 - UI now uses `replay.years` and `scenarioMonthly`. No contract changes.
 
-## 2026-11-14 late night (Siddarth / Lane A): crop values tuned to official TN sources (A10)
+## 2026-11-14 late night (Subramanian / Lane A): crop values tuned to official TN sources (A10)
 - **Sources:** TN Dept of Agriculture *Crop Production Guide* chapter PDFs (tnagriculture.in/dashboard/CPG/…)
   for sowing seasons and durations by zone and district; TNAU agronomy course notes (eagri.org AGRO103
   lec07) for total crop water need. TNAU's Agritech portal has an expired TLS certificate, so it wasn't used.
@@ -28,7 +28,7 @@ Newest first. Note contract changes here.
 - Results now: Tirunelveli rice–rice 20/24 → Small step (daincha → pearl millet May → Samba rice Aug) 24/24,
   25% less water. Madurai tank rice 11/24 → Bigger shift (cotton + pearl millet) 22/24.
 
-## 2026-11-14 night (Siddarth / Lane A): Lane B engine requests done; Pages live
+## 2026-11-14 night (Subramanian / Lane A): Lane B engine requests done; Pages live
 - **GitHub Pages enabled** (source: GitHub Actions). Live at https://sura2903.github.io/NASA_Space_Apps/
   The site is public even though the repo is private.
 - `replay.years` added: a per-year pass/fail list (with share and reason) for drawing 24 squares in order.
@@ -46,7 +46,7 @@ Newest first. Note contract changes here.
   ready and needs Settings → Pages → Source: GitHub Actions.
 - No contract changes. Contract questions and engine observations are in `docs/LANE_B.md`.
 
-## 2026-11-14 evening (Siddarth / Lane A): IMERG is now the rainfall source
+## 2026-11-14 evening (Subramanian / Lane A): IMERG is now the rainfall source
 - Pulled **GPM IMERG Final daily V07** (0.1° grid) for 2001–2024 at all 3 sites via the NASA GES DISC
   Giovanni Time Series API (the old Data Rods service is retired; AppEEARS has no IMERG).
   Monthly aggregates are in `pipeline/data/imerg_monthly_2001_2024.json`; `pipeline/merge_imerg.py` merges them.
@@ -64,14 +64,14 @@ Newest first. Note contract changes here.
   with `?v=` (see `web/dev/engine-test.html`).
 - Caveat: IMERG also smooths extremes. Dec 2023 shows 124 mm max/day, while stations recorded far more.
 
-## 2026-11-14 later (Siddarth / Lane A)
+## 2026-11-14 later (Subramanian / Lane A)
 - MODIS NDVI (ORNL, 3×3 km median, 2019–2024) is now in all three TN site files. No bare
   months show up because the window mixes in trees, so it needs per-pixel AppEEARS data.
 - AppEEARS point request `field-shift-tn-points` submitted (MOD13Q1 NDVI + reliability,
   SMAP SPL3SMP_E AM soil moisture, SRTM DEM; 9 points; 2015-04-01 → 2024-12-31). Status: pending.
 - New site fields: `heat_threshold_c`, `heavy_rain_days`, `max_daily_precip_mm` (in contract v2).
 
-## 2026-11-14 (Siddarth / Lane A)
+## 2026-11-14 (Subramanian / Lane A)
 - **Region decided: Tamil Nadu.** Hero site Tirunelveli (family village); Madurai and
   Thanjavur as contrasts. Default "current rotation" for Tirunelveli: Kar rice (Jun) +
   Pishanam rice (Oct) on canal water.
@@ -112,8 +112,8 @@ Newest first. Note contract changes here.
 - **Crop map:** now passes `statewideContext` to `cropSuitability` / `rankCrops` and colours "Suitability" by
   `suitability` (contract update in ac2a179).
 
-### Data requests for Lane A (Sid): new fields, all optional, the UI already reads them when present
-1. **Dry spells after sowing** (I17), using Sid's definition (≥ 10 days < 2.5 mm within 30 days after sowing on the 1st):
+### Data requests for Lane A (Subramanian): new fields, all optional, the UI already reads them when present
+1. **Dry spells after sowing** (I17), using Subramanian's definition (≥ 10 days < 2.5 mm within 30 days after sowing on the 1st):
    in every `sites/<id>.json` and `grid/<id>.json`,
    `dry_spells: { threshold_mm: 2.5, window_days: 30, by_sow_month: { "10": { years: 24, ge10: 18, ge15: 9 }, ... } }`.
    The UI then adds a "10+ dry days soon after sowing" column per sowing month (it already reads this shape).

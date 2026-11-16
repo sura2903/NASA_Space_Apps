@@ -7,16 +7,16 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 
 | # | Idea | From | Status |
 |---|---|---|---|
-| I33 | E-commerce: links from a plan to order its seed, fertiliser and materials (trusted, labelled sellers; advice stays independent) | Siddarth | 💡 future work |
-| I32 | Improved and GM varieties per crop (short-duration, drought/pest-tolerant; only Bt cotton is widely approved GM in India) | Siddarth | 💡 future work |
-| I31 | Water and fertiliser per crop: irrigation amount and timing by growth stage; fertiliser doses from soil tests (TNAU STCR) and product composition (urea 46% N, DAP 18-46-0, MOP 60% K₂O) | Siddarth | 💡 future work |
-| I30 | Soil type detection from data: SoilGrids + SMAP drying rate after rain + Landsat/Sentinel-2 bare-soil colour + Soil Health Card results | Siddarth | 💡 future work |
-| I29 | Pest and disease resistance: weather-driven pest/disease risk per crop + resistant varieties | Siddarth | 💡 **medium** (NASA humidity/temperature already in POWER) |
-| I28 | Storage and perishability: how long each crop keeps after harvest, as a farmer factor (sell when prices are good vs forced quick sale) | Siddarth | 💡 **medium-high** (crop field + priority; pairs with E3 prices) |
-| I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Siddarth | 💡 **high** (mostly existing data) |
-| I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Siddarth | 💡 **medium** (priority flag is quick) |
-| I25 | Hill-region fruits (strawberry, avocado; kiwi, raspberry) for Nilgiris / Kodaikanal | Siddarth | ⏸ later: needs elevation-corrected temperature + a perennial-crop model |
-| I24 | More millets and grains: the five small millets from the TN crop guide | Siddarth | ✅ added (21 crops); kodo's unsourced deep roots fixed in RESEARCH_LOG I-28, no crop dominates now |
+| I33 | E-commerce: links from a plan to order its seed, fertiliser and materials (trusted, labelled sellers; advice stays independent) | Subramanian | 💡 future work |
+| I32 | Improved and GM varieties per crop (short-duration, drought/pest-tolerant; only Bt cotton is widely approved GM in India) | Subramanian | 💡 future work |
+| I31 | Water and fertiliser per crop: irrigation amount and timing by growth stage; fertiliser doses from soil tests (TNAU STCR) and product composition (urea 46% N, DAP 18-46-0, MOP 60% K₂O) | Subramanian | 💡 future work |
+| I30 | Soil type detection from data: SoilGrids + SMAP drying rate after rain + Landsat/Sentinel-2 bare-soil colour + Soil Health Card results | Subramanian | 💡 future work |
+| I29 | Pest and disease resistance: weather-driven pest/disease risk per crop + resistant varieties | Subramanian | 💡 **medium** (NASA humidity/temperature already in POWER) |
+| I28 | Storage and perishability: how long each crop keeps after harvest, as a farmer factor (sell when prices are good vs forced quick sale) | Subramanian | 💡 **medium-high** (crop field + priority; pairs with E3 prices) |
+| I27 | Least-resource land suitability: water productivity ("crop per drop") + soil/terrain constraints per place | Subramanian | 💡 **high** (mostly existing data) |
+| I26 | Import-dependence lens: pulses and oilseeds as "national priority" crops; later, climate analogues abroad | Subramanian | 💡 **medium** (priority flag is quick) |
+| I25 | Hill-region fruits (strawberry, avocado; kiwi, raspberry) for Nilgiris / Kodaikanal | Subramanian | ⏸ later: needs elevation-corrected temperature + a perennial-crop model |
+| I24 | More millets and grains: the five small millets from the TN crop guide | Subramanian | ✅ added (21 crops); kodo's unsourced deep roots fixed in RESEARCH_LOG I-28, no crop dominates now |
 | I23 | Policy: "what if X% of farms switch" → water saved per place (overlaps I7) | Nimalan | 🔄 Lane B, Policy view page |
 | I22 | Policy: early drought warning from SMAP soil moisture / NDVI anomalies, ahead of insurance and relief decisions | Nimalan | 💡 needs near-real-time SMAP + NDVI |
 | I21 | Policy: crop-to-water mismatch (rice grown on rain only) → case for millet / pulse switching subsidies (overlaps I6) | Nimalan | 💡 needs district crop areas |
@@ -25,19 +25,19 @@ Status keys: 💡 idea · 🔄 in progress · ✅ done · ⏸ parked
 | I18 | Farmers: flood / cyclone exposure from heavy-rain days + SRTM low-lying land (Dec 2023 floods as the example) | Nimalan | 💡 needs SRTM elevation |
 | I17 | Farmers: dry-spell risk by sowing month: chance of a 10+ day dry spell after sowing → nudge to short-duration varieties | Nimalan | 🔄 Lane B, main page |
 | I16 | Farmers: sowing window alert: "sow now or wait" from NE-monsoon onset history + SMAP soil moisture | Nimalan | 🔄 Lane B, main page |
-| I15 | Policy brief export: one-page PDF per district | Sid | 💡 |
-| I14 | Equity lens: tank-fed and smallholder-heavy blocks first | Sid | 💡 |
-| I13 | Policy scenario levers: canal shortfall, tank rehabilitation, borewell caps | Sid | 💡 |
-| I12 | Crop-insurance (PMFBY) risk view: failure frequency per crop × district | Sid | 💡 |
-| I11 | Climate hotspots: Layer 1 trends + Layer 3 projections on the grid | Sid | 💡 (A14 grid / A16) |
-| I10 | Groundwater stress flag: CGWB over-exploited blocks + GRACE trend | Sid | 💡 |
-| I9 | **Backtest against real yields:** do our "bad years" match low-yield years? | Sid | ✅ lift 1.36 overall, r=0.70 by year; no skill for irrigated rice (`web/data/backtest.json`, RESEARCH_LOG I-14) |
-| I8 | Programme targeting: Millet Mission, rice-fallow pulses, diversification schemes | Sid | 💡 |
-| I7 | Water-saving scenarios: "shift X% of rice in district Y to millets → MCM saved" | Sid | 💡 |
-| I6 | **Mismatch map:** what is grown today vs what the climate supports, per district | Sid | 💡 **high priority** |
-| I5 | Reframe the UI for a policy maker: district view, statewide ranking, uncertainty first | Sid | 💡 **high priority** |
-| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `rankCrops` |
-| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | ✅ live on Sid's 47-point grid (`web/explore.html`), uses engine `cropSuitability` |
+| I15 | Policy brief export: one-page PDF per district | Subramanian | 💡 |
+| I14 | Equity lens: tank-fed and smallholder-heavy blocks first | Subramanian | 💡 |
+| I13 | Policy scenario levers: canal shortfall, tank rehabilitation, borewell caps | Subramanian | 💡 |
+| I12 | Crop-insurance (PMFBY) risk view: failure frequency per crop × district | Subramanian | 💡 |
+| I11 | Climate hotspots: Layer 1 trends + Layer 3 projections on the grid | Subramanian | 💡 (A14 grid / A16) |
+| I10 | Groundwater stress flag: CGWB over-exploited blocks + GRACE trend | Subramanian | 💡 |
+| I9 | **Backtest against real yields:** do our "bad years" match low-yield years? | Subramanian | ✅ lift 1.36 overall, r=0.70 by year; no skill for irrigated rice (`web/data/backtest.json`, RESEARCH_LOG I-14) |
+| I8 | Programme targeting: Millet Mission, rice-fallow pulses, diversification schemes | Subramanian | 💡 |
+| I7 | Water-saving scenarios: "shift X% of rice in district Y to millets → MCM saved" | Subramanian | 💡 |
+| I6 | **Mismatch map:** what is grown today vs what the climate supports, per district | Subramanian | 💡 **high priority** |
+| I5 | Reframe the UI for a policy maker: district view, statewide ranking, uncertainty first | Subramanian | 💡 **high priority** |
+| I4 | Click anywhere on the map → top 3 crops for that spot | Nimalan | ✅ live on Subramanian's 47-point grid (`web/explore.html`), uses engine `rankCrops` |
+| I3 | Crop suitability heatmap: pick a crop, see where in Tamil Nadu it fits best | Nimalan | ✅ live on Subramanian's 47-point grid (`web/explore.html`), uses engine `cropSuitability` |
 | I2 | English / Tamil button that switches the whole site (not both side by side) | Nimalan | ✅ UI done; engine sentences still English |
 | I1 | Live "click anywhere" site (stretch goal in CLAUDE.md) | plan | 💡 |
 
@@ -73,7 +73,7 @@ warning (needs near-real-time SMAP / NDVI anomalies).
 
 ---
 
-## Siddarth's future plans (2026-11-15, evening): soil, water, fertiliser, varieties, ordering
+## Subramanian's future plans (2026-11-15, evening): soil, water, fertiliser, varieties, ordering
 
 **I30 Soil type detection from data.**
 - **Today:** one SoilGrids texture per place (250 m, sampled at the cell centre).
@@ -105,9 +105,9 @@ warning (needs near-real-time SMAP / NDVI anomalies).
 - **Neutrality rules:** label every link; keep recommendations independent of sellers (no paid ranking); never
   collect payment in the app.
 
-## Siddarth's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
+## Subramanian's ideas (2026-11-15): millets, hill fruits, import dependence, least resources
 
-**I29 Pest and disease resistance (medium; Siddarth, 2026-11-15).**
+**I29 Pest and disease resistance (medium; Subramanian, 2026-11-15).**
 Today the engine only rewards rotating crop families (the `pest` sub-score breaks pest cycles). It does not know
 which seasons favour a crop's main pests and diseases, or which varieties resist them.
 - **Weather-driven risk:** count "pest-favourable" days in each crop's season from NASA POWER daily humidity,
@@ -124,7 +124,7 @@ which seasons favour a crop's main pests and diseases, or which varieties resist
   scoring.
 - **Depends on:** a sourced pest table; POWER RH2M / T2M are already fetchable.
 
-**I28 Storage and perishability (medium-high; Siddarth, 2026-11-15).**
+**I28 Storage and perishability (medium-high; Subramanian, 2026-11-15).**
 Some crops keep for a year or more after harvest; others must be sold within days. That changes a farmer's risk:
 a storable crop can wait out a price slump or be eaten by the family in a bad year; a perishable one forces a
 quick sale at whatever the market pays.
@@ -184,7 +184,7 @@ quick sale at whatever the market pays.
 
 ---
 
-## Brainstorm (Sid, 2026-11-14): making Field Shift useful for a **Tamil Nadu policy maker**
+## Brainstorm (Subramanian, 2026-11-14): making Field Shift useful for a **Tamil Nadu policy maker**
 
 The audience is now an agriculture-department decision maker, not one farmer. They ask *where*, *how
 much* and *what if* across districts. These are the directions, roughly by value per hour.
@@ -246,9 +246,9 @@ much* and *what if* across districts. These are the directions, roughly by value
   the grid is missing. Scoring goes through the engine's `cropSuitability` and `rankCrops`.
 - "Try a comparison" buttons: Rice on rain only (best place 7/24 seasons) vs Rice with canal water
   (24/24 near Tenkasi / Tirunelveli).
-- Known: two coastal cells are partly sea (Sid's note).
+- Known: two coastal cells are partly sea (Subramanian's note).
 
-**Proposed grid format for Lane A (Sid), no change to the site format:**
+**Proposed grid format for Lane A (Subramanian), no change to the site format:**
 ```
 web/data/grid/index.json
 { "cell_deg": 0.5,                       // optional; when present cells are drawn as squares

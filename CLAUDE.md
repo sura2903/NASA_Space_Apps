@@ -30,7 +30,7 @@ data source, model, story, scope), add an iteration entry there (template at the
 ## Two lanes (two people, two Claude Code sessions, one repo)
 | Lane | Owner | Owns these paths only |
 |---|---|---|
-| A — Data, agronomy, scoring engine | Siddarth | `pipeline/`, `web/data/`, `web/js/scoring.js` |
+| A — Data, agronomy, scoring engine | Subramanian | `pipeline/`, `web/data/`, `web/js/scoring.js` |
 | B — Web app, UX, story | Nimalan | `web/` except `web/data/` and `web/js/scoring.js` |
 
 Shared and edited by both only together: `CLAUDE.md`, `docs/data_contract.md`.

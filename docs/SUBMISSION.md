@@ -2,7 +2,7 @@
 
 Challenge: **Field Shift: Adapting Farms with NASA Data** (NASA Space Apps 2026)
 Live demo: https://sura2903.github.io/NASA_Space_Apps/ (opens on the overview page; English and Tamil, works on a phone)
-Team: Siddarth (data, models) and Nimalan (web app, story)
+Team: Subramanian (data, models) and Nimalan (web app, story)
 
 > Draft for the Space Apps project page. Ready-to-paste blocks, one per form field: `docs/SPACE_APPS_FORM.md`. Every number below comes from
 > `docs/RESEARCH_LOG.md` (iteration numbers in brackets) and can be re-run from `pipeline/`.

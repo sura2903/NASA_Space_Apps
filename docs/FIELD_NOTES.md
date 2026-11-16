@@ -5,7 +5,7 @@ to what Field Shift does today and what it doesn't. Newest first. No personal de
 
 ---
 
-## FN-1 · Farmer interview (2026-11-15, by Siddarth)
+## FN-1 · Farmer interview (2026-11-15, by Subramanian)
 
 ### What the farmer said (notes)
 1. **Timing:** which crop to plant in which **season / month**.
@@ -21,7 +21,7 @@ to what Field Shift does today and what it doesn't. Newest first. No personal de
    **state food reserves** in relation to famine risk.
 8. **Daily-life impact** on the farmer and family is the real measure of success.
 
-### Siddarth's comment
+### Subramanian's comment
 > The challenge is to **predict floods, droughts, etc. in advance, reliably**.
 
 ### How this maps to Field Shift today
@@ -41,7 +41,7 @@ to what Field Shift does today and what it doesn't. Newest first. No personal de
 | 8 Daily-life impact | Partly: income sub-score | Express results in household terms: expected income range, bad-year income, water and labour needs |
 | Advance prediction (comment) | ❌ we explain the past and project the far future | **Seasonal forecast layer**, see below |
 
-### On predicting floods and droughts in advance (Siddarth's comment)
+### On predicting floods and droughts in advance (Subramanian's comment)
 Honest framing for the team:
 - **Weather (days–2 weeks):** IMD / ECMWF forecasts are skilful for heavy rain a few days ahead. Useful for
   flood warnings, not for choosing a crop.
