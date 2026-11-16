@@ -37,7 +37,7 @@
 
   <script type="module">
     import { t, initLang, setLang, onLangChange, getLang } from "./js/i18n.js";
-    import { renderReferences, refsUI } from "./js/ui/references.js";
+    import { renderReferences, refsUI, mountRefsFooter } from "./js/ui/references.js";
     const body = document.getElementById("refs-body");
     const btn = document.getElementById("lang");
     function paint() {
@@ -52,6 +52,7 @@
     paint();
     btn.addEventListener("click", () => setLang(getLang() === "ta" ? "en" : "ta"));
     onLangChange(paint);
+    mountRefsFooter();
   </script>
 </body>
 </html>
