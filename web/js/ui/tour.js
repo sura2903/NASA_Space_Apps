@@ -12,8 +12,8 @@ const UI = {
 // Each step: a CSS selector (first visible match), a title and text in both languages, and an optional prepare()
 // that makes the part visible first (for example opening a folded section).
 const FARM = [
-  { sel: ".tabs", en: ["Two views", "This tool has two tabs: Farmers (this page) for one farm, and Policy makers for the whole of Tamil Nadu."],
-    ta: ["இரண்டு பார்வைகள்", "இந்தக் கருவியில் இரண்டு பகுதிகள் உள்ளன: ஒரு பண்ணைக்கான விவசாயிகள் பகுதி (இந்தப் பக்கம்), முழு தமிழ்நாட்டுக்கான கொள்கை வகுப்பாளர்கள் பகுதி."] },
+  { sel: ".tabs", en: ["Two views", "This tool has two views: Farmers (this page) for one farm, and Policy makers for the whole of Tamil Nadu. Home gives a short overview."],
+    ta: ["இரண்டு பார்வைகள்", "இந்தக் கருவியில் இரண்டு பார்வைகள் உள்ளன: ஒரு பண்ணைக்கான விவசாயிகள் பகுதி (இந்தப் பக்கம்), முழு தமிழ்நாட்டுக்கான கொள்கை வகுப்பாளர்கள் பகுதி. முகப்புப் பக்கம் ஒரு சுருக்கமான அறிமுகம் தருகிறது."] },
   { sel: "#place-bar", en: ["1. Where is your farm?", "Choose your district, then the place closest to your village. Or tap “Use my location”, or pick on the map. Each place is a square of NASA data about 28 km wide."],
     ta: ["1. உங்கள் பண்ணை எங்கே?", "உங்கள் மாவட்டத்தையும், பிறகு உங்கள் ஊருக்கு அருகில் உள்ள இடத்தையும் தேர்ந்தெடுங்கள். அல்லது “என் இருப்பிடம்” பொத்தானை அழுத்துங்கள், அல்லது வரைபடத்தில் தேர்ந்தெடுங்கள். ஒவ்வொரு இடமும் சுமார் 28 கி.மீ. அகலமுள்ள நாசா தரவுச் சதுரம்."] },
   { sel: "#mycrops .mc-field", en: ["2. Your crops and water", "Tick the crops you grow and every water source you can use. On canal water in the Cauvery delta, you are also asked whether Mettur dam has opened this year."],
