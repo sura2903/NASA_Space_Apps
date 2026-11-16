@@ -104,7 +104,7 @@ detail*. Nothing was removed from the farmer's page; it was moved there.
 - **Cyclones:** Samba rice in the delta was hit near harvest in 8 of 44 seasons since 1981 (Nisha, Thane, Gaja) [I-35].
 - **2041–2060 (NASA NEX-GDDP-CMIP6, 5 models):**
   - Daytime highs rise about 0.9 °C everywhere.
-  - Up to 21 more very hot days a year in the north.
+  - Up to about 22 more very hot days a year in the north.
   - The models disagree on whether the northeast monsoon gets wetter or drier at every place, so we say so [I-33].
 
 ## 7. NASA data used

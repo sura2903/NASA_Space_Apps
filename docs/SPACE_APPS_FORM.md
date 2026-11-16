@@ -98,7 +98,7 @@ KEY FINDINGS
 
 - A farmer we interviewed told us not to plant rice in a drought year and to grow crops such as black gram and sesame instead. The data agrees: in drought-type seasons, lake-fed long rice at Tirunelveli failed 7 times out of 7, while black gram, sesame and millets came through.
 - Memory misleads. A farmer remembering 2005–2014 saw Thanjavur's lake-fed rice come through 9 of 10 seasons; over 24 years it was 16 of 23, and the 2016 drought came right after.
-- By 2041–2060, daytime highs rise about 0.9 °C everywhere, with up to 21 more very hot days a year in the north. The climate models disagree on whether the northeast monsoon gets wetter or drier, so the site says so instead of picking one.
+- By 2041–2060, daytime highs rise about 0.9 °C everywhere, with up to about 22 more very hot days a year in the north. The climate models disagree on whether the northeast monsoon gets wetter or drier, so the site says so instead of picking one.
 
 BENEFITS AND WHAT WE HOPE TO ACHIEVE
 
