@@ -29,6 +29,8 @@ const FARM = [
     ta: ["தமிழ் / English", "எப்போது வேண்டுமானாலும் முழு தளத்தையும் தமிழுக்கும் ஆங்கிலத்துக்கும் இடையே மாற்றலாம்."] },
   { sel: "#refs-foot", en: ["Where the numbers come from", "Every number comes from NASA and other public datasets, listed here, along with how we used AI to build the tool."],
     ta: ["எண்கள் எங்கிருந்து வருகின்றன", "ஒவ்வொரு எண்ணும் நாசா மற்றும் பிற பொதுத் தரவுத் தொகுப்புகளிலிருந்து வருகிறது; அவை இங்கே பட்டியலிடப்பட்டுள்ளன. கருவியை உருவாக்க செயற்கை நுண்ணறிவை எப்படிப் பயன்படுத்தினோம் என்பதும் இங்கே உள்ளது."] },
+  { sel: '.tabs a[href="policy.html"]', en: ["Next: the Policy makers view", "For planners and district officers, the Policy makers tab runs the same engine for 185 places across Tamil Nadu: risk maps, what to avoid in a drought year, water saved by a crop switch, and crop ideas for each district. Open it and press “Take a tour” there for its own walk-through."],
+    ta: ["அடுத்து: கொள்கை வகுப்பாளர்கள் பார்வை", "திட்டமிடுபவர்களுக்கும் மாவட்ட அலுவலர்களுக்கும், கொள்கை வகுப்பாளர்கள் பகுதி அதே கணிப்பு முறையை தமிழ்நாடு முழுவதும் 185 இடங்களுக்கு இயக்குகிறது: அபாய வரைபடங்கள், வறட்சி ஆண்டில் எதைத் தவிர்க்க வேண்டும், பயிர் மாற்றத்தால் மிச்சமாகும் நீர், ஒவ்வொரு மாவட்டத்துக்குமான பயிர் யோசனைகள். அதைத் திறந்து அங்குள்ள “சுற்றிப் பார்க்க” பொத்தானை அழுத்துங்கள்."] },
 ];
 const POLICY = [
   { sel: ".tabs", en: ["The whole state", "This tab is for planners and district agriculture officers: the same engine as the Farmers tab, run for 185 places across Tamil Nadu."],
@@ -43,6 +45,8 @@ const POLICY = [
     ta: ["மாவட்ட வாரியான பயிர் யோசனைகள்", "ஒவ்வொரு மாவட்டத்தின் மழைக்கும் ஏற்ற, ஆனால் இன்று அங்கு அரிதாகப் பயிரிடப்படும் பயிர்கள். அவற்றின் மாவட்டங்களைக் காண வரைபடத்தில் ஒரு பயிரைத் தொடுங்கள்."] },
   { sel: "#refs-foot", en: ["Sources", "Every dataset behind the map, and how we used AI to build the tool."],
     ta: ["ஆதாரங்கள்", "வரைபடத்தின் பின்னால் உள்ள ஒவ்வொரு தரவுத் தொகுப்பும், கருவியை உருவாக்க செயற்கை நுண்ணறிவை எப்படிப் பயன்படுத்தினோம் என்பதும்."] },
+  { sel: '.tabs a[href="index.html"]', en: ["Next: the Farmers view", "The Farmers tab answers the same questions for one farm: pick a district and village area, your crops, water and sowing month, and see each crop's chance of coming through and three full-year plans. Open it and press “Take a tour” there for its own walk-through."],
+    ta: ["அடுத்து: விவசாயிகள் பார்வை", "விவசாயிகள் பகுதி அதே கேள்விகளுக்கு ஒரு பண்ணைக்குப் பதில் தருகிறது: மாவட்டம், ஊர்ப் பகுதி, பயிர்கள், நீர், விதைப்பு மாதம் ஆகியவற்றைத் தேர்ந்தெடுத்து, ஒவ்வொரு பயிரும் தாக்குப்பிடிக்கும் வாய்ப்பையும் மூன்று முழு ஆண்டுத் திட்டங்களையும் பாருங்கள். அதைத் திறந்து அங்குள்ள “சுற்றிப் பார்க்க” பொத்தானை அழுத்துங்கள்."] },
 ];
 
 const ui = (k) => UI[getLang()]?.[k] ?? UI.en[k];
