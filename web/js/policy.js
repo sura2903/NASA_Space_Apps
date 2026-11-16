@@ -10,6 +10,7 @@ import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
 import { loadBoundaries, addOutlines, districtLayer } from "./ui/boundaries.js";
+import { subDistrictNames } from "./ui/places.js?v=43";
 import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet, paletteFor } from "./ui/risk.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
@@ -47,7 +48,7 @@ async function getJSON(url) {
 async function loadPoints() {
   try {
     const g = await getJSON("data/grid/index.json");
-    const pts = Array.isArray(g) ? g : g.points;
+    const pts = subDistrictNames(Array.isArray(g) ? g : g.points);
     if (pts?.length) return { kind: "grid", points: pts, base: "data/grid/", cellDeg: g.cell_deg ?? null };
   } catch { /* fall back to the demo sites */ }
   return { kind: "sites", points: await getJSON("data/sites/index.json"), base: "data/sites/", cellDeg: null };
@@ -88,8 +89,8 @@ function computeScores() {
 
 // colour by what the chosen layer measures (ui/risk.js paletteFor): 0 = least severe, 1 = most severe
 const colour = (v) => paletteFor(state.layer)(v);
-const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);   // local village / taluk name first
-// the local village / taluk name (grid/index.json, OpenStreetMap) where there is one, else the older "near <town>" name
+const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);   // local village / sub-district name first
+// the local village / sub-district name (grid/index.json, OpenStreetMap) where there is one, else the older "near <town>" name
 const short = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? placeName(p).replace(/\s*\(\d+\s*km\)\s*$/, "");
 
 function compText(c, s) {

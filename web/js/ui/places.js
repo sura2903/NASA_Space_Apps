@@ -1,6 +1,6 @@
 // Clearer names for the "Where is your farm?" list (Lane B).
-// Each grid place has the village or town at its square's centre, its taluk and district (grid/index.json local names,
-// from OpenStreetMap). The list groups places by district and names them "Minjur, Ponneri taluk (19 km from Chennai)".
+// Each grid place has the village or town at its square's centre, its sub-district and district (grid/index.json local names,
+// from OpenStreetMap). The list groups places by district and names them "Minjur, Ponneri sub-district (19 km from Chennai)".
 // Grid places arrive named "near Chennai (19 km)": the nearest district town (pipeline/build_grid.py TOWNS) and the
 // distance from it to the centre of the place's data square. Here each place also gets a compass direction from that
 // town, using the district HQ positions in data/districts.json, so the list reads "Chennai, 19 km north-west".
@@ -13,8 +13,16 @@ const DIRS = ["n", "ne", "e", "se", "s", "sw", "w", "nw"];
 const DIST_TOL = 3;            // km
 const KM_PER_DEG = 111;        // unit conversion, not data
 
+// The grid file's English local names say "taluk" (OpenStreetMap). The site says "sub-district" instead, the plain-English
+// word for a taluk. Tamil names keep வட்டம், the official Tamil word for it. Changes the names in place and returns the list.
+export function subDistrictNames(points) {
+  const fix = (x) => (typeof x === "string" ? x.replace(/\btaluks\b/g, "sub-districts").replace(/\btaluk\b/g, "sub-district") : x);
+  for (const p of points ?? []) { p.local_name = fix(p.local_name); p.place = fix(p.place); }
+  return points;
+}
+
 /** sites: the place list (demo sites + grid points); districts: data/districts.json `districts` (or null).
- *  Returns { info: id -> {town, town_ta, km, dir, place, place_ta, taluk, border, border_ta}, townOf: id -> group key,
+ *  Returns { info: id -> {town, town_ta, km, dir, place, place_ta, sub-district, border, border_ta}, townOf: id -> group key,
  *  townTa: group key -> Tamil name, byDistrict } for i18n.setPlaceInfo and the grouped list. */
 export function describePlaces(sites, districts) {
   const hq = Object.fromEntries((districts ?? []).map((d) => [d.name, d.hq]));
@@ -32,11 +40,11 @@ export function describePlaces(sites, districts) {
       const d = KM_PER_DEG * Math.hypot(north, east);
       if (Math.abs(d - km) <= DIST_TOL) dir = DIRS[Math.round((((Math.atan2(east, north) * 180) / Math.PI + 360) % 360) / 45) % 8];
     }
-    // the local name: "by the Kerala border (near Konni taluk)" for squares centred just over the state border
+    // the local name: "by the Kerala border (near Konni sub-district)" for squares centred just over the state border
     const border = s.border_state ? (s.local_name ?? "").replace(/^.*? district, /, "") : null;
     const borderTa = s.border_state ? (s.local_name_ta ?? "").replace(/^.*? மாவட்டம், /, "") : null;
-    // otherwise drop the district from the local name: "Sethiathoppu (Bhuvanagiri taluk, Cuddalore)" -> "Sethiathoppu,
-    // Bhuvanagiri taluk"; "Gingee taluk, west (Viluppuram)" -> "Gingee taluk, west"; Tamil "சேத்தியாத்தோப்பு (கடலூர்)" -> "சேத்தியாத்தோப்பு"
+    // otherwise drop the district from the local name: "Sethiathoppu (Bhuvanagiri sub-district, Cuddalore)" -> "Sethiathoppu,
+    // Bhuvanagiri sub-district"; "Gingee sub-district, west (Viluppuram)" -> "Gingee sub-district, west"; Tamil "சேத்தியாத்தோப்பு (கடலூர்)" -> "சேத்தியாத்தோப்பு"
     const ln = s.local_name ?? "", lnTa = s.local_name_ta ?? "";
     const mm = /^(.*) \((.*), [^,()]+\)$/.exec(ln);
     const local = border ? border.charAt(0).toUpperCase() + border.slice(1) : mm ? `${mm[1]}, ${mm[2]}` : ln.replace(/ \([^()]*\)$/, "") || null;

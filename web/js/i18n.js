@@ -37,7 +37,7 @@ const STR = {
     "welcome.privacy": "Your location stays on this device; it is only used to find the nearest place.",
     "welcome.or": "or pick a detailed place:", "welcome.go": "Show my options",
     "places.group": "{town} district",
-    "places.note": "Each place is a square of NASA data about {km} km wide, named after the village or town at its centre and its taluk, with how far it is from the nearest district town. Choose your district, then the place closest to your village, or use the map or your location.",
+    "places.note": "Each place is a square of NASA data about {km} km wide, named after the village or town at its centre and its sub-district, with how far it is from the nearest district town. Choose your district, then the place closest to your village, or use the map or your location.",
     "place.full": "{local} ({where})",
     "place.dir": "{km} km {dir} of {town}", "place.away": "{km} km from {town}", "place.near": "next to {town}",
     "dir.n": "north", "dir.ne": "north-east", "dir.e": "east", "dir.se": "south-east", "dir.s": "south", "dir.sw": "south-west", "dir.w": "west", "dir.nw": "north-west",
@@ -873,7 +873,7 @@ function placeLabel(id) {
   const town = ta && p.town_ta ? p.town_ta : p.town;
   const where = p.km < 5 ? t("place.near", { town, km: p.km })
     : p.dir ? t("place.dir", { town, km: p.km, dir: t(`dir.${p.dir}`) }) : t("place.away", { town, km: p.km });
-  // the village / town at the square's centre and its taluk (ui/places.js), then where that is from the district town
+  // the village / town at the square's centre and its sub-district (ui/places.js), then where that is from the district town
   const local = ta ? (p.local_ta ?? p.local) : p.local;
   return local ? t("place.full", { local, where }) : where;
 }
