@@ -63,6 +63,8 @@ https://sura2903.github.io/NASA_Space_Apps/
 ```text
 WHAT IT DOES
 
+A "Take a tour" button on each page walks a first-time visitor through the features step by step, in English or Tamil.
+
 For farmers (Farmers tab):
 1. Where is your farm? Choose your district, then one of about five places in it. Each place is named after the village or town at its centre and its taluk, for example "Malayarnatham, Papanasam taluk (13 km east of Thanjavur)". You can also use your location or pick on a map. The page opens on an example place, so it works straight away.
 2. Your crops and water. Tick the crops you grow and every water source you can use: rain only, lake or pond, river canal or dam, borewell. A Cauvery delta farmer on canal water is also asked whether Mettur dam has opened this year (not known yet, on time, late, very late or not opened), and the advice changes with the answer.

@@ -23,7 +23,8 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 - **What to avoid matters as much as what to plant**, and farmers want odds, not promises [FN-1].
 
 ## 3. What SowSmart does
-The site has two tabs: **Farmers** and **Policy makers**.
+The site has two tabs: **Farmers** and **Policy makers**. A **"Take a tour"** button on each walks a first-time
+visitor through the features step by step, in English or Tamil.
 
 **For a farmer (Farmers tab)**
 1. **Where is your farm?** Choose your district (38), then one of its places, about five per district. There are 185
