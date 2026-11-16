@@ -123,7 +123,7 @@ function drawDistricts() {
   }
   const crop = cropName(state.cropById[state.crop]);
   dLayer = districtLayer(bounds, {
-    colour, selected: state.selected?.district ?? null,
+    colour, selected: state.selected?.district ?? null, map,   // one shared hover card (ui/boundaries.js)
     valueOf: (name) => {
       const a = agg[name];
       if (!a?.length) return null;
