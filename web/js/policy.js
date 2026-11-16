@@ -176,7 +176,7 @@ function drawDistricts() {
   const lay = currentLayer();
   const what = lay ? legendWords(lay).title : t("p.legend");
   dLayer = districtLayer(bounds, {
-    colour, selected: state.selected?.district ?? null,
+    colour, selected: state.selected?.district ?? null, map,   // one shared hover card (ui/boundaries.js)
     valueOf: (name) => {
       const a = agg[name];
       if (!a?.length) return null;
