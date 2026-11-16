@@ -11,6 +11,7 @@ import { scoreRotation, WATER_SOURCES, DAM_OPTIONS } from "../scoring.js";
 import { h, clear } from "./dom.js";
 import { toggleWater } from "./inputs.js";
 import { decorate } from "./glossary.js";
+import { countUp } from "./reveal.js";
 import { getLang, cropName, monthName, monthShort, waterLabel } from "../i18n.js";
 
 const GOOD = 0.75, RISKY = 0.5;      // chance of success: >= 75% (about 3 seasons in 4) good, >= 50% risky
@@ -36,8 +37,20 @@ const PATTAMS = [
 
 const S = {
   en: {
-    cropsH: "Your crops and water",
-    crops: "Tick the crops you usually grow",
+    cropsH: "Your water and crops",
+    crops: "Tick the crops you grow or want to try",
+    cropSec: "Show crops",
+    sec_all: "All crops", sec_best: "Best here", sec_other: "Other crops",
+    bestNote: "Crops that came through at least 3 seasons in 4 here for {when}, with your water. Best first.",
+    bestFirst: "Choose when you sow (step 2) to see the crops that did best here.",
+    bestNone: "No crop came through at least 3 seasons in 4 here for {when} with this water. Look under All crops.",
+    otherNote: "Crops that did less well here for {when}, or are not usually sown then.",
+    ticked: "Ticked ({n} of {max}): {list}",
+    waitH: "Your answer appears here",
+    todoWhen: "Choose when you sow",
+    todoCrops: "Tick at least one crop",
+    showBtn: "Show how my crops did",
+    waitNote: "Then each crop gets a tile with its chance of coming through, from the NASA record for {start}–{end}.",
     max: "You can tick up to {n} crops.",
     water: "Water for the field (tick all you can use)",
     waterNote: "In our check, lake / pond and canal water rise and fall with each year's monsoon, so a dry year means less water. Borewell water is treated as steady for now.",
@@ -91,8 +104,20 @@ const S = {
     ask: "Seed and fertiliser supply, this year's prices at your market, pests seen nearby, and how much water your lake, canal or well really has this year. Only you and local experts know these.",
   },
   ta: {
-    cropsH: "உங்கள் பயிர்களும் நீரும்",
-    crops: "நீங்கள் வழக்கமாகப் பயிரிடும் பயிர்களைத் தேர்ந்தெடுங்கள்",
+    cropsH: "உங்கள் நீரும் பயிர்களும்",
+    crops: "நீங்கள் பயிரிடும் அல்லது முயற்சிக்க விரும்பும் பயிர்களைத் தேர்ந்தெடுங்கள்",
+    cropSec: "பயிர்களைக் காட்டு",
+    sec_all: "எல்லாப் பயிர்களும்", sec_best: "இங்கே சிறந்தவை", sec_other: "மற்ற பயிர்கள்",
+    bestNote: "உங்கள் நீருடன், {when} செய்தபோது இங்கே 4 பருவங்களில் குறைந்தது 3-இல் தாக்குப்பிடித்த பயிர்கள். சிறந்தவை முதலில்.",
+    bestFirst: "இங்கே சிறப்பாக இருந்த பயிர்களைக் காண, முதலில் எப்போது விதைக்கிறீர்கள் என்று தேர்ந்தெடுங்கள் (படி 2).",
+    bestNone: "இந்த நீருடன், {when} செய்தபோது இங்கே எந்தப் பயிரும் 4 பருவங்களில் 3-இல் தாக்குப்பிடிக்கவில்லை. எல்லாப் பயிர்களும் பகுதியில் பாருங்கள்.",
+    otherNote: "{when} செய்தபோது இங்கே குறைவாகச் சிறப்பாக இருந்த பயிர்கள், அல்லது அப்போது வழக்கமாக விதைக்கப்படாதவை.",
+    ticked: "தேர்ந்தெடுத்தவை ({max}-இல் {n}): {list}",
+    waitH: "உங்கள் பதில் இங்கே தோன்றும்",
+    todoWhen: "எப்போது விதைக்கிறீர்கள் என்று தேர்ந்தெடுங்கள்",
+    todoCrops: "குறைந்தது ஒரு பயிரைத் தேர்ந்தெடுங்கள்",
+    showBtn: "என் பயிர்கள் எப்படி இருந்தன என்று காட்டு",
+    waitNote: "பிறகு ஒவ்வொரு பயிருக்கும், {start}–{end} நாசா பதிவிலிருந்து, அது தாக்குப்பிடிக்கும் வாய்ப்பு ஒரு அட்டையில் காட்டப்படும்.",
     max: "அதிகபட்சம் {n} பயிர்களைத் தேர்ந்தெடுக்கலாம்.",
     water: "வயலுக்கான நீர் (பயன்படுத்தக்கூடிய அனைத்தையும் தேர்ந்தெடுங்கள்)",
     waterNote: "எங்கள் சரிபார்ப்பில், ஏரி / குளம், கால்வாய் நீர் ஒவ்வொரு ஆண்டின் பருவமழையுடன் ஏறி இறங்குகிறது; வறண்ட ஆண்டில் நீர் குறைவு. ஆழ்துளைக் கிணற்று நீர் இப்போதைக்கு நிலையானதாகக் கொள்ளப்படுகிறது.",
@@ -158,8 +183,11 @@ function defaultSel() {
 }
 const selMonths = (sel) => (sel.pattam ? PATTAMS.find((p) => p.id === sel.pattam).months : [sel.month]);
 
-// module state: survives re-renders (language, priorities, water) but not page reloads, except the ticked crops
-const ui = { sel: defaultSel(), picked: null, ruledOut: new Set(), water: null, waterSite: null, dam: "unknown" };
+// module state: survives re-renders (language, priorities, water) but not page reloads, except the ticked crops.
+// The answer stays hidden until the farmer has chosen a sowing time (whenChosen) and ticked crops this visit
+// (cropsTouched), or pressed "Show" for crops ticked on an earlier visit (showAnyway). cropTab: all / best / other.
+const ui = { sel: defaultSel(), whenChosen: false, cropsTouched: false, showAnyway: false, cropTab: null, lastKey: null,
+  picked: null, ruledOut: new Set(), water: null, waterSite: null, dam: "unknown" };
 const cache = new Map();
 
 function loadPicked() {
@@ -292,25 +320,26 @@ function onsetLine(site) {
  * waters = the Set of ticked water sources, onWaters(set) = the page's setter (shared with the full-year plans).
  */
 export function renderMyCrops(el, args) {
-  const { site, crops, prefs, currentIds = [], waters, onWaters, projection = null } = args;
+  const { site, crops, prefs, waters, onWaters, projection = null } = args;
   if (!site || !crops?.length) return;
   const field = crops.filter((c) => c.type !== "green_manure");
-  if (!ui.picked) ui.picked = loadPicked() ?? new Set(currentIds.filter((id) => field.some((c) => c.id === id)));
+  // start from the farmer's own ticks from an earlier visit, never from a ready-made example rotation
+  if (!ui.picked) ui.picked = loadPicked() ?? new Set();
   const rerender = () => renderMyCrops(el, args);
   const years = (site.by_year || []).map((y) => y.year);
   const months = selMonths(ui.sel);
+  const when = months.length > 1 ? s("whenR", { range: range(months) }) : s("when1", { month: monthName(months[0]) });
+  const num = (n) => h("span", { class: "n" }, String(n));
 
-  // step 2: crops + water
-  const full = ui.picked.size >= MAX_PICK;
-  const cropChips = h("div", { class: "mc-crops" },
-    field.map((c) => {
-      const on = ui.picked.has(c.id);
-      return h("label", { class: "mc-chip" + (on ? " on" : "") },
-        h("input", { type: "checkbox", value: c.id, checked: on, disabled: !on && full,
-          onchange: (e) => { e.target.checked ? ui.picked.add(c.id) : ui.picked.delete(c.id); savePicked(); rerender(); } }),
-        h("span", {}, cropName(c)));
-    }));
-  // water: tick every source the farmer can use ("Rain only" is on its own). Starts from the place's usual source.
+  // step 2: when (first, because "best here" depends on it). Nothing is shown as chosen until the farmer taps.
+  const chips = h("div", { class: "mc-pattams" },
+    PATTAMS.map((p) => { const on = ui.whenChosen && ui.sel.pattam === p.id; return h("button", {
+      type: "button", class: "mc-pattam" + (on ? " on" : ""), "aria-pressed": on ? "true" : "false",
+      onclick: () => { ui.sel = { pattam: p.id }; ui.whenChosen = true; rerender(); },
+    }, s("pattam", { ta: p.ta, range: range(p.months) })); }));
+  const strip = monthStrip(site, ui.whenChosen ? months : [], (m) => { ui.sel = { month: m }; ui.whenChosen = true; rerender(); });
+
+  // step 3: water (tick every source the farmer can use; "Rain only" is on its own), then crops.
   // The ticked set lives in the page (shared with the full-year plans' water boxes).
   if (ui.waterSite !== site.id) { ui.waterSite = site.id; ui.dam = "unknown"; }
   ui.water = waters ?? new Set([prefs.water_source]);
@@ -332,22 +361,79 @@ export function renderMyCrops(el, args) {
       : h("p", { class: "note" }, s("damNone"));
   }
   const damOpen = site.dam && ui.dam !== "unknown" ? DAM_OPTIONS[ui.dam] : undefined;
-
-  // step 3: when
-  const chips = h("div", { class: "mc-pattams" },
-    PATTAMS.map((p) => h("button", {
-      type: "button", class: "mc-pattam" + (ui.sel.pattam === p.id ? " on" : ""), "aria-pressed": ui.sel.pattam === p.id ? "true" : "false",
-      onclick: () => { ui.sel = { pattam: p.id }; rerender(); },
-    }, s("pattam", { ta: p.ta, range: range(p.months) }))));
-  const strip = monthStrip(site, months, (m) => { ui.sel = { month: m }; rerender(); });
-
-  // the answer
   const picks = allPicks(site, crops, prefs, months, srcs, damOpen);
   futureCtx = { site, crops, prefs, srcs, damOpen, projection };
+
+  // crop sections: all / best here (a good choice for this place, sowing time and water) / other
+  const best = ui.whenChosen ? picks.filter((p) => !p.off && p.verdict === "good").sort(order).map((p) => p.crop) : null;
+  const bestIds = new Set((best || []).map((c) => c.id));
+  const other = field.filter((c) => !bestIds.has(c.id));
+  const tab = ui.cropTab ?? (ui.whenChosen ? "best" : "all");
+  const list = tab === "best" ? (best || []) : tab === "other" ? other : field;
+  const full = ui.picked.size >= MAX_PICK;
+  const seg = h("div", { class: "mc-seg", role: "group", "aria-label": s("cropSec") },
+    [["all", field.length], ["best", best ? best.length : null], ["other", ui.whenChosen ? other.length : null]].map(([k, n]) => h("button", {
+      type: "button", class: "mc-seg-btn" + (tab === k ? " on" : ""), "aria-pressed": tab === k ? "true" : "false", "data-sec": k,
+      onclick: () => { ui.cropTab = k; rerender(); },
+    }, s(`sec_${k}`), n != null ? h("span", { class: "mc-seg-n" }, ` ${n}`) : null)));
+  const secNote = tab === "best" ? s(!best ? "bestFirst" : best.length ? "bestNote" : "bestNone", { when })
+    : tab === "other" && ui.whenChosen ? s("otherNote", { when }) : null;
+  const cropChips = h("div", { class: "mc-crops", "data-sec": tab },
+    list.map((c) => {
+      const on = ui.picked.has(c.id);
+      return h("label", { class: "mc-chip" + (on ? " on" : "") + (bestIds.has(c.id) ? " best" : "") },
+        h("input", { type: "checkbox", value: c.id, checked: on, disabled: !on && full,
+          onchange: (e) => { e.target.checked ? ui.picked.add(c.id) : ui.picked.delete(c.id); ui.cropsTouched = true; savePicked(); rerender(); } }),
+        bestIds.has(c.id) ? h("span", { class: "mc-chip-ok", "aria-hidden": "true" }, "✓") : null,
+        h("span", {}, cropName(c)));
+    }));
+  const tickedNames = field.filter((c) => ui.picked.has(c.id)).map(cropName);
+  const ticked = tickedNames.length ? h("p", { class: "mc-ticked" }, s("ticked", { n: tickedNames.length, max: MAX_PICK, list: tickedNames.join(", ") })) : null;
+
+  // the answer: only once the farmer has chosen a sowing time and crops
+  const ready = ui.whenChosen && ui.picked.size > 0 && (ui.cropsTouched || ui.showAnyway);
+  const key = `${site.id}|${months.join(",")}`;
+  const fresh = ready && ui.lastKey !== key;    // first showing, or a new place or sowing time: tiles pop in again
+  ui.lastKey = ready ? key : null;
+  let result;
+  if (!ready) {
+    const done = (ok, txt) => h("li", { class: ok ? "done" : "" }, h("span", { class: "mc-todo-i", "aria-hidden": "true" }, ok ? "✓" : "○"), " ", txt);
+    result = h("div", { class: "mc-result mc-wait", "aria-live": "polite" },
+      h("h2", { id: "mc-answer-title" }, s("waitH")),
+      h("ol", { class: "mc-todo" }, done(ui.whenChosen, s("todoWhen")), done(ui.picked.size > 0, s("todoCrops"))),
+      ui.whenChosen && ui.picked.size > 0
+        ? h("button", { type: "button", class: "btn mc-show", onclick: () => { ui.showAnyway = true; rerender(); } }, s("showBtn"))
+        : null,
+      h("p", { class: "note" }, s("waitNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })));
+  } else {
+    result = renderAnswer(picks, when, srcs, rerender);
+    if (fresh) {
+      result.classList.add("mc-fresh");
+      result.querySelectorAll(".mc-tile").forEach((t, i) => t.style.setProperty("--i", Math.min(i, 10)));
+      result.querySelectorAll(".mc-tile-num").forEach(countUp);
+    }
+  }
+
+  clear(el).append(
+    h("div", { class: "mc-grid" },
+      h("div", { class: "mc-inputs" },
+        h("h2", { class: "mc-when-h" }, num(2), " ", s("whenH")),
+        h("p", { class: "note" }, s("whenNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })),
+        chips, h("p", { class: "note mc-pattam-note" }, s("pattamNote")), strip, onsetLine(site),
+        h("h2", { class: "mc-crops-h" }, num(3), " ", s("cropsH")),
+        h("fieldset", { class: "mc-field mc-water-field" }, h("legend", {}, s("water")), water, h("p", { class: "note" }, s("waterNote"))),
+        dam,
+        h("fieldset", { class: "mc-field mc-crops-field" }, h("legend", {}, s("crops")), seg,
+          secNote ? h("p", { class: "note mc-sec-note" }, secNote) : null,
+          cropChips, ticked, h("p", { class: "note" }, s("max", { n: MAX_PICK })))),
+      result));
+}
+
+/** The tiles for the ticked crops, other ideas when none is a good choice, quick crops for the gap, and the notes. */
+function renderAnswer(picks, when, srcs, rerender) {
   const mine = picks.filter((p) => ui.picked.has(p.crop.id)).sort(order);
-  const when = months.length > 1 ? s("whenR", { range: range(months) }) : s("when1", { month: monthName(months[0]) });
   const result = h("div", { class: "mc-result", "aria-live": "polite" }, h("h2", { id: "mc-answer-title" }, s("answerH", { when })));
-  let shown = new Set(mine.map((p) => p.crop.id));
+  const shown = new Set(mine.map((p) => p.crop.id));
   if (!mine.length) {
     result.append(h("p", { class: "note" }, s("pick")));
   } else {
@@ -380,18 +466,7 @@ export function renderMyCrops(el, args) {
     srcs.length > 1 ? s("multi") : null, quick.length ? s("quickNote") : null].filter(Boolean);
   if (how.length) result.append(h("details", { class: "mc-how" }, h("summary", {}, h("span", { "aria-hidden": "true" }, "ⓘ "), s("how")), how.map((x) => h("p", { class: "note" }, x))));
   result.append(h("details", { class: "ask-local mc-ask" }, h("summary", {}, h("span", { "aria-hidden": "true" }, "👤 "), s("askH")), h("p", {}, s("ask"))));
-
-  clear(el).append(
-    h("div", { class: "mc-grid" },
-      h("div", { class: "mc-inputs" },
-        h("h2", {}, h("span", { class: "n" }, "2"), " ", s("cropsH")),
-        h("fieldset", { class: "mc-field" }, h("legend", {}, s("crops")), cropChips, h("p", { class: "note" }, s("max", { n: MAX_PICK }))),
-        h("fieldset", { class: "mc-field" }, h("legend", {}, s("water")), water, h("p", { class: "note" }, s("waterNote"))),
-        dam,
-        h("h2", { class: "mc-when-h" }, h("span", { class: "n" }, "3"), " ", s("whenH")),
-        h("p", { class: "note" }, s("whenNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })),
-        chips, h("p", { class: "note mc-pattam-note" }, s("pattamNote")), strip, onsetLine(site)),
-      result));
+  return result;
 }
 
 /** A small "ask locally" callout: where the farmer's and local experts' judgement matters more than our data. */

@@ -38,9 +38,13 @@
     <a class="subtab" href="index.html?view=detail"><span aria-hidden="true">📊</span> <span data-i18n="tab.detail">This place in detail</span></a>
   </nav>
 
-  <section class="intro intro-short tab-purpose" aria-label="About this tab">
+  <section class="intro intro-short tab-purpose pg-hero" aria-labelledby="hero-h">
+    <div class="hm-inner">
+    <p class="hm-kicker" data-i18n="hero.policy.k">For policy makers</p>
+    <h2 id="hero-h" class="pg-h" data-i18n="hero.map.h">Where does each crop do well?</h2>
     <p data-i18n="why.policy">This tab is for government planners and district agriculture officers.</p>
     <p class="note intro-note" data-i18n="why.policy.note">Everything here is a starting point to look into with local experts.</p>
+  </div>
   </section>
 
 
@@ -98,6 +102,7 @@
   </main>
 
   <script type="module" src="js/explore.js"></script>
+  <script type="module">import { revealOnScroll } from "./js/ui/reveal.js"; revealOnScroll(".pg-hero, .layout.explore .inputs > .step, .layout.explore .results > .panel");</script>
   <script type="module">import { mountRefsFooter } from "./js/ui/references.js"; mountRefsFooter();</script>
 </body>
 </html>

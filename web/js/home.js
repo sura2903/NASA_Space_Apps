@@ -27,8 +27,8 @@ const S = {
     mapHeatNote: "Extra days above 38 °C a year by 2041–2060 (NASA NEX-GDDP-CMIP6, 5 models). Darker = more heat.",
     farmK: "For farmers", farmH: "Three questions. One clear answer.",
     f1h: "Where is your farm?", f1p: "Pick your district, then the place nearest your village, or use your location.",
-    f2h: "What do you grow, and with what water?", f2p: "Tick your crops and every water source you have. In the Cauvery delta, tell us whether Mettur dam has opened.",
-    f3h: "When do you sow?", f3p: "Choose a sowing season (pattam) or a month, and see each crop's chance of coming through.",
+    f2h: "When do you sow?", f2p: "Choose a sowing season (pattam) or a month.",
+    f3h: "What do you grow, and with what water?", f3p: "Tick every water source you have, then your crops or the ones that did best here, and see each crop's chance of coming through. In the Cauvery delta, tell us whether Mettur dam has opened.",
     damK: "Short rice, sown in June, Thanjavur", damOn: "if Mettur opens on time", damLate: "if it opens late",
     damP: "The same field, the same crop. The dam decides. SowSmart replays what Mettur dam really did each year.",
     planK: "Plans for the whole year", planH: "Compare your plan with a safer one, season by season.",
@@ -82,8 +82,8 @@ const S = {
     mapHeatNote: "2041–2060-இல் ஆண்டுக்கு 38 °C-க்கு மேல் கூடுதல் நாட்கள் (நாசா NEX-GDDP-CMIP6, 5 மாதிரிகள்). அடர் நிறம் = அதிக வெப்பம்.",
     farmK: "விவசாயிகளுக்கு", farmH: "மூன்று கேள்விகள். ஒரு தெளிவான பதில்.",
     f1h: "உங்கள் பண்ணை எங்கே?", f1p: "உங்கள் மாவட்டத்தையும், பிறகு உங்கள் ஊருக்கு அருகில் உள்ள இடத்தையும் தேர்ந்தெடுங்கள், அல்லது உங்கள் இருப்பிடத்தைப் பயன்படுத்துங்கள்.",
-    f2h: "என்ன பயிரிடுகிறீர்கள், எந்த நீருடன்?", f2p: "உங்கள் பயிர்களையும் எல்லா நீர் ஆதாரங்களையும் தேர்ந்தெடுங்கள். காவிரி டெல்டாவில் மேட்டூர் அணை திறக்கப்பட்டதா என்றும் சொல்லுங்கள்.",
-    f3h: "எப்போது விதைக்கிறீர்கள்?", f3p: "ஒரு விதைப்புப் பட்டம் அல்லது மாதத்தைத் தேர்ந்தெடுத்து, ஒவ்வொரு பயிரும் தாக்குப்பிடிக்கும் வாய்ப்பைப் பாருங்கள்.",
+    f2h: "எப்போது விதைக்கிறீர்கள்?", f2p: "ஒரு விதைப்புப் பட்டம் அல்லது மாதத்தைத் தேர்ந்தெடுங்கள்.",
+    f3h: "என்ன பயிரிடுகிறீர்கள், எந்த நீருடன்?", f3p: "எல்லா நீர் ஆதாரங்களையும், பிறகு உங்கள் பயிர்களை அல்லது இங்கே சிறப்பாக இருந்தவற்றைத் தேர்ந்தெடுத்து, ஒவ்வொரு பயிரும் தாக்குப்பிடிக்கும் வாய்ப்பைப் பாருங்கள். காவிரி டெல்டாவில் மேட்டூர் அணை திறக்கப்பட்டதா என்றும் சொல்லுங்கள்.",
     damK: "குறுகிய கால நெல், ஜூனில் விதைப்பு, தஞ்சாவூர்", damOn: "மேட்டூர் சரியான நேரத்தில் திறந்தால்", damLate: "தாமதமாகத் திறந்தால்",
     damP: "அதே வயல், அதே பயிர். அணையே தீர்மானிக்கிறது. மேட்டூர் அணை ஒவ்வொரு ஆண்டும் உண்மையில் என்ன செய்தது என்பதை ஸ்மார்ட் விதைப்பு மீண்டும் இயக்குகிறது.",
     planK: "முழு ஆண்டுக்கான திட்டங்கள்", planH: "உங்கள் திட்டத்தைப் பாதுகாப்பான ஒன்றுடன், பருவம் பருவமாக ஒப்பிடுங்கள்.",
@@ -310,12 +310,17 @@ function reveal() {
   if (REDUCED || !("IntersectionObserver" in window)) { secs.forEach((x) => x.classList.add("in")); return; }
   io?.disconnect();
   io = new IntersectionObserver((entries) => entries.forEach((e) => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add("in");
-    seen.add(keyOf(e.target));
-    e.target.querySelectorAll(".hm-num[data-to]").forEach(countUp);
-    io.unobserve(e.target);
-  }), { threshold: 0.18 });
+    if (e.isIntersecting && e.intersectionRatio >= 0.18) {
+      e.target.classList.add("in");
+      seen.add(keyOf(e.target));
+      e.target.querySelectorAll(".hm-num[data-to]").forEach(countUp);
+    } else if (!e.isIntersecting && e.boundingClientRect.top > 0 && e.target !== secs[0]) {
+      // scrolled back up past it (it is below the screen again): reset, so it plays again on the way down
+      e.target.classList.remove("in");
+      seen.delete(keyOf(e.target));
+      e.target.querySelectorAll(".hm-num[data-to]").forEach((n) => { delete n.dataset.done; n.textContent = `${n.dataset.prefix || ""}${(0).toFixed(Number(n.dataset.dec || 0))}${n.dataset.suffix || ""}`; });
+    }
+  }), { threshold: [0, 0.18] });
   secs.forEach((x) => io.observe(x));
 }
 function countUp(n) {
