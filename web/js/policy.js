@@ -10,7 +10,7 @@ import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
 import { loadBoundaries, addOutlines, districtLayer } from "./ui/boundaries.js";
-import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet } from "./ui/risk.js";
+import { loadRisk, layerRanks, layerValueText, layerPicker, legendWords, riskBox, pathGet, paletteFor } from "./ui/risk.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, siteName, waterLabel, monthName } from "./i18n.js";
 
 const WEIGHTS = { water: 3, income: 3, soil_structure: 3, nitrogen: 3, erosion: 3, forage: 1, reliability: 4 };
@@ -86,8 +86,8 @@ function computeScores() {
   }));
 }
 
-const LIGHT = [253, 240, 225], DARK = [138, 59, 0];
-const colour = (v) => `rgb(${LIGHT.map((l, i) => Math.round(l + (DARK[i] - l) * Math.max(0, Math.min(1, v)))).join(",")})`;
+// colour by what the chosen layer measures (ui/risk.js paletteFor): 0 = least severe, 1 = most severe
+const colour = (v) => paletteFor(state.layer)(v);
 const placeName = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? siteName(p);   // local village / taluk name first
 // the local village / taluk name (grid/index.json, OpenStreetMap) where there is one, else the older "near <town>" name
 const short = (p) => (getLang() === "ta" ? p.local_name_ta : p.local_name) ?? placeName(p).replace(/\s*\(\d+\s*km\)\s*$/, "");
@@ -202,14 +202,14 @@ function drawLegend() {
   if (L) {
     const w = legendWords(L);
     clear(el).append(h("span", { class: "xlegend-l" }, `${w.title} (${w.range})`), h("span", { class: "xlegend-ends" }, w.low),
-      h("span", { class: "xlegend-bar", style: { background: `linear-gradient(90deg, ${colour(0)}, ${colour(1)})` } }),
+      h("span", { class: "xlegend-bar", style: { background: `linear-gradient(90deg, ${colour(0)}, ${colour(0.5)}, ${colour(1)})` } }),
       h("span", { class: "xlegend-ends" }, w.high));
     return;
   }
   clear(el).append(
     h("span", { class: "xlegend-l" }, t("p.legend")),
     h("span", { class: "xlegend-ends" }, t("p.legend.low")),
-    h("span", { class: "xlegend-bar", style: { background: `linear-gradient(90deg, ${colour(0)}, ${colour(1)})` } }),
+    h("span", { class: "xlegend-bar", style: { background: `linear-gradient(90deg, ${colour(0)}, ${colour(0.5)}, ${colour(1)})` } }),
     h("span", { class: "xlegend-ends" }, t("p.legend.high")));
 }
 

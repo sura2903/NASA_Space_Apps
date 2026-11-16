@@ -84,8 +84,40 @@ export function layerPicker(risk, current, onChange) {
   return h("label", { class: "risk-picker" }, h("span", {}, tr("by")), sel);
 }
 
+// Colours that match what each layer measures (0 = least severe place in Tamil Nadu, 1 = most severe):
+// rain blue, drought dry khaki, heat yellow -> brown, wind and cyclones slate grey, groundwater blue-purple,
+// future monsoon change wetter blue -> drier brown, crop reliability green (reliable) -> red (failing).
+// The combined exposure score (no layer chosen) is magenta-purple, crop mix vs rain purple.
+const PALETTES = {
+  exposure: ["#fde0dd", "#f768a1", "#7a0177"],
+  mismatch: ["#f2f0f7", "#9e9ac8", "#3f007d"],
+  rain: ["#eff3ff", "#6baed6", "#08306b"],
+  drought: ["#fbf6e3", "#d9c37a", "#6b5418"],
+  wind: ["#f2f4f7", "#9aa5b4", "#2f3a48"],
+  heat: ["#fff7bc", "#fe9929", "#8c2d04"],
+  groundwater: ["#f3eef8", "#8c96c6", "#4d004b"],
+  rainChange: ["#2166ac", "#f7f7f7", "#8c510a"],
+  crop: ["#1a9850", "#fee08b", "#d73027"],
+};
+const PALETTE_OF = {
+  "district.mismatch_index": "mismatch", "extremes.rain_1day_100yr_mm": "rain", "extremes.drought_100yr_pct_of_normal": "drought",
+  "wind.cyclones_per_decade": "wind", "wind.storm_days_per_year": "wind", "climate.hot_days_per_year": "heat",
+  "climate.groundwater_trend_cm_per_year": "groundwater", "future.ssp245.hot_days_change": "heat",
+  "future.ssp245.ne_rain_change_pct": "rainChange", "engine.tank.rice_long.share": "crop",
+  "engine.rainfed.future.rice_long.ssp245.median": "crop",
+};
+const hex = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16));
+/** layer key (or null for the exposure score) -> colour(v), v in 0..1 from least to most severe. */
+export function paletteFor(key) {
+  const stops = PALETTES[key ? PALETTE_OF[key] ?? "exposure" : "exposure"].map(hex);
+  return (v) => {
+    const x = Math.max(0, Math.min(1, v)) * (stops.length - 1), i = Math.min(stops.length - 2, Math.floor(x)), f = x - i;
+    return `rgb(${stops[i].map((a, k) => Math.round(a + (stops[i + 1][k] - a) * f)).join(",")})`;
+  };
+}
+
 export function legendWords(L) {
-  return { title: layerLabel(L), low: L.worse === "high" ? tr("better") : tr("worse"), high: L.worse === "high" ? tr("worse") : tr("better"),
+  return { title: layerLabel(L), low: tr("better"), high: tr("worse"),
            range: L.range ? `${L.range[0]}–${L.range[1]} ${L.unit}` : "" };
 }
 
