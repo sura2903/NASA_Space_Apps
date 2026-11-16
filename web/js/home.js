@@ -56,7 +56,10 @@ const S = {
     teamK: "The team", teamH: "Who built SowSmart",
     t1n: "Subramanian", t1r: "Data and models", t1p: "NASA data pipeline, the crop engine, validation against real harvests, and the climate projections.",
     t2n: "Nimalan", t2r: "Web app and story", t2p: "The interface, maps and charts, the Tamil experience, and the video.",
-    teamFarmer: "With thanks to the farmer who told us what matters: which crop in which season, what to avoid in a drought year, and that farmers remember about ten seasons.",
+    teamFarmer: "We have talked with farmers and with people who work alongside them while building SowSmart, and those conversations shaped what it does. We would like to hear from many more.",
+    contactK: "Contact us", contactH: "Tell us what works, and what doesn't.",
+    contactP: "Are you a farmer, an agriculture officer, a researcher, or simply curious? We would love your feedback: what helped, what is missing, and anything that looks wrong for your place.",
+    contactBtn: "✉ Email the team", contactOr: "or write to us directly:",
     teamAI: "Built with help from an AI assistant (Anthropic Claude) for code and drafting, under our direction. No data on this site is AI-generated.",
     teamAIlink: "How we used AI",
     endH: "Try it for your place.", endP: "It supports your judgement and your agriculture officer's advice. It does not replace them.",
@@ -111,7 +114,10 @@ const S = {
     teamK: "குழு", teamH: "ஸ்மார்ட் விதைப்பை உருவாக்கியவர்கள்",
     t1n: "சுப்பிரமணியன்", t1r: "தரவு மற்றும் மாதிரிகள்", t1p: "நாசா தரவுச் செயலாக்கம், பயிர்க் கணிப்பு முறை, உண்மையான அறுவடைகளுடன் சரிபார்ப்பு, காலநிலைக் கணிப்புகள்.",
     t2n: "நிமலன்", t2r: "இணையதளம் மற்றும் கதை", t2p: "பயனர் இடைமுகம், வரைபடங்கள், விளக்கப்படங்கள், தமிழ் அனுபவம், காணொளி.",
-    teamFarmer: "எது முக்கியம் என்று சொன்ன விவசாயிக்கு நன்றி: எந்தப் பருவத்தில் எந்தப் பயிர், வறட்சி ஆண்டில் எதைத் தவிர்க்க வேண்டும், விவசாயிகள் சுமார் பத்து பருவங்களையே நினைவில் வைத்திருக்கிறார்கள் என்பவை.",
+    teamFarmer: "ஸ்மார்ட் விதைப்பை உருவாக்கும்போது விவசாயிகளிடமும் அவர்களுடன் பணியாற்றுபவர்களிடமும் பேசினோம்; அந்த உரையாடல்களே இதை வடிவமைத்தன. இன்னும் பலரிடமிருந்து கேட்க விரும்புகிறோம்.",
+    contactK: "தொடர்பு கொள்ளுங்கள்", contactH: "எது பயன்படுகிறது, எது இல்லை என்று சொல்லுங்கள்.",
+    contactP: "நீங்கள் விவசாயியா, வேளாண் அலுவலரா, ஆய்வாளரா, அல்லது ஆர்வமுள்ளவரா? உங்கள் கருத்தை அறிய விரும்புகிறோம்: எது உதவியது, எது குறைகிறது, உங்கள் இடத்துக்குத் தவறாகத் தோன்றுவது எது.",
+    contactBtn: "✉ குழுவுக்கு மின்னஞ்சல் அனுப்புங்கள்", contactOr: "அல்லது நேரடியாக எழுதுங்கள்:",
     teamAI: "எங்கள் வழிகாட்டுதலின் கீழ், நிரல் எழுதவும் வரைவுகளுக்கும் ஒரு செயற்கை நுண்ணறிவு உதவியாளரின் (Anthropic Claude) உதவியுடன் உருவாக்கப்பட்டது. இந்தத் தளத்தில் எந்தத் தரவும் செயற்கை நுண்ணறிவால் உருவாக்கப்படவில்லை.",
     teamAIlink: "செயற்கை நுண்ணறிவை எப்படிப் பயன்படுத்தினோம்",
     endH: "உங்கள் இடத்துக்கு முயற்சி செய்யுங்கள்.", endP: "இது உங்கள் சொந்த முடிவையும் வேளாண் அலுவலரின் ஆலோசனையையும் ஆதரிக்கிறது; அவற்றை மாற்றாது.",
@@ -290,6 +296,15 @@ function render() {
       h("p", { class: "hm-p" }, s("teamFarmer")),
       h("p", { class: "hm-small" }, s("teamAI"), " ", h("a", { href: "references.html#ai" }, s("teamAIlink")))),
 
+    // contact: one button that emails both of us, plus the two addresses (the footer on every page links here)
+    h("section", { class: "hm-sec hm-contact", id: "contact" }, h("div", { class: "hm-inner" },
+      kicker("contactK"),
+      h("h2", { class: "hm-h" }, s("contactH")),
+      h("p", { class: "hm-p" }, s("contactP")),
+      h("div", { class: "hm-cta" },
+        h("a", { class: "hm-btn primary", href: `mailto:${EMAILS.join(",")}?subject=${encodeURIComponent("SowSmart feedback")}` }, s("contactBtn"))),
+      h("p", { class: "hm-note" }, s("contactOr"), " ", ...EMAILS.flatMap((e, i) => [i ? " · " : "", h("a", { href: `mailto:${e}` }, e)])))),
+
     // end
     section("hm-end",
       h("h2", { class: "hm-display small" }, s("endH")),
@@ -298,6 +313,7 @@ function render() {
         h("a", { class: "hm-btn", href: "policy.html" }, s("ctaPolicy"))),
       h("p", { class: "hm-note" }, s("endP"))));
   reveal();
+  if (location.hash === "#contact" && !render.jumped && story) { render.jumped = true; setTimeout(() => document.getElementById("contact")?.scrollIntoView(), 60); }   // the section is built after load, so the browser's own #contact jump finds nothing
 }
 
 /* ---------- scroll reveal + count-up ---------- */
