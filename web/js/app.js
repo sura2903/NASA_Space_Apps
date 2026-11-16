@@ -41,20 +41,12 @@ async function getJSON(url) {
   return r.json();
 }
 
-/* ---------------- expert toggle ---------------- */
+/* ---------------- expert details ---------------- */
+// The technical extras (plan sub-scores, satellite greenness chart, trend statistics, method notes; `.expert-only`)
+// show on the "This place in detail" page, which is where experts look. The Farmers page stays simple. (There used to
+// be an "Expert details" switch on the Farmers page, but there it only revealed the sub-scores inside a closed fold.)
 function initExpertToggle() {
-  const box = $("#expert");
-  let on = false;
-  try { on = localStorage.getItem("fs-expert") === "1"; } catch {}
-  box.checked = on;
-  document.body.classList.toggle("expert", on);
-  box.addEventListener("change", () => {
-    document.body.classList.toggle("expert", box.checked);
-    try { localStorage.setItem("fs-expert", box.checked ? "1" : "0"); } catch {}
-    if (box.checked && state.site) drawNdviChart($("#ch-ndvi"), state.site);
-    resizeCharts();
-    resizeTrendCharts();
-  });
+  document.body.classList.toggle("expert", DETAIL);
 }
 
 /* ---------------- site selection ---------------- */
