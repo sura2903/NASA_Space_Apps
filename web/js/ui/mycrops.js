@@ -11,7 +11,7 @@ import { scoreRotation, WATER_SOURCES, DAM_OPTIONS } from "../scoring.js";
 import { h, clear } from "./dom.js";
 import { toggleWater } from "./inputs.js";
 import { decorate } from "./glossary.js";
-import { countUp } from "./reveal.js";
+import { countUp, revealParts, forgetParts } from "./reveal.js";
 import { getLang, cropName, monthName, monthShort, waterLabel } from "../i18n.js";
 
 const GOOD = 0.75, RISKY = 0.5;      // chance of success: >= 75% (about 3 seasons in 4) good, >= 50% risky
@@ -186,7 +186,7 @@ const selMonths = (sel) => (sel.pattam ? PATTAMS.find((p) => p.id === sel.pattam
 // module state: survives re-renders (language, priorities, water) but not page reloads, except the ticked crops.
 // The answer stays hidden until the farmer has chosen a sowing time (whenChosen) and ticked crops this visit
 // (cropsTouched), or pressed "Show" for crops ticked on an earlier visit (showAnyway). cropTab: all / best / other.
-const ui = { sel: defaultSel(), whenChosen: false, cropsTouched: false, showAnyway: false, cropTab: null, lastKey: null,
+const ui = { sel: defaultSel(), whenChosen: false, cropsTouched: false, showAnyway: false, cropTab: null, lastTab: null, lastKey: null,
   picked: null, ruledOut: new Set(), water: null, waterSite: null, dam: "unknown" };
 const cache = new Map();
 
@@ -300,7 +300,7 @@ function monthStrip(site, months, onPick) {
         "aria-pressed": on ? "true" : "false", title, "aria-label": title + (m === onsetM ? `. ${s("onsetMark")}` : ""),
         onclick: () => onPick(m),
       },
-      h("span", { class: "mc-bar-wrap", "aria-hidden": "true" }, h("span", { class: "mc-bar", style: { height: `${Math.round(100 * (mm ?? 0) / max)}%` } })),
+      h("span", { class: "mc-bar-wrap", "aria-hidden": "true" }, h("span", { class: "mc-bar", style: { height: `${Math.round(100 * (mm ?? 0) / max)}%`, "--i": i } })),
       h("span", { class: "mc-mlabel" }, monthShort(m)),
       m === onsetM ? h("span", { class: "mc-onset", "aria-hidden": "true" }, "●") : null);
     }));
@@ -378,10 +378,13 @@ export function renderMyCrops(el, args) {
     }, s(`sec_${k}`), n != null ? h("span", { class: "mc-seg-n" }, ` ${n}`) : null)));
   const secNote = tab === "best" ? s(!best ? "bestFirst" : best.length ? "bestNote" : "bestNone", { when })
     : tab === "other" && ui.whenChosen ? s("otherNote", { when }) : null;
-  const cropChips = h("div", { class: "mc-crops", "data-sec": tab },
-    list.map((c) => {
+  // switching section: the chips cascade in (app.css .mc-cascade); a tick or other redraw leaves them still
+  const cascade = ui.lastTab !== null && ui.lastTab !== tab;
+  ui.lastTab = tab;
+  const cropChips = h("div", { class: "mc-crops" + (cascade ? " mc-cascade" : ""), "data-sec": tab },
+    list.map((c, i) => {
       const on = ui.picked.has(c.id);
-      return h("label", { class: "mc-chip" + (on ? " on" : "") + (bestIds.has(c.id) ? " best" : "") },
+      return h("label", { class: "mc-chip" + (on ? " on" : "") + (bestIds.has(c.id) ? " best" : ""), style: { "--i": Math.min(i, 14) } },
         h("input", { type: "checkbox", value: c.id, checked: on, disabled: !on && full,
           onchange: (e) => { e.target.checked ? ui.picked.add(c.id) : ui.picked.delete(c.id); ui.cropsTouched = true; savePicked(); rerender(); } }),
         bestIds.has(c.id) ? h("span", { class: "mc-chip-ok", "aria-hidden": "true" }, "✓") : null,
@@ -398,7 +401,7 @@ export function renderMyCrops(el, args) {
   let result;
   if (!ready) {
     const done = (ok, txt) => h("li", { class: ok ? "done" : "" }, h("span", { class: "mc-todo-i", "aria-hidden": "true" }, ok ? "✓" : "○"), " ", txt);
-    result = h("div", { class: "mc-result mc-wait", "aria-live": "polite" },
+    result = h("div", { class: "mc-result mc-wait", "aria-live": "polite", "data-rv": "wait" },
       h("h2", { id: "mc-answer-title" }, s("waitH")),
       h("ol", { class: "mc-todo" }, done(ui.whenChosen, s("todoWhen")), done(ui.picked.size > 0, s("todoCrops"))),
       ui.whenChosen && ui.picked.size > 0
@@ -407,6 +410,7 @@ export function renderMyCrops(el, args) {
       h("p", { class: "note" }, s("waitNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })));
   } else {
     result = renderAnswer(picks, when, srcs, rerender);
+    result.dataset.rv = "answer";
     if (fresh) {
       result.classList.add("mc-fresh");
       result.querySelectorAll(".mc-tile").forEach((t, i) => t.style.setProperty("--i", Math.min(i, 10)));
@@ -414,19 +418,23 @@ export function renderMyCrops(el, args) {
     }
   }
 
+  forgetParts(el);
   clear(el).append(
     h("div", { class: "mc-grid" },
       h("div", { class: "mc-inputs" },
-        h("h2", { class: "mc-when-h" }, num(2), " ", s("whenH")),
-        h("p", { class: "note" }, s("whenNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })),
-        chips, h("p", { class: "note mc-pattam-note" }, s("pattamNote")), strip, onsetLine(site),
-        h("h2", { class: "mc-crops-h" }, num(3), " ", s("cropsH")),
-        h("fieldset", { class: "mc-field mc-water-field" }, h("legend", {}, s("water")), water, h("p", { class: "note" }, s("waterNote"))),
-        dam,
-        h("fieldset", { class: "mc-field mc-crops-field" }, h("legend", {}, s("crops")), seg,
-          secNote ? h("p", { class: "note mc-sec-note" }, secNote) : null,
-          cropChips, ticked, h("p", { class: "note" }, s("max", { n: MAX_PICK })))),
+        h("div", { class: "mc-step", "data-rv": "when" },
+          h("h2", { class: "mc-when-h" }, num(2), " ", s("whenH")),
+          h("p", { class: "note" }, s("whenNote", { start: years[0] ?? "", end: years[years.length - 1] ?? "" })),
+          chips, h("p", { class: "note mc-pattam-note" }, s("pattamNote")), strip, onsetLine(site)),
+        h("div", { class: "mc-step", "data-rv": "crops" },
+          h("h2", { class: "mc-crops-h" }, num(3), " ", s("cropsH")),
+          h("fieldset", { class: "mc-field mc-water-field" }, h("legend", {}, s("water")), water, h("p", { class: "note" }, s("waterNote"))),
+          dam,
+          h("fieldset", { class: "mc-field mc-crops-field" }, h("legend", {}, s("crops")), seg,
+            secNote ? h("p", { class: "note mc-sec-note" }, secNote) : null,
+            cropChips, ticked, h("p", { class: "note" }, s("max", { n: MAX_PICK }))))),
       result));
+  revealParts(el, ".mc-step, .mc-result");
 }
 
 /** The tiles for the ticked crops, other ideas when none is a good choice, quick crops for the gap, and the notes. */

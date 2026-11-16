@@ -208,7 +208,7 @@ function expect(cond, msg) { if (!cond) throw new Error(msg); }
       await p.waitForTimeout(1500);
       const isIn = () => p.$eval(sel, (x) => x.classList.contains("in"));
       expect(!(await isIn()), "already revealed before scrolling");
-      await p.$eval(sel, (x) => x.scrollIntoView({ block: "center" })); await p.waitForTimeout(700);
+      await p.$eval(sel, (x) => x.scrollIntoView({ block: "center" })); await p.waitForTimeout(1300);
       expect(await isIn(), "not revealed after scrolling to it");
       const op = await p.$eval(sel, (x) => getComputedStyle(x.firstElementChild).opacity);
       expect(Number(op) > 0.5, `still faded after scrolling to it (opacity ${op})`);
@@ -220,6 +220,49 @@ function expect(cond, msg) { if (!cond) throw new Error(msg); }
       await p.context().close();
     });
   }
+
+  await check("home.html: the big numbers count up again after scrolling back up and down", async () => {
+    const p = await open("home.html", { motion: true, height: 700 });
+    await p.waitForTimeout(1500);
+    const num = ".hm-num[data-to]";
+    const sec = await p.$eval(num, (n) => { const s = n.closest(".hm-sec"); s.id ||= "rt-num-sec"; return "#" + s.id; });
+    await p.$eval(sec, (x) => x.scrollIntoView({ block: "center" })); await p.waitForTimeout(1600);
+    const full = await p.$eval(num, (n) => n.textContent);
+    await p.evaluate(() => window.scrollTo(0, 0)); await p.waitForTimeout(500);
+    const reset = await p.$eval(num, (n) => n.textContent);
+    expect(reset !== full && /^\D*0(\.0+)?\D*$/.test(reset), `number did not reset (shows ${reset}, full ${full})`);
+    await p.$eval(sec, (x) => x.scrollIntoView({ block: "center" })); await p.waitForTimeout(1600);
+    expect(await p.$eval(num, (n) => n.textContent) === full, "number did not count back up");
+    await p.context().close();
+  });
+
+  console.log("Selected things look selected, with the animations on");
+  await check("crop sections: the chosen section and the ticked crops are highlighted in every section", async () => {
+    const p = await farm({ motion: true });
+    await p.$eval("#mycrops", (x) => x.scrollIntoView({ block: "start" })); await p.waitForTimeout(1500);
+    await p.locator("#mycrops .mc-pattam").nth(4).click(); await p.waitForTimeout(300);
+    const bg = (loc) => loc.evaluate((x) => getComputedStyle(x).backgroundColor);
+    for (const k of ["all", "best", "other"]) {
+      await p.locator(`.mc-seg-btn[data-sec=${k}]`).click(); await p.waitForTimeout(900);
+      const on = await bg(p.locator(`.mc-seg-btn[data-sec=${k}]`)), off = await bg(p.locator(`.mc-seg-btn:not([data-sec=${k}])`).first());
+      expect(on !== off, `section "${k}" does not look chosen (${on} vs ${off})`);
+      const chip = p.locator("#mycrops .mc-crops .mc-chip").first();
+      if (!(await chip.locator("input").isChecked())) await chip.click();
+      await p.waitForTimeout(400);
+      const ticked = await bg(p.locator("#mycrops .mc-crops .mc-chip.on").first());
+      const plain = await p.locator("#mycrops .mc-crops .mc-chip:not(.on)").count() ? await bg(p.locator("#mycrops .mc-crops .mc-chip:not(.on)").first()) : null;
+      expect(plain === null || ticked !== plain, `ticked crop looks like an unticked one in "${k}" (${ticked})`);
+      const op = await p.locator("#mycrops .mc-crops .mc-chip.on").first().evaluate((x) => getComputedStyle(x).opacity);
+      expect(Number(op) > 0.9, `ticked crop is faded (opacity ${op}) in "${k}"`);
+    }
+    await p.context().close();
+  });
+  await check("every page asks for the newest stylesheet after an update (versioned link)", async () => {
+    for (const f of ["home.html", "index.html", "policy.html", "explore.html", "references.html"]) {
+      const html = fs.readFileSync(path.join(WEB, f), "utf8");
+      expect(/href="css\/app\.css\?v=\w+"/.test(html), `${f} links css/app.css without a version`);
+    }
+  });
 
   console.log("Guided tour");
   await check("Farmers tour finds the sowing-time step and the water-and-crops step", async () => {
