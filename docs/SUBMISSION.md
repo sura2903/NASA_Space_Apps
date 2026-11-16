@@ -1,7 +1,7 @@
 # SowSmart (ஸ்மார்ட் விதைப்பு): submission draft
 
 Challenge: **Field Shift: Adapting Farms with NASA Data** (NASA Space Apps 2026)
-Live demo: https://sura2903.github.io/NASA_Space_Apps/ (English and Tamil, works on a phone)
+Live demo: https://sura2903.github.io/NASA_Space_Apps/home.html (overview page; English and Tamil, works on a phone)
 Team: Siddarth (data, models) and Nimalan (web app, story)
 
 > Draft for the Space Apps project page. Ready-to-paste blocks, one per form field: `docs/SPACE_APPS_FORM.md`. Every number below comes from
@@ -23,7 +23,8 @@ held up when the monsoon failed, flooded or arrived late, and gives policy maker
 - **What to avoid matters as much as what to plant**, and farmers want odds, not promises [FN-1].
 
 ## 3. What SowSmart does
-The site has two tabs: **Farmers** and **Policy makers**. A **"Take a tour"** button on each walks a first-time
+A **Home** page gives a scrolling overview (the problem, the data, both views, the evidence, the team). The tool
+itself has two tabs: **Farmers** and **Policy makers**. A **"Take a tour"** button on each walks a first-time
 visitor through the features step by step, in English or Tamil.
 
 **For a farmer (Farmers tab)**

@@ -53,8 +53,9 @@ It matters because the wrong crop in the wrong year costs a farming family a sea
 ## 4. Link to Final Project
 
 ```text
-https://sura2903.github.io/NASA_Space_Apps/
+https://sura2903.github.io/NASA_Space_Apps/home.html
 ```
+*(This is the scrolling overview page; its buttons lead to the Farmers and Policy makers views.)*
 
 ---
 
@@ -62,6 +63,8 @@ https://sura2903.github.io/NASA_Space_Apps/
 
 ```text
 WHAT IT DOES
+
+A home page gives a scrolling overview: the problem, the data, both views, the evidence and the team. Then:
 
 A "Take a tour" button on each page walks a first-time visitor through the features step by step, in English or Tamil.
 
