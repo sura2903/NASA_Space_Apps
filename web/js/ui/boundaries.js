@@ -70,7 +70,8 @@ export function districtLayer(b, { valueOf, colour, onClick, selected = null }) 
       fillColor: val ? colour(val.v) : cssVar("--grid") || "#ccc", fillOpacity: val ? 0.85 : 0.3,
     });
     if (val?.tip) shape.bindTooltip(val.tip, { sticky: true, direction: "top" });
-    if (onClick) shape.on("click", () => onClick(d.name));
+    // stop the click here, so a map-wide click handler (the Crop map picks the nearest place) does not also fire
+    if (onClick) shape.on("click", (e) => { L.DomEvent.stopPropagation(e); onClick(d.name); });
     shape.addTo(g);
   }
   return g;

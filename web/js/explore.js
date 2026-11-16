@@ -8,7 +8,7 @@ import { cropSuitability, rankCrops, statewideContext, PRIORITIES, WATER_SOURCES
 import { $, h, clear, fmt, cssVar } from "./ui/dom.js";
 import { rich, decorate, initTooltips } from "./ui/glossary.js";
 import { mapHoverCard } from "./ui/hovercard.js";
-import { loadBoundaries, addOutlines } from "./ui/boundaries.js";
+import { loadBoundaries, addOutlines, districtLayer } from "./ui/boundaries.js";
 import { t, initLang, setLang, onLangChange, getLang, cropName, monthName, siteName, waterLabel } from "./i18n.js";
 
 // Same starting priorities as the rotation tool (preferences, not data).
@@ -80,7 +80,8 @@ const measureOf = (r) => (state.measure === "came" ? r.share : r.suit / 100);
 const measureText = (r) => (state.measure === "came" ? t("x.came.short", { good: r.good, total: r.years }) : `${r.suit}/100`);
 
 /* ---------- map ---------- */
-let map = null, layer = null, clickMarker = null, card = null;
+let map = null, layer = null, clickMarker = null, card = null, dLayer = null;
+let byDistrict = false, bounds = null;   // "By district" view (district outlines from data/boundaries.json)
 const tips = new Map();   // hover-card text per grid cell, rebuilt on each drawMap
 function initMap() {
   const L = window.L;
@@ -92,9 +93,51 @@ function initMap() {
   layer = L.layerGroup().addTo(map);
   map.on("click", (e) => selectNearest({ lat: e.latlng.lat, lon: e.latlng.lng }, true));
   // grid cells share one hover card (round site markers keep their permanent labels)
-  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" ? state.points : []), tip: (p) => tips.get(p.id), fixed: true });
+  card = mapHoverCard(map, { cellDeg: () => (state.kind === "grid" ? state.cellDeg : 0), points: () => (state.kind === "grid" && !byDistrict ? state.points : []), tip: (p) => tips.get(p.id), fixed: true });
   map.fitBounds(L.latLngBounds(state.points.map((p) => [p.lat, p.lon])).pad(state.kind === "grid" ? 0.05 : 0.8), { paddingBottomRight: card.fitPad() });
-  loadBoundaries().then((b) => b && addOutlines(map, b));   // district lines + soft mask outside Tamil Nadu
+  // district lines + soft mask outside Tamil Nadu, then the "28 km squares / By district" switch (as on the Policy map)
+  loadBoundaries().then((b) => {
+    if (!b) return;
+    bounds = b;
+    addOutlines(map, b);
+    const box = h("div", { class: "view-toggle", role: "group", "aria-label": t("p.view.aria") });
+    const draw = () => box.replaceChildren(...[["cells", false], ["dist", true]].map(([k, v]) => h("button", {
+      type: "button", class: "view-btn" + (byDistrict === v ? " on" : ""), "aria-pressed": byDistrict === v ? "true" : "false",
+      onclick: () => { byDistrict = v; draw(); drawMap(); },
+    }, t(`p.view.${k}`))));
+    draw();
+    onLangChange(draw);
+    $("#xmap").before(box);
+    drawMap();
+  });
+}
+
+// "By district": each district coloured by the average of its places (share of seasons the crop came through, or
+// its fit score), with one tooltip per district; a click opens the district's most central place.
+function drawDistricts() {
+  const agg = {};
+  for (const p of state.points) {
+    const r = suitFor(p.id);
+    if (!r || !p.district || p.border_state) continue;
+    (agg[p.district] ??= []).push({ p, v: measureOf(r) });
+  }
+  const crop = cropName(state.cropById[state.crop]);
+  dLayer = districtLayer(bounds, {
+    colour, selected: state.selected?.district ?? null,
+    valueOf: (name) => {
+      const a = agg[name];
+      if (!a?.length) return null;
+      const v = a.reduce((s, x) => s + x.v, 0) / a.length;
+      const pct = Math.round(100 * v);
+      return { v, tip: `<strong>${t("p.dist.name", { d: name })}</strong><br>${crop}: ${t(state.measure === "came" ? "x.dist.came" : "x.dist.fit", { v: pct, n: a.length })}` };
+    },
+    onClick: (name) => {
+      const a = agg[name];
+      if (!a?.length) return;
+      const mlat = a.reduce((s, x) => s + x.p.lat, 0) / a.length, mlon = a.reduce((s, x) => s + x.p.lon, 0) / a.length;
+      selectPoint(a.map((x) => x.p).sort((u, w) => ((u.lat - mlat) ** 2 + (u.lon - mlon) ** 2) - ((w.lat - mlat) ** 2 + (w.lon - mlon) ** 2))[0]);
+    },
+  }).addTo(map);
 }
 
 function drawMap() {
@@ -102,6 +145,8 @@ function drawMap() {
   const L = window.L;
   layer.clearLayers();
   tips.clear();
+  if (dLayer) { map.removeLayer(dLayer); dLayer = null; }
+  if (byDistrict && bounds) { drawDistricts(); card?.refresh(); return; }
   let selShape = null;
   for (const p of state.points) {
     const r = suitFor(p.id);
