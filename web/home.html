@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SowSmart · Home</title>
+  <meta name="description" content="SowSmart: crop choices for Tamil Nadu's uncertain monsoon, checked against 24 years of NASA data. An overview of the tool for farmers and policy makers.">
+  <meta name="ai-assistance" content="Code, analysis and text written with help from Anthropic Claude (Claude Code, a large language model) under the team's direction. No AI-generated data, images, audio or video on this site. Details: references.html#ai">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f7d32'/%3E%3Cpath d='M6 22c6-1 10-6 12-14 1 8 4 12 8 14' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="home-page">
+  <header class="top">
+    <div class="brand">
+      <a href="home.html" class="brand-link" aria-label="SowSmart home">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M6 22c6-1 10-6 12-14 1 8 4 12 8 14"/></svg>
+      </a>
+      <div>
+        <h1 data-h="brand">SowSmart</h1>
+        <p class="tagline" data-h="tagline">Crop choices for an uncertain monsoon, checked against NASA data</p>
+      </div>
+    </div>
+    <div class="lang-wrap" role="group" aria-labelledby="lang-label">
+      <span class="lang-label" id="lang-label" data-h="langLabel">Language</span>
+      <button type="button" id="lang" class="lang-btn" lang="ta">Tamil / தமிழ்</button>
+    </div>
+    <nav class="tabs" aria-label="Views">
+      <a class="tab active" href="home.html" aria-current="page"><span aria-hidden="true">🏠</span> <span data-h="tabHome">Home</span></a>
+      <a class="tab" href="index.html"><span aria-hidden="true">🌾</span> <span data-h="tabFarm">Farmers</span></a>
+      <a class="tab" href="policy.html"><span aria-hidden="true">🏛</span> <span data-h="tabPolicy">Policy makers</span></a>
+    </nav>
+  </header>
+
+  <main id="home" class="home"></main>
+
+  <script type="module" src="js/home.js"></script>
+  <script type="module">import { mountRefsFooter } from "./js/ui/references.js"; mountRefsFooter();</script>
+</body>
+</html>
