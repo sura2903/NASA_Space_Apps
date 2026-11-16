@@ -54,7 +54,7 @@ const S = {
     tn3h: "Guided tour", tn3p: "Press “Take a tour” on any page for a step-by-step walk-through.",
     tn4h: "Honest about limits", tn4p: "Odds from real seasons, never a forecast. Every number names its source.",
     teamK: "The team", teamH: "Who built SowSmart",
-    t1n: "Siddarth", t1r: "Data and models", t1p: "NASA data pipeline, the crop engine, validation against real harvests, and the climate projections.",
+    t1n: "Subramanian", t1r: "Data and models", t1p: "NASA data pipeline, the crop engine, validation against real harvests, and the climate projections.",
     t2n: "Nimalan", t2r: "Web app and story", t2p: "The interface, maps and charts, the Tamil experience, and the video.",
     teamFarmer: "With thanks to the farmer who told us what matters: which crop in which season, what to avoid in a drought year, and that farmers remember about ten seasons.",
     teamAI: "Built with help from an AI assistant (Anthropic Claude) for code and drafting, under our direction. No data on this site is AI-generated.",
@@ -109,7 +109,7 @@ const S = {
     tn3h: "வழிகாட்டும் சுற்றுலா", tn3p: "எந்தப் பக்கத்திலும் “சுற்றிப் பார்க்க” பொத்தானை அழுத்தி படிப்படியாக அறியலாம்.",
     tn4h: "வரம்புகள் பற்றி நேர்மை", tn4p: "உண்மையான பருவங்களிலிருந்து வாய்ப்புகள், முன்னறிவிப்பு அல்ல. ஒவ்வொரு எண்ணுக்கும் ஆதாரம் உண்டு.",
     teamK: "குழு", teamH: "ஸ்மார்ட் விதைப்பை உருவாக்கியவர்கள்",
-    t1n: "சித்தார்த்", t1r: "தரவு மற்றும் மாதிரிகள்", t1p: "நாசா தரவுச் செயலாக்கம், பயிர்க் கணிப்பு முறை, உண்மையான அறுவடைகளுடன் சரிபார்ப்பு, காலநிலைக் கணிப்புகள்.",
+    t1n: "சுப்பிரமணியன்", t1r: "தரவு மற்றும் மாதிரிகள்", t1p: "நாசா தரவுச் செயலாக்கம், பயிர்க் கணிப்பு முறை, உண்மையான அறுவடைகளுடன் சரிபார்ப்பு, காலநிலைக் கணிப்புகள்.",
     t2n: "நிமலன்", t2r: "இணையதளம் மற்றும் கதை", t2p: "பயனர் இடைமுகம், வரைபடங்கள், விளக்கப்படங்கள், தமிழ் அனுபவம், காணொளி.",
     teamFarmer: "எது முக்கியம் என்று சொன்ன விவசாயிக்கு நன்றி: எந்தப் பருவத்தில் எந்தப் பயிர், வறட்சி ஆண்டில் எதைத் தவிர்க்க வேண்டும், விவசாயிகள் சுமார் பத்து பருவங்களையே நினைவில் வைத்திருக்கிறார்கள் என்பவை.",
     teamAI: "எங்கள் வழிகாட்டுதலின் கீழ், நிரல் எழுதவும் வரைவுகளுக்கும் ஒரு செயற்கை நுண்ணறிவு உதவியாளரின் (Anthropic Claude) உதவியுடன் உருவாக்கப்பட்டது. இந்தத் தளத்தில் எந்தத் தரவும் செயற்கை நுண்ணறிவால் உருவாக்கப்படவில்லை.",
@@ -118,6 +118,8 @@ const S = {
   },
 };
 const s = (k, v = {}) => (S[getLang()]?.[k] ?? S.en[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? "");
+// team emails, shown on the team cards at the team's request
+const EMAILS = ["srama@stanford.edu", "nimalan@stanford.edu"];
 const DATASETS = ["GPM IMERG", "NASA POWER", "NEX-GDDP-CMIP6", "GLDAS · GRACE", "MODIS NDVI", "SMAP", "SRTM"];
 const REDUCED = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
@@ -283,7 +285,8 @@ function render() {
       h("h2", { class: "hm-h" }, s("teamH")),
       h("div", { class: "hm-cards two" }, ...[1, 2].map((i) => h("div", { class: "hm-card hm-person", style: { "--i": i } },
         h("span", { class: "hm-avatar", "aria-hidden": "true" }, s(`t${i}n`).charAt(0)),
-        h("h3", {}, s(`t${i}n`)), h("strong", {}, s(`t${i}r`)), h("p", {}, s(`t${i}p`))))),
+        h("h3", {}, s(`t${i}n`)), h("strong", {}, s(`t${i}r`)), h("p", {}, s(`t${i}p`)),
+        h("a", { class: "hm-email", href: `mailto:${EMAILS[i - 1]}` }, EMAILS[i - 1])))),
       h("p", { class: "hm-p" }, s("teamFarmer")),
       h("p", { class: "hm-small" }, s("teamAI"), " ", h("a", { href: "references.html#ai" }, s("teamAIlink")))),
 
