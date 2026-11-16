@@ -2,6 +2,7 @@
 // if Leaflet (CDN) did not load.
 import { siteName } from "../i18n.js";
 import { mapHoverCard } from "./hovercard.js";
+import { loadBoundaries, addOutlines } from "./boundaries.js";
 export function createSiteMap(el, sites, onPick) {
   const L = window.L;
   if (!L) { el.hidden = true; return { select() {}, relabel() {} }; }
@@ -36,10 +37,15 @@ export function createSiteMap(el, sites, onPick) {
   map.on("click", (e) => { const s = card.at(e.latlng); if (s) onPick(s.id); });
   const bounds = L.latLngBounds(sites.map((s) => [s.lat, s.lon]));
   map.fitBounds(bounds.pad(sites.length > 10 ? 0.05 : 0.6));
+  // district lines + soft mask outside Tamil Nadu; the chosen place's district is drawn thicker
+  let outlines = null;
+  const districtOf = (id) => sites.find((s) => s.id === id)?.district ?? null;
+  loadBoundaries().then((b) => { if (b) { outlines = addOutlines(map, b, { maskOpacity: 0.6, maskZ: 380, linesZ: 390 }); outlines.highlight(districtOf(chosen)); } });
 
   return {
     select(id) {
       chosen = id;
+      outlines?.highlight(districtOf(id));
       for (const [k, m] of Object.entries(markers)) {
         style(k);
         m.getElement?.()?.classList.toggle("selected", k === id);
