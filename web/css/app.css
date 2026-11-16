@@ -934,3 +934,4 @@ body:not(.home-page) .step .n, body:not(.home-page) .place-row .n, .mycrops h2 .
 @media print {
   .rv, .rv > *, .rv :is(.mc-tile, .card, .ideas-card, .ideas-sum > *, .xtable tbody tr, .top3 > *, .mc-quick-chips li, .mc-pattam, .mc-chip, .mc-month, .choice, .mc-seg-btn, .mc-bar, .ideas-fill) { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
 }
+.hm-email { display: inline-block; margin-top: 10px; font-weight: 600; color: #8fcb8f; overflow-wrap: anywhere; }
