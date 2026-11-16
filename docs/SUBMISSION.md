@@ -1,7 +1,7 @@
 # SowSmart (ஸ்மார்ட் விதைப்பு): submission draft
 
 Challenge: **Field Shift: Adapting Farms with NASA Data** (NASA Space Apps 2026)
-Live demo: https://sura2903.github.io/NASA_Space_Apps/home.html (overview page; English and Tamil, works on a phone)
+Live demo: https://sura2903.github.io/NASA_Space_Apps/ (opens on the overview page; English and Tamil, works on a phone)
 Team: Siddarth (data, models) and Nimalan (web app, story)
 
 > Draft for the Space Apps project page. Ready-to-paste blocks, one per form field: `docs/SPACE_APPS_FORM.md`. Every number below comes from
@@ -215,7 +215,7 @@ Graphics from our own data are in `docs/video/` (monsoon stripes, memory vs reco
    once in a century."
 10. **Close.** "Free, in English and Tamil, on a phone. It supports the farmer's judgement; it doesn't replace it."
 
-*Before recording:* clear the site's saved place (or use a private window) so it opens on the example; set the screen
+*Before recording:* the main address now opens the Home page; start the demo at `index.html` (or `index.html#site=thanjavur`). Clear the site's saved place (or use a private window) so it opens on the example; set the screen
 to about 1280 px wide; and check that the Thanjavur numbers in beats 3 and 4 still match what the app shows (checked
 on the live site on 15 Nov 2026: 9 and 16 of 24; June short-rice tile 92% (22 of 24) with the dam on time, 3% (0 of 24)
 when late).
