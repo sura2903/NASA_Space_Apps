@@ -42,6 +42,8 @@ visitor through the features step by step, in English or Tamil.
    - Quick crops are suggested for any gap.
 4. **Three options for your field:** your current rotation, a small step and a bigger shift side by side. Each card
    has 24 squares, one per real year, plus the water the plan needs and why.
+   One tap further shows each plan with the 2041–2060 climate of 5 NASA climate models, as a range (Thanjavur
+   rice-rice: 9 of 24 today, 6–8 of 24 future-like years on SSP2-4.5).
 5. **Printable** for the farmer's agriculture officer.
 
 Everything else (climate change at this place, extremes, NASA data in detail) is one click away under *This place in
