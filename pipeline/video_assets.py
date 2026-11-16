@@ -37,8 +37,19 @@ def canvas(bg=PAPER):
     return fig
 
 
+AI_MARK = "Chart drawn by AI-assisted code (Claude) from real data · not an AI-generated image"
+
+
 def save(fig, name):
-    fig.savefig(OUT / name, facecolor=fig.get_facecolor())
+    # Space Apps rule: say clearly where AI tools were used. The code that draws these charts was written with
+    # Anthropic Claude, so every frame carries a small visible label and the PNG metadata says the same.
+    bg = fig.get_facecolor()
+    dark = sum(bg[:3]) / 3 < 0.5
+    fig.text(0.985, 0.012, AI_MARK, ha="right", va="bottom", fontsize=13,
+             color="#B9CBBE" if dark else "#6B776F", alpha=0.9)
+    fig.savefig(OUT / name, facecolor=bg, metadata={
+        "Software": "SowSmart pipeline/video_assets.py (matplotlib); code written with AI assistance (Anthropic Claude)",
+        "Description": AI_MARK, "Source": "NASA IMERG/POWER/GLDAS-GRACE/NEX-GDDP, NOAA IBTrACS, IMD; see docs/SUBMISSION.md"})
     plt.close(fig)
     print("wrote", name)
 

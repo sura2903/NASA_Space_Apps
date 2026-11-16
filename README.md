@@ -17,6 +17,10 @@ Then open http://localhost:8000.
 - `web/`: static site (GitHub Pages-ready)
 - `docs/data_contract.md`: JSON formats shared between the two halves
 - `CLAUDE.md`: plan, lanes, and rules for Claude Code sessions
+- `AI_USE.md`: where and how AI (Anthropic Claude) was used, and how AI-assisted content is labelled
+
+## Use of AI
+This project was built with Anthropic's Claude (Claude Code) as a coding and analysis assistant, under the team's direction. Code, analysis and documentation were written with its help. No data is AI-generated; every number comes from the NASA and other datasets listed below. The full statement and the labels we use (site footer, `ai-assistance` meta tag, chart watermarks, commit trailers) are in [`AI_USE.md`](AI_USE.md).
 
 ## Data sources and references
 
