@@ -1,28 +1,85 @@
 # SowSmart (ஸ்மார்ட் விதைப்பு)
 
-**Live site:** https://sura2903.github.io/NASA_Space_Apps/ (GitHub Pages) · mirror on Vercel: https://sowsmart-nasa.vercel.app/ (redeploys on every merge to `main`; Vercel project root directory `web`, preset Other, no build).
+## 🌾 Try it live: **[sowsmart-nasa.vercel.app](https://sowsmart-nasa.vercel.app/)**
 
-Formerly Field Shift.
+[![Open the live site](https://img.shields.io/badge/Open%20SowSmart-sowsmart--nasa.vercel.app-2f7d32?style=for-the-badge)](https://sowsmart-nasa.vercel.app/)
 
-NASA Space Apps 2026: a crop-rotation decision-support tool built on NASA Earth observations.
+Mirror on GitHub Pages: https://sura2903.github.io/NASA_Space_Apps/
 
-## Quick start
+**NASA Space Apps Challenge 2026: [Adapting Farms with NASA Data](https://www.spaceappschallenge.org/2026/challenges/adapting-farms-with-nasa-data/)**
+Team: Subramanian and Nimalan, Stanford University.
+
+SowSmart is a free website, in English and Tamil, built for phones. It helps farmers in Tamil Nadu, India choose crop rotations that protect their fields, save water and hold up against erratic monsoons, heatwaves, droughts, floods and falling groundwater.
+
+## The problem
+Farmers often judge risk from the few seasons they remember. In Tamil Nadu the monsoon is becoming harder to predict, dams open late in some years, and groundwater is falling in places such as the Cauvery delta. A crop that did well last year can fail in the next dry season.
+
+## What SowSmart does
+SowSmart replays each rotation through **every season from 2001 to 2024** using NASA Earth observations, together with local soil, crop traits and the farmer's own priorities.
+
+**For farmers** (the Farmers page):
+1. Pick a district and the place closest to your village, or use the map or your location. There are 185 places across the state.
+2. Say when you plan to sow, which water you have (rain, canal and dam, lake or pond, borewell), and which crops you grow or want to try.
+3. See how each crop came through the 24 real seasons, and which crops suit your place better.
+4. Compare **three full-year plans side by side**: your current rotation and two alternatives. Each plan shows why it was suggested, the NASA evidence, benefits, information gaps, and risks to check with a local expert.
+5. "Sow now or wait?" compares the latest satellite soil moisture with normal for the month.
+
+**For policy makers** (the Policy page):
+- Statewide maps, square by square or district by district: 1-in-100-year drought, cyclones, very hot days by 2041–60, the groundwater trend, and more.
+- **Crops that suit a district but are rarely grown there**, which shows untapped potential.
+- A **"What if farms switch?"** calculator: the water saved if a share of farms move from one crop to another, and how both crops came through the seasons.
+
+The tool supports farmer judgment and local agricultural expertise. It does not replace them.
+
+## How it works
+- **Rule-based and explainable.** The scoring engine (`web/js/scoring.js`) runs in the browser. It checks each crop's season, water need, heat tolerance and flood tolerance against the real weather of every season. There is no black-box machine learning, and every number on screen comes from the data files in `web/data/`.
+- **Pipeline.** Python scripts in `pipeline/` fetch and process the NASA and other datasets into those JSON files. The data contract is in `docs/data_contract.md`.
+- **Future climate.** Every plan is also replayed under NASA NEX-GDDP-CMIP6 projections for 2041–2060 (5 climate models, SSP2-4.5 and SSP5-8.5).
+
+## Does it work? Validation
+- **Backtest against real yields:** 212 district-by-crop series from Government of India crop statistics, harvests 2001–2022. When the engine predicts a failure, a bad-yield year followed 33% of the time, against 24% otherwise (lift 1.37, p < 0.001). Predicted and actual bad years correlate at r = 0.71 across years. In the 2016 drought the engine flagged 84% of series, and 70% really had bad yields.
+- **Delta canal model matches history:** short Kuruvai rice on canal water came through 22 of 24 seasons when Mettur dam opened on time, and none when it opened late. This matches the roughly 40% drop in real Kuruvai area in late-opening years.
+- **A farmer's advice agrees with the data.** A farmer we interviewed said not to plant rice in a drought year and to grow black gram and sesame instead. In drought-type seasons, lake-fed long rice at Tirunelveli failed 7 times out of 7, while black gram, sesame and millets came through.
+
+## Limits
+- NASA data here is regional (squares about 28–55 km wide), not field level.
+- Crop water needs and seasons are approximate. They come from the Tamil Nadu crop guides and TNAU notes.
+- Groundwater from GRACE is a regional signal, not one village's wells.
+- Always check with the district agriculture office or a local expert before acting.
+
+## Run it locally
+The site is plain HTML and JavaScript modules, with no build step.
 ```bash
-pip install -r pipeline/requirements.txt
-python pipeline/fetch_power.py --id iowa_ames --name "Ames, Iowa" --lat 42.03 --lon -93.62
 python -m http.server 8000 --directory web
 ```
 Then open http://localhost:8000.
 
-## Layout
-- `pipeline/`: Python scripts that pull NASA data and write `web/data/`
-- `web/`: static site (GitHub Pages-ready)
-- `docs/data_contract.md`: JSON formats shared between the two halves
-- `CLAUDE.md`: plan, lanes, and rules for Claude Code sessions
-- `AI_USE.md`: where and how AI (Anthropic Claude) was used, and how AI-assisted content is labelled
+To rebuild the data (Python 3.10+), start with the demo sites, then follow `pipeline/README.md` for the statewide grid and the other layers:
+```bash
+pip install -r pipeline/requirements.txt
+python pipeline/build_all.py
+```
+Some datasets (GPM IMERG and GLDAS through Giovanni, and MODIS, SMAP and SRTM through AppEEARS) need a free NASA Earthdata login. See `pipeline/README.md`.
 
-## Use of AI
-This project was built with Anthropic's Claude (Claude Code) as a coding and analysis assistant, under the team's direction. Code, analysis and documentation were written with its help. The 30-second demo video (its code-drawn graphics, captions and music) is SI-generated with the same tool; it carries a visible "SI-generated" watermark on every frame and says so in its file metadata. No data is AI-generated; every number comes from the NASA and other datasets listed below. The full statement and the labels we use (site footer, `ai-assistance` meta tag, chart watermarks, commit trailers) are in [`AI_USE.md`](AI_USE.md).
+Run the site checks (Node and Playwright):
+```bash
+node tests/regression.js
+```
+
+## Repository layout
+- `web/`: the static site (GitHub Pages and Vercel serve this folder)
+- `web/data/`: the processed data the site reads
+- `pipeline/`: Python scripts that fetch NASA and other data and write `web/data/`
+- `docs/`: data contract, research log, submission notes, field notes
+- `tests/`: browser regression checks
+- `AI_USE.md`: where and how AI (SI) was used, and how SI-generated content is labelled
+
+## Use of AI (SI)
+This project was built with Anthropic's Claude (Claude Code) as a coding and analysis assistant, under the team's direction. Code, analysis and documentation were written with its help. The 30-second demo video (its code-drawn graphics, captions and music) is SI-generated with the same tool. It carries a visible "SI-generated" watermark on every frame and says so in its file metadata. **No data is AI-generated:** every number comes from the NASA and other datasets listed below. No NASA logos or branding are used. The full statement and labels are in [`AI_USE.md`](AI_USE.md).
+
+## Team
+- **Subramanian**, Stanford University: data, agronomy and scoring engine
+- **Nimalan**, Stanford University: web app, user experience and story
 
 ## Data sources and references
 
