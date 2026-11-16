@@ -14,6 +14,14 @@ const UI = {
     used: "Used for", cite: "Cite as", link: "Link",
     foot: "📚 NASA datasets and references", back: "← Back to the tool",
     note: "Crop values (seasons, durations, water needs, storage) are approximate; each crop's own sources are listed in data/crops.json.",
+    aiFoot: "🤖 Built with AI assistance (Claude): how we used it",
+    aiH: "Use of AI (Super Intelligence) in this project",
+    aiText: [
+      "We used Anthropic's Claude (Claude Code), a large language model, as a coding and analysis assistant. Under the team's direction it wrote most of the data-processing code (Python) and the website code (JavaScript, HTML, CSS), ran statistical checks, and drafted text on this site and in the project documents.",
+      "The team chose the problem, the region and the audience, interviewed a farmer, made every modelling decision and checked every result.",
+      "No data on this site is AI-generated. Every number comes from the NASA and other datasets listed above, processed by that code. The charts and maps are drawn by the code from those data; no AI image or video generation was used on this site. Any AI-generated image, video or audio elsewhere in the project (for example the demo video) is labelled where it appears.",
+      "Code written with AI help is marked \"Co-Authored-By: Claude\" in the project's version history, and each page of this site carries an \"ai-assistance\" metadata tag.",
+    ],
   },
   ta: {
     title: "தரவு ஆதாரங்கள் மற்றும் மேற்கோள்கள்",
@@ -22,6 +30,14 @@ const UI = {
     used: "பயன்பாடு", cite: "மேற்கோள்", link: "இணைப்பு",
     foot: "📚 நாசா தரவுத் தொகுப்புகள் மற்றும் மேற்கோள்கள்", back: "← கருவிக்குத் திரும்பு",
     note: "பயிர் மதிப்புகள் (பருவம், காலம், நீர்த் தேவை, சேமிப்பு) தோராயமானவை; ஒவ்வொரு பயிரின் ஆதாரங்களும் data/crops.json-இல் உள்ளன.",
+    aiFoot: "🤖 செயற்கை நுண்ணறிவு (Claude) உதவியுடன் உருவாக்கப்பட்டது: எப்படிப் பயன்படுத்தினோம்",
+    aiH: "இந்தத் திட்டத்தில் செயற்கை நுண்ணறிவின் பயன்பாடு",
+    aiText: [
+      "Anthropic நிறுவனத்தின் Claude (Claude Code) என்ற பெரிய மொழி மாதிரியை நிரலாக்க மற்றும் பகுப்பாய்வு உதவியாளராகப் பயன்படுத்தினோம். குழுவின் வழிகாட்டுதலின் கீழ், தரவுச் செயலாக்க நிரல்களில் (Python) பெரும்பகுதியையும் இணையதள நிரல்களையும் (JavaScript, HTML, CSS) அது எழுதியது; புள்ளியியல் சோதனைகளை இயக்கியது; இந்தத் தளத்திலும் திட்ட ஆவணங்களிலும் உள்ள உரையின் வரைவுகளைத் தயாரித்தது.",
+      "சிக்கல், பகுதி, பயனர்கள் ஆகியவற்றைக் குழுவே தேர்ந்தெடுத்தது; ஒரு விவசாயியை நேர்காணல் செய்தது; ஒவ்வொரு மாதிரி முடிவையும் எடுத்தது; ஒவ்வொரு முடிவையும் சரிபார்த்தது.",
+      "இந்தத் தளத்தில் உள்ள எந்தத் தரவும் செயற்கை நுண்ணறிவால் உருவாக்கப்படவில்லை. ஒவ்வொரு எண்ணும் மேலே உள்ள நாசா மற்றும் பிற தரவுத் தொகுப்புகளிலிருந்து, அந்த நிரல்களால் செயலாக்கப்பட்டு வருகிறது. வரைபடங்களும் படங்களும் அந்தத் தரவிலிருந்து நிரலால் வரையப்படுகின்றன; இந்தத் தளத்தில் செயற்கை நுண்ணறிவுப் படம் அல்லது காணொளி உருவாக்கம் பயன்படுத்தப்படவில்லை. திட்டத்தில் வேறு எங்காவது (எ.கா. செயல்விளக்கக் காணொளி) செயற்கை நுண்ணறிவால் உருவாக்கப்பட்ட படம், காணொளி அல்லது ஒலி இருந்தால், அது அங்கேயே குறிக்கப்படும்.",
+      "செயற்கை நுண்ணறிவு உதவியுடன் எழுதப்பட்ட நிரல்கள் திட்டத்தின் பதிப்பு வரலாற்றில் \"Co-Authored-By: Claude\" எனக் குறிக்கப்பட்டுள்ளன; இந்தத் தளத்தின் ஒவ்வொரு பக்கத்திலும் \"ai-assistance\" மீத்தரவுக் குறிச்சொல் உள்ளது.",
+    ],
   },
 };
 
@@ -191,15 +207,20 @@ export function renderReferences(el) {
       h("h3", { class: `ref-group ref-${g}` }, ui(g)),
       h("ol", { class: "refs" }, ...REFS[g].map(refItem)),
     ]),
-    h("p", { class: "note" }, ui("note")));
+    h("p", { class: "note" }, ui("note")),
+    h("h3", { class: "ref-group ref-ai", id: "ai" }, ui("aiH")),
+    ...ui("aiText").map((t) => h("p", { class: "ref-ai-p" }, t)));
+  if (location.hash === "#ai") document.getElementById("ai")?.scrollIntoView();
 }
 
 /** A small footer link to references.html on every page; keeps itself in the current language. */
 export function mountRefsFooter() {
   if (document.getElementById("refs-foot")) return;
   const a = h("a", { href: "references.html" }, ui("foot"));
-  document.body.append(h("footer", { id: "refs-foot", class: "refs-foot" }, a));
-  onLangChange(() => { a.textContent = ui("foot"); });
+  // AI-use label on every page (Space Apps rule: say clearly where and how AI tools were used)
+  const ai = h("a", { href: "references.html#ai", class: "ai-foot" }, ui("aiFoot"));
+  document.body.append(h("footer", { id: "refs-foot", class: "refs-foot" }, a, h("br"), ai));
+  onLangChange(() => { a.textContent = ui("foot"); ai.textContent = ui("aiFoot"); });
 }
 
 export const refsUI = ui;

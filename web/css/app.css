@@ -487,6 +487,8 @@ html[lang="ta"] .tag, html[lang="ta"] .card-sec h4, html[lang="ta"] .eyebrow { l
 .refs a { color: var(--accent); }
 .refs-foot { text-align: center; padding: 8px 16px 28px; font-size: 0.9rem; }
 .refs-foot a { color: var(--ink-2); }
+.refs-foot .ai-foot { display: inline-block; margin-top: 6px; font-size: 0.85rem; }
+.ref-ai-p { font-size: 0.92rem; line-height: 1.5; margin: 8px 0 0; }
 @media (max-width: 640px) { .refs-main { width: calc(100% - 32px); margin-top: 12px; } .refs-panel { padding: 16px; } }
 @media print {
   .refs-foot { display: none !important; }
