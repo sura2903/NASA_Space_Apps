@@ -20,7 +20,7 @@ Then open http://localhost:8000.
 - `AI_USE.md`: where and how AI (Anthropic Claude) was used, and how AI-assisted content is labelled
 
 ## Use of AI
-This project was built with Anthropic's Claude (Claude Code) as a coding and analysis assistant, under the team's direction. Code, analysis and documentation were written with its help. No data is AI-generated; every number comes from the NASA and other datasets listed below. The full statement and the labels we use (site footer, `ai-assistance` meta tag, chart watermarks, commit trailers) are in [`AI_USE.md`](AI_USE.md).
+This project was built with Anthropic's Claude (Claude Code) as a coding and analysis assistant, under the team's direction. Code, analysis and documentation were written with its help. The 30-second demo video (its code-drawn graphics, captions and music) is SI-generated with the same tool; it carries a visible "SI-generated" watermark on every frame and says so in its file metadata. No data is AI-generated; every number comes from the NASA and other datasets listed below. The full statement and the labels we use (site footer, `ai-assistance` meta tag, chart watermarks, commit trailers) are in [`AI_USE.md`](AI_USE.md).
 
 ## Data sources and references
 
@@ -35,18 +35,21 @@ Every number in the app comes from `web/data/*.json`, built by the scripts in `p
    Huffman, G. J., Stocker, E. F., Bolvin, D. T., Nelkin, E. J., Tan, J. (2023). GPM IMERG Final Precipitation L3 1 day 0.1° x 0.1° V07. Goddard Earth Sciences Data and Information Services Center (GES DISC). Accessed through NASA Giovanni. [doi:10.5067/GPM/IMERGDF/DAY/07](https://doi.org/10.5067/GPM/IMERGDF/DAY/07)  
    https://giovanni.gsfc.nasa.gov/giovanni/
 3. **MODIS Terra Vegetation Indices (MOD13Q1), 16-day, 250 m, Version 6.1**. The greenness (NDVI) calendar: when fields are green or bare through the year.  
-   Didan, K. (2021). MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V061. NASA EOSDIS Land Processes DAAC. Point samples through NASA AppEEARS and the ORNL DAAC MODIS subset service. [doi:10.5067/MODIS/MOD13Q1.061](https://doi.org/10.5067/MODIS/MOD13Q1.061)  
-   https://lpdaac.usgs.gov/products/mod13q1v061/
+   Didan, K. (2021). MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V061. NASA EOSDIS Land Processes DAAC. Point samples through NASA AppEEARS. [doi:10.5067/MODIS/MOD13Q1.061](https://doi.org/10.5067/MODIS/MOD13Q1.061)  
+   https://www.earthdata.nasa.gov/data/catalog/lpcloud-mod13q1-061
 4. **SMAP Enhanced L3 Radiometer Global Daily 9 km Soil Moisture (SPL3SMP_E), Version 6 (2015–2024)**. The latest satellite reading of surface soil moisture in the "Sow now or wait?" panel, compared with the usual for that month.  
-   O'Neill, P. E., Chan, S., Njoku, E. G., Jackson, T., Bindlish, R., Chaubell, J., Colliander, A. SMAP Enhanced L3 Radiometer Global and Polar Grid Daily 9 km EASE-Grid Soil Moisture, Version 6. NASA National Snow and Ice Data Center DAAC. Point samples through NASA AppEEARS.  
-   https://nsidc.org/data/spl3smp_e
+   O'Neill, P. E., Chan, S., Njoku, E. G., Jackson, T., Bindlish, R., Chaubell, J., Colliander, A. SMAP Enhanced L3 Radiometer Global and Polar Grid Daily 9 km EASE-Grid Soil Moisture, Version 6. NASA National Snow and Ice Data Center DAAC. Point samples through NASA AppEEARS. [doi:10.5067/M20OXIZHY3RJ](https://doi.org/10.5067/M20OXIZHY3RJ)  
+   https://nsidc.org/data/spl3smp_e/versions/6
 5. **NASA Earth Exchange Global Daily Downscaled Projections (NEX-GDDP-CMIP6), 0.25°**. Climate ranges for 2041–2060 (SSP2-4.5 and SSP5-8.5) from 5 climate models, applied to the observed years.  
    Thrasher, B., Wang, W., Michaelis, A., Melton, F., Lee, T., Nemani, R. (2022). NASA Global Daily Downscaled Projections, CMIP6. Scientific Data 9, 262. Data from the NASA Center for Climate Simulation (NCCS) THREDDS server. [doi:10.1038/s41597-022-01393-4](https://doi.org/10.1038/s41597-022-01393-4)  
    https://www.nccs.nasa.gov/services/data-collections/land-based-products/nex-gddp-cmip6
 6. **GLDAS-2.2 Catchment Land Surface Model with GRACE data assimilation (GLDAS_CLSM025_DA1_D.2.2), daily, 0.25° (2003–2024)**. The groundwater trend in the Policy view: whether stored groundwater has been rising or falling since 2003. GRACE sees regions about 300 km across, so this is a regional signal, not one village's wells.  
    Li, B., Beaudoing, H., Rodell, M. (2020). GLDAS Catchment Land Surface Model L4 daily 0.25 x 0.25 degree GRACE-DA1 V2.2. Goddard Earth Sciences Data and Information Services Center (GES DISC). Method: Li, B., et al. (2019). Global GRACE data assimilation for groundwater and drought monitoring. Water Resources Research 55, 7564–7586. Accessed through NASA Giovanni. [doi:10.5067/TXBMLX370XX8](https://doi.org/10.5067/TXBMLX370XX8)  
    https://disc.gsfc.nasa.gov/datasets/GLDAS_CLSM025_DA1_D_2.2/summary
-7. **NASA AppEEARS (Application for Extracting and Exploring Analysis Ready Samples)**. The tool we used to extract the MODIS and SMAP point samples around each place.  
+7. **NASA Shuttle Radar Topography Mission (SRTM) Global 1 arc second, Version 3 (SRTMGL1_NC, 30 m)**. Elevation of the three demo places, kept in their data files as background (not shown as a number on the site).  
+   NASA JPL (2013). NASA Shuttle Radar Topography Mission Global 1 arc second V003. NASA EOSDIS Land Processes DAAC. NetCDF version (SRTMGL1_NC). Point samples through NASA AppEEARS. [doi:10.5067/MEaSUREs/SRTM/SRTMGL1.003](https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003)  
+   https://www.earthdata.nasa.gov/data/catalog/lpcloud-srtmgl1-003
+8. **NASA AppEEARS (Application for Extracting and Exploring Analysis Ready Samples)**. The tool we used to extract the MODIS, SMAP and SRTM point samples around each place.  
    AppEEARS Team. Application for Extracting and Exploring Analysis Ready Samples (AppEEARS). NASA EOSDIS Land Processes Distributed Active Archive Center (LP DAAC), USGS EROS Center, Sioux Falls, South Dakota, USA.  
    https://appeears.earthdatacloud.nasa.gov/
 
